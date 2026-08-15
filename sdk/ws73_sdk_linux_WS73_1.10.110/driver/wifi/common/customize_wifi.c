@@ -1319,7 +1319,7 @@ wlan_cust_rf_fe_params *hwifi_get_rf_fe_custom_ini(osal_void)
 osal_s32 hwifi_get_mac_addr_etc(osal_u8 *buf)
 {
     // byshichongfu set random mac addr
-    random_ether_addr(buf);
+    eth_random_addr(buf);
     buf[1] = 0x11; /* mac_addr[1]固定为0x11 */
     buf[2] = 0x03; /* mac_addr[2]固定为0x03 */
 

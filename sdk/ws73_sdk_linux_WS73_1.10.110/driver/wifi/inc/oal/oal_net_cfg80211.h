@@ -24,7 +24,8 @@
 #else
 #include <net/wireless.h>
 #endif
-#include <../net/wireless/nl80211.h>
+/* 7.x kernel headers pkg has no net/wireless/nl80211.h (internal); uapi linux/nl80211.h below is sufficient */
+/* #include <../net/wireless/nl80211.h> */
 
 #include <linux/version.h>
 #include <linux/netdevice.h>

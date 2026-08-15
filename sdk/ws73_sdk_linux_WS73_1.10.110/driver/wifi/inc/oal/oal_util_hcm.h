@@ -348,7 +348,7 @@ static inline void oal_random_ether_addr(osal_u8 *addr, osal_u8 len)
 #endif
 #if defined(_PRE_OS_VERSION_LINUX) && defined(_PRE_OS_VERSION) && (_PRE_OS_VERSION_LINUX == _PRE_OS_VERSION)
     unref_param(len);
-    random_ether_addr(addr);
+    eth_random_addr(addr);
 #endif
 }
 

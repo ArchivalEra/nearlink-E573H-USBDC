@@ -26,12 +26,14 @@ Blocked by:
 4. **网络接口验证**: wlan0 出现 + 可连 AP；蓝牙 HCI 接口；星闪 SLE 连接
 5. **电视盒（hi3798）侧**: 按 SHIFU-BUILD-LIST.md 交叉编译（师傅）
 
-## 未知/待解
+## 侦察结论（子代理 B，2026-08-15 已落盘 lab-notes/BLE-WIFI-USERLAND-RESEARCH.md）
 
-- ble_soc 是否注册 /dev/hwble 或走 BlueZ HCI 协议（查 ble_driver/linux）
-- wifi_soc 加载后 wlan0 形态（SDK 默认 ws73_cfg_default.ini:30-35 有 wlan0/wlan1/p2p0）
-- 三模同开时 USB 带宽/PM 协同（单 480Mbps 链路分三栈）
-- 电视盒内核 7.2 闭源 → 师傅编译（资料包已备）
+- **ble_soc.ko = 真 BlueZ HCI 设备**（hci_alloc_dev/hci_register_dev → hci0）→ **系统 BlueZ 直接驱动**，无 /dev/hwble（Android 版才有）
+- **wifi_soc.ko = 完整 cfg80211 驱动**（wiphy_new/register + 标准 ops）→ **系统 wpa_supplicant/hostapd 直接驱动**（nl80211）；wlan0/wlan1/p2p0
+- **三模共存完全支持**：pm_svc_state[] 数组，首个服务做固件下载，无互斥；BT/WLAN 共存编译进 _PRE_WLAN_FEATURE_BTCOEX
+- **用户态**: BLE=系统 BlueZ ✅ / WiFi=系统 wpa_supplicant ✅ / SLE=闭源 ARM lib 不可用 → 自写 /dev/hwsle 客户端 或 OHOS 栈（票 03 GREEN）
+- 加载顺序: plat_soc → ble_soc → sle_soc → wifi_soc
+- 剩余未知: 三模同开时单 480Mbps USB 链路带宽分配；电视盒 7.2 闭源内核（师傅编译）
 
 ## 阻塞
 
