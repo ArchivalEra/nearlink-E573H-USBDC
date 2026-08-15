@@ -18,6 +18,11 @@
 #
 # Requires plat_soc+sle_soc loaded and a dongle in kernel mode (single
 # instance — only one dongle can hold the SLE channel; see ticket 09).
+# NOTE: the dongle must have gone through the DRIVER-triggered firmware
+# download (pm_svc_power_on initializes hcc). A libusb-preflashed dongle
+# (scripts/flash-dongle.sh) sits in kernel mode but hcc/PM is not fully
+# initialized — open fails with EINVAL (0x7851). Use the driver path:
+#   bash scripts/load-driver.sh   (let it auto-download firmware)
 
 set -u
 
