@@ -31,6 +31,8 @@
 
 - [04 — 传输形态拍板：内核 usb_driver vs userspace](issues/04-transport-form.md) — **内核 usb_driver 最终形态**（SLE 12Mbps=USB FS 线速，userspace 拷贝开销卡吞吐）+ **混合节奏**（Phase 1 userspace 验握手先行，Phase 2 内核定稿 /dev/ws73hci）。
 
+- [07 — kernel 态初始化序列实验（NV 推送 → SLE_OPEN → 通道建立）](issues/07-kernel-init-seq.md) — userspace 盲试到边界：BSP_READY 稳定抓到（INT bit0），INI 推送三种帧格式 CUSTOMIZE_RECEIVED 从未返回，SLE_OPEN 后设备必 panic 断连。根因 = kernel 态需 hcc 框架上下文（service/队列/netbuf），libusb 裸推帧不够。→ 验证票 04 内核形态决策；kernel 态移交票 06。
+
 ## Not yet specified
 
 <!-- 还看不清、尚不能成票的雾区；前沿推进后会graduated成票 -->

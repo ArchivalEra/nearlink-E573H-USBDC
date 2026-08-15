@@ -1,7 +1,7 @@
 # 07 — kernel 态初始化序列实验（NV 推送 → SLE_OPEN → 通道建立）
 
 Type: research
-Status: open
+Status: resolved
 Blocked by:
 
 ## Question
@@ -28,3 +28,22 @@ Blocked by:
 ## Blocked by
 
 （无——01 实证完成，可直接开；仅受硬件实验风险约束：1-4 可反复重灌）
+
+## Answer
+
+实验（2026-08-15，1-4 真机，三轮重灌后盲试）结论：**userspace 盲试 kernel 态的边界已到**。
+
+已稳定确认:
+- D2H_MSG_BSP_READY 稳定抓到: INT EP 8B `0100000000000000`（bit0，固件下载后设备就绪）
+- SLE_OPEN（控制传输 0x21/req0/29）后设备**必然 panic 断连**（INT IO err → NO_DEVICE → 重枚举回 boot 或物理消失）
+- INI 推送三种帧格式全试（161B/pay_len=800、161B/pay_len=149、800B 完整 netbuf）：
+  **CUSTOMIZE_RECEIVED 从未返回**，通道未建立
+
+根因推断: kernel 态需要 **hcc 框架 host 上下文**（service 注册/队列状态/netbuf 池，
+真实驱动 hcc_service_init → hcc_tx_data 的完整状态机），libusb 裸推 HCC 帧缺此上下文。
+
+→ **验证票 04 决策**: 最终形态 = 内核驱动（SDK hcc 源码现成、x86 可重编）；libusb 止步
+boot 态握手（票 01 完全成功），kernel 态数据通道移交 **票 06 内核骨架**。
+
+实验细节: /mnt/hdd/laboratory/logs/EXPLORE-20260815.md
+工具: scripts/ws73-probe/kernel-init.c（完整序列工具，已入库）
