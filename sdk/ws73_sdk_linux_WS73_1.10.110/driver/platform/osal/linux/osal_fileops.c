@@ -12,45 +12,9 @@
 
 char *g_klib_store_path = NULL;
 
-static mm_segment_t os_get_fs(void)
-{
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    return get_fs();
-#else
-#ifdef CONFIG_SET_FS
-    return get_fs();
-#else
-    return force_uaccess_begin();
-#endif
-#endif
-}
-
-static void os_set_fs(mm_segment_t fs)
-{
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    set_fs(fs);
-#else
-#ifdef CONFIG_SET_FS
-    set_fs(fs);
-#else
-    force_uaccess_end(fs);
-#endif
-#endif
-}
-
 static void os_set_ds(void)
 {
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 1, 0))
-    os_set_fs(get_ds());
-#elif defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    os_set_fs(KERNEL_DS);
-#else
-#ifdef CONFIG_SET_FS
-    os_set_fs(KERNEL_DS);
-#else
-    force_uaccess_begin();
-#endif
-#endif
+    /* Linux >= 6.8: no set_fs(); kernel_read/write handle it. */
 }
 
 static struct file *klib_fopen(const char *file, int flags, int mode)
@@ -69,15 +33,11 @@ static void klib_fclose(struct file *filp)
 
 static int klib_fwrite(const char *buf, unsigned long size, struct file *filp)
 {
-    mm_segment_t old_fs;
     int writelen;
 
     if (filp == NULL) {
         return -ENOENT;
     }
-
-    old_fs = os_get_fs();
-    os_set_ds();
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 19, 0)
     writelen = vfs_write(filp, (void __user *)buf, size, &filp->f_pos);
@@ -85,29 +45,22 @@ static int klib_fwrite(const char *buf, unsigned long size, struct file *filp)
     writelen = kernel_write(filp, (void __user *)buf, size, &filp->f_pos);
 #endif
 
-    os_set_fs(old_fs);
     return writelen;
 }
 
 static int klib_fread(char *buf, unsigned long size, struct file *filp)
 {
-    mm_segment_t old_fs;
     int readlen;
 
     if (filp == NULL) {
         return -ENOENT;
     }
 
-    old_fs = os_get_fs();
-    os_set_ds();
-
-    /* The cast to a user pointer is valid due to the set_fs() */
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 19, 0)
     readlen = vfs_read(filp, (void __user *)buf, size, &filp->f_pos);
 #else
     readlen = kernel_read(filp, (void __user *)buf, size, &filp->f_pos);
 #endif
-    os_set_fs(old_fs);
     return readlen;
 }
 
@@ -217,6 +170,3 @@ int osal_klib_get_store_path(char *path, unsigned int path_size)
     return memcpy_s(path, path_size, g_klib_store_path, len);
 }
 EXPORT_SYMBOL(osal_klib_get_store_path);
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE > KERNEL_VERSION(5, 10, 0))
-MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);
-#endif

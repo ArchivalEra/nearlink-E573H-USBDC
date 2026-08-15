@@ -172,7 +172,7 @@ struct timeval {
     long    tv_sec;         /* seconds */
     long    tv_usec;        /* and microseconds */
 };
-static void random_ether_addr(osal_u8 *addr)
+static void eth_random_addr(osal_u8 *addr)
 {
     struct timeval tv1;
     struct timeval tv2;
@@ -221,7 +221,7 @@ osal_void init_dev_addr(osal_void)
         }
     }
 
-    random_ether_addr(g_mac_addr.ac_addr);
+    eth_random_addr(g_mac_addr.ac_addr);
     g_mac_addr.ac_addr[1] = RANDOM_DEFOURT_MAC1; /* 1 地址第2位 0x00     */
     g_mac_addr.ac_addr[2] = RANDOM_DEFOURT_MAC2; /* 2 地址第3位 0x73 */
     g_mac_addr.us_status = 0;

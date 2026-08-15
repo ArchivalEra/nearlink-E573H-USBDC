@@ -99,7 +99,7 @@ int osal_timer_stop(osal_timer *timer)
     }
 
     time_info = (struct timer_list_info *)timer->timer;
-    return del_timer(&time_info->time_list);
+    return timer_delete(&time_info->time_list);
 }
 EXPORT_SYMBOL(osal_timer_stop);
 
@@ -113,7 +113,7 @@ int osal_timer_destroy(osal_timer *timer)
     }
 
     time_info = (struct timer_list_info *)timer->timer;
-    del_timer(&time_info->time_list);
+    timer_delete(&time_info->time_list);
     kfree(time_info);
     timer->timer = NULL;
     return 0;

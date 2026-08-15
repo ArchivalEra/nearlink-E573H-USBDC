@@ -25,32 +25,18 @@ extern "C" {
 #endif
 
 typedef struct file     oal_file;
-typedef mm_segment_t    oal_mm_segment_t;
+/* Linux >= 6.8 removed set_fs()/mm_segment_t entirely; kernel_read/write
+ * handle user memory without it. Keep the API as no-ops for compatibility. */
+typedef int             oal_mm_segment_t;
 
 OAL_STATIC OAL_INLINE oal_mm_segment_t oal_get_fs(oal_void)
 {
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    return get_fs();
-#else
-#ifdef CONFIG_SET_FS
-    return get_fs();
-#else
-    return force_uaccess_begin();
-#endif
-#endif
+    return 0;
 }
 
 OAL_STATIC OAL_INLINE oal_void oal_set_fs(oal_mm_segment_t fs)
 {
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    set_fs(fs);
-#else
-#ifdef CONFIG_SET_FS
-    set_fs(fs);
-#else
-    force_uaccess_end(fs);
-#endif
-#endif
+    (void)fs;
 }
 
 OAL_STATIC OAL_INLINE oal_int oal_kernel_file_close(oal_file *pst_file)

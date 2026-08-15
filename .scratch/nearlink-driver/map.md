@@ -33,6 +33,8 @@
 
 - [07 — kernel 态初始化序列实验（NV 推送 → SLE_OPEN → 通道建立）](issues/07-kernel-init-seq.md) — userspace 盲试到边界：BSP_READY 稳定抓到（INT bit0），INI 推送三种帧格式 CUSTOMIZE_RECEIVED 从未返回，SLE_OPEN 后设备必 panic 断连。根因 = kernel 态需 hcc 框架上下文（service/队列/netbuf），libusb 裸推帧不够。→ 验证票 04 内核形态决策；kernel 态移交票 06。
 
+- [06 — 内核 usb_driver 骨架设计（ws73usb）](issues/06-kernel-driver-skeleton.md) — **x86 移植成功**：SDK `driver/platform` 在 clang21 编译出 plat_soc.ko（EXTRA_CFLAGS→ccflags-y、set_fs 全家 no-op、del_timer→timer_delete、摘诊断通道+stub）；insmod 成功、`wireless_usb` 注册、双设备绑定 boot probe 成功。固件自动下载需 sle_soc+用户态（下一步）。
+
 ## Not yet specified
 
 <!-- 还看不清、尚不能成票的雾区；前沿推进后会graduated成票 -->

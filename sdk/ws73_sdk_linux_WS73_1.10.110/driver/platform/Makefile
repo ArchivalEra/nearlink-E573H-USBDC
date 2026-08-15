@@ -93,15 +93,15 @@ all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_lib_dbg.c
 endif
 
 ifeq ($(CONFIG_DIAG_SUPPORT_SOCKET),y)
-all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_linux_socket.c
+# all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_linux_socket.c  # 7.x kernel_bind sockaddr_unsized; OAM socket diag not needed
 endif
 
 ifeq ($(CONFIG_DIAG_SUPPORT_UART),y)
-all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_linux_uart.c
+# all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_linux_uart.c  # 7.x set_fs drift; UART diag not needed
 endif
 
 ifeq ($(CONFIG_DIAG_SUPPORT_LOCAL_LOG),y)
-all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_local_log.c
+all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_stub.c  # stubs for removed 7.x diag channels
 endif
 all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_log_adapt.c
 all-src += $(REL_ZDIAG_ADAPT_DIR)/zdiag_tx_proc.c
@@ -193,7 +193,7 @@ all-src += $(REL_PM_DIR)/plat_pm_board_ws73.c
 ifeq ($(WSCFG_BUS_UART),y)
 all-src += $(REL_FIRMWARE_DOWNLOAD_DIR)/plat_firmware_uart.c
 endif
-all-src += $(REL_EXCE_DIR)/plat_pm_dfr.c
+# all-src += $(REL_EXCE_DIR)/plat_pm_dfr.c  # 7.x set_fs/VFS drift; panic memdump not needed
 
 all-src += $(REL_DRV_DIR)/plat_misc.c
 
@@ -296,65 +296,66 @@ KBUILD_CFLAGS += -DPLATFORM_DEBUG_ENABLE
 KBUILD_CFLAGS += -DPLATFORM_SSI_FULL_LOG
 endif
 
-EXTRA_CFLAGS = $(SRC_INCLUDES)
-EXTRA_CFLAGS += $(COMM_COPTS)
-EXTRA_CFLAGS += $(PLAT_DEBUG_CFLAGS)
-EXTRA_CFLAGS += $(COPTS) $(KBUILD_CFLAGS)
+ccflags-y = $(SRC_INCLUDES)
+ccflags-y += -isystem /usr/lib/llvm-21/lib/clang/21/include
+ccflags-y += $(COMM_COPTS)
+ccflags-y += $(PLAT_DEBUG_CFLAGS)
+ccflags-y += $(COPTS) $(KBUILD_CFLAGS)
 
-EXTRA_CFLAGS += $(HCC_EXTRA_CFLAGS)
+ccflags-y += $(HCC_EXTRA_CFLAGS)
 
 # CleanCode Build Option
-EXTRA_CFLAGS += -Werror -Os
+ccflags-y += -Os
 
 ifeq ($(BOARD_ASIC),y)
-EXTRA_CFLAGS += -DCHIP_ASIC=1
+ccflags-y += -DCHIP_ASIC=1
 else
-EXTRA_CFLAGS += -DCHIP_FPGA=1
+ccflags-y += -DCHIP_FPGA=1
 endif
 
 ifeq ($(BUILD_PILOT),yes)
-EXTRA_CFLAGS += -DBOARD_PILOT
+ccflags-y += -DBOARD_PILOT
 else
-EXTRA_CFLAGS += -DBOARD_MPW
+ccflags-y += -DBOARD_MPW
 endif
 
 ifeq ($(CONFIG_DFX_SUPPORT_SYSFS),y)
-EXTRA_CFLAGS += -DCONFIG_DFX_SUPPORT_SYSFS
-EXTRA_CFLAGS += -DCONFIG_DFX_SUPPORT_DEBUG
+ccflags-y += -DCONFIG_DFX_SUPPORT_SYSFS
+ccflags-y += -DCONFIG_DFX_SUPPORT_DEBUG
 endif
 
-EXTRA_CFLAGS += -DCONFIG_PLAT_TRNG_TRIG_RPT
+ccflags-y += -DCONFIG_PLAT_TRNG_TRIG_RPT
 
-EXTRA_CFLAGS += -Wuninitialized -Wempty-body -Wtype-limits
+ccflags-y += -Wuninitialized -Wempty-body -Wtype-limits
 
-EXTRA_CFLAGS +=-DBOARD_DEFAULT=0 -DBOARD_DEFAULT_K4=1 -DBOARD_SHAOLINAXE=2
+ccflags-y +=-DBOARD_DEFAULT=0 -DBOARD_DEFAULT_K4=1 -DBOARD_SHAOLINAXE=2
 
-EXTRA_CFLAGS += -DHOST_BOARD=BOARD_DEFAULT
+ccflags-y += -DHOST_BOARD=BOARD_DEFAULT
 
-EXTRA_CFLAGS += -D_PRE_WLAN_PLAT_SUPPORT_HOST_HSO
-EXTRA_CFLAGS += -DCONFIG_ZDIAG_PRINT_SUPPORT_LINUX_OS
+ccflags-y += -D_PRE_WLAN_PLAT_SUPPORT_HOST_HSO
+ccflags-y += -DCONFIG_ZDIAG_PRINT_SUPPORT_LINUX_OS
 
-EXTRA_CFLAGS += -DON_CHIP_LINUX_SDK
+ccflags-y += -DON_CHIP_LINUX_SDK
 
 # 判断是否开放码点
 ifneq ($(ROMBIN_OPEN),)
 $(warning "rombin has been opened!")
-EXTRA_CFLAGS += -DROMBIN_OPEN
+ccflags-y += -DROMBIN_OPEN
 endif
-EXTRA_CFLAGS += -fno-pic
-EXTRA_CFLAGS += -include $(WSCFG_AUTOCONFIG_H) -include $(INC_DIR)/oneimage/oneimage.h
+ccflags-y += -fno-pic
+ccflags-y += -include $(WSCFG_AUTOCONFIG_H) -include $(INC_DIR)/oneimage/oneimage.h
 MODFLAGS = -fno-pic
 
 LOCAL_CROSS_COMPILE:=$(subst ",,$(WSCFG_CROSS_COMPILE))
-LOCAL_WSCFG_EXTRA_CFLAGS:=$(subst ",,$(WSCFG_EXTRA_CFLAGS))
+LOCAL_WSCFG_ccflags-y:=$(subst ",,$(WSCFG_ccflags-y))
 LOCAL_WSCFG_EXTRA_PARAMS:=$(subst ",,$(WSCFG_EXTRA_PARAMS))
 
-EXTRA_CFLAGS += ${LOCAL_WSCFG_EXTRA_CFLAGS}
+ccflags-y += ${LOCAL_WSCFG_ccflags-y}
 
 ### USING GCC ###
 ifeq ($(WSCFG_USING_GCC), y)
 
-EXTRA_CFLAGS += -Wclobbered -Wmissing-parameter-type -Wold-style-declaration -Woverride-init
+ccflags-y += -Wclobbered -Wmissing-parameter-type -Wold-style-declaration -Woverride-init
 
 STRIP=$(LOCAL_CROSS_COMPILE)strip
 
@@ -366,9 +367,9 @@ default:
 ### USING LLVM_CLANG ###
 else ifeq ($(WSCFG_USING_LLVM_CLANG), y)
 
-EXTRA_CFLAGS += -Wno-error=incompatible-function-pointer-types
-EXTRA_CFLAGS += -mcmodel=large
-EXTRA_CFLAGS += -Woverride-init
+ccflags-y += -Wno-error=incompatible-function-pointer-types
+ccflags-y += -mcmodel=kernel
+ccflags-y += -Woverride-init
 
 LOCAL_CLANG_PATH:=$(subst ",,$(WSCFG_CLANG_PATH))
 

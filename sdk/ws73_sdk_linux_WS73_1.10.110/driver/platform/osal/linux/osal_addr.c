@@ -145,7 +145,7 @@ EXPORT_SYMBOL(osal_phys_to_virt);
 
 unsigned long osal_virt_to_phys(const void *virt_addr)
 {
-    return virt_to_phys(virt_addr);
+    return virt_to_phys((void *)virt_addr);  /* 7.x: takes volatile void * */
 }
 EXPORT_SYMBOL(osal_virt_to_phys);
 

@@ -84,7 +84,7 @@
 #define INI_FILE_TIMESPEC_UNRECONFIG (0)
 #define INI_FILE_TIMESPEC_RECONFIG   (BIT0)
 #define INI_NVRAM_RECONFIG           (BIT1)
-#define inf_file_get_ctime(file_dentry) ((file_dentry)->d_inode->i_ctime.tv_sec)
+#define inf_file_get_ctime(file_dentry) ((file_dentry)->d_inode->i_ctime_sec)  /* 7.x: i_ctime split into sec/nsec */
 
 #define CONFIG_INI_PLAT_KERNEL_LOG_LEVEL 7
 #define CONFIG_INI_PLAT_REBOOT_TYPE 0

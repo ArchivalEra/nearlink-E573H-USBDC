@@ -245,7 +245,7 @@ osal_void hwifi_plat_pm_device_init_custom_param(void)
     hiwifi_custom_adapt_plt_pm_device_ini_param();
 }
 
-osal_void hwifi_config_cmu_xo_trim_temp_comp()
+osal_void hwifi_config_cmu_xo_trim_temp_comp(void)
 {
     hwifi_config_get_cmu_xo_trim_temp_comp_sw();
     // 定制化开启频偏温度补偿时 刷新温补数据 并启动定时器 随温度刷新
