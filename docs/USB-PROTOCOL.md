@@ -94,6 +94,24 @@ Interrupt IN endpoint delivers `usb_dev_notification` (8 bytes: notification + d
 - `/dev/hwslechba` — CHBA data netdev (`sle_chba.ko`)
 - In HCI data frames the TCID lives at byte 5 (`HCI_DATA_TCID_POS 5`); CHBA filters its own frames (`HCI_DATATYPE_SLE_ACB 0xA3` / `HCI_DATATYPE_SLE_ICB 0xA4`) from the link data
 
+## Hardware-verified facts (Phase-1, 2026-08-15, two ffff:3733 dongles)
+
+Firmware download (all three files) is **verified working**; details in
+`.scratch/nearlink-driver/assets/01-firmware-handshake-spec.md` + ticket 01.
+Kernel-mode probing so far:
+
+| fact | value | evidence |
+|---|---|---|
+| boot→kernel re-enum | 2 EP (64B FS 12M) → 5 EP (512B **HS 480M**), bcdDevice 0100→0318, bcdUSB 1.10→2.0 | ws73-probe |
+| firmware download repeatable | yes (re-flashed dongle 3×, no wear-out observed) | ws73-probe |
+| device is silent in kernel mode | no unsolicited INT/bulk traffic (8 s passive listen) | kernel-observe |
+| H2D_MSG_SLE_OPEN (29) control xfer | accepted (xfer OK) but device **reboots to boot mode** | kernel-probe |
+| why: init sequence incomplete | host must first push BSLE customize/INI data on the bulk data channel (`hbsle_hcc_custom_ini_data_buf`, `[hcc head][bsle_msg_tag{type=0,len}][bfgn_bt_customization_stru]`, ≤800 B), wait `CUSTOMIZE_RECEIVED`, then SLE_OPEN, then wait `BOOT_FINISH` | `driver/platform/cfg/customize_bsle.c:682`, `driver/bsle/sle_driver/sle_host_register.c:145-165` |
+| tri-mode (BT+WiFi6+SLE) | `_PRE_WLAN_FEATURE_11AX` in driver/wifi; ble+sle daemons; 4 firmware blobs (ws73/wifi_cali/btc_cali/wow) | SDK tree |
+
+H2D message values (relevant): `H2D_MSG_WLAN_OPEN=0`, `H2D_MSG_BT_OPEN=25`, `H2D_MSG_SLE_OPEN=29`,
+`H2D_MSG_SLE_CLOSE=30`, `H2D_MSG_HEART_BEAT=28`, `H2D_MSG_HEARTBEAT_ENABLE=9`.
+
 ## Cross-reference to the open-source stack
 
 The OpenHarmony `communication_nearlink_service` stack exposes an HCI-like **DLI** command set (`DLI_CREATE_CONNECTION = 0x1401` etc.) and its own HDLC-style framing. Whether the WS73 controller's HCC dialect answers those exact opcodes is **unverified** — see [ECOSYSTEM.md](ECOSYSTEM.md) risks.
