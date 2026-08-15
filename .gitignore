@@ -21,6 +21,10 @@
 # 2) Allow directory traversal (required for the allowlist rules below)
 !*/
 
+# 2a) Local-markdown issue tracker (wayfinder/engineering skills)
+!.scratch/
+!.scratch/**
+
 # 3) Project metadata
 !.gitignore
 !LICENSE
