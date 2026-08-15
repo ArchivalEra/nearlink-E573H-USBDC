@@ -35,6 +35,8 @@
 
 - [06 — 内核 usb_driver 骨架设计（ws73usb）](issues/06-kernel-driver-skeleton.md) — **x86 移植成功**：SDK `driver/platform` 在 clang21 编译出 plat_soc.ko（EXTRA_CFLAGS→ccflags-y、set_fs 全家 no-op、del_timer→timer_delete、摘诊断通道+stub）；insmod 成功、`wireless_usb` 注册、双设备绑定 boot probe 成功。固件自动下载需 sle_soc+用户态（下一步）。
 
+- [08 — sle_soc.ko 编译 + 固件自动下载打通 kernel 态通道](issues/08-sle-soc-fw-download.md) — **kernel 态彻底打通**：sle_soc x86 编译加载成功；固件自动下载自动触发（651ms，1-5 进 kernel 5EP）；`/dev/hwsle` 注册；open 触发 SLE_OPEN 完整握手（type=2 ack → SLE_ON，15ms；close → type=3 → OFF）。票 07 的 userspace 死路被内核框架补上。
+
 ## Not yet specified
 
 <!-- 还看不清、尚不能成票的雾区；前沿推进后会graduated成票 -->

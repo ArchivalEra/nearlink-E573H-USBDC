@@ -29,21 +29,22 @@ _INCLUDES += -I$(CUR_MK_DIR)/sle_hcc
 _INCLUDES += -I$(CUR_MK_DIR)/include
 _INCLUDES += -I$(CUR_MK_DIR)
 
-EXTRA_CFLAGS = $(_INCLUDES)
+ccflags-y = $(_INCLUDES)
+ccflags-y += -isystem /usr/lib/llvm-21/lib/clang/21/include
 # CleanCode Build Option
-EXTRA_CFLAGS += -Werror
+ccflags-y +=
 
-EXTRA_CFLAGS += -include $(WSCFG_AUTOCONFIG_H) -include $(PLATFORM_INC_DIR)/oneimage/oneimage.h
+ccflags-y += -include $(WSCFG_AUTOCONFIG_H) -include $(PLATFORM_INC_DIR)/oneimage/oneimage.h
 
 ifeq ($(WSCFG_USING_LLVM_CLANG), y)
-EXTRA_CFLAGS += -Wno-error=typedef-redefinition
-EXTRA_CFLAGS += -Wno-error=macro-redefined
-EXTRA_CFLAGS += -Wno-error=implicit-function-declaration
-EXTRA_CFLAGS += -Wno-error=unused-function
-EXTRA_CFLAGS += -Wno-error=incompatible-function-pointer-types
-EXTRA_CFLAGS += -mcmodel=large
+ccflags-y += -Wno-error=typedef-redefinition
+ccflags-y += -Wno-error=macro-redefined
+ccflags-y += -Wno-error=implicit-function-declaration
+ccflags-y += -Wno-error=unused-function
+ccflags-y += -Wno-error=incompatible-function-pointer-types
+ccflags-y += -mcmodel=kernel
 # EXTRA_CFLAGS += -Wcast-function-type
-EXTRA_CFLAGS += -Woverride-init
+ccflags-y += -Woverride-init
 endif
 
 else

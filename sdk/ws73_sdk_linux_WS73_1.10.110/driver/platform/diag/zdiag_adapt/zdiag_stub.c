@@ -165,3 +165,11 @@ int recv_device_mem_etc(void *fp, unsigned char *puc_data_buf, int len)
     return len > 0 ? len : -1;
 }
 EXPORT_SYMBOL(recv_device_mem_etc);
+
+/* sle_soc.ko dependency (defined in the excluded plat_pm_dfr.c) */
+int plat_sle_exception_rst_register_etc(void *data)
+{
+    (void)data;
+    return 0;
+}
+EXPORT_SYMBOL_GPL(plat_sle_exception_rst_register_etc);

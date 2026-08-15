@@ -1,7 +1,7 @@
 # 08 — sle_soc.ko 编译 + 固件自动下载打通 kernel 态通道
 
 Type: task
-Status: open
+Status: resolved
 Blocked by:
 
 ## Question
@@ -32,3 +32,21 @@ Blocked by:
 ## 阻塞
 
 （无——票 06/07 已 resolve，基础设施全就位；仅受「用户批准编译」与「内存余量」约束）
+
+## Answer
+
+**完整打通（2026-08-15）**。sle_soc.ko 在 x86 编译成功（-j1，5 源文件，适配同 platform：ccflags-y/clang 头/mcmodel；删无用的 asm/unaligned.h；补 plat_sle_exception_rst_register_etc stub 到 plat_soc）→ 加载成功。
+
+**全链路验证（真机）**:
+1. plat_soc + sle_soc 双加载，`wireless_usb` 绑定双设备
+2. **固件自动下载自动触发**（dmesg: `firmware_download_etc::succ!`，651ms）→ 1-5 进 kernel 5EP 态（0318/480Mbps）
+3. `/dev/hwsle` 注册（10:263）
+4. **open /dev/hwsle → pm_sle_enable → SLE_OPEN 完整握手**：
+   - `[HCC] Get bsle device action msg type=[2]`（= BSLE_STATUS_MSG_SLE_OPEN ack）
+   - `sle btc open finish` → `sle set sle state 1`（SLE_ON，15ms）
+   - close → type=[3] ack → state 0（SLE_CLOSE）
+   - **这正是票 07 userspace 盲试失败、内核框架（hcc 上下文）补上的环节**
+
+**结论**: kernel 态通道彻底打通——固件下载自动执行 + SLE 通道 ON/OFF 双向握手全通。
+票 04 的"内核形态"决策 + 票 06 的移植 + 票 08 的 sle_soc = 完整内核驱动栈在 x86 跑通。
+下一步：双 dongle 对测（1-4 需单独触发下载）→ OHOS 用户态栈移植（票 03 GREEN）。
