@@ -1,50 +1,51 @@
 # USB Protocol Intel: HCC over USB (WS73 `ffff:3733`)
 
-> 来源: `driver/platform/hcc/host/hcc_usb_host.{c,h}`、`hcc_usb_host_ops.c`、`plat_firmware.c`、`hcc_bus_usb_comm.h`
+> Source: `driver/platform/hcc/host/hcc_usb_host.{c,h}`, `hcc_usb_host_ops.c`, `plat_firmware.c`, `hcc_bus_usb_comm.h` in the WS73 SDK
 
-## 两阶段状态机
+## Two-stage state machine
 
-`oal_usb_probe()` 按 **接口端点数量** 分派：
+`oal_usb_probe()` dispatches by **interface endpoint count**:
 
 ```
-enum bNumEndpoints == 5  → kernel 模式  oal_usb_system_init_config()
-enum bNumEndpoints == 2  → boot 模式    oal_usb_boot_init_config()   (需 CONFIG_HCC_SUPPORT_PATCH_OPT)
+enum bNumEndpoints == 5  → kernel mode  oal_usb_system_init_config()
+enum bNumEndpoints == 2  → boot mode    oal_usb_boot_init_config()   (needs CONFIG_HCC_SUPPORT_PATCH_OPT)
 ```
 
 ```
 boot (2 EP)                      kernel (5 EP)
   │                                  ▲
-  │ oal_usb_boot_init_config         │ hcc_usb_reload() 等重枚举
+  │ oal_usb_boot_init_config         │ hcc_usb_reload() etc. waits for re-enum
   ▼                                  │
-固件下载 (HCC patch 通道,           │
-bulk-out, ≤200KB, 32KB 缓冲)        │
-  │ 固件尾 QUIT 命令                 │
+firmware download (HCC patch        │
+channel, bulk-out, ≤200KB, 32KB     │
+buffer)                             │
+  │ QUIT command at end of FW       │
   ▼──────────────────────────────────┘
-设备重启, 重枚举为 5 EP
+device reboots, re-enumerates as 5 EP
 ```
 
-bus 状态机（`bus_usb_state`）: OFF → INIT → BOOT_PROBE → BOOT → PROBE → WORK（含 SUSPEND/RESUME/DISCONNECT 支路）。
+Bus state machine (`bus_usb_state`): OFF → INIT → BOOT_PROBE → BOOT → PROBE → WORK (plus SUSPEND/RESUME/DISCONNECT branches).
 
-## EP 布局（kernel 模式）
+## EP layout (kernel mode)
 
 ```c
 #define DEVICE_KERNEL_EP_NUM 5
 #define DEVICE_BOOT_EP_NUM   2
-#define BULK_EP_IN_IND      0   // 数据 IN
-#define BULK_EP_OUT_IND     1   // 数据 OUT
-#define INT_EP_IN_IND       2   // 设备事件通知 (usb_dev_notification, 8 字节)
-#define RW_REG_EP_OUT_IND   3   // 寄存器写
-#define RW_REG_EP_IN_IND    4   // 寄存器读
+#define BULK_EP_IN_IND      0   // data IN
+#define BULK_EP_OUT_IND     1   // data OUT
+#define INT_EP_IN_IND       2   // device event notification (usb_dev_notification, 8 bytes)
+#define RW_REG_EP_OUT_IND   3   // register write
+#define RW_REG_EP_IN_IND    4   // register read
 ```
 
-## 关键常量
+## Key constants
 
 ```c
 // hcc_bus_usb_comm.h
 #define DEIVICE_VENDOR_ID   0xFFFF
 #define DEIVICE_PRODUCT_ID  0x3733
-#define HIUSB_PACKAGE_HEARDER_SIZE 92   // 散射数据包头
-#define HIUSB_DEV2HOST_SCATT_MAX 24     // 聚合项上限
+#define HIUSB_PACKAGE_HEARDER_SIZE 92   // scatter data packet header
+#define HIUSB_DEV2HOST_SCATT_MAX 24     // aggregation limit
 
 // hcc_usb_host.h
 #define USB_RX_MAX_SIZE   (20 * 1024)
@@ -59,9 +60,9 @@ bus 状态机（`bus_usb_state`）: OFF → INIT → BOOT_PROBE → BOOT → PRO
 #define FIRMWARE_FILESIZE_MAX (200 * 1024)
 ```
 
-## 固件下载（HCC patch 通道）
+## Firmware download (HCC patch channel)
 
-固件通过 ASCII 命令协议在 bulk 通道上传输（`plat_firmware.c`）:
+Firmware is transferred over the bulk channel via an ASCII command protocol (`plat_firmware.c`):
 
 ```
 FW_BIN_DOWNLOAD_CMD     "1,0x400000,/etc/ws73/ws73.bin"
@@ -70,9 +71,9 @@ FW_WIFICALI_DOWNLOAD_CMD "1,0x430000,/etc/ws73/wifi_cali.bin"
 FW_BSLECALI_DOWNLOAD_CMD "1,0x440000,/etc/ws73/btc_cali.bin"
 ```
 
-命令字: `WRITEM` / `WMEM` / `RMEM` / `FILES` / `QUIT`，配 `MSG_FROM_DEV_*` 应答；固件头带 SHA256 校验；`firmware_quit_func()` → `hcc_usb_reload()` 处理重枚举。
+Command words: `WRITEM` / `WMEM` / `RMEM` / `FILES` / `QUIT`, with `MSG_FROM_DEV_*` acknowledgements; the firmware header carries SHA256; `firmware_quit_func()` → `hcc_usb_reload()` handles re-enumeration.
 
-## 寄存器 R/W（RW_REG 端点）
+## Register R/W (RW_REG endpoints)
 
 ```c
 #define RW_REG_RETRY_TIMES  3
@@ -83,12 +84,16 @@ FW_BSLECALI_DOWNLOAD_CMD "1,0x440000,/etc/ws73/btc_cali.bin"
 // rw_reg_setup_bytes: reg_off:16 | dir:1 | reg_len:11 | cur_stage:2
 ```
 
-## 设备通知
+## Device notification
 
-中断 IN 端点收 `usb_dev_notification`（8 字节: notification + dev_mem_highpri_pool）。
+Interrupt IN endpoint delivers `usb_dev_notification` (8 bytes: notification + dev_mem_highpri_pool).
 
-## 用户态接口（SDK 既有）
+## User-space interfaces (as shipped in the SDK)
 
-- `/dev/hwsle` — misc 字符设备（`sle_dev.c`），写 = 发 SLE HCI 帧 → `hcc_bt_tx_data(HCC_CHANNEL_AP,...)`；open 触发 `pm_sle_enable()` → `H2D_MSG_SLE_OPEN`(=29)
-- `/dev/hwslechba` — CHBA 数据网卡（`sle_chba.ko` 的 netdev）
-- HCI 数据帧里 TCID 在字节 5（`HCI_DATA_TCID_POS 5`）；CHBA 用自己的帧（`HCI_DATATYPE_SLE_ACB 0xA3` / `HCI_DATATYPE_SLE_ICB 0xA4`）过滤链路数据
+- `/dev/hwsle` — misc char device (`sle_dev.c`): write = send SLE HCI frame → `hcc_bt_tx_data(HCC_CHANNEL_AP,...)`; open triggers `pm_sle_enable()` → `H2D_MSG_SLE_OPEN`(=29)
+- `/dev/hwslechba` — CHBA data netdev (`sle_chba.ko`)
+- In HCI data frames the TCID lives at byte 5 (`HCI_DATA_TCID_POS 5`); CHBA filters its own frames (`HCI_DATATYPE_SLE_ACB 0xA3` / `HCI_DATATYPE_SLE_ICB 0xA4`) from the link data
+
+## Cross-reference to the open-source stack
+
+The OpenHarmony `communication_nearlink_service` stack exposes an HCI-like **DLI** command set (`DLI_CREATE_CONNECTION = 0x1401` etc.) and its own HDLC-style framing. Whether the WS73 controller's HCC dialect answers those exact opcodes is **unverified** — see [ECOSYSTEM.md](ECOSYSTEM.md) risks.

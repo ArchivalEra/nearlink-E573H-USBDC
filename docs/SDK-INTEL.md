@@ -1,48 +1,48 @@
 # SDK Intel: ws73_sdk_linux_WS73_1.10.110
 
-> 版本: WS73_1.10.110（构件日期 2024-10-28，解压 2025-03-12）· 海思 WS73（"fregata" 家族）**host 侧** Linux 驱动 SDK
-> 作用: host CPU 通过 USB/SDIO/UART（HCC 总线）驱动 WS73 星闪芯片
+> Version: WS73_1.10.110 (artifacts dated 2024-10-28, extracted 2025-03-12) · HiSilicon WS73 ("fregata" family) **host-side** Linux driver SDK
+> Role: the host CPU drives the WS73 NearLink chip over USB/SDIO/UART via the **HCC** bus
 
-## 顶层结构
+## Top-level layout
 
 ```
 ws73_sdk_linux_WS73_1.10.110/
-├── Makefile                     # 顶层构建（Kconfig 风格，需 build/scripts/hconfig.py）
+├── Makefile                     # top-level build (Kconfig-style, uses build/scripts/hconfig.py)
 ├── application/
-│   ├── bin/<平台>/              # 预编译用户态守护进程（ARM/uClibc 或 aarch64/glibc）
+│   ├── bin/<platform>/          # prebuilt user-space daemons (ARM/uClibc or aarch64/glibc)
 │   │   └── 3518_usb/{ble,sle}/ sparklinkd, sparklinkchba, sparklinkctrl, sle_chba.ko
-│   ├── lib/<平台>/{sle,ble}/    # 静态库 libsle_host.a / libble_host.a（仅 ARM 预编译）
-│   ├── dft/                     # DFT 通道: bp_test.ko + bp_channel
-│   ├── sample/{ble,sle}/        # 示例程序（sle_uuid_server/client 等）
-│   └── sle_android/             # Android 9/11/12 patch + NearlinkDemo app
+│   ├── lib/<platform>/{sle,ble}/    # static libs libsle_host.a / libble_host.a (ARM prebuilt only)
+│   ├── dft/                     # DFT channel: bp_test.ko + bp_channel
+│   ├── sample/{ble,sle}/        # samples (sle_uuid_server/client etc.)
+│   └── sle_android/             # Android 9/11/12 patches + NearlinkDemo app
 ├── build/
-│   ├── config/                  # 配置模板: ws73_default.config(SDIO), ws73_light.config,
+│   ├── config/                  # config templates: ws73_default.config(SDIO), ws73_light.config,
 │   │                            #   ws73_usb_light.config, ws73_usb_light_v2.config, ws73_cfg_default.ini
-│   └── scripts/                 # hconfig.py, build_host_hso.py 等
+│   └── scripts/                 # hconfig.py, build_host_hso.py etc.
 ├── driver/
-│   ├── bsle/{ble_driver,sle_driver}/  # ble_soc.ko / sle_soc.ko 源码
+│   ├── bsle/{ble_driver,sle_driver}/  # ble_soc.ko / sle_soc.ko sources
 │   │   └── sle_driver/
-│   │       ├── sle_dev/         # misc 设备 /dev/hwsle
-│   │       ├── sle_hcc/         # HCC service 粘合
+│   │       ├── sle_dev/         # misc device /dev/hwsle
+│   │       ├── sle_hcc/         # HCC service glue
 │   │       ├── sle_chba/        # CHBA: sle_hci_chba_proc.c, sle_tm_chba_proc.c
 │   ├── platform/
 │   │   ├── hcc/{comm,cfg,host,slave,inc,octty,build}
-│   │   │   └── host/hcc_usb_host.c   # ★ 关键: ffff:3733 的 usb_driver "wireless_usb"
-│   │   ├── firmware_download/   # plat_firmware.c 固件下载框架
+│   │   │   └── host/hcc_usb_host.c   # ★ KEY: the ffff:3733 usb_driver "wireless_usb"
+│   │   ├── firmware_download/   # plat_firmware.c firmware download framework
 │   │   ├── main/ pm/ drv/ osal/ diag/ cfg/ exce/ libc_sec/
-│   └── wifi/                    # 完整 802.11 host 驱动源码 → wifi_soc.ko
+│   └── wifi/                    # full 802.11 host driver source → wifi_soc.ko
 ├── firmware/{e,us}/             # ws73.bin(143KB), wifi_cali.bin, btc_cali.bin, wow.bin
-├── include/bsle/{ble,common,sle}/  # 公开 SLE/BLE 用户态 API 头
-├── open_source/                 # wpa_supplicant / kernel 补丁
-└── output/                      # 构建输出（空）
+├── include/bsle/{ble,common,sle}/  # public SLE/BLE user-space API headers
+├── open_source/                 # wpa_supplicant / kernel patches
+└── output/                      # build output (empty)
 ```
 
-## 构建流程（顶层 Makefile）
+## Build flow (top-level Makefile)
 
-- `make` → `wifi_soc.ko` + `plat_soc.ko`（+ 可选 `ble_soc.ko`/`sle_soc.ko`/`bp_test.ko`）
-- 配置注入: `build/scripts/hconfig.py <Kconfig> <config> -a output/bin/autoconfig.h`（Kconfig/.config 不在本解压包，会回退 `ws73_default.config`）
-- 交叉编译: `make -C $(WSCFG_KERNEL_DIR) ARCH=$(WSCFG_ARCH_NAME) CROSS_COMPILE=$(WSCFG_CROSS_COMPILE) M=... modules`
-- **USB 参考配置** `build/config/ws73_usb_light.config` 要点:
+- `make` → `wifi_soc.ko` + `plat_soc.ko` (+ optional `ble_soc.ko`/`sle_soc.ko`/`bp_test.ko`)
+- Config injection: `build/scripts/hconfig.py <Kconfig> <config> -a output/bin/autoconfig.h` (Kconfig/.config absent from this extraction; falls back to `ws73_default.config`)
+- Cross-build: `make -C $(WSCFG_KERNEL_DIR) ARCH=$(WSCFG_ARCH_NAME) CROSS_COMPILE=$(WSCFG_CROSS_COMPILE) M=... modules`
+- **USB reference config** `build/config/ws73_usb_light.config` essentials:
 
 ```
 WSCFG_CROSS_COMPILE="arm-himix100-linux-"
@@ -54,34 +54,34 @@ CONFIG_FIRMWARE_BSLECALI_PATH="/etc/ws73/btc_cali.bin"
 CONFIG_INI_FILE_PATH="/etc/ws73_cfg.ini"
 ```
 
-## 守护进程（仅 ARM 预编译，无源码）
+## Daemons (ARM prebuilt only, no source)
 
-- **sparklinkd** — SLE 协议栈守护（GAP/GATT 类 API、低时延、HID 上报）
-- **sparklinkchba** — CHBA（Channel Bridge Adapter）守护: 打开 `/dev/hwslechba` + `/dev/hwsle`，桥接 HCI 数据
-- **sparklinkctrl** — 控制/测试 CLI
-- **bluetoothd/bluetoothctrl** — BLE 等价物
+- **sparklinkd** — SLE protocol-stack daemon (GAP/GATT-like APIs, low latency, HID reports)
+- **sparklinkchba** — CHBA (Channel Bridge Adapter) daemon: opens `/dev/hwslechba` + `/dev/hwsle`, bridges HCI data
+- **sparklinkctrl** — control/test CLI
+- **bluetoothd/bluetoothctrl** — BLE equivalents
 
-## 可直接复用的部件（按价值排序）
+## Directly reusable pieces (by value)
 
-| 部件 | 路径 | 用途 |
+| Piece | Path | Purpose |
 |---|---|---|
-| **USB host 驱动** | `driver/platform/hcc/host/hcc_usb_host.c`(1793 行) + `hcc_usb_host_ops.c`(1581 行) | 绑 `ffff:3733` 的完整 usb_driver，boot/kernel 状态机，固件下载 |
-| **固件下载框架** | `driver/platform/firmware_download/plat_firmware.c` | 分段传输、SHA256 校验、`WRITEM/WMEM/RMEM/FILES/QUIT` 命令协议 |
-| **SLE 内核模块** | `driver/bsle/sle_driver/` | `/dev/hwsle` misc 设备、HCC service、CHBA 钩子 |
-| **协议头** | `driver/platform/hcc/comm/hcc_bus_usb_comm.h`, `hcc_usb_host.h` | VID/PID、92 字节包头、EP 布局、缓冲尺寸 |
-| **固件 blob** | `firmware/us/*.bin` | 必须灌给 boot 阶段设备的镜像 |
-| **用户态 API 头** | `include/bsle/sle/` | SLE 应用层接口参考 |
+| **USB host driver** | `driver/platform/hcc/host/hcc_usb_host.c`(1793 lines) + `hcc_usb_host_ops.c`(1581 lines) | complete usb_driver binding `ffff:3733`, boot/kernel state machine, firmware download |
+| **Firmware download framework** | `driver/platform/firmware_download/plat_firmware.c` | chunked transfer, SHA256 verify, `WRITEM/WMEM/RMEM/FILES/QUIT` command protocol |
+| **SLE kernel module** | `driver/bsle/sle_driver/` | `/dev/hwsle` misc device, HCC service, CHBA hooks |
+| **Protocol headers** | `driver/platform/hcc/comm/hcc_bus_usb_comm.h`, `hcc_usb_host.h` | VID/PID, 92-byte packet header, EP layout, buffer sizes |
+| **Firmware blobs** | `firmware/us/*.bin` | images that must be pushed to the boot-stage device |
+| **User-space API headers** | `include/bsle/sle/` | SLE application-layer interface reference |
 
-## 平台与 USB
+## Platforms & USB
 
-- `3518_usb` = Hi3518EV300（ARM）+ USB 传输；`7205_usb`/`7205_sdio` 为另一 host 芯片的变体
-- WS73 是 USB **device**，host 端跑 `wireless_usb` usb_driver
-- 两阶段枚举: boot(2 EP) → 固件下载 → 重枚举 kernel(5 EP)
-- CHBA 概念跨 WiFi/SLE 共用（mac_chba_common.h）
+- `3518_usb` = Hi3518EV300 (ARM) + USB transport; `7205_usb`/`7205_sdio` are variants for another host chip
+- WS73 is the USB **device**; the host runs the `wireless_usb` usb_driver
+- Two-stage enumeration: boot(2 EP) → firmware download → re-enumerate kernel(5 EP)
+- CHBA is a shared concept across WiFi/SLE (mac_chba_common.h)
 
-## 局限
+## Limitations
 
-1. 预编译守护进程无源码（ARM/uClibc），x86 需自行实现 SLE HCI 用户态
-2. `libsle_host.a` 仅 ARM，无法直接链 x86
-3. 参考内核是 Hi3518EV300 的 4.9.y；但 USB/HCC/SLE 代码用的是标准 Linux USB API，**架构可移植**（改 `WSCFG_ARCH_NAME`/`WSCFG_CROSS_COMPILE`/`WSCFG_BUS_USB` 即可）
-4. 文档几乎为零（仅几个 sample ReadMe）
+1. Prebuilt daemons have no source (ARM/uClibc); on x86 the SLE HCI user-space must be implemented independently
+2. `libsle_host.a` is ARM-only, cannot link x86
+3. Reference kernel is Hi3518EV300's 4.9.y; but the USB/HCC/SLE code uses standard Linux USB APIs and is **arch-portable** (adjust `WSCFG_ARCH_NAME`/`WSCFG_CROSS_COMPILE`/`WSCFG_BUS_USB`)
+4. Almost no docs (a few sample ReadMes only)

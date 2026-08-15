@@ -1,6 +1,11 @@
 # nearlink-E573H-USBDC
 
+> [English README](README.en.md) · 中文（当前）
+
 把 USB 上那个 `ffff:3733`（厂商/产品串都写着 `00000000`）的星闪/近场（NearLink, SparkLink/SLE）USB dongle 在 Linux 上跑起来。
+
+> **⚠️ push 前必读 —— 文档维护清单**：见下方 [文档索引与维护](#文档索引与维护)。
+> 本地已挂 pre-push 钩子（`scripts/check-docs.sh`）自动检查：README 双语互链、文档存在性、docs 无中文残留、白名单防误提交。
 
 ## 这是什么
 
@@ -53,6 +58,21 @@ lsusb -v -d ffff:3733
 ```
 
 （驱动代码尚未落地 —— 见上路线图与 docs/。）
+
+## 文档索引与维护
+
+> **维护规则**：docs/ 一律英文；README 双语互链。改文档后，把下面表格两列同步更新，再 push（pre-push 钩子会自动校验，见 `scripts/check-docs.sh`）。
+
+| 文件 | 说明 | 语言 |
+|---|---|---|
+| `README.md` | 项目总览（中文） | 中文 |
+| `README.en.md` | 项目总览（英文，与中文互链） | 英文 |
+| `docs/DEVICE-INTEL.md` | ffff:3733 设备枚举情报 | 英文 |
+| `docs/SDK-INTEL.md` | WS73 SDK 结构/构建/可复用部件 | 英文 |
+| `docs/USB-PROTOCOL.md` | HCC-over-USB 协议要点 | 英文 |
+| `docs/ECOSYSTEM.md` | 星闪开源生态地图 + 定稿路线 | 英文 |
+| `.gitignore` | 白名单规则（默认忽略一切，仅放行白名单） | — |
+| `sdk/` | 海思 WS73 Linux SDK 源码树（二进制被 gitignore 拦） | — |
 
 ## License
 

@@ -1,23 +1,23 @@
 # Device Intel: `ffff:3733` ("00000000")
 
-> 采集时间: 2026-08-15 · 采集机器: x86-64 Linux (kernel 7.1.5-x64v3-xanmod1)
+> Captured: 2026-08-15 · Host: x86-64 Linux (kernel 7.1.5-x64v3-xanmod1)
 
-## 身份
+## Identity
 
-| 属性 | 值 |
+| Attribute | Value |
 |---|---|
-| 总线位置 | `usb1-4`（root hub 1, port 4, `devpath=4`） |
+| Bus location | `usb1-4` (root hub 1, port 4, `devpath=4`) |
 | idVendor / idProduct | `ffff` / `3733` |
 | bcdDevice | `0100` |
-| 速度 | 12 Mbps (**Full Speed**) |
-| bDeviceClass/SubClass/Protocol | `0/0/0`（接口级定义） |
-| 配置 | 1 个 |
-| 制造商 / 产品 | `00000000` / `00000000` |
-| 序列号 | `>04072<1<09:=29=0;16=3:0`（乱码/混淆） |
-| 电源 | self-powered, 10 mA |
-| 状态 | `configured`, `authorized=1` |
+| Speed | 12 Mbps (**Full Speed**) |
+| bDeviceClass/SubClass/Protocol | `0/0/0` (defined at interface level) |
+| Configurations | 1 |
+| Manufacturer / Product | `00000000` / `00000000` |
+| Serial | `>04072<1<09:=29=0;16=3:0` (garbage/obfuscated) |
+| Power | self-powered, 10 mA |
+| State | `configured`, `authorized=1` |
 
-## 描述符拓扑
+## Descriptor topology
 
 ```
 Device Descriptor: 18 bytes, bcdUSB 1.10, class 0
@@ -33,12 +33,12 @@ Configuration: wTotalLength 0x20, bNumInterfaces 1, bmAttributes 0xc0, MaxPower 
 
 modalias: `usb:vFFFFp3733d0100dc00dsc00dp00icE0isc02ip02in00`
 
-## 驱动绑定现状
+## Driver binding status
 
-- **没有任何内核驱动绑定它**（无 driver symlink，`lsusb -t` 显示 `Driver=[none]`）
-- modules.alias 对 `vFFFF`/`isc02` 零匹配；内核无 `CONFIG_USB_WUSB`/`CONFIG_UWB`
-- 无 /dev 节点、无网络接口（`ip link` 只有 lo/enp2s0/wlp3s0）
+- **No kernel driver claims it** (no driver symlink; `lsusb -t` shows `Driver=[none]`)
+- modules.alias has zero matches for `vFFFF`/`isc02`; kernel has no `CONFIG_USB_WUSB`/`CONFIG_UWB`
+- No /dev node, no network interface (`ip link` shows only lo/enp2s0/wlp3s0)
 
-## 解读
+## Interpretation
 
-这是 **boot 阶段的 WS73**：2 个 bulk 端点正好对上 SDK 的 `DEVICE_BOOT_EP_NUM == 2`。固件下载完成后设备会重枚举为 5 端点（kernel 模式：`BULK_IN/BULK_OUT/INT_IN/RW_REG_OUT/RW_REG_IN`）。厂商/产品串写死 `00000000` 是固件未加载的典型表现。
+This is a **boot-stage WS73**: its 2 bulk endpoints match the SDK's `DEVICE_BOOT_EP_NUM == 2`. After firmware download the device re-enumerates with 5 endpoints (kernel mode: `BULK_IN/BULK_OUT/INT_IN/RW_REG_OUT/RW_REG_IN`). The vendor/product strings hardcoded to `00000000` are typical of an un-flashed boot ROM. See [USB-PROTOCOL.md](USB-PROTOCOL.md).
