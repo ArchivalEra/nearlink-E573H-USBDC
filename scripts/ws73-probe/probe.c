@@ -67,7 +67,8 @@ struct opts {
     int         skip_verify;
     int         wait_ms;
     int         verbose;
-    int         sel_set;          /* --port <bus>-<port> */
+    int         readm_only;      /* --readm-only: READM conn-check only, no writes */
+    int         sel_set;         /* --port <bus>-<port> */
     int         sel_bus;
     int         sel_port;
 };
@@ -448,6 +449,8 @@ int main(int argc, char **argv)
             o.skip_writem = 1;
         } else if (strcmp(argv[i], "--skip-verify") == 0) {
             o.skip_verify = 1;
+        } else if (strcmp(argv[i], "--readm-only") == 0) {
+            o.readm_only = 1;
         } else if (strcmp(argv[i], "--wait-ms") == 0 && i + 1 < argc) {
             o.wait_ms = atoi(argv[++i]);
         } else if (strcmp(argv[i], "--port") == 0 && i + 1 < argc) {
@@ -466,13 +469,13 @@ int main(int argc, char **argv)
         } else {
             fprintf(stderr,
                     "usage: %s [probe] [--fw=path@addr]... [--trim hex] "
-                    "[--port <bus>-<port>] [--skip-readm] [--skip-writem] "
-                    "[--skip-verify] [--wait-ms n] [--verbose]\n",
+                    "[--port <bus>-<port>] [--readm-only] [--skip-readm] "
+                    "[--skip-writem] [--skip-verify] [--wait-ms n] [--verbose]\n",
                     argv[0]);
             return 3;
         }
     }
-    if (o.nfw)
+    if (o.nfw || o.readm_only)
         flash = 1;
 
     if (libusb_init(&ctx) != 0)
@@ -532,6 +535,11 @@ int main(int argc, char **argv)
             rc = 2;
             goto out;
         }
+    }
+    if (o.readm_only) {
+        printf("\nreadm-only: no writes performed.\n");
+        rc = 0;
+        goto out;
     }
     if (!o.skip_writem) {
         char c[CMD_BUF_LEN];
