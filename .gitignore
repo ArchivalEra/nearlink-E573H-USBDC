@@ -1,0 +1,107 @@
+# ============================================================================
+# Whitelist-style .gitignore for nearlink-E573H-USBDC
+#
+# Rule: nothing is tracked unless explicitly allowlisted below.
+#   "*"        ignore every file and directory by default
+#   "!*/"      re-open every directory so git can descend into it
+#   "!pattern" allowlist specific names / file types
+#
+# The vendor SDK (ws73_sdk_linux_WS73_1.10.110) ships prebuilt binaries and
+# build output; we commit only what this project actually needs (sources,
+# docs, scripts, configs) and let the rest stay out of the tree.
+#
+#   stage something regardless of the rules:  git add -f <path>
+#   find out why a file is ignored:           git check-ignore -v <path>
+#   dry-run what would be tracked:            git status --short --ignored
+# ============================================================================
+
+# 1) Ignore everything by default
+*
+
+# 2) Allow directory traversal (required for the allowlist rules below)
+!*/
+
+# 3) Project metadata
+!.gitignore
+!LICENSE
+!README*
+!NOTICE*
+!AUTHORS*
+!CHANGELOG*
+!COPYING*
+
+# 4) Build & orchestration
+!Makefile
+!makefile
+!*.mk
+!CMakeLists.txt
+!*.cmake
+!Kconfig
+!*.config
+!*.sh
+!*.py
+!*.pl
+!*.rb
+
+# 5) Source code
+!*.c
+!*.h
+!*.S
+!*.s
+!*.asm
+!*.rs
+!*.go
+!*.java
+!*.cpp
+!*.cc
+!*.cxx
+!*.hpp
+!*.ts
+!*.js
+!*.lua
+!Kconfig
+!Kconfig.*
+
+# 6) Docs, data, configs
+!*.md
+!*.txt
+!*.rst
+!*.adoc
+!*.csv
+!*.xml
+!*.json
+!*.yaml
+!*.yml
+!*.ini
+!*.cfg
+!*.conf
+!*.dts
+!*.dtsi
+!*.dtso
+!*.map
+!*.patch
+!*.diff
+!*.lds
+
+# 7) Never tracked: archives, binaries, images, build output.
+#    (These are simply NOT allowlisted above; explicit rules for clarity.)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.ko
+*.o
+*.a
+*.so
+*.so.*
+*.elf
+*.bin
+*.img
+*.fw
+*.lib
+*.exe
