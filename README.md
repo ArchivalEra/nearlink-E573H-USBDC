@@ -18,29 +18,29 @@ Bus 001 Device 005: ID ffff:3733 00000000 00000000
 
 ```
 .
-├── .gitignore                 # 白名单式：只放行源码/文档/配置，二进制与构建产物一律不跟踪
+├── .gitignore                 # 白名单式：默认忽略一切，仅 !pattern 放行源码/文档/配置
 ├── docs/
 │   ├── DEVICE-INTEL.md        # ffff:3733 设备枚举情报（sysfs/lsusb/描述符/当前绑定）
 │   ├── SDK-INTEL.md           # WS73 SDK 1.10.110 结构、构建流程、可复用部件
-│   └── USB-PROTOCOL.md        # HCC-over-USB 协议要点（boot/kernel 状态机、EP 布局、固件下载）
+│   ├── USB-PROTOCOL.md        # HCC-over-USB 协议要点（boot/kernel 状态机、EP 布局、固件下载）
+│   └── ECOSYSTEM.md           # ★ 星闪开源生态地图（13 仓库摸底）+ 定稿路线
 └── sdk/ws73_sdk_linux_WS73_1.10.110/   # 海思 WS73 Linux SDK（源码随仓跟踪，二进制被 gitignore 拦住）
 ```
 
 > SDK 原始分发是 `ws73_sdk_linux_WS73_1.10.110.zip`（48MB，本机位于项目根目录，被 `*.zip` 规则排除出版本库）。`firmware/us/ws73.bin` 等固件 blob 也**不进 git** —— 驱动运行时从 SDK 解压目录或 `/etc/ws73/` 读取。
 
-## 驱动方案（路线图）
+## 驱动方案（定稿路线，详见 docs/ECOSYSTEM.md）
 
-SDK 自带完整 host 侧驱动源码（`driver/platform/hcc/host/hcc_usb_host.c` 的 `wireless_usb` usb_driver），但它是按海思 ARM 平台（Hi3518EV300 / kernel 4.9, `arm-himix100`）交叉编译的；预编译的 `sle_chba.ko` 也全是 ARM/aarch64，x86 上 vermagic 对不上。
+**核心洞察**：海思 2026 年「全量开源星闪协议栈」= OpenHarmony `communication_nearlink_service`（Apache-2.0，36 万行 C 的 SLE host 栈源码），但它不含字节传输/内核驱动/固件；WS73 USB 底层（HCC、ffff:3733、固件下载）源码在咱手里的 SDK。**两半拼起来 + 一条自建传输缝 = 完整方案**，无需受限于厂商闭源的 AT 驱动。
 
-三条路线：
+```
+Phase 1  userspace 握手验证: libusb/gousb 灌 ws73.bin (HCC patch) → 观察重枚举 5EP
+Phase 2  内核传输驱动: 精简 x86 usb_driver (参考 hcc_usb_host.c) → /dev/ws73hci
+Phase 3  用户态协议栈: 移植 OpenHarmony nearlink_service (剥离 OHOS 依赖, HAL 缝接 /dev/ws73hci)
+Phase 4  应用: 点对点通讯 / HID / UART 透传
+```
 
-| 路线 | 做法 | 代价 | 结果 |
-|---|---|---|---|
-| **A. 移植 SDK 驱动** | 把 `driver/platform` + `driver/bsle/sle_driver` 重编成 x86 模块 | 中（依赖 osal/td 层，工具链是 x86 gcc + 本机内核头，可行但缝多） | `plat_soc.ko`+`sle_soc.ko` → `/dev/hwsle` + `hwslechba` 网卡 |
-| **B. 新写精简驱动** | 以 SDK 源码为协议参考，从零写一个干净 x86 `usb_driver`（boot→固件下载→kernel 状态机 + misc 字符设备） | 中（协议已摸清，工作量可控） | 自己的驱动，`/dev/hwsle` 等价物，代码干净 |
-| **C. 先 userspace 验证** | libusb/gousb 先跑通「枚举 → 固件下载 → 重枚举」握手，确认协议后再决定内核化 | 低（最快拿到结果） | 验证协议正确性，不产出最终驱动 |
-
-用户态协议栈（`sparklinkd`/`sparklinkchba`/`sparklinkctrl`）SDK 里只有 ARM 预编译二进制、无源码，最终要么用路线 A/B 内核 + 自行实现 SLE HCI 用户态，要么反向这套二进制。
+旁路参考: 海思 SDK 自带 `wireless_usb` 驱动源码（ARM 预编译、x86 需重编）；FlashKeyboard 里的 TIoT host 驱动（0x7e 帧 + 固件加载）是「host 驱动星闪无线电」的另一移植范本。
 
 ## 快速开始
 
