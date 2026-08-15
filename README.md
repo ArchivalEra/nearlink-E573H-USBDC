@@ -2,10 +2,10 @@
 
 > [English README](README.en.md) · 中文（当前）
 
-把 USB 上那个 `ffff:3733`（厂商/产品串都写着 `00000000`）的星闪/近场（NearLink, SparkLink/SLE）USB dongle 在 Linux 上跑起来。
+把 USB 上那个 `ffff:3733`（厂商/产品串都写着 `00000000`）的**海思 WS73 三模 dongle**（蓝牙 + WiFi6 + 星闪 SLE）变成一台 Linux 电视盒的**三模无线适配器**——提供真正的高速 WiFi / 蓝牙 / 星闪，同时保留控制接口。
 
 > **⚠️ push 前必读 —— 文档维护清单**：见下方 [文档索引与维护](#文档索引与维护)。
-> 本地已挂 pre-push 钩子（`scripts/check-docs.sh`）自动检查：README 双语互链、文档存在性、docs 无中文残留、白名单防误提交。
+> 本地已挂 pre-push 钩子（`scripts/check-docs.sh`）自动检查：README 双语互链、文档存在性、docs 无中文残留、白名单防误提交、README 双语同步（改中文必须同步英文）。
 
 ## 这是什么
 

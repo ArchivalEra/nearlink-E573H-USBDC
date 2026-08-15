@@ -4,7 +4,7 @@
 
 ## Destination
 
-从「USB 上裸 boot 态的 ffff:3733」走到「Linux 上跑通星闪点对点通讯」的**可执行方案**：固件握手、传输形态、开源栈接入、固件处理等决策全部落地，产出可直接开工的方案（执行另开会话，不在地图内）。
+**单 WS73 dongle 为电视盒提供「WiFi + 蓝牙 + 星闪」三模全速无线能力**（用户 2026-08-15 澄清：要真正的高速三栈，不只是控制命令；控制接口也做）。落地到可执行方案：三模内核模块（wifi_soc/ble_soc/sle_soc）在目标机编译加载 + 各栈用户态（wpa_supplicant/hostapd、bluetoothd/BlueZ、sparklinkd/OHOS 栈）跑通，dongle 成为盒子的三模无线适配器。
 
 ## Notes
 
@@ -16,6 +16,8 @@
   - OpenHarmony 开源栈：`/mnt/hdd/nearlink-stuff/communication_nearlink_service`（本机克隆）
   - 其余参考仓库：`/mnt/hdd/nearlink-stuff/`（Hi2821 SDK、FlashKeyboard/TIoT 等）
   - 协议/生态文档：`docs/USB-PROTOCOL.md`、`docs/ECOSYSTEM.md`
+- **三模共存已实锤**：PM 层 `pm_svc_state[PM_SVC_WLAN/BLE/SLE]` 是数组（plat_pm_wlan.c:140-142），三服务独立开/关——单 dongle 三模同开是架构支持，无需 hack（区别于双设备 hcc 单实例限制，票 09）
+- 单 dongle 服务电视盒 = 绕过双设备限制，三模全速路径 = 编 wifi_soc(253文件)/ble_soc/sle_soc + 用户态栈
 - 用户偏好：中文交流；每个决策给方案让用户拍板；文档全英文（repo 规则）
 - 环境：本机 x86 Linux，kernel headers + gcc 齐（可编内核模块）；无 gh CLI / 无 GH token（tracker 用本地 markdown）
 

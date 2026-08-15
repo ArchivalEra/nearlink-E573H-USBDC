@@ -2,7 +2,10 @@
 
 > [中文版 README](README.md) · English (current)
 
-Drive the NearLink (SparkLink / SLE) USB dongle that shows up on the bus as `ffff:3733` ("00000000") from Linux.
+Turn the USB `ffff:3733` ("00000000") — a **HiSilicon WS73 tri-mode dongle** (Bluetooth + WiFi 6 + NearLink SLE) — into a **tri-mode wireless adapter** for a Linux TV box: real high-speed WiFi / Bluetooth / NearLink, plus the control interface.
+
+> **⚠️ read before pushing — doc maintenance checklist**: see [Document index & maintenance](#document-index--maintenance).
+> A pre-push hook (`scripts/check-docs.sh`) enforces: README cross-links, doc-index completeness, English-only docs/, whitelist gitignore, and **README zh/en sync (changing one side requires the other)**.
 
 ## What this is
 

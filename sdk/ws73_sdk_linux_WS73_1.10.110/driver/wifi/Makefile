@@ -464,30 +464,31 @@ KBUILD_CFLAGS += -DPLATFORM_DEBUG_ENABLE
 KBUILD_CFLAGS += -DPLATFORM_SSI_FULL_LOG
 endif
 
-EXTRA_CFLAGS = $(_INCLUDES) $(COPTS)
-EXTRA_CFLAGS += $(COPTS)
-EXTRA_CFLAGS += $(COMM_COPTS)
-EXTRA_CFLAGS += -Werror
-EXTRA_CFLAGS += -fno-pic -Os
-EXTRA_CFLAGS += -DDMAC_ON_HOST
+ccflags-y = $(_INCLUDES) $(COPTS)
+ccflags-y += -isystem /usr/lib/llvm-21/lib/clang/21/include
+ccflags-y += $(COPTS)
+ccflags-y += $(COMM_COPTS)
+ccflags-y +=
+ccflags-y += -fno-pic -Os
+ccflags-y += -DDMAC_ON_HOST
 MODFLAGS = -fno-pic
 
 
 ifeq ($(WSCFG_BUS_USB),y)
-EXTRA_CFLAGS +=-D_PRE_FEATURE_USB_ID_TABLE
+ccflags-y +=-D_PRE_FEATURE_USB_ID_TABLE
 endif
 
-EXTRA_CFLAGS +=-include $(WSCFG_AUTOCONFIG_H) -include $(PLATFORM_INC_DIR)/oneimage/oneimage.h
-EXTRA_CFLAGS +=-include $(INC_DIR)/wifi_oneimage/wifi_oneimage.h
+ccflags-y +=-include $(WSCFG_AUTOCONFIG_H) -include $(PLATFORM_INC_DIR)/oneimage/oneimage.h
+ccflags-y +=-include $(INC_DIR)/wifi_oneimage/wifi_oneimage.h
 
-EXTRA_CFLAGS += ${LOCAL_WSCFG_EXTRA_CFLAGS}
+ccflags-y += ${LOCAL_WSCFG_EXTRA_CFLAGS}
 
 ### Compiler Differences ###
 ifeq ($(WSCFG_USING_GCC), y)
-EXTRA_CFLAGS += -Wclobbered -Wmissing-parameter-type -Wold-style-declaration -Woverride-init
+ccflags-y += -Wclobbered -Wmissing-parameter-type -Wold-style-declaration -Woverride-init
 else ifeq ($(WSCFG_USING_LLVM_CLANG), y)
-EXTRA_CFLAGS += -mcmodel=large
-EXTRA_CFLAGS += -Wcast-function-type
+ccflags-y += -mcmodel=kernel
+ccflags-y += -Wcast-function-type
 endif
 
 else
