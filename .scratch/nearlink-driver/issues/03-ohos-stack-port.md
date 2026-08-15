@@ -1,7 +1,7 @@
 # 03 — 开源栈 Linux 移植面清单
 
 Type: research
-Status: open
+Status: resolved
 
 ## Question
 
@@ -20,3 +20,9 @@ OpenHarmony `communication_nearlink_service` 移植到通用 Linux 的**完整�
 ## Why it blocks
 
 Phase 3 的可行性与工作量估算；也是 map 目的地「可执行方案」的关键输入。
+
+## Answer
+
+**结论：可行（GREEN）**。核心栈（services/stack 的 cp/dp/dli/sdf/nai，约 7.3 万行纯 C，POSIX 线程化）可独立编成 Linux 库，剥离成本 2-4 周/1 人。bundle.json 实际列 43 个组件依赖：栈路径只需 6 个 OHOS 依赖且全部可 stub——hilog/hisysevent/securec/parameter/init 为纯 stub（stack 日志已有 `SDF_LogHook`→printf 的本地钩子开关 `NEARLINK_SERVICE_STACK_LOCAL_TEST`），openssl 直接可保留（sle_crypto.c 本就是 OpenSSL）；huks 仅 C++ 层用、栈不用。HAL 缝是 5 函数 C ABI（SleHalInit/SleSendDliPacket/SleReset/SleHalClose/GetDliVersion+2 回调），HDI proxy（ISleHciInterface::Get）可整体换成函数指针表——仓库自带假 HAL（dli_data_stub.c）即此模式。SA/IPC/SAMGR 层（services/server、services/ipc、frameworks）可整体剥掉，C/C++ 边界正好在 SleDliLayerAdapter.h 的 extern "C" ABI 处。硬耦合仅 4 处 `kill(getpid(),SIGKILL)`（含 dli_layer.c:631 芯片复位路径，须改回调）、/data/log 路径、ffrt（仅 snoop 线程）、securec。构建重定向成本小：复用 BUILD.gn 里的 sources 清单 + include_dirs，换成普通 GN/CMake 即可（24 个 ohos_shared_library + 101 unittest + 97 fuzztest 等模板全可丢）。最小子集 = services/stack/{sdf,dli,nai,cp,dp,utils,adapter} + 重写的 services/hardware（USB backend），services/service、frameworks、socket、ipc_parcel 全可弃。
+
+完整报告（依赖分类表/剥离成本/最小清单/引用路径）：`.scratch/nearlink-driver/assets/03-ohos-stack-port.md`

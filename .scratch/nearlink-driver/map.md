@@ -23,7 +23,11 @@
 
 <!-- 每解一张票，把 gist + 链接追加到此处（一行）。 -->
 
-（暂无）
+- [05 — ws73.bin 内部格式与签名分析](issues/05-firmware-blob-format.md) — 固件无加密无签名：64B 小写 hex SHA256 头 + 明文负载（`sha256(file[64:])==file[0:64]` 全 8 blob 验证通过）；host 唯一加工 = 剥 64B 头后按 `FILES 1 <addr> <len> <state>` 分块 ≤32KB 原样发到 0x400000（ws73.bin）。Phase 1 工具须先截 `file[64:]` 再按 01 的 FILES 握手发，不能整文件直灌。
+- [01 — 固件下载握手字节流精确还原](issues/01-firmware-handshake-spec.md) — 握手 = 纯 ASCII 行命令 + 原始 bulk 流，逐字节规范见 assets/01。顺序：可选 `READM 0x40019380 4`(连通探测,回4字节) → `WRITEM 4 0x40019408 0x<trim>`(回 `WRITEM OK`) → 每文件分块 `FILES 1 0x<addr> 0x<len> 0x<state>`(回 `READY`,停≥5ms,发原始字节,回 `FILES OK`) → `QUIT`(不回包,设备重枚举 5EP,host 等≤5s)。64B SHA256 头只校验不上传。超时: bulk-out 30s / bulk-in 2s / 重试 3 次。待实测: XO trim 值、应答大小写、boot EP 绝对地址。
+
+- [02 — DLI↔WS73 HCC 方言对照](issues/02-dli-hcc-dialect.md) — 需要转换层，但形态是**传输适配器**非协议转换器：DLI datatype 字节（CMD/EVENT/ACB/ICB = 0xA1-0xA4）与 WS73 `HCI_DATATYPE_*` **完全一致**，DLI 帧可逐字节原样作 HCC payload 送达；`/dev/hwsle` 是"帧搬运工"（不解析 opcode）。需适配 3 个 HAL 缝差异（RX 拆 type 字节 / 合成 initializationComplete / 生命周期）。残余风险：固件侧 HCI opcode 编号匹配需实机验证。
+- [03 — 开源栈 Linux 移植面清单](issues/03-ohos-stack-port.md) — **GREEN 可行**：核心栈 `services/stack/{cp,dp,dli,sdf,nai}` ~73KLOC 纯 C + POSIX 线程，可干净剥离成 Linux 库，2-4 人周。栈路径只碰 6 个 OHOS 依赖（hilog/hisysevent/securec/init/parameter 纯 stub，openssl 直接保留——SLE 加密走 OpenSSL 非 huks）；HAL 缝 = 5 函数 C ABI（+2 回调）可本地化；SA/IPC/SAMGR 层整体剥掉；最小子集 = stack 六目录 + 重写 hardware 后端。硬耦合：4 处 `kill(SIGKILL)`（含芯片复位路径，需重设计）、/data/log 路径。
 
 ## Not yet specified
 
@@ -32,7 +36,7 @@
 - **应用形态**：星闪点对点通讯最终做什么（文本 / 文件传输 / HID 外设 / UART 透传）——等 02/03 明确栈能力后定，Phase 4 范畴
 - **内核驱动代码结构**：等 01（握手规范）与 04（传输形态）拍板后，Phase 2 骨架自然成形，现在写不出票
 - **测试策略**：握手跑通后（01 验证）再定 —— 单测 / usbmon 抓包 / 双 dongle 对测
-- **固件来源合规**：ws73.bin 的分发/版本管理策略——等 06 判断 blob 格式后定
+- **固件来源合规**：ws73.bin 的分发/版本管理策略——05 已判明 blob 格式（明文+hex 头），分发合规待定
 
 ## Out of scope
 

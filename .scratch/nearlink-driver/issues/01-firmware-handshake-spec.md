@@ -1,7 +1,7 @@
 # 01 — 固件下载握手字节流精确还原
 
 Type: research
-Status: open
+Status: resolved
 
 ## Question
 
@@ -24,3 +24,10 @@ Status: open
 ## Why it blocks
 
 04（传输形态拍板）依赖本票：握手协议形态（短命令+大块 bulk 流）决定内核 vs userspace 实现方式的选择空间。
+
+## Answer
+
+Boot 态（2 bulk EP）上的固件下载是一个**纯 ASCII 行命令 + 原始 bulk 流**协议，全部字节在 `.scratch/nearlink-driver/assets/01-firmware-handshake-spec.md`。每一条命令都是大写关键字 + 空格分隔参数 + **一个结尾空格 0x20**，无长度前缀、无换行。顺序固定：可选 `READM 0x40019380 4`（HCC 连通性探测，回 4 字节寄存器值，超时临时 500ms）→ `WRITEM 4 0x40019408 0x<trim>`（回 `WRITEM OK`）→ 每个文件分块发 `FILES 1 0x<addr> 0x<len> 0x<state>`（回 `READY`，停 5ms，发原始内容字节，回 `FILES OK`）→ `QUIT`（不回包，设备重枚举为 5 EP 内核态，host 等最多 5s）。文件映射：磁盘文件头 64 字节是内容（不含头）的 SHA-256 小写 hex，host 先校验、传输时剥掉；内容按 32KB 分块，无加密无填充，chunk 数>1 时 state=0/1/2（首/中/尾），单块=3。超时：bulk-out 30000ms（`USB_DOWNLOAD_FW_TIMEOUT`），bulk-in 2000ms/次（`READ_MEG_TIMEOUT`），每步最多重试 3 次（`HOST_DEV_TIMEOUT`）。中断点：任何 disconnect 置 `connect=FALSE` 直接失败；QUIT 后重枚举是成功路径，5s 内不出 5-EP probe 才算失败。
+
+- Asset：`.scratch/nearlink-driver/assets/01-firmware-handshake-spec.md`
+- 需实测确认：CMU XO trim 具体值（INI 校准数据）、设备应答串确切大小写、boot EP 绝对地址（源码只锁死描述符索引，未断言 0x81/0x01）。
