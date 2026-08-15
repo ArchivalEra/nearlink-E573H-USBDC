@@ -8,6 +8,8 @@
 #   3. docs/*.md contain no CJK characters (docs are English-only)
 #   4. no accidental large files / binaries staged (whitelist gitignore sanity)
 #   5. git identity (user.name / user.email) is configured
+#   6. README zh/en bilingual sync — a change to one side must be mirrored
+#      in the other (translation trigger)
 #
 # Exit code 0 = all good; non-zero = fix and retry. Run manually with:
 #     bash scripts/check-docs.sh
@@ -107,6 +109,28 @@ NAME="$(git config user.name 2>/dev/null || true)"
 EMAIL="$(git config user.email 2>/dev/null || true)"
 [ -n "$NAME" ]  && ok "user.name = $NAME"  || warn "user.name not set"
 [ -n "$EMAIL" ] && ok "user.email = $EMAIL" || warn "user.email not set"
+
+# ---------------------------------------------------------------------------
+say "6/6 README bilingual sync (zh/en must change together)"
+# ---------------------------------------------------------------------------
+# Trigger: if one README changed in the outgoing commits but the other didn't,
+# remind to translate the counterpart. Compares the push range
+# (origin/main..HEAD when a remote exists, else the last commit).
+BASE="$(git rev-parse --verify -q origin/main 2>/dev/null || \
+        git rev-parse --verify -q HEAD~1 2>/dev/null || true)"
+if [ -n "$BASE" ]; then
+    ZH_CHANGED="$(git diff --name-only "$BASE..HEAD" -- README.md 2>/dev/null | wc -l)"
+    EN_CHANGED="$(git diff --name-only "$BASE..HEAD" -- README.en.md 2>/dev/null | wc -l)"
+    if [ "$ZH_CHANGED" -gt 0 ] && [ "$EN_CHANGED" -eq 0 ]; then
+        fail "README.md changed but README.en.md did not — update the English translation (or --no-verify to force)"
+    elif [ "$EN_CHANGED" -gt 0 ] && [ "$ZH_CHANGED" -eq 0 ]; then
+        fail "README.en.md changed but README.md did not — update the Chinese translation (or --no-verify to force)"
+    else
+        ok "README zh/en pair consistent (both $([ "$ZH_CHANGED" -gt 0 ] && echo "changed" || echo "unchanged"))"
+    fi
+else
+    warn "no base ref to diff for README sync check"
+fi
 
 # ---------------------------------------------------------------------------
 printf '\n'
