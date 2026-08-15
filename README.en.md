@@ -68,6 +68,11 @@ lsusb -v -d ffff:3733
 | `docs/SDK-INTEL.md` | WS73 SDK structure/build/reusable pieces | en |
 | `docs/USB-PROTOCOL.md` | HCC-over-USB protocol essentials | en |
 | `docs/ECOSYSTEM.md` | NearLink open-source ecosystem map + roadmap | en |
+| `scripts/check-docs.sh` | pre-push doc hygiene checks (invoked by the pre-push hook) | — |
+| `scripts/install-hooks.sh` | installs the pre-push hook (core.hooksPath) | — |
+| `scripts/check-fw.sh` | firmware verification (size / SHA-256 header match) | — |
+| `scripts/sync-ws73-probe.sh` | mirrors the ws73-probe tool from the lab | — |
+| `scripts/ws73-probe/` | user-space handshake validator source (libusb, lab mirror) | — |
 | `.gitignore` | Whitelist rules (ignore all by default, allowlist only) | — |
 | `sdk/` | HiSilicon WS73 Linux SDK source tree (binaries gitignored) | — |
 

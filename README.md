@@ -71,6 +71,11 @@ lsusb -v -d ffff:3733
 | `docs/SDK-INTEL.md` | WS73 SDK 结构/构建/可复用部件 | 英文 |
 | `docs/USB-PROTOCOL.md` | HCC-over-USB 协议要点 | 英文 |
 | `docs/ECOSYSTEM.md` | 星闪开源生态地图 + 定稿路线 | 英文 |
+| `scripts/check-docs.sh` | push 前文档卫生检查（pre-push hook 调用） | — |
+| `scripts/install-hooks.sh` | 安装 pre-push hook（core.hooksPath） | — |
+| `scripts/check-fw.sh` | 固件校验（大小/SHA-256 头匹配） | — |
+| `scripts/sync-ws73-probe.sh` | 从实验场同步 ws73-probe 工具 | — |
+| `scripts/ws73-probe/` | 用户态握手验证工具源码（libusb，实验场镜像） | — |
 | `.gitignore` | 白名单规则（默认忽略一切，仅放行白名单） | — |
 | `sdk/` | 海思 WS73 Linux SDK 源码树（二进制被 gitignore 拦） | — |
 
