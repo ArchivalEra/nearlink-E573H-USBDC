@@ -237,8 +237,10 @@ static int send_file(libusb_device_handle *h, unsigned char ep_out,
         fclose(f);
         die("out of memory");
     }
-    if (fread(buf, 1, (size_t)content_len, f) != (size_t)content_len) {
-        fprintf(stderr, "  short read on %s\n", path);
+    /* skip the 64-byte SHA-256 header — only the content goes on the wire */
+    if (fseek(f, SHA_HEADER_LEN, SEEK_SET) != 0 ||
+        fread(buf, 1, (size_t)content_len, f) != (size_t)content_len) {
+        fprintf(stderr, "  read error on %s\n", path);
         free(buf);
         fclose(f);
         return -1;
