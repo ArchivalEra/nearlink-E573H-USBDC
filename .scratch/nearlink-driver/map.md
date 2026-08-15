@@ -29,12 +29,13 @@
 - [02 — DLI↔WS73 HCC 方言对照](issues/02-dli-hcc-dialect.md) — 需要转换层，但形态是**传输适配器**非协议转换器：DLI datatype 字节（CMD/EVENT/ACB/ICB = 0xA1-0xA4）与 WS73 `HCI_DATATYPE_*` **完全一致**，DLI 帧可逐字节原样作 HCC payload 送达；`/dev/hwsle` 是"帧搬运工"（不解析 opcode）。需适配 3 个 HAL 缝差异（RX 拆 type 字节 / 合成 initializationComplete / 生命周期）。残余风险：固件侧 HCI opcode 编号匹配需实机验证。
 - [03 — 开源栈 Linux 移植面清单](issues/03-ohos-stack-port.md) — **GREEN 可行**：核心栈 `services/stack/{cp,dp,dli,sdf,nai}` ~73KLOC 纯 C + POSIX 线程，可干净剥离成 Linux 库，2-4 人周。栈路径只碰 6 个 OHOS 依赖（hilog/hisysevent/securec/init/parameter 纯 stub，openssl 直接保留——SLE 加密走 OpenSSL 非 huks）；HAL 缝 = 5 函数 C ABI（+2 回调）可本地化；SA/IPC/SAMGR 层整体剥掉；最小子集 = stack 六目录 + 重写 hardware 后端。硬耦合：4 处 `kill(SIGKILL)`（含芯片复位路径，需重设计）、/data/log 路径。
 
+- [04 — 传输形态拍板：内核 usb_driver vs userspace](issues/04-transport-form.md) — **内核 usb_driver 最终形态**（SLE 12Mbps=USB FS 线速，userspace 拷贝开销卡吞吐）+ **混合节奏**（Phase 1 userspace 验握手先行，Phase 2 内核定稿 /dev/ws73hci）。
+
 ## Not yet specified
 
 <!-- 还看不清、尚不能成票的雾区；前沿推进后会graduated成票 -->
 
 - **应用形态**：星闪点对点通讯最终做什么（文本 / 文件传输 / HID 外设 / UART 透传）——等 02/03 明确栈能力后定，Phase 4 范畴
-- **内核驱动代码结构**：等 01（握手规范）与 04（传输形态）拍板后，Phase 2 骨架自然成形，现在写不出票
 - **测试策略**：握手跑通后（01 验证）再定 —— 单测 / usbmon 抓包 / 双 dongle 对测
 - **固件来源合规**：ws73.bin 的分发/版本管理策略——05 已判明 blob 格式（明文+hex 头），分发合规待定
 
