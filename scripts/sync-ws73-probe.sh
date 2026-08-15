@@ -13,6 +13,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LAB="/mnt/hdd/laboratory/ws73-probe"
 SRC="$LAB/probe.c"
 DST_DIR="$REPO_ROOT/scripts/ws73-probe"
+TOOLS="probe.c kernel-observe.c kernel-init.c"
 FORCE=0
 [ "${1:-}" = "--force" ] && FORCE=1
 
@@ -21,13 +22,17 @@ FORCE=0
 mkdir -p "$DST_DIR"
 cp "$LAB/91-ws73.rules" "$DST_DIR/91-ws73.rules"
 
-if [ -f "$DST_DIR/probe.c" ] && ! diff -q "$SRC" "$DST_DIR/probe.c" >/dev/null 2>&1 && [ "$FORCE" -eq 0 ]; then
-    echo "note: scripts/ws73-probe/probe.c differs from lab — pass --force to overwrite" >&2
-    exit 2
-fi
+for t in $TOOLS; do
+    if [ -f "$DST_DIR/$t" ] && ! diff -q "$LAB/$t" "$DST_DIR/$t" >/dev/null 2>&1 && [ "$FORCE" -eq 0 ]; then
+        echo "note: scripts/ws73-probe/$t differs from lab — pass --force to overwrite" >&2
+        exit 2
+    fi
+done
 
-cp "$SRC" "$DST_DIR/probe.c"
-echo "synced: $SRC -> $DST_DIR/probe.c"
+for t in $TOOLS; do
+    cp "$LAB/$t" "$DST_DIR/$t"
+    echo "synced: $LAB/$t -> $DST_DIR/$t"
+done
 
 if command -v gcc >/dev/null 2>&1 && command -v pkg-config >/dev/null 2>&1 && pkg-config --exists libusb-1.0 2>/dev/null; then
     echo "build check (lab):"
