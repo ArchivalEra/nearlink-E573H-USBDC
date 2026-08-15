@@ -40,7 +40,7 @@
 <!-- 还看不清、尚不能成票的雾区；前沿推进后会graduated成票 -->
 
 - **应用形态**：星闪点对点通讯最终做什么（文本 / 文件传输 / HID 外设 / UART 透传）——等 kernel 态通道建立（票 07）后定，Phase 4 范畴
-- **测试策略**：通道实验持续（1-4 实验 / 1-5 对照）；usbmon 受限（xanmod debugfs 未开）；双 dongle 对测在 07 通道建立后
+- **测试策略**：双 dongle 对测在 08 通道建立后（1-4/1-5 互为 server/client）；usbmon 受限（xanmod debugfs 未开）
 - **固件来源合规**：4 blob 全 SHA256 头+明文已确认，分发合规待定
 
 ## Out of scope
