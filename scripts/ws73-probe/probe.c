@@ -67,6 +67,9 @@ struct opts {
     int         skip_verify;
     int         wait_ms;
     int         verbose;
+    int         sel_set;          /* --port <bus>-<port> */
+    int         sel_bus;
+    int         sel_port;
 };
 
 static int fread_sha_header(const char *path, char out[SHA_HEADER_LEN + 1]);
@@ -354,8 +357,11 @@ static void print_descriptor(libusb_device *dev)
     }
 }
 
-/* Find our device; returns a device with refcount +1 (caller frees). */
-static int find_device(libusb_context *ctx, libusb_device **out)
+/* Find our device; returns a device with refcount +1 (caller frees).
+ * When sel_set, match the given bus/port (e.g. --port 1-4); otherwise the
+ * first matching device wins. */
+static int find_device(libusb_context *ctx, libusb_device **out,
+                       int sel_set, int sel_bus, int sel_port)
 {
     libusb_device **list;
     ssize_t cnt, i;
@@ -372,6 +378,10 @@ static int find_device(libusb_context *ctx, libusb_device **out)
             continue;
         if ((dd.idVendor == WS73_VID && dd.idProduct == WS73_PID) ||
             (dd.idVendor == ALT_VID && dd.idProduct == ALT_PID)) {
+            if (sel_set &&
+                (libusb_get_bus_number(list[i]) != sel_bus ||
+                 libusb_get_port_number(list[i]) != sel_port))
+                continue;
             libusb_ref_device(list[i]);
             *out = list[i];
             libusb_free_device_list(list, 1);
@@ -440,13 +450,24 @@ int main(int argc, char **argv)
             o.skip_verify = 1;
         } else if (strcmp(argv[i], "--wait-ms") == 0 && i + 1 < argc) {
             o.wait_ms = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "--port") == 0 && i + 1 < argc) {
+            const char *p = argv[++i];
+            char *dash;
+            o.sel_bus = atoi(p);
+            dash = strchr(p, '-');
+            if (!dash) {
+                fprintf(stderr, "--port expects <bus>-<port>, e.g. --port 1-4\n");
+                return 3;
+            }
+            o.sel_port = atoi(dash + 1);
+            o.sel_set = 1;
         } else if (strcmp(argv[i], "--verbose") == 0) {
             o.verbose = 1;
         } else {
             fprintf(stderr,
                     "usage: %s [probe] [--fw=path@addr]... [--trim hex] "
-                    "[--skip-readm] [--skip-writem] [--skip-verify] "
-                    "[--wait-ms n] [--verbose]\n",
+                    "[--port <bus>-<port>] [--skip-readm] [--skip-writem] "
+                    "[--skip-verify] [--wait-ms n] [--verbose]\n",
                     argv[0]);
             return 3;
         }
@@ -457,8 +478,10 @@ int main(int argc, char **argv)
     if (libusb_init(&ctx) != 0)
         die("libusb_init failed");
 
-    if (find_device(ctx, &dev) != 0) {
-        fprintf(stderr, "ws73-probe: no ffff:3733 (or 12d1:897d) device found\n");
+    if (find_device(ctx, &dev, o.sel_set, o.sel_bus, o.sel_port) != 0) {
+        fprintf(stderr,
+                "ws73-probe: no ffff:3733 (or 12d1:897d) device found%s\n",
+                o.sel_set ? " at selected port" : "");
         goto out;
     }
     if (libusb_open(dev, &h) != 0) {
@@ -555,7 +578,7 @@ int main(int argc, char **argv)
             struct devinfo di2;
             usleep(100000);
             waited += 100;
-            if (find_device(ctx, &d2) != 0)
+            if (find_device(ctx, &d2, o.sel_set, o.sel_bus, o.sel_port) != 0)
                 continue;
             if (classify(d2, &di2) == 0 && di2.bNumEndpoints == 5) {
                 printf("  re-enumerated: 5 endpoints (kernel mode) OK\n");
