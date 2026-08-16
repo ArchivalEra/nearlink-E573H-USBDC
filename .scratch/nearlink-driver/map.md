@@ -49,6 +49,8 @@
 - **应用形态**：星闪点对点通讯最终做什么（文本 / 文件传输 / HID 外设 / UART 透传）——等 kernel 态通道建立（票 07）后定，Phase 4 范畴
 - **测试策略**：双 dongle 对测前置 = 票 09（hcc 多实例 hack）；单 dongle 对其他设备（手机/路由器）是捷径；usbmon 受限（xanmod debugfs 未开）
 - **固件来源合规**：4 blob 全 SHA256 头+明文已确认，分发合规待定
+- **用户态栈路径已明确**（2026-08-16 研究）: (a) AT/SLE-Link 桥接（libsle_host.a 内嵌 AT 层，最快捷径）
+  (b) OHOS 栈移植（票 03 GREEN + ssap_pkt.h 完整蓝本）(c) 自写 HCI 客户端（已验证框架）
 
 ## Out of scope
 

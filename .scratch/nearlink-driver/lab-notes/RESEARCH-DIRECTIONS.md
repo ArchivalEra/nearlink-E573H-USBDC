@@ -49,3 +49,21 @@
 - **内核模块懒初始化 = 高风险**：必须在隔离环境单步验证，禁止与已占 PM 的服务并行
 - **重编译必须 -j1 + free 检查**（OOM 黑屏两次教训）
 - **只操作星闪口**（用户红线）；宿主 WiFi/BT 不动
+
+## 六、新情报整合（2026-08-16 社区+协议研究完成）
+
+**新增资产**:
+- `OPENHARMONY-COMMUNITY-RESEARCH.md` — OpenHarmony 上游/HDI 契约/HDF 驱动/社区时间线
+- `NEARLINK-PROTOCOL-RESEARCH.md` — SSAP 协议/连接流程/数据面/测距/AT 路径
+
+**关键新方向**:
+1. **AT/SLE-Link 桥接路径（重大捷径）**: `libsle_host.a` 内嵌 AT 层（sle_at_* 符号）→
+   WS73 dongle 可跑 `AT+SLEENABLE/AT+SSAPS*` 桥接，**无需移植完整用户态栈**即可验证 SSAP/连接
+2. **SSAP 实现蓝本**: ssap_pkt.h 完整 PDU 定义 + OHOS ssaps_server.c/ssapc_client.c（Apache-2.0）
+   → 直接移植/参考实现 SSAP 服务端
+3. **DLI HCI 对齐**: 我们的 WS73 HCI 与 dli_opcode.h 几乎同集，可字节级 diff 补齐
+4. **WS73 Linux 移植博客**: CSDN eayayaya（USB/i.MX6ULL）+ iikat（SDIO/Hi3516CV610, 含 sle_soc）
+   → 可联系作者获取 sle_soc 细节/官方指南 PDF
+5. **测距**: HADM channel sounding 0x2001-0x2005 已验证 accepted → 需对端实测
+
+**优先级调整**: 短期 = AT 桥接验证（最快）+ WiFi 死锁修复；中期 = SSAP 栈（有蓝本）
