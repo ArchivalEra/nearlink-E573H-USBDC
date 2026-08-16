@@ -67,3 +67,13 @@
 5. **测距**: HADM channel sounding 0x2001-0x2005 已验证 accepted → 需对端实测
 
 **优先级调整**: 短期 = AT 桥接验证（最快）+ WiFi 死锁修复；中期 = SSAP 栈（有蓝本）
+
+## 七、SLB 方向评估结论（2026-08-16）
+
+- **WS73 无 SLB 能力**（已确认）: SDK 全树零 SLB 栈；ws73.bin 固件为剥离二进制
+  无可读字符串（411 行全是噪声），无 SLB 痕迹；芯片定位 = WiFi6+BLE+SLE 三模
+- SLB（SparkLink Basic 高速）需要专用芯片/基带，标准文档会员制（TXS-10002-2025），
+  公开实现仅 nearlink_sdr_sim（Python SDR 仿真）
+- **替代方向（推荐）**: hi3798mv310 + SDIO 3.0 + WS73 = 三模落地最佳载体
+  （SDK 原生 SDIO + hi3798 板级），SDIO 直连优于 USB 480M（WiFi6 受益）
+- 师傅清单已加 SDIO 变体（SHIFU-BUILD-LIST.md 增补 2）

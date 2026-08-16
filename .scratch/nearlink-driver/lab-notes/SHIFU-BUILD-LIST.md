@@ -154,3 +154,25 @@ wifi: cd driver/wifi && make -j1 WSCFG_KCONFIG_CONFIG=<根>/.config DIR_MAP_CONF
 ble:  cd driver/bsle/ble_driver/linux && make -j1 ... CC=/usr/bin/clang NM=llvm-nm AR=llvm-ar \
       LD=ld.lld OBJCOPY=llvm-objcopy modules   # 无 clang 分支需显式传
 ```
+
+## 增补 2：hi3798mv310 + SDIO 3.0 变体（2026-08-16）
+
+**背景**: 用户有带 SDIO 3.0 的 hi3798mv310 板子。SDK **原生支持 SDIO 总线**
+（`build/config/ws73_default.config` = `WSCFG_BUS_SDIO=y` + `_PRE_PLAT_HCC_SDIO=y`），
+板级原生支持 hi3798（`CONFIG_SUPPORT_Hi3798MV320`，MV310 同族大概率兼容或小改寄存器）。
+
+**SDIO 配置要点**（对比 USB 变体）:
+- 基准配置: `build/config/ws73_default.config`（SDIO 默认）
+- `WSCFG_BUS_SDIO=y`、`_PRE_PLAT_HCC_SDIO=y`（默认已开）
+- `WSCFG_CROSS_COMPILE="aarch64-linux-gnu-"`（师傅侧）
+- `WSCFG_KERNEL_DIR=/lib/modules/7.2.../build`
+- `WSCFG_ARCH_NAME="arm64"`
+- 板级: `CONFIG_SUPPORT_Hi3798MV320=y`（MV310 若寄存器不同需对照
+  `driver/platform/pm/plat_pm_board.c:438` 的 UART_MUX_REG——注意该宏是 UART 传输专用，
+  SDIO 场景可能不需要，需师傅确认）
+- 固件: 用 `firmware/us/` 或 `firmware/e/`（两套均 SHA256 头+明文；SDIO 具体用哪套
+  需实测确认——SDK 配置里 CONFIG_FIRMWARE_BIN_PATH 指向 /etc/ws73/ws73.bin）
+
+**注意**: WS73 无 SLB（SparkLink Basic 高速）能力——SDK 全树无 SLB 栈/固件，
+芯片定位 = WiFi6 + BLE + SLE 三模。SDIO 跑的是这**三模**（尤其 WiFi6 受益于
+SDIO 直连 > USB 480M）。
