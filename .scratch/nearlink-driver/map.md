@@ -18,6 +18,9 @@
   - 协议/生态文档：`docs/USB-PROTOCOL.md`、`docs/ECOSYSTEM.md`
 - **三模共存已实锤**：PM 层 `pm_svc_state[PM_SVC_WLAN/BLE/SLE]` 是数组（plat_pm_wlan.c:140-142），三服务独立开/关——单 dongle 三模同开是架构支持，无需 hack（区别于双设备 hcc 单实例限制，票 09）
 - 单 dongle 服务电视盒 = 绕过双设备限制，三模全速路径 = 编 wifi_soc(253文件)/ble_soc/sle_soc + 用户态栈
+- **⚠️ WiFi 激活死锁教训（2026-08-16）**: wifi_soc 懒初始化（sysfs echo init）与已占用的
+  BLE/SLE PM 通道冲突 → 内核态卡死 → 宿主 I/O 阻塞被迫重启。WiFi 需独占 PM 或单步可控初始化；
+  该问题阻塞票 10 的 WiFi 模，方向记录于 lab-notes/RESEARCH-DIRECTIONS.md
 - 用户偏好：中文交流；每个决策给方案让用户拍板；文档全英文（repo 规则）
 - 环境：本机 x86 Linux，kernel headers + gcc 齐（可编内核模块）；无 gh CLI / 无 GH token（tracker 用本地 markdown）
 
