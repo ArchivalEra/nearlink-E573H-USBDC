@@ -9,7 +9,7 @@ CC      ?= cc
 CFLAGS  ?= -O2 -Wall -Wextra -Iinclude
 CFLAGS  += -std=c11
 
-SRCS := src/ssap_codec.c src/hwsle_transport.c src/ssap_server.c src/ssap_link.c
+SRCS := src/ssap_codec.c src/hwsle_transport.c src/ssap_server.c src/ssap_link.c src/feature_mgr.c
 OBJS := $(SRCS:.c=.o)
 
 all: libssap.a ssap_codec_test
@@ -23,14 +23,18 @@ ssap_codec_test: test/test_codec.c libssap.a
 ssap_server_test: test/test_server.c libssap.a
 	$(CC) $(CFLAGS) -o $@ test/test_server.c libssap.a
 
+ssap_feature_test: test/test_feature.c libssap.a
+	$(CC) $(CFLAGS) -o $@ test/test_feature.c libssap.a
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-test: ssap_codec_test ssap_server_test
+test: ssap_codec_test ssap_server_test ssap_feature_test
 	./ssap_codec_test
 	./ssap_server_test
+	./ssap_feature_test
 
 clean:
-	rm -f $(OBJS) libssap.a ssap_codec_test ssap_server_test
+	rm -f $(OBJS) libssap.a ssap_codec_test ssap_server_test ssap_feature_test
 
 .PHONY: all test clean
