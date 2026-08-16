@@ -14,9 +14,8 @@
 #include "hmac_sniffer.h"
 #endif
 
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,59))
-#include "../fs/proc/internal.h"
-#endif
+/* 7.x: ../fs/proc/internal.h is a kernel-source private header not shipped
+ * in headers packages; proc_ops/seq_* are all public in linux/proc_fs.h. */
 #include "plat_firmware.h"
 #include "oal_kernel_file.h"
 

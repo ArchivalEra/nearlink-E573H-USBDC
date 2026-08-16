@@ -542,10 +542,6 @@ osal_u32 tid_stat_to_user(osal_u32 *stat)
     /* 0 1 2 3 4 5 6 7 */
     return stat[0] + stat[1] + stat[2] + stat[3] + stat[4] + stat[5] + stat[6] + stat[7];
 }
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE >= KERNEL_VERSION(5,3,0))
-/* 内核升级后 对kernel_read 和 kernel_write 进行了限制 */
-MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);
-#endif
 #ifdef __cplusplus
 #if __cplusplus
 }

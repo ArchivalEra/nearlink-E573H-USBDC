@@ -489,6 +489,7 @@ ccflags-y += -Wclobbered -Wmissing-parameter-type -Wold-style-declaration -Wover
 else ifeq ($(WSCFG_USING_LLVM_CLANG), y)
 ccflags-y += -mcmodel=kernel
 ccflags-y += -Wcast-function-type
+ccflags-y += -Wno-error=incompatible-function-pointer-types
 endif
 
 else

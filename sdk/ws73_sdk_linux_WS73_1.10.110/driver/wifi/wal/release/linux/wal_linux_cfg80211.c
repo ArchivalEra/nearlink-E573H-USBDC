@@ -2585,7 +2585,8 @@ OAL_STATIC osal_s32 wal_cfg80211_set_channel_info(oal_wiphy_stru *wiphy, oal_net
 #ifdef CONTROLLER_CUSTOMIZATION
     chan_def = &(netdev->ieee80211_ptr->u.ap.preset_chandef);
 #else
-    chan_def = &(netdev->ieee80211_ptr->preset_chandef);
+    /* 7.x: preset_chandef moved into wdev->u.ap union */
+    chan_def = &(netdev->ieee80211_ptr->u.ap.preset_chandef);
 #endif
 
     /* 5G SoftAP暂时写死中心频率5210, 频宽80M(width 3), 待hostapd升级后删除 */

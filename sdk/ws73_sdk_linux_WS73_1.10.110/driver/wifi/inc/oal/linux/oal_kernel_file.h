@@ -36,45 +36,22 @@ extern "C" {
 #define OAL_PRINT_FORMAT_LENGTH     200                     /* 打印格式字符串的最大长度 */
 
 typedef struct file             oal_file;
-typedef mm_segment_t            oal_mm_segment_t;
+/* Linux >= 6.8 removed set_fs()/mm_segment_t entirely; kernel_read/write
+ * handle user memory without it. Keep the API as no-ops for compatibility. */
+typedef int                     oal_mm_segment_t;
 
 OAL_STATIC OAL_INLINE oal_mm_segment_t oal_get_fs(osal_void)
 {
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    return get_fs();
-#else
-#ifdef CONFIG_SET_FS
-    return get_fs();
-#else
-    return force_uaccess_begin();
-#endif
-#endif
+    return 0;
 }
 
 OAL_STATIC OAL_INLINE osal_void oal_set_fs(oal_mm_segment_t fs)
 {
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    set_fs(fs);
-#else
-#ifdef CONFIG_SET_FS
-    set_fs(fs);
-#else
-    force_uaccess_end(fs);
-#endif
-#endif
+    (void)fs;
 }
 
 OAL_STATIC OAL_INLINE osal_void oal_set_ds(osal_void)
 {
-#if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
-    oal_set_fs(get_ds());
-#else
-#ifdef CONFIG_SET_FS
-    oal_set_fs(KERNEL_DS);
-#else
-    force_uaccess_begin();
-#endif
-#endif
 }
 
 OAL_STATIC OAL_INLINE int oal_debug_sysfs_create_group(struct kobject *kobj,

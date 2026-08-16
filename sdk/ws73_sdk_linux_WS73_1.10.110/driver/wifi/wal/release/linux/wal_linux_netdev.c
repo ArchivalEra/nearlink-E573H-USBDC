@@ -1178,21 +1178,36 @@ osal_void wlan_get_addr_from_plat(osal_void)
     }
 #endif
     net_dev = hmac_device->st_p2p_info.primary_net_device;
-    if ((net_dev != OSAL_NULL) && (wlan_get_mac(net_dev->dev_addr, WLAN_MAC_ADDR_LEN, net_dev) != OAL_SUCC)) {
-        wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
-        return;
+    if (net_dev != OSAL_NULL) {
+        osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
+        if (wlan_get_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev) == OAL_SUCC) {
+            dev_addr_set(net_dev, mac_buf); /* 7.x: dev_addr is const */
+        } else {
+            wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
+            return;
+        }
     }
 #ifdef _PRE_WLAN_FEATURE_P2P
     net_dev = hmac_device->st_p2p_info.p2p_net_device;
-    if ((net_dev != OSAL_NULL) && (wlan_get_mac(net_dev->dev_addr, WLAN_MAC_ADDR_LEN, net_dev) != OAL_SUCC)) {
-        wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
-        return;
+    if (net_dev != OSAL_NULL) {
+        osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
+        if (wlan_get_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev) == OAL_SUCC) {
+            dev_addr_set(net_dev, mac_buf);
+        } else {
+            wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
+            return;
+        }
     }
 #endif
     net_dev = hmac_device->st_p2p_info.second_net_device;
-    if ((net_dev != OSAL_NULL) && (wlan_get_mac(net_dev->dev_addr, WLAN_MAC_ADDR_LEN, net_dev) != OAL_SUCC)) {
-        wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
-        return;
+    if (net_dev != OSAL_NULL) {
+        osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
+        if (wlan_get_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev) == OAL_SUCC) {
+            dev_addr_set(net_dev, mac_buf);
+        } else {
+            wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
+            return;
+        }
     }
 }
 
@@ -1231,8 +1246,10 @@ OAL_STATIC osal_s32  _wal_netdev_set_mac_addr(oal_net_device_stru *net_dev, void
         return -OAL_EINVAL;
     }
 
-    oal_set_mac_addr((osal_u8 *)(net_dev->dev_addr), (osal_u8 *)(mac_addr->sa_data));
-    ret = wlan_set_mac(net_dev->dev_addr, WLAN_MAC_ADDR_LEN, net_dev);
+    osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
+    (void)memcpy_s(mac_buf, WLAN_MAC_ADDR_LEN, mac_addr->sa_data, WLAN_MAC_ADDR_LEN);
+    dev_addr_set(net_dev, mac_buf); /* 7.x: dev_addr is const */
+    ret = wlan_set_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev);
 
     return (osal_s32)ret;
 }

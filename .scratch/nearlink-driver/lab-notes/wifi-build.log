@@ -1,0 +1,79 @@
+Makefile:35: defconfig: ================/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/platform/libc_sec/include=======================
+make -C "/lib/modules/7.1.5-x64v3-xanmod1/build" ARCH="x86" CROSS_COMPILE= CC=/usr/bin/clang NM=/usr/bin/llvm-nm AR=/usr/bin/llvm-ar LD=/usr/bin/ld.lld \
+	OBJCOPY=/usr/bin/llvm-objcopy M=/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/wifi modules KBUILD_MODPOST_WARN=1 
+make[1]: 进入目录“/usr/src/linux-headers-7.1.5-x64v3-xanmod1”
+make[2]: 进入目录“/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/wifi”
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: Debian clang version 21.1.8 (3~bpo13+2)
+  You are using:           Debian clang version 21.1.8 (10)
+warning: pahole version differs from the one used to build the kernel
+  The kernel was built with: 130
+  You are using:             0
+Makefile:35: defconfig: ================/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/platform/libc_sec/include=======================
+/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/wifi/ws73_comm_defconfig:20: built-in 
+  CC [M]  wal/release/linux/wal_linux_vap_proc.o
+  CC [M]  wal/release/linux/wal_linux_witp_cmd.o
+  CC [M]  wal/release/linux/wal_main.o
+wal/release/linux/wal_main.c:75:11: warning: no previous prototype for function 'wal_event_init' [-Wmissing-prototypes]
+   75 | osal_void wal_event_init(osal_void)
+      |           ^
+wal/release/linux/wal_main.c:75:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   75 | osal_void wal_event_init(osal_void)
+      | ^
+      | static 
+wal/release/linux/wal_main.c:102:11: warning: no previous prototype for function 'wal_event_fsm_init_etc' [-Wmissing-prototypes]
+  102 | osal_void wal_event_fsm_init_etc(osal_void)
+      |           ^
+wal/release/linux/wal_main.c:102:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  102 | osal_void wal_event_fsm_init_etc(osal_void)
+      | ^
+      | static 
+wal/release/linux/wal_main.c:144:11: warning: no previous prototype for function 'wal_event_fsm_exit_etc' [-Wmissing-prototypes]
+  144 | osal_u32  wal_event_fsm_exit_etc(osal_void)
+      |           ^
+wal/release/linux/wal_main.c:144:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  144 | osal_u32  wal_event_fsm_exit_etc(osal_void)
+      | ^
+      | static 
+wal/release/linux/wal_main.c:154:10: warning: no previous prototype for function 'wal_wakelock_info_print_etc' [-Wmissing-prototypes]
+  154 | osal_s32 wal_wakelock_info_print_etc(char *buf, osal_s32 buf_len)
+      |          ^
+wal/release/linux/wal_main.c:154:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  154 | osal_s32 wal_wakelock_info_print_etc(char *buf, osal_s32 buf_len)
+      | ^
+      | static 
+wal/release/linux/wal_main.c:604:12: warning: no previous prototype for function 'wal_destroy_all_vap_etc' [-Wmissing-prototypes]
+  604 | osal_void  wal_destroy_all_vap_etc(osal_void)
+      |            ^
+wal/release/linux/wal_main.c:604:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  604 | osal_void  wal_destroy_all_vap_etc(osal_void)
+      | ^
+      | static 
+5 warnings generated.
+  CC [M]  wal/release/linux/wal_regdb.o
+  CC [M]  wal/common/wal_utils.o
+  CC [M]  device/source/common/romable/wlan_util_common_rom.o
+  LD [M]  wifi_soc.o
+Makefile:35: defconfig: ================/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/platform/libc_sec/include=======================
+/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/wifi/ws73_comm_defconfig:20: built-in 
+  MODPOST Module.symvers
+WARNING: modpost: missing MODULE_DESCRIPTION() in wifi_soc.o
+WARNING: modpost: "zdiag_log_print0_press_prv" [wifi_soc.ko] undefined!
+WARNING: modpost: "zdiag_log_print1_press_prv" [wifi_soc.ko] undefined!
+WARNING: modpost: "zdiag_log_print2_press_prv" [wifi_soc.ko] undefined!
+WARNING: modpost: "zdiag_log_print4_press_prv" [wifi_soc.ko] undefined!
+WARNING: modpost: "memset_s_ws73" [wifi_soc.ko] undefined!
+WARNING: modpost: "zdiag_log_print3_press_prv" [wifi_soc.ko] undefined!
+WARNING: modpost: "memcpy_s_ws73" [wifi_soc.ko] undefined!
+WARNING: modpost: "osal_kfree_ws73" [wifi_soc.ko] undefined!
+WARNING: modpost: "hcc_flow_ctrl_credit_register" [wifi_soc.ko] undefined!
+WARNING: modpost: "osal_udelay_ws73" [wifi_soc.ko] undefined!
+WARNING: modpost: suppressed 108 unresolved symbol warnings because there were too many)
+  CC [M]  wifi_soc.mod.o
+  CC [M]  .module-common.o
+  LD [M]  wifi_soc.ko
+  BTF [M] wifi_soc.ko
+Skipping BTF generation for wifi_soc.ko due to unavailability of vmlinux
+make[2]: 离开目录“/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/wifi”
+make[1]: 离开目录“/usr/src/linux-headers-7.1.5-x64v3-xanmod1”
+/usr/bin/llvm-strip --strip-unneeded wifi_soc.ko

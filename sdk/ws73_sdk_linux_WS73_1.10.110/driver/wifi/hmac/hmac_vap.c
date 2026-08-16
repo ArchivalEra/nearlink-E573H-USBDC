@@ -477,7 +477,8 @@ osal_u32  hmac_vap_creat_netdev_etc(hmac_vap_stru *hmac_vap, osal_s8 *netdev_nam
 
     OAL_NETDEVICE_IFALIAS(net_device)         = OAL_PTR_NULL;
     OAL_NETDEVICE_WATCHDOG_TIMEO(net_device)  = 5; /* watchdog_timeo配置为5 */
-    (osal_void)memcpy_s(OAL_NETDEVICE_MAC_ADDR(net_device), WLAN_MAC_ADDR_LEN, mac_addr, WLAN_MAC_ADDR_LEN);
+    /* 7.x: net_device->dev_addr is const; use dev_addr_set() */
+    dev_addr_set(net_device, (const osal_u8 *)mac_addr);
     net_device->ml_priv = hmac_vap;
     oal_netdevice_qdisc(net_device, OAL_PTR_NULL);
 

@@ -689,10 +689,11 @@ osal_u32 oal_cfg80211_roamed_etc(oal_net_device_stru *net_device, struct ieee802
     return OAL_SUCC;
 
 #else
+    /* 7.x: cfg80211_roam_info moved channel/bss/bssid into links[0] */
     struct cfg80211_roam_info info = {
-        .channel = channel,
-        .bss = NULL,
-        .bssid = bssid,
+        .links[0].channel = channel,
+        .links[0].bss = NULL,
+        .links[0].bssid = bssid,
         .req_ie = req_ie,
         .req_ie_len = req_ie_len,
         .resp_ie = resp_ie,
@@ -731,7 +732,8 @@ osal_u32 oal_cfg80211_new_sta_etc(oal_net_device_stru     *net_device, const osa
 #endif
 
 #if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,34))
-    cfg80211_new_sta(net_device, mac_addr, station_info, gfp);
+    /* 7.x: cfg80211_new_sta() first arg is struct wireless_dev * */
+    cfg80211_new_sta(net_device->ieee80211_ptr, mac_addr, station_info, gfp);
 
     return OAL_SUCC;
 #else
@@ -842,7 +844,8 @@ osal_s32 oal_cfg80211_del_sta_etc(oal_net_device_stru *net_device, const osal_u8
 #endif
 
 #if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 0, 0))
-    cfg80211_del_sta(net_device, mac_addr, gfp);
+    /* 7.x: cfg80211_del_sta() first arg is struct wireless_dev * */
+    cfg80211_del_sta(net_device->ieee80211_ptr, mac_addr, gfp);
 
     return OAL_SUCC;
 #else
@@ -1009,7 +1012,8 @@ void oal_cfg80211_ch_switch_notify(oal_net_device_stru *pst_netdev,
     cfg80211_ch_switch_notify(pst_netdev, pst_chandef, 0, 0);
 #else
 #if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 5, 0))
-    cfg80211_ch_switch_notify(pst_netdev, pst_chandef);
+    /* 7.x: cfg80211_ch_switch_notify() gained link_id arg */
+    cfg80211_ch_switch_notify(pst_netdev, pst_chandef, 0);
 #endif
 #endif
 }

@@ -10,6 +10,7 @@
 #include <linux/version.h>
 #include <net/iw_handler.h>
 #include <linux/netdevice.h>
+#include <net/genetlink.h>  /* 7.x: genlmsg_put/end/cancel no longer pulled in transitively */
 #endif
 #if defined(_PRE_OS_VERSION_LITEOS) && defined(_PRE_OS_VERSION) && (_PRE_OS_VERSION_LITEOS == _PRE_OS_VERSION)
 #include "oal_mm.h"
@@ -1188,7 +1189,8 @@ static inline td_s32 oal_net_device_set_macaddr(oal_net_device_stru *dev, td_voi
 
     mac = (oal_sockaddr_stru *)addr;
 
-    (td_void)memcpy_s(dev->dev_addr, ETHER_ADDR_LEN, mac->sa_data, ETHER_ADDR_LEN);
+    /* 7.x: net_device->dev_addr is const; use dev_addr_set() */
+    dev_addr_set(dev, mac->sa_data);
     return OAL_SUCC;
 }
 
@@ -1234,7 +1236,8 @@ static inline td_s32 oal_net_device_change_mtu(oal_net_device_stru *dev, td_s32 
 #else
 static inline td_s32  oal_netif_rx_ni(oal_netbuf_stru *pst_netbuf)
 {
-    return netif_rx_ni(pst_netbuf);
+    /* 7.x: netif_rx_ni() removed (6.8+); netif_rx() same semantics in process context */
+    return netif_rx(pst_netbuf);
 }
 #endif
 
@@ -1369,7 +1372,9 @@ static inline oal_cfg80211_registered_device_stru *oal_wiphy_to_dev(oal_wiphy_st
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 18, 0))
     return wiphy_to_dev(wiphy);
 #else
-    return wiphy_to_rdev(wiphy);
+    /* 7.x: wiphy_to_rdev() is internal to cfg80211 core, not exported;
+     *      only caller (oal_cfg80211_mic_failure_etc #else branch) is dead code on 7.x */
+    return NULL;
 #endif
 }
 
