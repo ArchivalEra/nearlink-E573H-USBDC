@@ -173,3 +173,35 @@ int plat_sle_exception_rst_register_etc(void *data)
     return 0;
 }
 EXPORT_SYMBOL_GPL(plat_sle_exception_rst_register_etc);
+
+/* ble_soc.ko dep (defined in the excluded plat_pm_dfr.c) */
+int plat_bt_exception_rst_register_etc(void *data)
+{
+    (void)data;
+    return 0;
+}
+EXPORT_SYMBOL_GPL(plat_bt_exception_rst_register_etc);
+
+/* wifi_soc.ko deps (defined in the excluded plat_pm_dfr.c) */
+unsigned char plat_get_wifi_dfr_flag(void)
+{
+    return 0;
+}
+EXPORT_SYMBOL_GPL(plat_get_wifi_dfr_flag);
+
+void set_wlan_flag_close(void) { }
+EXPORT_SYMBOL_GPL(set_wlan_flag_close);
+
+int plat_wifi_exception_rst_register_etc(void *data)
+{
+    (void)data;
+    return 0;
+}
+EXPORT_SYMBOL_GPL(plat_wifi_exception_rst_register_etc);
+
+/* returns a kobject* for the boot sysfs root; NULL makes wifi init fail-safe */
+void *oal_get_sysfs_root_boot_object_etc(void)
+{
+    return NULL;
+}
+EXPORT_SYMBOL_GPL(oal_get_sysfs_root_boot_object_etc);
