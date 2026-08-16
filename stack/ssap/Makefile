@@ -9,7 +9,7 @@ CC      ?= cc
 CFLAGS  ?= -O2 -Wall -Wextra -Iinclude
 CFLAGS  += -std=c11
 
-SRCS := src/ssap_codec.c
+SRCS := src/ssap_codec.c src/hwsle_transport.c
 OBJS := $(SRCS:.c=.o)
 
 all: libssap.a ssap_codec_test
