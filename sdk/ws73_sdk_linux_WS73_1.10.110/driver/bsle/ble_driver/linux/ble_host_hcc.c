@@ -5,7 +5,7 @@
 
 #include <net/bluetooth/bluetooth.h>
 #include <net/bluetooth/hci_core.h>
-#include <asm/unaligned.h>
+#include <linux/unaligned.h>  /* 7.x: moved from asm/unaligned.h */
 #include <linux/kernel.h>
 #include <linux/skbuff.h>
 
@@ -536,7 +536,7 @@ static int bt_register_hci_dev(void)
     }
 
     bt_set_hci_dev_param(hdev);
-    hdev->dev_type = HCI_PRIMARY;
+    /* 7.x: dev_type/HCI_PRIMARY removed from hci_dev; all devices are primary */
     #ifdef WSCFG_BUS_USB
     hdev->bus = HCI_USB;
     #else

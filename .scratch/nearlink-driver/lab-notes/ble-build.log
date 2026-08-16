@@ -1,0 +1,50 @@
+Makefile:35: defconfig: ================"/lib/modules/7.1.5-x64v3-xanmod1/build"=======================
+make -C "/lib/modules/7.1.5-x64v3-xanmod1/build" ARCH="x86" CROSS_COMPILE="" M=/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/bsle/ble_driver/linux modules KBUILD_MODPOST_WARN=1
+make[1]: 进入目录“/usr/src/linux-headers-7.1.5-x64v3-xanmod1”
+make[2]: 进入目录“/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/bsle/ble_driver/linux”
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: Debian clang version 21.1.8 (3~bpo13+2)
+  You are using:           Debian clang version 21.1.8 (10)
+warning: pahole version differs from the one used to build the kernel
+  The kernel was built with: 130
+  You are using:             0
+Makefile:8: defconfig: ================ARCH="x86" CROSS_COMPILE=""=======================
+  CC [M]  ble_host_hcc.o
+ble_host_hcc.c:436:5: warning: no previous prototype for function 'ble_hci_send_frame' [-Wmissing-prototypes]
+  436 | int ble_hci_send_frame(uint8_t *buff, uint32_t len, void *user_param)
+      |     ^
+ble_host_hcc.c:436:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  436 | int ble_hci_send_frame(uint8_t *buff, uint32_t len, void *user_param)
+      | ^
+      | static 
+ble_host_hcc.c:685:11: warning: no previous prototype for function 'reset_hci_dev' [-Wmissing-prototypes]
+  685 | oal_int32 reset_hci_dev(void)
+      |           ^
+ble_host_hcc.c:685:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  685 | oal_int32 reset_hci_dev(void)
+      | ^
+      | static 
+2 warnings generated.
+  LD [M]  ble_soc.o
+Makefile:8: defconfig: ================ARCH="x86" CROSS_COMPILE=""=======================
+  MODPOST Module.symvers
+WARNING: modpost: missing MODULE_DESCRIPTION() in ble_soc.o
+WARNING: modpost: "hcc_bt_tx_data" [ble_soc.ko] undefined!
+WARNING: modpost: "osal_kfree_ws73" [ble_soc.ko] undefined!
+WARNING: modpost: "osal_kmalloc_ws73" [ble_soc.ko] undefined!
+WARNING: modpost: "pm_ble_open" [ble_soc.ko] undefined!
+WARNING: modpost: "hbsle_hcc_customize_get_device_status" [ble_soc.ko] undefined!
+WARNING: modpost: "hcc_service_init" [ble_soc.ko] undefined!
+WARNING: modpost: "plat_bt_exception_rst_register_etc" [ble_soc.ko] undefined!
+WARNING: modpost: "get_dev_addr" [ble_soc.ko] undefined!
+WARNING: modpost: "memcpy_s_ws73" [ble_soc.ko] undefined!
+WARNING: modpost: "pm_ble_enable_reply_cb_host_register" [ble_soc.ko] undefined!
+WARNING: modpost: suppressed 12 unresolved symbol warnings because there were too many)
+  CC [M]  ble_soc.mod.o
+  CC [M]  .module-common.o
+  LD [M]  ble_soc.ko
+  BTF [M] ble_soc.ko
+Skipping BTF generation for ble_soc.ko due to unavailability of vmlinux
+make[2]: 离开目录“/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/driver/bsle/ble_driver/linux”
+make[1]: 离开目录“/usr/src/linux-headers-7.1.5-x64v3-xanmod1”
+""strip --strip-unneeded ble_soc.ko

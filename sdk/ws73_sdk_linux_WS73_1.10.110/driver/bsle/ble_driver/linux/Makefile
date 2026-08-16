@@ -24,11 +24,12 @@ _INCLUDES += -I$(PLATFORM_HCC_DIR)/inc
 _INCLUDES += -I$(PLATFORM_LIBC_SEC_DIR)/include
 _INCLUDES += -I$(CUR_MK_DIR)
 
-EXTRA_CFLAGS = $(_INCLUDES)
+ccflags-y = $(_INCLUDES)
+ccflags-y += -isystem /usr/lib/llvm-21/lib/clang/21/include
 # CleanCode Build Option
-EXTRA_CFLAGS += -Werror
+ccflags-y +=
 
-EXTRA_CFLAGS += -include $(WSCFG_AUTOCONFIG_H) -include $(PLATFORM_INC_DIR)/oneimage/oneimage.h
+ccflags-y += -include $(WSCFG_AUTOCONFIG_H) -include $(PLATFORM_INC_DIR)/oneimage/oneimage.h
 
 else
 $(warning defconfig: ================$(WSCFG_KERNEL_DIR)=======================)
