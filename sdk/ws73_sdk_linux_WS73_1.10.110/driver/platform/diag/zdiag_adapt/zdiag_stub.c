@@ -199,9 +199,12 @@ int plat_wifi_exception_rst_register_etc(void *data)
 }
 EXPORT_SYMBOL_GPL(plat_wifi_exception_rst_register_etc);
 
-/* returns a kobject* for the boot sysfs root; NULL makes wifi init fail-safe */
+/* wifi_soc wifi_sysfs_init_etc expects a kobject to attach its group;
+ * kernel_kobj is the kernel's global /sys/kernel/ node — valid for
+ * sysfs_create_group, keeps the wifi sysfs tree off the host root. */
 void *oal_get_sysfs_root_boot_object_etc(void)
 {
-    return NULL;
+    extern struct kobject *kernel_kobj;
+    return kernel_kobj;
 }
 EXPORT_SYMBOL_GPL(oal_get_sysfs_root_boot_object_etc);
