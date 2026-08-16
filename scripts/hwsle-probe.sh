@@ -28,14 +28,14 @@ set -u
 
 DEV=/dev/hwsle
 SECONDS=4
-CMDS=""
+CMDS=()
 
 for a in "$@"; do
     case "$a" in
         --seconds) SECONDS="${2:-4}" ;;
-        --reset)   CMDS="$CMDS A1 08 04 00" ;;
-        --adv)     CMDS="$CMDS A1 05 0c 01 01" ;;
-        --cmd)     CMDS="$CMDS ${2:-}" ;;
+        --reset)   CMDS+=("A1 08 04 00") ;;
+        --adv)     CMDS+=("A1 05 0c 01 01") ;;
+        --cmd)     CMDS+=("${2:-}") ;;
     esac
 done
 
@@ -54,8 +54,8 @@ for ((i = 0; i < end; i++)); do
     sleep 0.5
 done
 
-for hex in $CMDS; do
-    # group hex pairs into a command
+for hex in "${CMDS[@]:-}"; do
+    [ -n "$hex" ] || continue
     read -ra bytes <<< "$hex"
     if [ "${#bytes[@]}" -ge 2 ]; then
         echo "== TX: ${bytes[*]} =="
