@@ -13,10 +13,13 @@
 
 ```
 命令:  [A1] [opcode u16 LE] [plen u16 LE] [params...]
-事件:  [A2] [hdr: 02 00] [plen u16 LE] [00 01|06 status] [opcode u16 LE 回显] [status] [data...]
-         status: 01=完成/接受  06=参数错误/不支持
+事件:  [A2] [hdr: 02 00] [plen u16 LE] [num_hci_pkts: 01] [opcode u16 LE 回显] [status 1B] [return data...]
+         status: 0x00=成功  其他=dli_errno 错误码 (0x0F=INVALID_PARAMS, 0x0B=CMD_DISALLOWED)
+         注意: 尾部 return data ≠ status! 大广播返回 0x1E=UNKNOWN_ADVERTISING_IDENTIFIER
 异步:  部分命令先回 [A2 0a 00 01 00 00]（command status 类型），完成事件可能延迟
 ```
+**修正 (2026-08-16)**: 之前误把 return data 当 status。SET_ADV_* 的 0x0b/0x0f 尾字节是 return params
+（handle 等），status 字节(01) 才是成功标志——**广播/扫描命令实际全部成功**。
 
 ## 已验证命令表
 
@@ -30,9 +33,9 @@
 | GET_PUBLIC_ADDRESS | 0x0406 | 1B type=0 | ⏳ 异步（0x0a cmd-status，完成事件未捕获） |
 | RESET | 0x0408 | 无 | ✅ status 01 |
 | READ_ACCESS_FILTER_SIZE | 0x040A | 无 | ✅ 回 status 06+数据 |
-| SET_ADV_PARAMS | 0x0C02 | **49B DLI_AdvParam** | ✅ 正确参数 status 01（零参数=06） |
-| SET_ADV_DATA | 0x0C03 | handle+op+sel+len+payload | ✅ status 01 |
-| SET_ADV_ENABLE | 0x0C05 | enable+handle+duration+maxEvt | ✅ status 01（广播启用） |
+| SET_ADV_PARAMS | 0x0C02 | **49B DLI_AdvParam** | ✅ status 00 成功 |
+| SET_ADV_DATA | 0x0C03 | handle+op+sel+len+payload | ✅ status 00；大包(>单片)需分片 FIRST→INTERMEDIATE→LAST，否则 return 0x1E |
+| SET_ADV_ENABLE | 0x0C05 | enable+handle+duration+maxEvt | ✅ status 00（广播启用） |
 | SET_SCAN_PARAMS | 0x1001 | **8B DLI_ScanParam** | ✅ 正确格式 status 01（缺 frameFormatInd 字节=06） |
 | SET_SCAN_ENABLE | 0x1002 | enable+filterdup | ✅ **status=OK**（扫描启用） |
 | CREATE_CONNECTION | 0x1401 | 需对端参数 | ✅ 异步处理 |
