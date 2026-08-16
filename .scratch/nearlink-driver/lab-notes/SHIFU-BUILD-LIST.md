@@ -125,3 +125,32 @@ cat /dev/hwsle &                             # 触发 SLE_OPEN 握手 (sle state
 - 32位 musl 版: `.../application/bin/3516V610/`（老盒若是 32 位内核可参考）
 - 实验场工具 (libusb 握手验证): `/mnt/hdd/laboratory/ws73-probe/`
 - 探索日志: `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/EXPLORE-20260815.md`
+
+## 增补：7.x 内核适配清单（x86 已验证，师傅 7.2 aarch64 大概率复用）
+
+### wifi_soc（253 文件，e79ad8a）
+| 文件 | 改动 |
+|---|---|
+| driver/wifi/Makefile | ccflags-y + isystem clang 头 + Wno-error=incompatible-function-pointer-types |
+| driver/wifi/hmac/hmac_vap.c | memcpy_s(dev_addr)→dev_addr_set()（7.x dev_addr const） |
+| driver/wifi/inc/oal/linux/oal_kernel_file.h | set_fs 全家→no-op |
+| driver/wifi/inc/oal/oal_net.h | netif_rx_ni→netif_rx（6.8+ 移除）；wiphy_to_rdev 死代码 stub；cfg80211_roam_info→links[0]；cfg80211_new_sta/del_sta 首参→wireless_dev*；ch_switch_notify→+link_id；preset_chandef→u.ap；+genetlink.h |
+| driver/wifi/oal/linux/oal_cfg80211.c | 同上 cfg80211 API 适配 |
+| driver/wifi/wal/release/linux/wal_linux_cfg80211.c | cfg80211 结构字段适配 |
+| driver/wifi/wal/release/linux/wal_linux_netdev.c | dev_addr const×4 → dev_addr_set + mac_buf；wlan_get_mac/set_mac 传 buf |
+| driver/wifi/wal/release/linux/wal_linux_util.c | 去 VFS namespace MODULE_IMPORT_NS |
+| driver/wifi/wal/release/linux/wal_linux_vap_proc.c | 去 ../fs/proc/internal.h（内核私有头） |
+
+### ble_soc（7676d6a）
+| 文件 | 改动 |
+|---|---|
+| driver/bsle/ble_driver/linux/Makefile | ccflags-y + isystem；modules 目标需显式传 CC=clang（无 LLVM 分支） |
+| driver/bsle/ble_driver/linux/ble_host_hcc.c | asm/unaligned.h→linux/unaligned.h（7.x 移位）；去 dev_type/HCI_PRIMARY（7.x 移除） |
+
+### 编译命令（x86 验证，-j1 必须）
+```
+wifi: cd driver/wifi && make -j1 WSCFG_KCONFIG_CONFIG=<根>/.config DIR_MAP_CONFIG_FILE=release.mk \
+      WSCFG_AUTOCONFIG_H=<根>/output/bin/autoconfig.h default
+ble:  cd driver/bsle/ble_driver/linux && make -j1 ... CC=/usr/bin/clang NM=llvm-nm AR=llvm-ar \
+      LD=ld.lld OBJCOPY=llvm-objcopy modules   # 无 clang 分支需显式传
+```
