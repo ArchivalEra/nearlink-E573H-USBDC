@@ -8,11 +8,16 @@ Blocked by:
 
 单 WS73 dongle 为电视盒提供三模全速无线（WiFi6 + 蓝牙 + 星闪 SLE），这是地图目的地（用户 2026-08-15 澄清）。PM 三服务并存已实锤（plat_pm_wlan.c:140-142 数组），单 dongle 无需 hack（区别于票 09 双设备）。
 
-## 已就绪（x86 侧验证）
+## 已就绪（x86 侧，2026-08-16 全部编译完成）
 
 - plat_soc.ko + sle_soc.ko：编译、加载、固件下载、SLE 通道握手全通（票 06/08）
-- wifi_soc.ko：253 文件源码 + Makefile 已适配 7.x（ccflags-y/isystem/mcmodel）→ 编译中
-- ble_soc.ko：driver/bsle/ble_driver/linux（ble_host_hcc.c）待编
+- **wifi_soc.ko 编译成功**（253 文件，e79ad8a）：cfg80211 完整驱动 → wlan0/wlan1/p2p0；
+  7.x 适配 = dev_addr_set×4 + netif_rx_ni→netif_rx + cfg80211_new_sta/del_sta(wireless_dev*) +
+  ch_switch_notify(link_id) + preset_chandef(u.ap) + roam_info(links[0]) + 去 VFS ns + 去 internal.h
+- **ble_soc.ko 编译成功**（7676d6a）：BlueZ hci0 注册（hci_alloc_dev/register）；
+  7.x 适配 = asm/unaligned.h→linux/unaligned.h + 去 dev_type/HCI_PRIMARY
+- **加载顺序**: plat → ble → sle → wifi（首个服务做固件下载）
+- ⚠️ 真机三模验证待 dongle 插回 USB（停电后两 dongle 不在总线）
 
 ## 执行步骤（-j1 安全流程）
 
