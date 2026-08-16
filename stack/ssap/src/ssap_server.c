@@ -198,3 +198,17 @@ int ssap_server_notify(ssap_server_t *srv, uint16_t handle,
                                  SSAP_CTRL_NO_FRAG, 0, handle, value, len);
     return n ? srv->send_frame(pdu, n) : -1;
 }
+
+void ssap_server_apply_config(ssap_server_t *srv, const ssap_server_config_t *cfg)
+{
+    if (!srv || !cfg)
+        return;
+    /* v1.3 features gated by the feature manager */
+    if (!(cfg->enabled_features & (1u << 1))) { /* FEAT_SSAP_V1_3 */
+        srv->version = SSAP_VERSION_1_0;
+    } else if (srv->version < SSAP_VERSION_1_3) {
+        srv->version = SSAP_VERSION_1_3;
+    }
+    if (cfg->max_mtu && cfg->max_mtu < srv->mtu)
+        srv->mtu = cfg->max_mtu;
+}

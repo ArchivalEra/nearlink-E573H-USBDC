@@ -84,3 +84,12 @@ int ssap_server_notify(ssap_server_t *srv, uint16_t handle,
                        const uint8_t *value, uint16_t len, uint8_t indicate);
 
 #endif /* SSAP_SERVER_H */
+
+/* ---- feature-aware server hooks ---- */
+typedef struct {
+    uint32_t enabled_features;   /* from feature_mgr */
+    uint16_t max_mtu;            /* feature-managed MTU cap */
+} ssap_server_config_t;
+
+/* Apply a feature-aware config (MTU cap, negotiated version). */
+void ssap_server_apply_config(ssap_server_t *srv, const ssap_server_config_t *cfg);
