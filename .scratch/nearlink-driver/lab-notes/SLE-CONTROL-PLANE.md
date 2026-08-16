@@ -107,3 +107,19 @@
 
 星闪控制面**全命令面可编程**（控制/广播/扫描/连接/测距/数据链路/PHY/安全），
 只差对端设备做实连验证（双 dongle 或星闪手机）。这是从零驱动 WS73 星闪的完整手册。
+
+## 补充验证 (2026-08-16 第四轮)
+
+**广播数据容量**: SET_ADV_PARAMS 之后 8~251B 单帧全 accepted（0x1E = 未配 handle，非长度限制）
+→ **广播数据满容量 251B 可用**（READ_MAX_ADV_DATA_LEN=0xFB 印证）
+
+**剩余 opcode**:
+| 命令 | opcode | 结果 |
+|---|---|---|
+| SET_SCAN_RSP_DATA | 0x0C04 | 0x1E（需 handle/扫描上下文） |
+| CONNECTION_UPDATE | 0x1807 | ✅ 异步 accepted |
+| SET_DATA_LEN | 0x1804 | status 06（参数需连接） |
+| SET_MCS | 0x180A | status 06（需连接） |
+| **SET_IOG_PARAM / TEST** | 0x2801/02 | ✅ **status 01 accepted**（星闪同步链路参数可配） |
+
+**结论**: 广播 251B 满容量 + IOG 同步链路参数 = 星闪低时延数据面硬件层可编程。
