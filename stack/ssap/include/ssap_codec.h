@@ -88,17 +88,6 @@ enum {
 #define SSAP_HANDLE_SERVICE_CHANGE 0x000E
 #define SSAP_HANDLE_HASH           0x000F
 
-/* ---- item types ---- */
-enum {
-    SSAP_ITEM_PRIMARY_SERVICE = 0x01,
-    SSAP_ITEM_SECONDARY_SERVICE = 0x02,
-    SSAP_ITEM_PROPERTY = 0x03,
-    SSAP_ITEM_METHOD = 0x04,
-    SSAP_ITEM_EVENT = 0x05,
-    SSAP_ITEM_SERVICE_REFERENCE = 0x06,
-    SSAP_ITEM_DESCRIPTOR = 0x07,
-};
-
 /* ---- UUID: 16-bit standard or 128-bit custom (base 0x37BEA880-FC70-11EA-B720-000000000000) ---- */
 #define SSAP_UUID16_LEN   2
 #define SSAP_UUID128_LEN  16
