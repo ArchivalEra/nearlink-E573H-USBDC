@@ -33,10 +33,18 @@
 | SET_ADV_PARAMS | 0x0C02 | **49B DLI_AdvParam** | ✅ 正确参数 status 01（零参数=06） |
 | SET_ADV_DATA | 0x0C03 | handle+op+sel+len+payload | ✅ status 01 |
 | SET_ADV_ENABLE | 0x0C05 | enable+handle+duration+maxEvt | ✅ status 01（广播启用） |
-| SET_SCAN_PARAMS | 0x1001 | 7B | ✅ 异步处理 |
+| SET_SCAN_PARAMS | 0x1001 | **8B DLI_ScanParam** | ✅ 正确格式 status 01（缺 frameFormatInd 字节=06） |
 | SET_SCAN_ENABLE | 0x1002 | enable+filterdup | ✅ **status=OK**（扫描启用） |
 | CREATE_CONNECTION | 0x1401 | 需对端参数 | ✅ 异步处理 |
 | DISCONNECT | 0x1403 | connHandle | ✅ 回 status 06（参数） |
+
+## DLI_ScanParam 8B 布局（pack(1)，2026-08-16 修正）
+
+```
+[0] ownAddrType=0    [1] scanFilterPolicy=0    [2] frameFormatInd=1(帧1)
+[3] scanType (1=active)   [4-5] scanInterval u16 LE (0.125ms 单位, 400=50ms)
+[6-7] scanWindow u16 LE (200=25ms)
+```
 
 ## DLI_AdvParam 49B 布局（pack(1)）
 
