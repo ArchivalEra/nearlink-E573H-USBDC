@@ -77,3 +77,22 @@
 - 只操作星闪口（1-5/1-4），不碰其他 USB
 - 零编译（内核模块已备）
 - 内存 <1G 停一切操作
+
+## 补充验证 (2026-08-16 第三轮)
+
+| 命令 | opcode | 结果 |
+|---|---|---|
+| READ_MEASURE_CAPS | 0x2001/02 | ✅ accepted (测距硬件支持) |
+| SET_MEASURE_EN | 0x2005 | ✅ accepted |
+| SETUP_ICB_DATA_PATH | 0x280D | ✅ accepted (ICB 数据通道) |
+| CREATE_IOB | 0x2803 | ✅ accepted (同步低时延链路) |
+| READ_REMOTE_VERSION | 0x1802 | ✅ accepted |
+| **READ_PHY** | 0x1805 | ✅ **status 01 + 完整 PHY 数据 (19B)** |
+| SET_PHY | 0x1806 | ✅ 异步 accepted |
+| READ_REMOTE_RSSI | 0x180C | ✅ 回 status 06+数据 |
+| RANDOM/ENCRYPT | 0x1C02/01 | ✅ 回 status 06 (安全功能存在) |
+
+## 结论
+
+星闪控制面**全命令面可编程**（控制/广播/扫描/连接/测距/数据链路/PHY/安全），
+只差对端设备做实连验证（双 dongle 或星闪手机）。这是从零驱动 WS73 星闪的完整手册。
