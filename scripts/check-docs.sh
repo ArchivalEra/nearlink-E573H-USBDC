@@ -119,8 +119,10 @@ say "6/6 README bilingual sync (zh/en must change together)"
 BASE="$(git rev-parse --verify -q origin/main 2>/dev/null || \
         git rev-parse --verify -q HEAD~1 2>/dev/null || true)"
 if [ -n "$BASE" ]; then
-    ZH_CHANGED="$(git diff --name-only "$BASE..HEAD" -- README.md 2>/dev/null | wc -l)"
-    EN_CHANGED="$(git diff --name-only "$BASE..HEAD" -- README.en.md 2>/dev/null | wc -l)"
+    # committed diff + working tree both count, so the check also fires
+    # before commit (staged/unstaged edits)
+    ZH_CHANGED="$( { git diff --name-only "$BASE..HEAD" -- README.md 2>/dev/null; git diff --name-only -- README.md 2>/dev/null; } | grep -c . || true)"
+    EN_CHANGED="$( { git diff --name-only "$BASE..HEAD" -- README.en.md 2>/dev/null; git diff --name-only -- README.en.md 2>/dev/null; } | grep -c . || true)"
     if [ "$ZH_CHANGED" -gt 0 ] && [ "$EN_CHANGED" -eq 0 ]; then
         fail "README.md changed but README.en.md did not — update the English translation (or --no-verify to force)"
     elif [ "$EN_CHANGED" -gt 0 ] && [ "$ZH_CHANGED" -eq 0 ]; then
