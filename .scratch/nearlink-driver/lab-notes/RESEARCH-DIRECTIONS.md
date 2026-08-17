@@ -257,3 +257,14 @@ dongle 侧必需）；OHOS-DLI-LAYER → hwsle_transport 加 pending-command 表
 烧 AT 固件 → 串口 OH 方言 AT（test-hhd01-at.sh）→ PC 栈 connect →
 exchange_info → find（含 CCCD 描述符）→ write CCCD → read/notify
 
+## 十五、WiFi 探索（进行中，2026-08-17）
+
+- WS63-WIFI-SERVICE.md — fbb_ws63 WiFi 服务层架构 + BLE/SLE 共存机制（子代理进行中）
+- WS73-WIFI-DEADLOCK.md — WS73 WiFi 懒初始化死锁根因分析 + 修复方案（子代理进行中）
+
+**今日收工盘点（2026-08-17）**:
+- 情报: 53 份（+6 待归队 = 59）
+- 代码: 84 commits，10/11 P0（仅 permissions 需 SM 层）
+- 测试: 四套全绿
+- 明天: HHD-01 AT 脚本就绪，WS73 dongle + PC 栈互连就绪
+
