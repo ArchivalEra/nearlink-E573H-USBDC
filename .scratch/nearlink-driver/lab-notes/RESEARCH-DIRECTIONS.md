@@ -146,5 +146,25 @@ HH-D01=WS63）。fbb_ws63（905M 润和官方 SDK）+ HopeRun-NearLink（官方�
 
 **待办**: WS63-BUILD-FLASH 标注的 Linux 烧录器缺失——需找 Linux 串口烧录方案（HiSpark Studio 是 Windows）；fbb_ws63 的 AT 框架（at_bt_cmd_table.h）与 OH 版 AT 指令名不一致——若走 AT 路径需对齐指令表。
 
+## 十、OHOS 生态第二批（2026-08-17，6 子代理归队，lab-notes 32→39）
+
+- WS63-AT-FRAMEWORK.md — **决定性**: 官方预编译 fwpkg 就是 AT 固件（18 条 OH 方言 SLE AT
+  指令二进制字符串确认）→ 明天烧 fwpkg + 串口 115200 发 AT 即可零编译驱动；FBB 方言不在固件里，忽略
+- SLE-MESH-EPAPER.md — README 说 AODV 实际是**主动 DV 路由**（HELLO-DV + Poison Reverse）；
+  1 Server+4 Client SSAP 连接/节点、16B 帧头、AIMD 引擎（RFC-6298 RTT）、多跳吞吐崩塌（10.8KB 图 1跳2-4s/3跳12-18s）
+- OHOS-FRAMEWORK-LAYER.md — framework 分层（ArkTS→native→binder→SA1190→stack→DLI）；
+  电视盒两路径: 跑 OHOS 用官方 kit（只需 DLI/HDI shim）/ 普通 Linux 借鉴其对象/方法 API 形态
+- OHOS-HDI-DRIVER.md — 官方 HDI 在 drivers_interface/drivers_peripheral 其他仓（本地无）；
+  HAL 桥接口形态（SleHalInit/SleSendDliPacket + type 字节）**确认票 06 /dev/ws73hci 字符设备 ABI**
+- HOPERUN-DEMOS.md — 34 个 demo 分类（23-27 才是 SLE）；首日单板自检序列
+  （demo_uart→06_gpioled→07_gpiobutton→11_aht20→12_oled→25_sle_led）
+- NEARLINK-CONTROLLER.md — 星闪 4K 游戏手柄参考设计（Hi2821/EB21）；帧聚合/脏重试/重连回放
+  状态机可抄到我们 ssap_link 之上（SSAP notify 去重/重连回放→uinput）
+
+**明天 HHD-01 上手路线（更新）**: ① 烧官方预编译 AT 固件（fwpkg，免编译）→ ② 串口 115200
+先发 AT + AT+SYSINFO 探测 → ③ OH 方言 AT 全流程（SLEENABLE→SSAPSADDSRV→…→SLESTARTADV 服务端 /
+SLESETSCANPAR→SLECONN→SSAPCFNDSTRU→SSAPCWRITECMD 客户端）→ ④ 板载外设 demo 自检 →
+⑤ 我们 PC 栈互连（连 0x2222/0x2323 或 speed MAC 11:22:33:44:55:66）
+
 **用户约束重申（防再踩）**: -j1 编译 + free 检查（OOM 黑屏×2 教训）；只动星闪 USB 口；不碰宿主 WiFi/BT；重编译前查内存。
 
