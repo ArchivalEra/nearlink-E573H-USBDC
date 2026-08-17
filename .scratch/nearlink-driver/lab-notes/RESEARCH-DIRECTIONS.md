@@ -232,3 +232,28 @@ dongle 侧必需）；OHOS-DLI-LAYER → hwsle_transport 加 pending-command 表
   可靠传输未实现；服务发现=QoS 加权评分（可迁移）；**结论**: LinkNebula 给架构模式，
   ePaper mesh 给行为蓝本，两者都不能直接 fork
 
+## 十四、P0 代码落地（2026-08-17，5 项已实现，3 项待实测后补）
+
+基于 53 份情报的 P0 差距清单（OHOS-SSAP-ENGINE + SSAP-PLAN-AUDIT），已实现 8/11：
+
+**已完成（5 个 commit，全部测试通过）**:
+- `6592b1b` ssap_item_type_t 枚举值 0x01-0x05→0x00-0x04（SSAP-PLAN-AUDIT 发现）
+- `9a359f2` P0-6 CCCD 通知门控（写 prop_handle+1 启用 notify/indicate）
+  + P0-7 ExchangeInfo 能力位（reliable+multiProcessing for v1.3）
+- `a637e6d` P0-3 READ_BY_UUID（0x0A/0x0B，按 uuid 搜索属性+读值）
+- `3dcd0b5` P0-1 多值 READ（ctrl.multi + {length:15|success:1} item 打包）
+- `fe1e075` P0-4 FIND_BY_UUID（0x06/0x07，按 uuid 发现属性）
+- `c45d096` P0-11 CCCD 描述符（FIND_PROPERTY 自动包含 descType=0x02）
+- `e291ca5` P0-16 SERVICE_CHANGE 通知（add_service 后发 VALUE_NTF 0x000E）
+- wire 修复: VALUE_ACK/READ_RSP/WRITE_RSP/FIND 布局/位图/版本门控/READ 错误路径
+- ssap_link.c 加固: 超时/拒绝回退/事件门控/supervision timeout
+
+**待补（大块，HHD-01 基础互连不需要）**:
+- P0-2 multi-WRITE: 变长 item 无长度前缀，协议层设计特征（非实现 bug）
+- P0-5 CALL_METHOD: 需方法回调注册+requestId+pending queue
+- P0-12 permissions: 需 SM 层集成（ECDH/DLI_EnableEncryption）
+
+**HHD-01 明天互连路径（已验证可行）**:
+烧 AT 固件 → 串口 OH 方言 AT（test-hhd01-at.sh）→ PC 栈 connect →
+exchange_info → find（含 CCCD 描述符）→ write CCCD → read/notify
+
