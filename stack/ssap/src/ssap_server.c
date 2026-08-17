@@ -86,6 +86,8 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         ssap_decode_exchange_info(pdu, len, &mtu, &ver);
         if (mtu)
             srv->mtu = mtu > SSAP_MTU_MAX ? SSAP_MTU_MAX : mtu;
+        if (ver)
+            srv->version = (ver < srv->version) ? ver : srv->version; /* min(peer, local) */
         rsp_len = ssap_encode_exchange_info(rsp, sizeof(rsp),
                                             SSAP_MSG_EXCHANGE_INFO_RSP, 0x03,
                                             srv->mtu, srv->version);
@@ -98,13 +100,15 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
             return -1;
         uint16_t start_h = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
         uint16_t end_h   = (uint16_t)(pdu[4] | ((uint16_t)pdu[5] << 8));
+        uint8_t is_v10 = (srv->version < SSAP_VERSION_1_3);
         if (find_type == SSAP_FIND_PRIMARY_SERVICE) {
             for (uint8_t i = 0; i < srv->service_count; i++) {
                 ssap_service_t *svc = &srv->services[i];
                 if (!svc->is_primary || svc->start_handle < start_h || svc->start_handle > end_h)
                     continue;
-                /* member: [start u16][end u16][type u8][uuid16]
-                 * (SSAP_FIND_PRIMARY_SERVICE_STD_LEN = 7) */
+                /* memberValue = member-presence bitmap (ssap_type.h):
+                 * REFERENCE=0x01, PROPERTY=0x02, METHOD=0x04, EVENT=0x08 */
+                uint8_t member = (svc->property_count > 0) ? 0x02 : 0x00;
                 size_t n = 0;
                 rsp[n++] = SSAP_MSG_FIND_STRUCTURE_RSP;
                 rsp[n++] = SSAP_CTRL_NO_FRAG;
@@ -112,9 +116,15 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
                 rsp[n++] = (uint8_t)(svc->start_handle >> 8);
                 rsp[n++] = (uint8_t)(svc->end_handle & 0xFF);
                 rsp[n++] = (uint8_t)(svc->end_handle >> 8);
-                rsp[n++] = SSAP_ITEM_PRIMARY_SERVICE;
-                rsp[n++] = (uint8_t)(svc->uuid16 & 0xFF);
-                rsp[n++] = (uint8_t)(svc->uuid16 >> 8);
+                if (is_v10) {
+                    /* v1.0 member: [start][end][member] — no uuid */
+                    rsp[n++] = member;
+                } else {
+                    /* v1.3 member: [start][end][uuid 2/16][member] */
+                    rsp[n++] = (uint8_t)(svc->uuid16 & 0xFF);
+                    rsp[n++] = (uint8_t)(svc->uuid16 >> 8);
+                    rsp[n++] = member;
+                }
                 srv->send_frame(rsp, n);
             }
             return 0;
@@ -126,15 +136,17 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
                     ssap_property_t *p = &svc->properties[j];
                     if (p->handle < start_h || p->handle > end_h)
                         continue;
-                    /* member: [handle u16][uuid16][operation u32][descriptorCount u8]
-                     * (SSAP_FIND_PROPERTY_STD_LEN = 9) */
                     size_t n = 0;
                     rsp[n++] = SSAP_MSG_FIND_STRUCTURE_RSP;
                     rsp[n++] = SSAP_CTRL_NO_FRAG;
                     rsp[n++] = (uint8_t)(p->handle & 0xFF);
                     rsp[n++] = (uint8_t)(p->handle >> 8);
-                    rsp[n++] = (uint8_t)(p->uuid16 & 0xFF);
-                    rsp[n++] = (uint8_t)(p->uuid16 >> 8);
+                    if (!is_v10) {
+                        /* v1.3 property member: [handle][uuid][op u32][descCount] */
+                        rsp[n++] = (uint8_t)(p->uuid16 & 0xFF);
+                        rsp[n++] = (uint8_t)(p->uuid16 >> 8);
+                    }
+                    /* v1.0: [handle][op u32][descCount] — no uuid */
                     rsp[n++] = (uint8_t)(p->operation & 0xFF);
                     rsp[n++] = (uint8_t)((p->operation >> 8) & 0xFF);
                     rsp[n++] = (uint8_t)((p->operation >> 16) & 0xFF);
@@ -156,14 +168,18 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         uint8_t value[SSAP_MAX_VALUE_LEN];
         uint16_t vlen = 0;
         int ok = (p && p->read_cb) ? p->read_cb(handle, value, &vlen, sizeof(value)) : -1;
+        size_t n = 0;
+        rsp[n++] = SSAP_MSG_READ_RSP;
         if (ok != 0) {
+            /* read failure: READ_RSP with ctrl.error=1 + 2-byte item
+             * {length:15=errCode, success:1=0} (ssaps_server.c SSAPS_SendReadReqRsp) */
             uint8_t err = p ? SSAP_ERRCODE_FORBID_READ : SSAP_ERRCODE_INVALID_HANDLE;
-            size_t n = ssap_encode_error_rsp(rsp, sizeof(rsp), SSAP_MSG_READ_REQ, handle, err);
+            rsp[n++] = SSAP_CTRL_NO_FRAG | 0x08; /* frag=no-frag, error bit set */
+            rsp[n++] = (uint8_t)(err & 0xFF);
+            rsp[n++] = (uint8_t)(err >> 8);
             return srv->send_frame(rsp, n);
         }
         /* single value: [msgCode][ctrl multi=0][value...] — no handle/len prefix */
-        size_t n = 0;
-        rsp[n++] = SSAP_MSG_READ_RSP;
         rsp[n++] = SSAP_CTRL_NO_FRAG;
         if (vlen && n + vlen <= sizeof(rsp)) {
             memcpy(rsp + n, value, vlen);

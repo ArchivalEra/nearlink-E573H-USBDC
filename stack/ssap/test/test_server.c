@@ -68,7 +68,7 @@ int main(void)
         CHECK(g_last_tx[0] == SSAP_MSG_EXCHANGE_INFO_RSP, "exchange rsp opcode");
     }
 
-    /* FIND_STRUCTURE (primary service) */
+    /* FIND_STRUCTURE (primary service, v1.3 default: [start][end][uuid][member]) */
     {
         uint8_t req[8];
         size_t n = ssap_encode_find_struct_req(req, sizeof(req),
@@ -76,11 +76,25 @@ int main(void)
                                                0x0001, 0xFFFF, NULL, 0);
         CHECK(ssap_server_dispatch(&srv, req, n) == 0, "find handled");
         CHECK(g_last_tx[0] == SSAP_MSG_FIND_STRUCTURE_RSP, "find rsp opcode");
-        CHECK(g_last_tx[6] == SSAP_ITEM_PRIMARY_SERVICE, "find returns primary service");
-        /* member = [start u16][end u16][type u8][uuid16] = 7 B */
-        CHECK(g_last_tx_len == 9, "find member len 9 (2 hdr + 7 member)");
+        /* member = [start u16][end u16][uuid16][memberValue bitmap] = 9 B */
+        CHECK(g_last_tx_len == 9, "find v1.3 member len 9 (2 hdr + 7 member)");
         CHECK(g_last_tx[2] == 0x01 && g_last_tx[3] == 0x00, "find start_handle 0x0001");
-        CHECK(g_last_tx[7] == 0x34 && g_last_tx[8] == 0x12, "find uuid16 0x1234 LE");
+        CHECK(g_last_tx[6] == 0x34 && g_last_tx[7] == 0x12, "find uuid16 0x1234 LE");
+        CHECK(g_last_tx[8] == 0x02, "find memberValue bitmap PROPERTY (0x02)");
+    }
+
+    /* FIND_STRUCTURE after v1.0 negotiation: [start][end][member] — no uuid */
+    {
+        uint8_t req[8];
+        size_t n = ssap_encode_exchange_info(req, sizeof(req),
+                                             SSAP_MSG_EXCHANGE_INFO_REQ, 0x02, 0, 1);
+        CHECK(ssap_server_dispatch(&srv, req, n) > 0, "exchange v1.0 handled");
+        n = ssap_encode_find_struct_req(req, sizeof(req),
+                                        SSAP_FIND_PRIMARY_SERVICE, 0, 0,
+                                        0x0001, 0xFFFF, NULL, 0);
+        CHECK(ssap_server_dispatch(&srv, req, n) == 0, "find v1.0 handled");
+        CHECK(g_last_tx_len == 7, "find v1.0 member len 7 (2 hdr + 5 member, no uuid)");
+        CHECK(g_last_tx[6] == 0x02, "find v1.0 memberValue bitmap at offset 6");
     }
 
     /* READ_REQ */
@@ -94,6 +108,19 @@ int main(void)
         /* single value: [msgCode][ctrl][value...] — no handle/len prefix */
         CHECK(g_last_tx_len == 7, "read rsp len 7 (2 hdr + 5 data)");
         CHECK(memcmp(g_last_tx + 2, "hello", 5) == 0, "read returns 'hello' at offset 2");
+    }
+
+    /* READ_REQ to unknown handle -> READ_RSP ctrl.error=1 + 2-byte item */
+    {
+        uint8_t req[8];
+        uint16_t h = 0x7F7F;
+        uint8_t t = 0;
+        size_t n = ssap_encode_read_req(req, sizeof(req), &h, &t, 1);
+        CHECK(ssap_server_dispatch(&srv, req, n) == (int)g_last_tx_len, "read bad handle handled");
+        CHECK(g_last_tx[0] == SSAP_MSG_READ_RSP, "read err rsp opcode 0x09");
+        CHECK((g_last_tx[1] & 0x08) != 0, "read err ctrl.error bit set");
+        CHECK(g_last_tx_len == 4 && g_last_tx[2] == SSAP_ERRCODE_INVALID_HANDLE,
+              "read err 2-byte item carries INVALID_HANDLE");
     }
 
     /* WRITE_CMD */
