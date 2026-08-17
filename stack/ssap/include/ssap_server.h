@@ -34,11 +34,11 @@ enum {
 };
 
 typedef enum {
-    SSAP_ITEM_PRIMARY_SERVICE = 0x01,
-    SSAP_ITEM_SECONDARY_SERVICE = 0x02,
-    SSAP_ITEM_PROPERTY = 0x03,
-    SSAP_ITEM_METHOD = 0x04,
-    SSAP_ITEM_EVENT = 0x05,
+    SSAP_ITEM_PRIMARY_SERVICE = 0x00,
+    SSAP_ITEM_SECONDARY_SERVICE = 0x01,
+    SSAP_ITEM_PROPERTY = 0x02,
+    SSAP_ITEM_METHOD = 0x03,
+    SSAP_ITEM_EVENT = 0x04,
 } ssap_item_type_t;
 
 /* property callbacks */
