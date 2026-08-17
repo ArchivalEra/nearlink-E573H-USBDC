@@ -1,6 +1,6 @@
 # 研究方向清单 (Research Directions)
 
-> 整理: 2026-08-16 · 更新: 2026-08-17（最终整合盘点）
+> 整理: 2026-08-16 · 更新: 2026-08-17（WS63 聚焦 + HH-D01 确认）
 > 目的: 记录之后要研究的方向，避免资料散落。
 > 关联: wayfinder 票 09/10 + lab-notes 各文档。
 
@@ -79,6 +79,11 @@
 **关键新方向**:
 1. **AT/SLE-Link 桥接路径（重大捷径）**: `libsle_host.a` 内嵌 AT 层（sle_at_* 符号）→
    WS73 dongle 可跑 `AT+SLEENABLE/AT+SSAPS*` 桥接，**无需移植完整用户态栈**即可验证 SSAP/连接
+   - ✅ **2026-08-17 确认**: HHD-01 官方固件（`HopeRun-NearLink/HH-D01/WS63V100 AT命令使用案例.pdf`）
+     内置完整 SLE/SSAP AT 指令集：服务端 `AT+SLEENABLE/SLESETADDR/SSAPSADDSRV/ADDPROPERTY/
+     ADDDESCR/STARTSERV/SLESTARTADV`，客户端 `SLESETSCANPAR/STARTSCAN/STOPSCAN/SLECONN/SLEPAIR/
+     SSAPCFNDSTRU/CWRITECMD`。→ 明天板子到手**无需编译 SDK**，串口 AT 即可驱动星闪；
+     也印证 WS73 AT 桥接可行性
 2. **SSAP 实现蓝本**: ssap_pkt.h 完整 PDU 定义 + OHOS ssaps_server.c/ssapc_client.c（Apache-2.0）
    → 直接移植/参考实现 SSAP 服务端
 3. **DLI HCI 对齐**: 我们的 WS73 HCI 与 dli_opcode.h 几乎同集，可字节级 diff 补齐
@@ -113,5 +118,33 @@
 4. ws73usb 驱动骨架（票 06）——等 OSPL-USB-TRANSPORT 报告喂设计
 5. hi3798 电视盒交叉编译（SHIFU-BUILD-LIST 已备）
 
-**用户约束重申**: -j1 编译 + free 检查（OOM 黑屏×2 教训）；只动星闪 USB 口；不碰宿主 WiFi/BT。
+## 九、WS63 深挖批次（2026-08-17，8 子代理归队）
+
+**背景**: 用户明天收到润和 HHD-01 星闪开发板（WS63 芯片，HopeRun-NearLink firmware/README 确认
+HH-D01=WS63）。fbb_ws63（905M 润和官方 SDK）+ HopeRun-NearLink（官方仓库）本地深挖完成。
+
+**8 份新报告**（lab-notes 25→32）:
+- WS63-SSAP-API.md — SSAP PDU 结构 vs OHOS 逐字节验证 → **FIND member 位图 + 版本门控 + READ 错误项 3 修复已提交 4addeaf**
+- WS63-CONN-DISCOVERY.md — 连接 API 只带地址（固件代管链路生命周期）→ 我们 DLI 层加固依然必要
+- WS63-SLE-EXAMPLES.md — 官方示例（UUID 0xABCD/0x1122、speed server MAC 11:22:33:44:55:66）+ 互连手册
+- WS63-HADM-LL.md — HADM 测距 6 函数 + 0x2005 极性（enable=0=START）+ 低时延=ACB 调度（非 IOG 同步链路）
+- WS63-BUILD-FLASH.md — riscv32 交叉编译（工具链内置）、fwpkg 构建、串口烧录（Linux 烧录器缺失=关键风险）
+- WS63-VS-WS73.md — 同族 FBB 栈、API 头逐文件 diff 仅 4-53 行、线协议一致 → **互连前提成立**
+- HHD01-BOARD.md — HHD-01 板卡全貌 + 23_sle_uart 拆解 + 明天上手 checklist
+- COMMUNITY-PROJECTS.md — 12 个社区项目体检（NearLinkSLE/sle_measure_sdk/ili9320 星闪应用层协议等）
+
+**关键新情报**:
+1. **AT 桥接路径实锤**: HHD-01 官方固件内置完整 SLE/SSAP AT 指令集（AT+SLEENABLE/SSAPSADDSRV/
+   SLECONN/SLEPAIR/SSAPCFNDSTRU/SSAPCWRITECMD…）→ 明天串口 AT 零编译直接驱动星闪；
+   文本已入库 .scratch/.../assets/HHD01-WS63V100-AT-commands.txt
+2. **明天上手计划（HHD-01 到手后）**: ① apt/pip 装 cmake/ninja/kconfiglib/pycparser →
+   ② fbb_ws63 .config 开 sle_uuid_server/sle_speed_server → ③ build.py -c ws63-liteos-app →
+   ④ 串口烧录 fwpkg（Linux 烧录器待定）→ ⑤ PC 栈（stack/ssap, tcid 0x0A）连 WS63（0xABCD/0x1122
+   或 speed MAC）→ ⑥ 测速（READ 触发 100 万×236B 通知）
+3. **互连前提成立**: WS63 板跑 sle_uuid_server + 我们 PC dongle 栈，同族 FBB 栈同线协议；
+   待实机验证: 版本协商（WS63 请求 v1.0 vs 我们 v1.3 已修）、连接完成事件码、tcid
+
+**待办**: WS63-BUILD-FLASH 标注的 Linux 烧录器缺失——需找 Linux 串口烧录方案（HiSpark Studio 是 Windows）；fbb_ws63 的 AT 框架（at_bt_cmd_table.h）与 OH 版 AT 指令名不一致——若走 AT 路径需对齐指令表。
+
+**用户约束重申（防再踩）**: -j1 编译 + free 检查（OOM 黑屏×2 教训）；只动星闪 USB 口；不碰宿主 WiFi/BT；重编译前查内存。
 
