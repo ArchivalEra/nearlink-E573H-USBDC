@@ -76,7 +76,11 @@ int main(void)
                                                0x0001, 0xFFFF, NULL, 0);
         CHECK(ssap_server_dispatch(&srv, req, n) == 0, "find handled");
         CHECK(g_last_tx[0] == SSAP_MSG_FIND_STRUCTURE_RSP, "find rsp opcode");
-        CHECK(g_last_tx[4] == SSAP_ITEM_PRIMARY_SERVICE, "find returns primary service");
+        CHECK(g_last_tx[6] == SSAP_ITEM_PRIMARY_SERVICE, "find returns primary service");
+        /* member = [start u16][end u16][type u8][uuid16] = 7 B */
+        CHECK(g_last_tx_len == 9, "find member len 9 (2 hdr + 7 member)");
+        CHECK(g_last_tx[2] == 0x01 && g_last_tx[3] == 0x00, "find start_handle 0x0001");
+        CHECK(g_last_tx[7] == 0x34 && g_last_tx[8] == 0x12, "find uuid16 0x1234 LE");
     }
 
     /* READ_REQ */
@@ -87,8 +91,9 @@ int main(void)
         size_t n = ssap_encode_read_req(req, sizeof(req), &h, &t, 1);
         CHECK(ssap_server_dispatch(&srv, req, n) == (int)g_last_tx_len, "read handled");
         CHECK(g_last_tx[0] == SSAP_MSG_READ_RSP, "read rsp opcode");
-        CHECK(g_last_tx[4] == 5 && g_last_tx[5] == 0 &&
-              memcmp(g_last_tx + 6, "hello", 5) == 0, "read returns 'hello'");
+        /* single value: [msgCode][ctrl][value...] — no handle/len prefix */
+        CHECK(g_last_tx_len == 7, "read rsp len 7 (2 hdr + 5 data)");
+        CHECK(memcmp(g_last_tx + 2, "hello", 5) == 0, "read returns 'hello' at offset 2");
     }
 
     /* WRITE_CMD */
@@ -97,6 +102,27 @@ int main(void)
         size_t n = ssap_encode_write(req, sizeof(req), SSAP_MSG_WRITE_CMD,
                                      prop, 0, (const uint8_t *)"xyz", 3);
         CHECK(ssap_server_dispatch(&srv, req, n) == 0, "write_cmd handled (no rsp)");
+    }
+
+    /* WRITE_REQ -> WRITE_RSP (success: 2 bytes, ctrl.result=0) */
+    {
+        uint8_t req[16];
+        size_t n = ssap_encode_write(req, sizeof(req), SSAP_MSG_WRITE_REQ,
+                                     prop, 0, (const uint8_t *)"abc", 3);
+        CHECK(ssap_server_dispatch(&srv, req, n) == (int)g_last_tx_len, "write_req handled");
+        CHECK(g_last_tx[0] == SSAP_MSG_WRITE_RSP, "write_req rsp opcode 0x0E");
+        CHECK(g_last_tx_len == 2 && g_last_tx[1] == 0x00, "write_req success rsp (2B, result 0)");
+    }
+
+    /* WRITE_REQ to unknown handle -> WRITE_RSP with error items
+     * [ctrl][errorNum][handle u16][code] = 6 bytes */
+    {
+        uint8_t req[16];
+        size_t n = ssap_encode_write(req, sizeof(req), SSAP_MSG_WRITE_REQ,
+                                     0x7F7F, 0, (const uint8_t *)"abc", 3);
+        CHECK(ssap_server_dispatch(&srv, req, n) == (int)g_last_tx_len, "write_req bad handle handled");
+        CHECK(g_last_tx[0] == SSAP_MSG_WRITE_RSP && g_last_tx[1] == 0x01, "write_req err rsp ctrl");
+        CHECK(g_last_tx_len == 6 && g_last_tx[5] == SSAP_ERRCODE_INVALID_HANDLE, "write_req err code");
     }
 
     /* NOTIFY */

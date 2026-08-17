@@ -182,14 +182,36 @@ size_t ssap_encode_error_rsp(uint8_t *out, size_t out_sz,
     return len;
 }
 
-size_t ssap_encode_value_ack(uint8_t *out, size_t out_sz, uint16_t handle)
+size_t ssap_encode_write_rsp(uint8_t *out, size_t out_sz,
+                             uint16_t handle, uint8_t result, uint8_t err_code)
 {
-    if (out_sz < 5)
+    /* Success: [msgCode][ctrl result=0b00] = 2 B (SSAP_WRITE_RSP_PDU_LEN).
+     * Error: [msgCode][ctrl][errorNum u8=1][handle u16][errCode u8] = 6 B
+     * (SSAP_WRITE_RSP_ERROR_OFFSET). */
+    if (result != 0) {
+        if (out_sz < 6)
+            return 0;
+        out[0] = SSAP_MSG_WRITE_RSP;
+        out[1] = (uint8_t)(result & 0x03);
+        out[2] = 0x01; /* errorNum */
+        put_u16(out + 3, handle);
+        out[5] = err_code;
+        return 6;
+    }
+    if (out_sz < 2)
         return 0;
-    size_t len = 0;
-    out[len++] = SSAP_MSG_VALUE_ACK;
-    out[len++] = 0;
-    len += put_u16(out + len, handle);
-    out[len++] = 0x01; /* success */
-    return len;
+    out[0] = SSAP_MSG_WRITE_RSP;
+    out[1] = 0x00;
+    return 2;
+}
+
+size_t ssap_encode_value_ack(uint8_t *out, size_t out_sz, uint8_t type, uint8_t result)
+{
+    /* PDU: msgCode(1) + ctrl(type:1)(1) + result(1) — no handle. */
+    if (out_sz < 3)
+        return 0;
+    out[0] = SSAP_MSG_VALUE_ACK;
+    out[1] = (uint8_t)((type & 0x01) << 2);
+    out[2] = result;
+    return 3;
 }

@@ -92,25 +92,29 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         return srv->send_frame(rsp, rsp_len);
     }
     case SSAP_MSG_FIND_STRUCTURE_REQ: {
-        /* respond with service info: findType in ctrl low 3 bits */
+        /* findType in ctrl low 3 bits; [start u16][end u16][uuid?] in payload */
         uint8_t find_type = ctrl & 0x07;
+        if (len < 6)
+            return -1;
+        uint16_t start_h = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
+        uint16_t end_h   = (uint16_t)(pdu[4] | ((uint16_t)pdu[5] << 8));
         if (find_type == SSAP_FIND_PRIMARY_SERVICE) {
             for (uint8_t i = 0; i < srv->service_count; i++) {
                 ssap_service_t *svc = &srv->services[i];
-                if (!svc->is_primary)
+                if (!svc->is_primary || svc->start_handle < start_h || svc->start_handle > end_h)
                     continue;
-                /* minimal response: [msgCode][ctrl][handle u16][type u8][uuid16] */
+                /* member: [start u16][end u16][type u8][uuid16]
+                 * (SSAP_FIND_PRIMARY_SERVICE_STD_LEN = 7) */
                 size_t n = 0;
                 rsp[n++] = SSAP_MSG_FIND_STRUCTURE_RSP;
                 rsp[n++] = SSAP_CTRL_NO_FRAG;
                 rsp[n++] = (uint8_t)(svc->start_handle & 0xFF);
                 rsp[n++] = (uint8_t)(svc->start_handle >> 8);
+                rsp[n++] = (uint8_t)(svc->end_handle & 0xFF);
+                rsp[n++] = (uint8_t)(svc->end_handle >> 8);
                 rsp[n++] = SSAP_ITEM_PRIMARY_SERVICE;
                 rsp[n++] = (uint8_t)(svc->uuid16 & 0xFF);
                 rsp[n++] = (uint8_t)(svc->uuid16 >> 8);
-                /* operation bits for the service */
-                rsp[n++] = 0x01; /* read */
-                rsp[n++] = 0x00; /* descriptor count */
                 srv->send_frame(rsp, n);
             }
             return 0;
@@ -120,18 +124,22 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
                 ssap_service_t *svc = &srv->services[i];
                 for (uint8_t j = 0; j < svc->property_count; j++) {
                     ssap_property_t *p = &svc->properties[j];
-                    if (p->handle < ctrl) /* startHandle in payload; simplified */
+                    if (p->handle < start_h || p->handle > end_h)
                         continue;
+                    /* member: [handle u16][uuid16][operation u32][descriptorCount u8]
+                     * (SSAP_FIND_PROPERTY_STD_LEN = 9) */
                     size_t n = 0;
                     rsp[n++] = SSAP_MSG_FIND_STRUCTURE_RSP;
                     rsp[n++] = SSAP_CTRL_NO_FRAG;
                     rsp[n++] = (uint8_t)(p->handle & 0xFF);
                     rsp[n++] = (uint8_t)(p->handle >> 8);
-                    rsp[n++] = SSAP_ITEM_PROPERTY;
                     rsp[n++] = (uint8_t)(p->uuid16 & 0xFF);
                     rsp[n++] = (uint8_t)(p->uuid16 >> 8);
                     rsp[n++] = (uint8_t)(p->operation & 0xFF);
-                    rsp[n++] = 0x00;
+                    rsp[n++] = (uint8_t)((p->operation >> 8) & 0xFF);
+                    rsp[n++] = (uint8_t)((p->operation >> 16) & 0xFF);
+                    rsp[n++] = (uint8_t)((p->operation >> 24) & 0xFF);
+                    rsp[n++] = 0x00; /* descriptor count */
                     srv->send_frame(rsp, n);
                 }
             }
@@ -148,22 +156,18 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         uint8_t value[SSAP_MAX_VALUE_LEN];
         uint16_t vlen = 0;
         int ok = (p && p->read_cb) ? p->read_cb(handle, value, &vlen, sizeof(value)) : -1;
+        if (ok != 0) {
+            uint8_t err = p ? SSAP_ERRCODE_FORBID_READ : SSAP_ERRCODE_INVALID_HANDLE;
+            size_t n = ssap_encode_error_rsp(rsp, sizeof(rsp), SSAP_MSG_READ_REQ, handle, err);
+            return srv->send_frame(rsp, n);
+        }
+        /* single value: [msgCode][ctrl multi=0][value...] — no handle/len prefix */
         size_t n = 0;
         rsp[n++] = SSAP_MSG_READ_RSP;
         rsp[n++] = SSAP_CTRL_NO_FRAG;
-        if (ok == 0) {
-            rsp[n++] = (uint8_t)(handle & 0xFF);
-            rsp[n++] = (uint8_t)(handle >> 8);
-            rsp[n++] = (uint8_t)(vlen & 0xFF);
-            rsp[n++] = (uint8_t)(vlen >> 8);
-            if (vlen && n + vlen <= sizeof(rsp)) {
-                memcpy(rsp + n, value, vlen);
-                n += vlen;
-            }
-        } else {
-            rsp[n++] = 0x00;
-            rsp[n++] = 0x00;
-            rsp[n++] = 0x01; /* error */
+        if (vlen && n + vlen <= sizeof(rsp)) {
+            memcpy(rsp + n, value, vlen);
+            n += vlen;
         }
         return srv->send_frame(rsp, n);
     }
@@ -178,8 +182,10 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         int ok = (p && p->write_cb) ? p->write_cb(handle, pdu + 5, (uint16_t)(len - 5)) : -1;
         if (opcode == SSAP_MSG_WRITE_CMD)
             return 0; /* no response for write command */
-        size_t n = ssap_encode_error_rsp(rsp, sizeof(rsp), SSAP_MSG_WRITE_REQ,
-                                         handle, ok == 0 ? 0x00 : 0x0F);
+        /* WRITE_REQ -> WRITE_RSP: ctrl.result=0 success; error items on failure */
+        uint8_t result = ok == 0 ? 0x00 : 0x01; /* 0b01 = partial (error items follow) */
+        uint8_t err = p ? SSAP_ERRCODE_FORBID_WRITE : SSAP_ERRCODE_INVALID_HANDLE;
+        size_t n = ssap_encode_write_rsp(rsp, sizeof(rsp), handle, result, err);
         return srv->send_frame(rsp, n);
     }
     default:

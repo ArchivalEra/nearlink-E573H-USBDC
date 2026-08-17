@@ -83,11 +83,23 @@ int main(void)
         CHECK(buf[3] == 0x01 && buf[4] == 0x00 && buf[5] == 0x05, "error_rsp handle+code");
     }
 
-    /* 7. VALUE_ACK */
+    /* 7. VALUE_ACK: [msgCode][ctrl type][result] — no handle */
     {
-        size_t n = ssap_encode_value_ack(buf, sizeof(buf), 0x0001);
-        CHECK(n == 5, "value_ack len 5");
-        CHECK(buf[0] == 0x11 && buf[2] == 0x01 && buf[3] == 0x00, "value_ack hdr+handle");
+        size_t n = ssap_encode_value_ack(buf, sizeof(buf), 1, 1);
+        CHECK(n == 3, "value_ack len 3");
+        CHECK(buf[0] == 0x11 && buf[1] == 0x04 && buf[2] == 0x01, "value_ack hdr+type+result");
+    }
+
+    /* 7b. WRITE_RSP: success = 2 bytes; error = [ctrl][errorNum][handle][code] 6 bytes */
+    {
+        size_t n = ssap_encode_write_rsp(buf, sizeof(buf), 0x0001, 0x00, 0);
+        CHECK(n == 2, "write_rsp success len 2");
+        CHECK(buf[0] == 0x0E && buf[1] == 0x00, "write_rsp success hdr");
+        n = ssap_encode_write_rsp(buf, sizeof(buf), 0x0001, 0x01, 0x07);
+        CHECK(n == 6, "write_rsp error len 6");
+        CHECK(buf[0] == 0x0E && buf[1] == 0x01, "write_rsp error ctrl");
+        CHECK(buf[2] == 0x01, "write_rsp errorNum");
+        CHECK(buf[3] == 0x01 && buf[4] == 0x00 && buf[5] == 0x07, "write_rsp error handle+code");
     }
 
     /* 8. trans types */

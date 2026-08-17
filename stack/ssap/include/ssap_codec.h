@@ -131,8 +131,14 @@ size_t ssap_encode_value(uint8_t *out, size_t out_sz, uint8_t opcode,
 size_t ssap_encode_error_rsp(uint8_t *out, size_t out_sz,
                              uint8_t msg_code_req, uint16_t handle, uint8_t err_code);
 
-/* Encode VALUE_ACK (0x11). */
-size_t ssap_encode_value_ack(uint8_t *out, size_t out_sz, uint16_t handle);
+/* Encode WRITE_RSP (0x0E): [msgCode][ctrl result:2][on error: handle u16 + errCode 1].
+ * result: 0b00 success, 0b01 partial, 0b10 cancel. For success pass err_code 0. */
+size_t ssap_encode_write_rsp(uint8_t *out, size_t out_sz,
+                             uint16_t handle, uint8_t result, uint8_t err_code);
+
+/* Encode VALUE_ACK (0x11): [msgCode][ctrl type:1][result 1] — no handle.
+ * type: 0=property indication ack, 1=event indication ack; result: 0/1 recv status. */
+size_t ssap_encode_value_ack(uint8_t *out, size_t out_sz, uint8_t type, uint8_t result);
 
 /* Get opcode from msgCode (low 7 bits). */
 static inline uint8_t ssap_opcode_of(uint8_t msg_code) { return msg_code & 0x7F; }
