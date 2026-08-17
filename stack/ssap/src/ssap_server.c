@@ -71,6 +71,19 @@ static ssap_property_t *find_property(ssap_server_t *srv, uint16_t handle)
     return NULL;
 }
 
+/* Find property whose CCCD descriptor is at the given handle (= prop_handle+1) */
+static ssap_property_t *find_by_cccd(ssap_server_t *srv, uint16_t handle)
+{
+    for (uint8_t i = 0; i < srv->service_count; i++) {
+        ssap_service_t *svc = &srv->services[i];
+        for (uint8_t j = 0; j < svc->property_count; j++) {
+            if (svc->properties[j].handle + 1 == handle)
+                return &svc->properties[j];
+        }
+    }
+    return NULL;
+}
+
 int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
 {
     if (len < 2 || !srv->send_frame)
@@ -88,8 +101,12 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
             srv->mtu = mtu > SSAP_MTU_MAX ? SSAP_MTU_MAX : mtu;
         if (ver)
             srv->version = (ver < srv->version) ? ver : srv->version; /* min(peer, local) */
+        /* advertise capabilities: reliable(3) + multiProcessing(5) for v1.3+ */
+        uint8_t rsp_ctrl = 0x03; /* mtu + version */
+        if (srv->version >= SSAP_VERSION_1_3)
+            rsp_ctrl |= 0x28; /* bit3=reliable | bit5=multiProcessing */
         rsp_len = ssap_encode_exchange_info(rsp, sizeof(rsp),
-                                            SSAP_MSG_EXCHANGE_INFO_RSP, 0x03,
+                                            SSAP_MSG_EXCHANGE_INFO_RSP, rsp_ctrl,
                                             srv->mtu, srv->version);
         return srv->send_frame(rsp, rsp_len);
     }
@@ -194,6 +211,17 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         uint16_t handle = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
         uint8_t type = pdu[4];
         (void)type;
+        /* CCCD descriptor write: client writes to prop_handle+1 */
+        ssap_property_t *cccd_prop = find_by_cccd(srv, handle);
+        if (cccd_prop) {
+            uint16_t val = (len >= 7) ? (uint16_t)(pdu[5] | ((uint16_t)pdu[6] << 8)) : 0;
+            cccd_prop->cccd_value = (val == 0x0001) ? 1 : (val == 0x0002) ? 2 : 0;
+            if (opcode == SSAP_MSG_WRITE_CMD)
+                return 0;
+            /* CCCD write always succeeds */
+            size_t n = ssap_encode_write_rsp(rsp, sizeof(rsp), handle, 0x00, 0);
+            return srv->send_frame(rsp, n);
+        }
         ssap_property_t *p = find_property(srv, handle);
         int ok = (p && p->write_cb) ? p->write_cb(handle, pdu + 5, (uint16_t)(len - 5)) : -1;
         if (opcode == SSAP_MSG_WRITE_CMD)
@@ -214,6 +242,14 @@ int ssap_server_notify(ssap_server_t *srv, uint16_t handle,
 {
     if (!srv->send_frame)
         return -1;
+    /* CCCD gating: check if notify/indicate is enabled for this property */
+    ssap_property_t *p = find_property(srv, handle);
+    if (p) {
+        if (indicate && p->cccd_value < 2)
+            return -1; /* indicate requires CCCD=2 */
+        if (!indicate && p->cccd_value < 1)
+            return -1; /* notify requires CCCD>=1 */
+    }
     uint8_t pdu[SSAP_MAX_VALUE_LEN + 8];
     size_t n = ssap_encode_value(pdu, sizeof(pdu),
                                  indicate ? SSAP_MSG_VALUE_IND : SSAP_MSG_VALUE_NTF,

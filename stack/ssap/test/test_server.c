@@ -59,13 +59,15 @@ int main(void)
                                              0, fake_read, fake_write);
     CHECK(prop != 0 && prop > svc, "add property returns handle > service");
 
-    /* EXCHANGE_INFO_REQ */
+    /* EXCHANGE_INFO_REQ — capability bits: reliable(3)+multiProcessing(5) for v1.3 */
     {
         uint8_t req[8];
         size_t n = ssap_encode_exchange_info(req, sizeof(req),
                                              SSAP_MSG_EXCHANGE_INFO_REQ, 0x03, 251, SSAP_VERSION_1_3);
         CHECK(ssap_server_dispatch(&srv, req, n) == (int)g_last_tx_len, "exchange handled");
         CHECK(g_last_tx[0] == SSAP_MSG_EXCHANGE_INFO_RSP, "exchange rsp opcode");
+        /* v1.3: ctrl should have bit3=reliable + bit5=multiProcessing = 0x2B */
+        CHECK(g_last_tx[1] == 0x2B, "exchange v1.3 ctrl = 0x2B (mtu+ver+reliable+multi)");
     }
 
     /* FIND_STRUCTURE (primary service, v1.3 default: [start][end][uuid][member]) */
@@ -152,9 +154,21 @@ int main(void)
         CHECK(g_last_tx_len == 6 && g_last_tx[5] == SSAP_ERRCODE_INVALID_HANDLE, "write_req err code");
     }
 
-    /* NOTIFY */
+    /* NOTIFY — requires CCCD write first (prop_handle+1 = 0x0003) */
     {
-        CHECK(ssap_server_notify(&srv, prop, (const uint8_t *)"hi", 2, 0) > 0, "notify sends");
+        /* without CCCD: notify should be rejected */
+        CHECK(ssap_server_notify(&srv, prop, (const uint8_t *)"hi", 2, 0) < 0,
+              "notify blocked without CCCD");
+        /* write CCCD = 0x0001 to prop_handle+1 */
+        uint8_t cccd_req[10];
+        size_t cn = ssap_encode_write(cccd_req, sizeof(cccd_req), SSAP_MSG_WRITE_REQ,
+                                      prop + 1, 0, (const uint8_t *)"\x01\x00", 2);
+        CHECK(ssap_server_dispatch(&srv, cccd_req, cn) > 0, "CCCD write handled");
+        CHECK(g_last_tx[0] == SSAP_MSG_WRITE_RSP && g_last_tx_len == 2,
+              "CCCD write success (2B)");
+        /* now notify should succeed */
+        CHECK(ssap_server_notify(&srv, prop, (const uint8_t *)"hi", 2, 0) > 0,
+              "notify sends after CCCD");
         CHECK(g_last_tx[0] == SSAP_MSG_VALUE_NTF, "notify opcode");
     }
 

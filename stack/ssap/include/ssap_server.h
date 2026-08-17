@@ -56,6 +56,8 @@ typedef struct {
     uint8_t  permission;        /* AUTH/ENCRYPT/AUTHZ */
     ssap_read_cb  read_cb;
     ssap_write_cb write_cb;
+    /* CCCD descriptor at handle+1 (client writes 0x0001 to enable notify) */
+    uint16_t cccd_value;        /* 0=off, 1=notify enabled, 2=indicate enabled */
 } ssap_property_t;
 
 typedef struct {
