@@ -26,15 +26,19 @@ ssap_server_test: test/test_server.c libssap.a
 ssap_feature_test: test/test_feature.c libssap.a
 	$(CC) $(CFLAGS) -o $@ test/test_feature.c libssap.a
 
+ssap_link_test: test/test_link.c libssap.a
+	$(CC) $(CFLAGS) -o $@ test/test_link.c libssap.a
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-test: ssap_codec_test ssap_server_test ssap_feature_test
+test: ssap_codec_test ssap_server_test ssap_feature_test ssap_link_test
 	./ssap_codec_test
 	./ssap_server_test
 	./ssap_feature_test
+	./ssap_link_test
 
 clean:
-	rm -f $(OBJS) libssap.a ssap_codec_test ssap_server_test ssap_feature_test
+	rm -f $(OBJS) libssap.a ssap_codec_test ssap_server_test ssap_feature_test ssap_link_test
 
 .PHONY: all test clean

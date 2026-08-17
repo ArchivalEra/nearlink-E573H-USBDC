@@ -7,6 +7,8 @@
  *   SSAP then rides TCID 0x0A (SMTC) via hwsle_transport.
  *
  * State machine: IDLE → CONNECTING → CONNECTED → (SSAP active) → DISCONNECTING.
+ * Hardened per OSPL-CONN-FSM.md: connect/disconnect timeouts, reject-revert,
+ * stale-event gating, duplicate-peer rejection, supervision timeout.
  */
 
 #ifndef SSAP_LINK_H
@@ -28,6 +30,11 @@
 #define DLI_CMD_COMPLETE_EVT       0x0002
 #define DLI_CONNECTION_COMPLETE_EVT 0x0015
 #define DLI_DISCONNECTION_COMPLETE_EVT 0x0005
+
+/* command-ack timeout (ms), mirroring OSPL CMD_TIMEOUT_MS = 5000 */
+#define SSAP_LINK_CMD_TIMEOUT_MS   5000
+/* supervision timeout default (ms) when param/negotiation unknown: 0x1F4*10 */
+#define SSAP_LINK_SUP_TO_DEFAULT_MS 5000
 
 /* DLI address length */
 #ifndef SLE_ADDR_LEN
@@ -65,21 +72,39 @@ typedef enum {
 typedef struct {
     ssap_link_state_t state;
     uint16_t conn_handle;   /* from CONN_COMPLETE */
-    uint8_t  role;          /* 0=G, 1=T */
+    uint8_t  role;          /* 0=G, 1=T (populated only after layout verified) */
     uint16_t conn_interval;
-    uint16_t supervision_timeout;
+    /* target peer — set by connect(), guards duplicate connects */
+    uint8_t  target_addr[SLE_ADDR_LEN];
+    /* supervision timeout in ms (from param, else default) */
+    uint32_t supervision_timeout_ms;
+    /* watchdog bookkeeping (see ssap_link_tick) */
+    uint32_t last_activity_ms;
+    uint32_t first_tick_ms;
+    uint8_t  timeout_bucket; /* 0=idle, 1=connect, 2=disconnect */
+    uint8_t  dlen_retries;   /* SET_DATA_LEN 0x06 retry budget */
     /* callbacks */
     void (*on_connected)(uint16_t conn_handle, void *ctx);
     void (*on_disconnected)(uint16_t reason, void *ctx);
+    void (*on_connect_failed)(uint16_t status, void *ctx);
     void *ctx;
 } ssap_link_t;
 
 void ssap_link_init(ssap_link_t *link);
-/* Start connecting to peer (6-byte addr). Returns 0 if command sent. */
+/* Start connecting to peer (6-byte addr). Returns 0 if command sent,
+ * -1 if busy/duplicate peer/transport error. */
 int ssap_link_connect(ssap_link_t *link, const uint8_t peer_addr[SLE_ADDR_LEN],
                       const ssap_conn_param_t *param);
+/* Disconnect: from CONNECTED sends 0x1403; from CONNECTING cancels with
+ * 0x1402. Returns 0 if command sent, -1 otherwise. */
 int ssap_link_disconnect(ssap_link_t *link);
 /* Feed a DLI event (from hwsle_transport event parsing); updates state. */
 void ssap_link_on_event(ssap_link_t *link, uint16_t opcode, const uint8_t *data, size_t len);
+/* Periodic watchdog, monotonic ms. Drives connect/disconnect timeouts and
+ * the supervision timeout; call from the app's event loop. */
+void ssap_link_tick(ssap_link_t *link, uint32_t now_ms);
+/* Mark data activity (feed with monotonic ms on any data traffic) so the
+ * supervision timeout does not tear down a live link. */
+void ssap_link_mark_activity(ssap_link_t *link, uint32_t now_ms);
 
 #endif /* SSAP_LINK_H */
