@@ -54,6 +54,11 @@ uint16_t ssap_server_add_property(ssap_server_t *srv, uint16_t svc_handle,
     p->permission = permission;
     p->read_cb = rc;
     p->write_cb = wc;
+    /* auto-CCCD: if property supports notify/indicate, add CCCD descriptor */
+    if (operation & (SSAP_OP_NOTIFY | SSAP_OP_INDICATE)) {
+        p->desc_count = 1;
+        p->desc_type = 0x02; /* CLIENT_CONFIG (CCCD) per ssap_type.h */
+    }
     svc->property_count++;
     svc->end_handle = p->handle;
     return p->handle;
@@ -183,7 +188,10 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
                     rsp[n++] = (uint8_t)((p->operation >> 8) & 0xFF);
                     rsp[n++] = (uint8_t)((p->operation >> 16) & 0xFF);
                     rsp[n++] = (uint8_t)((p->operation >> 24) & 0xFF);
-                    rsp[n++] = 0x00; /* descriptor count */
+                    rsp[n++] = p->desc_count; /* descriptor count */
+                    if (p->desc_count > 0) {
+                        rsp[n++] = p->desc_type; /* e.g. 0x02 = CLIENT_CONFIG / CCCD */
+                    }
                     srv->send_frame(rsp, n);
                 }
             }
@@ -227,7 +235,9 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
                 rsp[n++] = (uint8_t)((p->operation >> 8) & 0xFF);
                 rsp[n++] = (uint8_t)((p->operation >> 16) & 0xFF);
                 rsp[n++] = (uint8_t)((p->operation >> 24) & 0xFF);
-                rsp[n++] = 0x00; /* descriptor count */
+                rsp[n++] = p->desc_count;
+                if (p->desc_count > 0)
+                    rsp[n++] = p->desc_type;
                 srv->send_frame(rsp, n);
                 found = 1;
             }

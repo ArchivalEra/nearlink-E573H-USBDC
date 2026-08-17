@@ -62,6 +62,8 @@ typedef struct {
     ssap_write_cb write_cb;
     /* CCCD descriptor at handle+1 (client writes 0x0001 to enable notify) */
     uint16_t cccd_value;        /* 0=off, 1=notify enabled, 2=indicate enabled */
+    uint8_t  desc_count;        /* number of descriptors (0 or 1 = CCCD) */
+    uint8_t  desc_type;         /* descriptor type (0x02 = CLIENT_CONFIG / CCCD) */
 } ssap_property_t;
 
 typedef struct {

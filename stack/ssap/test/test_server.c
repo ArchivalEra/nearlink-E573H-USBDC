@@ -154,7 +154,25 @@ int main(void)
         CHECK(g_last_tx_len == 6 && g_last_tx[5] == SSAP_ERRCODE_INVALID_HANDLE, "write_req err code");
     }
 
-    /* FIND_STRUCTURE_BY_UUID_REQ — find property by UUID 0x5678 */
+    /* FIND_PROPERTY with CCCD descriptor (property has SSAP_OP_NOTIFY) */
+    {
+        /* re-add service+property with NOTIFY op to get CCCD */
+        ssap_server_t srv2;
+        ssap_server_init(&srv2, fake_send);
+        uint16_t svc2 = ssap_server_add_service(&srv2, 0xABCD, 1);
+        uint16_t prop2 = ssap_server_add_property(&srv2, svc2, 0x1122,
+                            SSAP_OP_READ | SSAP_OP_NOTIFY, 0, fake_read, NULL);
+        (void)prop2;
+        uint8_t req[8];
+        size_t n = ssap_encode_find_struct_req(req, sizeof(req),
+                                               SSAP_FIND_PROPERTY, 0, 0,
+                                               0x0001, 0xFFFF, NULL, 0);
+        ssap_server_dispatch(&srv2, req, n);
+        /* v1.3 property member: [handle 2][uuid 2][op 4][descCount 1][descType 1] = 11 */
+        CHECK(g_last_tx_len == 12, "find_property with CCCD desc len 12");
+        CHECK(g_last_tx[10] == 1, "descCount = 1");
+        CHECK(g_last_tx[11] == 0x02, "descType = 0x02 (CLIENT_CONFIG / CCCD)");
+    }
     {
         uint8_t req[10];
         /* [0x06][ctrl: findType=PROPERTY(0x03)|itemType=STD(0x00)][start u16][end u16][uuid16 0x5678] */
