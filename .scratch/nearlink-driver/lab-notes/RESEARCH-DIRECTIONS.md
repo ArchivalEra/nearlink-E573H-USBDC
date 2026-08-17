@@ -189,5 +189,25 @@ SLESETSCANPAR→SLECONN→SSAPCFNDSTRU→SSAPCWRITECMD 客户端）→ ④ 板�
 
 **代码落地方向（下一批）**: OHOS-SSAP-ENGINE P0 差距清单 → 修 stack/ssap 服务端（多值 READ、
 READ_BY_UUID、CCCD 门控、能力位）；OHOS-SSAP-CLIENT 蓝本 → 新增 ssap_client 模块（电视盒遥控
-dongle 侧必需）
+dongle 侧必需）；OHOS-DLI-LAYER → hwsle_transport 加 pending-command 表 + 0x00EE 超时 + CmdStatus
+区分；OHOS-DTAP-LAYER → ACB 信用门控（防溢出芯片缓冲区）
+
+## 十二、OHOS stack 内部层第四批（2026-08-17，6 子代理归队，lab-notes 44→49+）
+
+- OHOS-DLI-LAYER.md — DLI 传输层权威（dli_cmd_struct.h 49 命令结构体、dli_event_struct.h 35+ 事件、
+  dli_opcode.h 49 opcodes、per-command 回调+3-4s 超时+0x00EE dispatch）→ 我们 hwsle_transport 是
+  原始线适配（fire-and-forget），需加: pending-command 表 + 超时 + CmdStatus/CmdComplete 区分
+- OHOS-DTAP-LAYER.md — 数据面权威（TCID 动态 0x1E-0xDF、4 级优先级调度、ACB 信用门控
+  g_sendNotAckPktCnt < g_apBufferNum、帧分段 SAR/UNSEG/FIRST/MID/LAST）→ 最大借鉴:
+  **ACB 信用门控**（防止溢出芯片缓冲区）
+- OHOS-NAI-LAYER.md — SLEM 薄 facade、加密=ECDH+AES-CMAC+SHA-256（无 SM2/SM3）、初始化
+  两阶段（sync: SDF→Scheduler→DLI/CM/DTAP → async: SSAP→HADM→BAL）→ 借鉴: 生命周期分离
+- OHOS-DEVICE-MGR.md — hash-map 多设备架构（无固定槽位上限）、active/passive 配对方向、
+  SM2 加密密钥持久化（HKS）、per-profile 连接上限（HID=6/BAS=8）→ 电视盒多设备管理蓝本
+- FBB-WS63-GLE.md — 星闪协议栈链路层核心（6 模块: CM/DD/SM/TM/HCI/SSAP、`oh_sle_srv_*.c` 揭示
+  OHOS firmware-side DLI 命令处理接口、GLE CM 5 状态 vs 我们 4 状态、post-connect 自动
+  read_remote_version/set_data_len（WS73 需 host 显式发））
+- FBB-WS63-BGTP.md — 蓝牙/星闪控制器固件（仅预编译 libbgtp.a、BLE/SLE 并行 HCI 栈、`hci_gle_*`
+  dispatch、WS73 同架构 bare-metal）→ 揭示 DLI 命令芯片端处理: `hci_msg_recv_h2c` →
+  `hci_gle_cmd_received` → FSM dispatch
 

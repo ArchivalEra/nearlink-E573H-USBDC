@@ -29,8 +29,8 @@ stack/ssap/                          # SSAP userspace stack (Apache-2.0 port + o
 ```
 Tests: codec + server + feature suites all green, x86 zero-dependency build.
 
-### 📚 Intel library (44 research docs)
-Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire protocol as device firmware — port path proven**), connection manager, data plane (DTAP/SDR), security pairing, ranging, standard params (SLE 12Mbps/250µs/256 users), 6 OpenSparklink contract reports (DLI/UAPI/CONN-FSM/SSAP/PHY/USB transport), plus 8-report WS63/HHD-01 and 12-report OHOS ecosystem batches (AT framework/SLE mesh/framework/HDI/SSAP engine/client/HID remote/SA service/ranging full-path/radar).
+### 📚 Intel library (49 research docs)
+Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire protocol as device firmware — port path proven**), connection manager, data plane (DTAP/SDR), security pairing, ranging, standard params (SLE 12Mbps/250µs/256 users), 6 OpenSparklink contract reports (DLI/UAPI/CONN-FSM/SSAP/PHY/USB transport), plus 8-report WS63/HHD-01 and 17-report OHOS ecosystem batches (AT framework/SLE mesh/framework/HDI/SSAP engine/client/HID remote/SA service/ranging/radar/DLI/DTAP/NAI/device-mgr/GLE/BGTP).
 
 ## Repository layout
 
@@ -40,7 +40,7 @@ Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire p
 ├── scripts/             # ws73-probe×3 + load-driver/flash-dongle + check scripts
 ├── docs/                # English intel (DEVICE/SDK/USB-PROTOCOL/ECOSYSTEM)
 ├── sdk/                 # HiSilicon WS73 SDK (sources + x86 port, binaries gitignored)
-└── .scratch/            # wayfinder decision map + 44 research docs + shifu list
+└── .scratch/            # wayfinder decision map + 49 research docs + shifu list
 ```
 
 ## Document index & maintenance
@@ -56,7 +56,7 @@ Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire p
 | `docs/ECOSYSTEM.md` | NearLink open-source ecosystem map + roadmap | en |
 | `stack/ssap/` | SSAP userspace stack (codec/transport/server/link/feature) | — |
 | `scripts/` | test/verify/check scripts | — |
-| `.scratch/nearlink-driver/lab-notes/` | **44 research docs** (SSAP dialect/CM/DTAP/SDR/SM/HADM/standard/OSPL/WS63/OHOS…) | zh+en |
+| `.scratch/nearlink-driver/lab-notes/` | **49 research docs** (SSAP dialect/CM/DTAP/SDR/SM/HADM/standard/OSPL/WS63/OHOS…) | zh+en |
 | `.scratch/nearlink-driver/lab-notes/SHIFU-BUILD-LIST.md` | TV-box cross-compile list (hi3798 SDIO/USB variants) | zh |
 
 ## Roadmap
