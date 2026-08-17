@@ -154,7 +154,19 @@ int main(void)
         CHECK(g_last_tx_len == 6 && g_last_tx[5] == SSAP_ERRCODE_INVALID_HANDLE, "write_req err code");
     }
 
-    /* FIND_PROPERTY with CCCD descriptor (property has SSAP_OP_NOTIFY) */
+    /* SERVICE_CHANGE: after add_service, a VALUE_NTF on handle 0x000E is sent */
+    {
+        ssap_server_t srv3;
+        ssap_server_init(&srv3, fake_send);
+        uint16_t svc3 = ssap_server_add_service(&srv3, 0x9999, 1);
+        CHECK(svc3 != 0, "add service for change test");
+        CHECK(g_last_tx[0] == SSAP_MSG_VALUE_NTF, "service change: NTF opcode");
+        CHECK(g_last_tx_len == 8, "service change: 8 bytes (hdr+handle+start+end)");
+        CHECK(g_last_tx[2] == 0x0E && g_last_tx[3] == 0x00,
+              "service change: handle 0x000E");
+        CHECK(g_last_tx[4] == (svc3 & 0xFF) && g_last_tx[5] == (svc3 >> 8),
+              "service change: start handle");
+    }
     {
         /* re-add service+property with NOTIFY op to get CCCD */
         ssap_server_t srv2;

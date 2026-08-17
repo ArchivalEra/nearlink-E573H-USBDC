@@ -30,6 +30,20 @@ uint16_t ssap_server_add_service(ssap_server_t *srv, uint16_t uuid16, uint8_t is
     srv->next_handle += 2;
     svc->end_handle = srv->next_handle - 1;
     srv->service_count++;
+    /* SERVICE_CHANGE notification on handle 0x000E: {start u16}{end u16} */
+    if (srv->send_frame) {
+        uint8_t svc_evt[8];
+        size_t n = 0;
+        svc_evt[n++] = SSAP_MSG_VALUE_NTF;
+        svc_evt[n++] = SSAP_CTRL_NO_FRAG;
+        svc_evt[n++] = (uint8_t)(SSAP_HANDLE_SERVICE_CHANGE & 0xFF);
+        svc_evt[n++] = (uint8_t)(SSAP_HANDLE_SERVICE_CHANGE >> 8);
+        svc_evt[n++] = (uint8_t)(svc->start_handle & 0xFF);
+        svc_evt[n++] = (uint8_t)(svc->start_handle >> 8);
+        svc_evt[n++] = (uint8_t)(svc->end_handle & 0xFF);
+        svc_evt[n++] = (uint8_t)(svc->end_handle >> 8);
+        srv->send_frame(svc_evt, n);
+    }
     return svc->start_handle;
 }
 
