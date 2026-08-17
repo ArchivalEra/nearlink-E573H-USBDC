@@ -211,3 +211,24 @@ dongle 侧必需）；OHOS-DLI-LAYER → hwsle_transport 加 pending-command 表
   dispatch、WS73 同架构 bare-metal）→ 揭示 DLI 命令芯片端处理: `hci_msg_recv_h2c` →
   `hci_gle_cmd_received` → FSM dispatch
 
+## 十三、扫尾+审计第五批（2026-08-17，5 子代理归队，lab-notes 49→53+）
+
+- NearLinkSLE-SAMPLES.md — 社区最干净 SSAP 双端样例: SLE_HELLO（UUID 0x3333/0x3434, 2s 通知）、
+  SLE_UART_HE（生产级 8KB ring + 128B+2ms×100 重试队列）；**CCCD 写 0x0001 到 prop_handle+1
+  是通知的命门**；断连重广播=立即 sle_start_announce()
+- SLE-MEASURE-QOS.md — PHY 1M/2M/4M + MCS 0-10 + CI 1.25-20ms + 载荷 ≤1370B（链路层 ARQ）；
+  **ACB 信用门控**= `sle_flow_ctrl_flag()>0` before send（与 DTAP 确认一致）；最小实现:
+  pending-frame counter + MAX_INFLIGHT cap in hwsle_transport_send_acb()
+- SSAP-PLAN-AUDIT.md — 原计划 6 步核对: 2 done / 2 partial / 1 obsolete / 1 superseded；
+  已修 7 个 wire bug；**1 潜在 bug**: ssap_item_type_t 枚举 0x01-0x05 应为 0x00-0x04（当前无害）；
+  12 个 P0 遗漏；更新后 Roadmap: 11 P0 / 10 P1 / 6 P2
+- OHOS-SM-SECURITY.md — SM 100% host 端（cp/bsl/sle/sm/），三阶段配对（Negotiate 0x0133-
+  0x0137 → Authenticate 0x0138-0x0142, 6 方法 → Encrypt, ECDH P-256/SM2 + AES-CCM/SM4-CCM）；
+  SSAP 3-bit 权限门控（AUTHENTICATION/ENCRYPTION/AUTHORIZATION NEED）；vs OpenSparklink: OHOS
+  用规范 SLE G/T-node 协议，OpenSparklink 用 BLE LTK/IRK（不互通）→ 电视盒需 JustWorks +
+  NumericCompare + ECDH + DLI 加密命令
+- LINKNEBULA-MESH.md — Rust no_std SLE mesh PoC（Hi2821/WS73, ~2000 行, 2025-03 冻结）；
+  SLE 用法非标准（自定义 FFI）；路由=被动 beacon-DV（首跳固定表，无真正多跳）；
+  可靠传输未实现；服务发现=QoS 加权评分（可迁移）；**结论**: LinkNebula 给架构模式，
+  ePaper mesh 给行为蓝本，两者都不能直接 fork
+
