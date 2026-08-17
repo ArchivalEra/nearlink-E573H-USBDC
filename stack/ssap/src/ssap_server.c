@@ -191,6 +191,56 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         }
         return 0;
     }
+    case SSAP_MSG_FIND_STRUCTURE_BY_UUID_REQ: {
+        /* same struct as FIND_STRUCTURE_REQ but uuid is mandatory;
+         * find property matching uuid within handle range */
+        if (len < 7)
+            return -1;
+        uint8_t uuidType = (ctrl >> 3) & 0x03; /* itemType bits */
+        uint16_t start_h = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
+        uint16_t end_h   = (uint16_t)(pdu[4] | ((uint16_t)pdu[5] << 8));
+        uint8_t uuid_size = uuidType ? SSAP_UUID128_LEN : SSAP_UUID16_LEN;
+        if (len < 6 + uuid_size)
+            return -1;
+        uint16_t uuid16 = 0;
+        if (!uuidType)
+            uuid16 = (uint16_t)(pdu[6] | ((uint16_t)pdu[7] << 8));
+        /* search properties matching uuid in range */
+        uint8_t found = 0;
+        for (uint8_t i = 0; i < srv->service_count; i++) {
+            ssap_service_t *svc = &srv->services[i];
+            for (uint8_t j = 0; j < svc->property_count; j++) {
+                ssap_property_t *p = &svc->properties[j];
+                if (p->uuid16 != uuid16 || p->handle < start_h || p->handle > end_h)
+                    continue;
+                size_t n = 0;
+                rsp[n++] = SSAP_MSG_FIND_STRUCTURE_BY_UUID_RSP;
+                rsp[n++] = SSAP_CTRL_NO_FRAG;
+                rsp[n++] = (uint8_t)(p->handle & 0xFF);
+                rsp[n++] = (uint8_t)(p->handle >> 8);
+                uint8_t is_v10 = (srv->version < SSAP_VERSION_1_3);
+                if (!is_v10) {
+                    rsp[n++] = (uint8_t)(p->uuid16 & 0xFF);
+                    rsp[n++] = (uint8_t)(p->uuid16 >> 8);
+                }
+                rsp[n++] = (uint8_t)(p->operation & 0xFF);
+                rsp[n++] = (uint8_t)((p->operation >> 8) & 0xFF);
+                rsp[n++] = (uint8_t)((p->operation >> 16) & 0xFF);
+                rsp[n++] = (uint8_t)((p->operation >> 24) & 0xFF);
+                rsp[n++] = 0x00; /* descriptor count */
+                srv->send_frame(rsp, n);
+                found = 1;
+            }
+        }
+        if (!found) {
+            rsp[0] = SSAP_MSG_FIND_STRUCTURE_BY_UUID_RSP;
+            rsp[1] = 0x08 | SSAP_CTRL_NO_FRAG; /* error bit */
+            rsp[2] = (uint8_t)(SSAP_ERRCODE_ITEM_INEXIST & 0xFF);
+            rsp[3] = (uint8_t)(SSAP_ERRCODE_ITEM_INEXIST >> 8);
+            srv->send_frame(rsp, 4);
+        }
+        return 0;
+    }
     case SSAP_MSG_READ_REQ: {
         /* multi-item: [{handle u16}{type u8}]... */
         if (len < 5)

@@ -154,7 +154,19 @@ int main(void)
         CHECK(g_last_tx_len == 6 && g_last_tx[5] == SSAP_ERRCODE_INVALID_HANDLE, "write_req err code");
     }
 
-    /* READ_BY_UUID_REQ — find property by uuid 0x5678 */
+    /* FIND_STRUCTURE_BY_UUID_REQ — find property by UUID 0x5678 */
+    {
+        uint8_t req[10];
+        /* [0x06][ctrl: findType=PROPERTY(0x03)|itemType=STD(0x00)][start u16][end u16][uuid16 0x5678] */
+        req[0] = SSAP_MSG_FIND_STRUCTURE_BY_UUID_REQ;
+        req[1] = 0x03; /* findType=PROPERTY(0x03) */
+        req[2] = 0x01; req[3] = 0x00; /* start 0x0001 */
+        req[4] = 0xFF; req[5] = 0xFF; /* end 0xFFFF */
+        req[6] = 0x78; req[7] = 0x56; /* uuid 0x5678 LE */
+        size_t n = ssap_server_dispatch(&srv, req, 8);
+        CHECK(n == 0, "find_by_uuid handled (returns 0)");
+        CHECK(g_last_tx[0] == SSAP_MSG_FIND_STRUCTURE_BY_UUID_RSP, "find_by_uuid rsp opcode");
+    }
     {
         uint8_t req[10];
         /* [0x0A][ctrl:uuidType=0][start u16][end u16][dataType=0][uuid16 0x5678] */
