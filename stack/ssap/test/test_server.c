@@ -154,7 +154,24 @@ int main(void)
         CHECK(g_last_tx_len == 6 && g_last_tx[5] == SSAP_ERRCODE_INVALID_HANDLE, "write_req err code");
     }
 
-    /* NOTIFY — requires CCCD write first (prop_handle+1 = 0x0003) */
+    /* READ_BY_UUID_REQ — find property by uuid 0x5678 */
+    {
+        uint8_t req[10];
+        /* [0x0A][ctrl:uuidType=0][start u16][end u16][dataType=0][uuid16 0x5678] */
+        req[0] = SSAP_MSG_READ_BY_UUID_REQ;
+        req[1] = 0x00; /* uuidType=0 (std 16-bit) */
+        req[2] = 0x01; req[3] = 0x00; /* start 0x0001 */
+        req[4] = 0xFF; req[5] = 0xFF; /* end 0xFFFF */
+        req[6] = 0x00; /* dataType */
+        req[7] = 0x78; req[8] = 0x56; /* uuid 0x5678 LE */
+        size_t n = ssap_server_dispatch(&srv, req, 9);
+        CHECK(n > 0, "read_by_uuid handled");
+        CHECK(g_last_tx[0] == SSAP_MSG_READ_BY_UUID_RSP, "read_by_uuid rsp opcode");
+        CHECK((g_last_tx[1] & 0x08) == 0, "read_by_uuid no error bit");
+        CHECK(g_last_tx_len == 9, "read_by_uuid len 9 (2 hdr + 2 handle + 5 data)");
+        CHECK(g_last_tx[2] == (prop & 0xFF) && g_last_tx[3] == 0, "read_by_uuid handle");
+        CHECK(memcmp(g_last_tx + 4, "hello", 5) == 0, "read_by_uuid returns 'hello'");
+    }
     {
         /* without CCCD: notify should be rejected */
         CHECK(ssap_server_notify(&srv, prop, (const uint8_t *)"hi", 2, 0) < 0,

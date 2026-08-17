@@ -84,6 +84,21 @@ static ssap_property_t *find_by_cccd(ssap_server_t *srv, uint16_t handle)
     return NULL;
 }
 
+/* Find first property with matching uuid16 in handle range [start, end] */
+static ssap_property_t *find_by_uuid(ssap_server_t *srv, uint16_t uuid16,
+                                     uint16_t start, uint16_t end)
+{
+    for (uint8_t i = 0; i < srv->service_count; i++) {
+        ssap_service_t *svc = &srv->services[i];
+        for (uint8_t j = 0; j < svc->property_count; j++) {
+            ssap_property_t *p = &svc->properties[j];
+            if (p->uuid16 == uuid16 && p->handle >= start && p->handle <= end)
+                return p;
+        }
+    }
+    return NULL;
+}
+
 int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
 {
     if (len < 2 || !srv->send_frame)
@@ -198,6 +213,50 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         }
         /* single value: [msgCode][ctrl multi=0][value...] — no handle/len prefix */
         rsp[n++] = SSAP_CTRL_NO_FRAG;
+        if (vlen && n + vlen <= sizeof(rsp)) {
+            memcpy(rsp + n, value, vlen);
+            n += vlen;
+        }
+        return srv->send_frame(rsp, n);
+    }
+    case SSAP_MSG_READ_BY_UUID_REQ: {
+        /* [msgCode][ctrl:uuidType:1][start u16][end u16][dataType u8][uuid 2/16] */
+        if (len < 7)
+            return -1;
+        uint8_t uuidType = ctrl & 0x01;
+        uint16_t start_h = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
+        uint16_t end_h   = (uint16_t)(pdu[4] | ((uint16_t)pdu[5] << 8));
+        uint8_t dataType = pdu[6];
+        (void)dataType;
+        uint8_t uuid_size = uuidType ? SSAP_UUID128_LEN : SSAP_UUID16_LEN;
+        if (len < 7 + uuid_size)
+            return -1;
+        uint16_t uuid16 = 0;
+        if (!uuidType)
+            uuid16 = (uint16_t)(pdu[7] | ((uint16_t)pdu[8] << 8));
+        ssap_property_t *p = find_by_uuid(srv, uuid16, start_h, end_h);
+        size_t n = 0;
+        rsp[n++] = SSAP_MSG_READ_BY_UUID_RSP;
+        if (!p) {
+            /* no matching property: error response ctrl.error=1 */
+            rsp[n++] = 0x08 | SSAP_CTRL_NO_FRAG; /* error bit set */
+            rsp[n++] = (uint8_t)(SSAP_ERRCODE_ITEM_INEXIST & 0xFF);
+            rsp[n++] = (uint8_t)(SSAP_ERRCODE_ITEM_INEXIST >> 8);
+            return srv->send_frame(rsp, n);
+        }
+        uint8_t value[SSAP_MAX_VALUE_LEN];
+        uint16_t vlen = 0;
+        int ok = (p->read_cb) ? p->read_cb(p->handle, value, &vlen, sizeof(value)) : -1;
+        if (ok != 0) {
+            rsp[n++] = 0x08 | SSAP_CTRL_NO_FRAG;
+            rsp[n++] = (uint8_t)(SSAP_ERRCODE_FORBID_READ & 0xFF);
+            rsp[n++] = (uint8_t)(SSAP_ERRCODE_FORBID_READ >> 8);
+            return srv->send_frame(rsp, n);
+        }
+        /* single value: [msgCode][ctrl][handle u16][value...] */
+        rsp[n++] = SSAP_CTRL_NO_FRAG;
+        rsp[n++] = (uint8_t)(p->handle & 0xFF);
+        rsp[n++] = (uint8_t)(p->handle >> 8);
         if (vlen && n + vlen <= sizeof(rsp)) {
             memcpy(rsp + n, value, vlen);
             n += vlen;
