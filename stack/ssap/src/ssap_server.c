@@ -192,30 +192,58 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
         return 0;
     }
     case SSAP_MSG_READ_REQ: {
-        /* items: [handle u16][type u8] */
+        /* multi-item: [{handle u16}{type u8}]... */
         if (len < 5)
             return -1;
-        uint16_t handle = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
-        ssap_property_t *p = find_property(srv, handle);
-        uint8_t value[SSAP_MAX_VALUE_LEN];
-        uint16_t vlen = 0;
-        int ok = (p && p->read_cb) ? p->read_cb(handle, value, &vlen, sizeof(value)) : -1;
-        size_t n = 0;
-        rsp[n++] = SSAP_MSG_READ_RSP;
-        if (ok != 0) {
-            /* read failure: READ_RSP with ctrl.error=1 + 2-byte item
-             * {length:15=errCode, success:1=0} (ssaps_server.c SSAPS_SendReadReqRsp) */
-            uint8_t err = p ? SSAP_ERRCODE_FORBID_READ : SSAP_ERRCODE_INVALID_HANDLE;
-            rsp[n++] = SSAP_CTRL_NO_FRAG | 0x08; /* frag=no-frag, error bit set */
-            rsp[n++] = (uint8_t)(err & 0xFF);
-            rsp[n++] = (uint8_t)(err >> 8);
+        uint8_t item_count = (uint8_t)((len - 2) / 3);
+        if (item_count == 0)
+            return -1;
+        rsp[0] = SSAP_MSG_READ_RSP;
+        if (item_count == 1) {
+            /* single value: [msgCode][ctrl multi=0][value...] — no handle/len prefix */
+            uint16_t handle = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
+            ssap_property_t *p = find_property(srv, handle);
+            uint8_t value[SSAP_MAX_VALUE_LEN];
+            uint16_t vlen = 0;
+            int ok = (p && p->read_cb) ? p->read_cb(handle, value, &vlen, sizeof(value)) : -1;
+            if (ok != 0) {
+                uint8_t err = p ? SSAP_ERRCODE_FORBID_READ : SSAP_ERRCODE_INVALID_HANDLE;
+                rsp[1] = SSAP_CTRL_NO_FRAG | 0x08;
+                rsp[2] = (uint8_t)(err & 0xFF);
+                rsp[3] = (uint8_t)(err >> 8);
+                return srv->send_frame(rsp, 4);
+            }
+            rsp[1] = SSAP_CTRL_NO_FRAG;
+            size_t n = 2;
+            if (vlen && n + vlen <= sizeof(rsp)) {
+                memcpy(rsp + n, value, vlen);
+                n += vlen;
+            }
             return srv->send_frame(rsp, n);
         }
-        /* single value: [msgCode][ctrl multi=0][value...] — no handle/len prefix */
-        rsp[n++] = SSAP_CTRL_NO_FRAG;
-        if (vlen && n + vlen <= sizeof(rsp)) {
-            memcpy(rsp + n, value, vlen);
-            n += vlen;
+        /* multi-value: ctrl.multi=1, items [{length:15|success:1}{value...}]... */
+        rsp[1] = SSAP_CTRL_NO_FRAG | 0x04; /* multi bit set */
+        size_t n = 2;
+        for (uint8_t i = 0; i < item_count && n + 4 <= sizeof(rsp); i++) {
+            uint16_t off = 2 + i * 3;
+            uint16_t handle = (uint16_t)(pdu[off] | ((uint16_t)pdu[off + 1] << 8));
+            ssap_property_t *p = find_property(srv, handle);
+            uint8_t value[SSAP_MAX_VALUE_LEN];
+            uint16_t vlen = 0;
+            int ok = (p && p->read_cb) ? p->read_cb(handle, value, &vlen, sizeof(value)) : -1;
+            if (ok != 0) {
+                uint16_t item_hdr = (uint8_t)(SSAP_ERRCODE_INVALID_HANDLE & 0x7F); /* length=err, success=0 */
+                rsp[n++] = (uint8_t)(item_hdr & 0xFF);
+                rsp[n++] = (uint8_t)(item_hdr >> 8);
+            } else {
+                uint16_t item_hdr = (uint16_t)((vlen & 0x7FFF) | 0x8000); /* length=vlen, success=1 */
+                rsp[n++] = (uint8_t)(item_hdr & 0xFF);
+                rsp[n++] = (uint8_t)(item_hdr >> 8);
+                if (vlen && n + vlen <= sizeof(rsp)) {
+                    memcpy(rsp + n, value, vlen);
+                    n += vlen;
+                }
+            }
         }
         return srv->send_frame(rsp, n);
     }
