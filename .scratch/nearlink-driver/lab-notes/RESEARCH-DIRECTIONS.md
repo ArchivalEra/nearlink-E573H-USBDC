@@ -168,3 +168,26 @@ SLESETSCANPAR→SLECONN→SSAPCFNDSTRU→SSAPCWRITECMD 客户端）→ ④ 板�
 
 **用户约束重申（防再踩）**: -j1 编译 + free 检查（OOM 黑屏×2 教训）；只动星闪 USB 口；不碰宿主 WiFi/BT；重编译前查内存。
 
+## 十一、OHOS 权威实现第三批（2026-08-17，6 子代理归队，lab-notes 38→44）
+
+- OHOS-SSAP-ENGINE.md — 服务端权威引擎全解剖（find/write/app）→ **P0 差距清单**: 多值读写、
+  READ_BY_UUID、FIND_BY_UUID、CALL_METHOD、CCCD 门控+VALUE_ACK、能力位；P1: 描述符、权限门控、
+  SERVICE_CHANGE；P2: 128-bit uuid、分片。FIND rspMode=MULTI_RSP 被拒、method fragment 必须 0x11
+- OHOS-SSAP-CLIENT.md — 客户端权威解剖（ssapc_app_link_sm 5 状态 FSM、memberValue 位图驱动发现、
+  双布局解析、CCCD=CLIENT_CONFIG 读写、VALUE_IND 自动回 ACK）→ **ssap_client 模块蓝本**
+  （ssapc_client.c/cache.c/app.c/api.c/link_sm.c + 20+ 签名级函数）
+- OHOS-HID-PROFILE.md — HID 服务 0x060B（Report Map 0x1039/Work State 0x103A/Report Index 0x103B/
+  Input-Output-Feature 0x103C-E）+ BAS 0x060A；BLE HID 直移植 + CPCD 订阅（0x0E）；音频控制=方法
+  0x1017+事件 0x1018 → **电视盒遥控蓝本**（远端=SSAP server + 芯片 controller.c 帧聚合，dongle=SSAP client）
+- OHOS-SA-SERVICE.md — SA 1190（MakeAndRegisterAbility、15s 卸载、driver-death SIGKILL 重启）、
+  多 profile（sleServers_ map）、权限双重校验 → **Path A 改动清单**（WS73 USB HDI shim 是唯一实活）
+- OHOS-HADM-FULL.md — 测距全链路: 0x2003 全参（measureConfigDirect=0x90010004）、0x2005 极性
+  （0=START/1=STOP/2=PAUSE）、0x0028 IQ（3B/12bit 解包）、ToF×3/100=cm、双端平均-校准 →
+  **WS73 测距客户端蓝本 7 项**；待实机: WS73 固件 DLI V1.1 新分支 vs 旧 46B 参数
+- WS63-RADAR.md — 雷达=2.4G 存在/接近检测（复用 WiFi RF，非毫米波，粗粒度上下界），
+  WS73 无人体雷达（仅 DFS）→ 雷达是 WS63E 专属机会，不进我们 Linux 栈
+
+**代码落地方向（下一批）**: OHOS-SSAP-ENGINE P0 差距清单 → 修 stack/ssap 服务端（多值 READ、
+READ_BY_UUID、CCCD 门控、能力位）；OHOS-SSAP-CLIENT 蓝本 → 新增 ssap_client 模块（电视盒遥控
+dongle 侧必需）
+

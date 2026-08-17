@@ -29,8 +29,8 @@ stack/ssap/                          # SSAP 用户态协议栈（Apache-2.0 移�
 ```
 测试：codec + server + feature 三套单元测试全绿，x86 零依赖可编译。
 
-### 📚 情报库（38 份研究文档）
-星闪协议全套深挖：SSAP 方言对照（**OHOS 与设备固件同协议，移植路线实证**）、连接管理、数据面（DTAP/SDR）、安全配对、测距、标准参数（SLE 12Mbps/250µs/256 用户），外加 6 份 OpenSparklink 契约、8 份 WS63/HHD-01 批次与 6 份 OHOS 生态第二批（AT 框架/SLE mesh/framework/HDI/demo/控制器）。
+### 📚 情报库（44 份研究文档）
+星闪协议全套深挖：SSAP 方言对照（**OHOS 与设备固件同协议，移植路线实证**）、连接管理、数据面（DTAP/SDR）、安全配对、测距、标准参数（SLE 12Mbps/250µs/256 用户），外加 6 份 OpenSparklink 契约、8 份 WS63/HHD-01 批次与 12 份 OHOS 生态（AT 框架/SLE mesh/framework/HDI/SSAP 权威引擎/客户端/HID 遥控/SA 服务/测距全链路/雷达）。
 
 ## 仓库结构
 
@@ -40,7 +40,7 @@ stack/ssap/                          # SSAP 用户态协议栈（Apache-2.0 移�
 ├── scripts/             # ws73-probe×3 + load-driver/flash-dongle + 检查脚本
 ├── docs/                # 英文情报（DEVICE/SDK/USB-PROTOCOL/ECOSYSTEM）
 ├── sdk/                 # 海思 WS73 SDK（源码 + x86 移植，二进制 gitignored）
-└── .scratch/            # wayfinder 决策图 + 38 份研究报告 + 师傅清单
+└── .scratch/            # wayfinder 决策图 + 44 份研究报告 + 师傅清单
 ```
 
 ## 文档索引与维护
@@ -56,7 +56,7 @@ stack/ssap/                          # SSAP 用户态协议栈（Apache-2.0 移�
 | `docs/ECOSYSTEM.md` | 星闪开源生态地图 + 定稿路线 | 英文 |
 | `stack/ssap/` | SSAP 用户态栈源码（codec/transport/server/link/feature） | — |
 | `scripts/` | 测试/验证/检查脚本 | — |
-| `.scratch/nearlink-driver/lab-notes/` | **38 份研究报告**（SSAP 方言/CM/DTAP/SDR/SM/HADM/标准/OSPL/WS63/OHOS…） | 中英混合 |
+| `.scratch/nearlink-driver/lab-notes/` | **44 份研究报告**（SSAP 方言/CM/DTAP/SDR/SM/HADM/标准/OSPL/WS63/OHOS…） | 中英混合 |
 | `.scratch/nearlink-driver/lab-notes/SHIFU-BUILD-LIST.md` | 电视盒交叉编译清单（hi3798 SDIO/USB 变体） | 中文 |
 
 ## Roadmap
