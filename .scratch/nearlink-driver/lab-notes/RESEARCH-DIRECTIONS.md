@@ -45,15 +45,19 @@
 ## 四、资料待爬（子代理进行中）
 
 - ~~OpenHarmony 社区星闪资料~~ ✅ 产出: OPENHARMONY-COMMUNITY-RESEARCH.md + NEARLINK-PROTOCOL-RESEARCH.md
-- **OpenSparklink 深挖（2026-08-17，6 子代理后台进行中）**:
+- **OpenSparklink 深挖（2026-08-17）** ✅ **6 子代理全部归队，6 份报告已入库**
   本地克隆: `/mnt/hdd/nearlink-stuff/OpenSparklink-linux`（blob-filter, 2GB）+
   `/mnt/hdd/nearlink-stuff/sparklink`（用户态 crates）
   - OSPL-DLI-CROSSCHECK.md — DLI 传输契约对照（sle_dli.rs 1503L + slk-protocol types.rs）
   - OSPL-UAPI-CONTRACT.md — host-kernel ABI（sparklink{,_ioctl}.h + sle_uapi.rs 2880L）
   - OSPL-CONN-FSM.md — 连接状态机对照（sle_conn.rs 3071L）
-  - OSPL-SSAP-COMPARE.md — SSAP 服务层逐操作码对比（sle_ssap.rs 2480L）
+  - OSPL-SSAP-COMPARE.md — SSAP 服务层逐操作码对比（sle_ssap.rs 2480L，**修正 4 个 wire bug 已提交 f789afe**）
   - OSPL-PHY-RANGING.md — PHY/安全/测距能力矩阵（sle_phy/security/crypto/adv）
   - OSPL-USB-TRANSPORT.md — USB 传输契约拆解（sle_usb.rs 1625L，喂票 06）
+
+  **关键结论**: DLI 包类型/命令帧/事件关联与我们逐字节一致（30 opcodes 1:1）；
+  USB 是标准 T/XS 10003-2025 绑定（3 EP 裸 DLI 帧）≠ 我们 5-EP HCC；测距完全缺席、
+  SM 算法非标准（需自建）；OSPL UAPI 是 131 ioctls 高层 ABI（电视盒取 ~40 精简即可）。
 
 ## 五、经验教训（防再踩）
 
