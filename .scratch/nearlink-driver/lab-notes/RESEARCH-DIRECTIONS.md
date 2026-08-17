@@ -40,7 +40,12 @@
 9. ~~**星闪用户态**~~ ✅ **SSAP 栈已完成初版**（票 03 GREEN → stack/ssap/）
 10. **hi3798 电视盒**：SHIFU-BUILD-LIST.md 给师傅交叉编译
 11. **ws73usb 内核驱动骨架**（票 06，open）：boot/kernel 双模式 probe、固件下载状态机、
-    5 EP URB 管理、`/dev/ws73hci` 字符设备 → OSPL sle_usb.rs 传输契约拆解（子代理进行中）喂设计
+    5 EP URB 管理、`/dev/ws73hci` 字符设备 → OSPL-USB-TRANSPORT.md 已入库喂设计
+    （关键: OSPL 是 3-EP 标准绑定 ≠ 我们 5-EP HCC；`/dev/ws73hci` 需带 hcc_header/queue_id）
+    **待实机**: 探 WS73 是否也实现 class-compliant 0xE0/0x01/0x05 模式（若支持是更简单路径）
+12. **实机事件布局 pin（下个硬件 session）**: `num_hci_pkts` 字节位置、0x0015 status-first
+    布局、0x0005 reason 位置（OSPL-DLI-CROSSCHECK + OSPL-CONN-FSM 开放问题）→ 之后再做
+    hwsle_transport 待决命令表 + DLI 命名修正（0x0401→ReadCmdLen 等）
 
 ## 四、资料待爬（子代理进行中）
 
