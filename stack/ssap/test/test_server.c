@@ -167,6 +167,8 @@ int main(void)
         CHECK(g_last_tx[4] == (svc3 & 0xFF) && g_last_tx[5] == (svc3 >> 8),
               "service change: start handle");
     }
+
+    /* FIND_PROPERTY with CCCD descriptor (property has SSAP_OP_NOTIFY) */
     {
         /* re-add service+property with NOTIFY op to get CCCD */
         ssap_server_t srv2;
@@ -229,6 +231,32 @@ int main(void)
         CHECK(ssap_server_notify(&srv, prop, (const uint8_t *)"hi", 2, 0) > 0,
               "notify sends after CCCD");
         CHECK(g_last_tx[0] == SSAP_MSG_VALUE_NTF, "notify opcode");
+    }
+
+    /* WRITE_REQ multi: 2 sub-items to different handles */
+    {
+        uint8_t req[32];
+        size_t pos = 0;
+        req[pos++] = SSAP_MSG_WRITE_REQ;
+        req[pos++] = (SSAP_CTRL_NO_FRAG | (1 << 2)); /* multi=1 */
+        /* item 1: write to prop handle */
+        req[pos++] = (uint8_t)(prop & 0xFF);
+        req[pos++] = (uint8_t)(prop >> 8);
+        req[pos++] = 1; /* subItemCount */
+        req[pos++] = 0x00; /* subType */
+        req[pos++] = 3; req[pos++] = 0; /* subLen=3 LE */
+        req[pos++] = 'A'; req[pos++] = 'B'; req[pos++] = 'C';
+        /* item 2: write to CCCD (prop+1) */
+        req[pos++] = (uint8_t)((prop + 1) & 0xFF);
+        req[pos++] = (uint8_t)((prop + 1) >> 8);
+        req[pos++] = 1;
+        req[pos++] = 0x00;
+        req[pos++] = 2; req[pos++] = 0; /* subLen=2 LE */
+        req[pos++] = 0x01; req[pos++] = 0x00; /* CCCD = 0x0001 */
+        size_t n = ssap_server_dispatch(&srv, req, pos);
+        CHECK(n == (int)g_last_tx_len, "write_multi handled");
+        CHECK(g_last_tx[0] == SSAP_MSG_WRITE_RSP, "write_multi rsp opcode");
+        CHECK(g_last_tx_len == 3 && g_last_tx[2] == 0, "write_multi success (3B, no errors)");
     }
 
     if (g_fail == 0)

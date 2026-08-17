@@ -369,28 +369,76 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
     case SSAP_MSG_WRITE_REQ: {
         if (len < 5)
             return -1;
-        uint16_t handle = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
-        uint8_t type = pdu[4];
-        (void)type;
-        /* CCCD descriptor write: client writes to prop_handle+1 */
-        ssap_property_t *cccd_prop = find_by_cccd(srv, handle);
-        if (cccd_prop) {
-            uint16_t val = (len >= 7) ? (uint16_t)(pdu[5] | ((uint16_t)pdu[6] << 8)) : 0;
-            cccd_prop->cccd_value = (val == 0x0001) ? 1 : (val == 0x0002) ? 2 : 0;
+        uint8_t multi = (ctrl >> 2) & 0x01;
+        if (!multi) {
+            /* single-item: [handle u16][type u8][value...] */
+            uint16_t handle = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
+            uint8_t type = pdu[4];
+            (void)type;
+            /* CCCD descriptor write: client writes to prop_handle+1 */
+            ssap_property_t *cccd_prop = find_by_cccd(srv, handle);
+            if (cccd_prop) {
+                uint16_t val = (len >= 7) ? (uint16_t)(pdu[5] | ((uint16_t)pdu[6] << 8)) : 0;
+                cccd_prop->cccd_value = (val == 0x0001) ? 1 : (val == 0x0002) ? 2 : 0;
+                if (opcode == SSAP_MSG_WRITE_CMD)
+                    return 0;
+                size_t n = ssap_encode_write_rsp(rsp, sizeof(rsp), handle, 0x00, 0);
+                return srv->send_frame(rsp, n);
+            }
+            ssap_property_t *p = find_property(srv, handle);
+            int ok = (p && p->write_cb) ? p->write_cb(handle, pdu + 5, (uint16_t)(len - 5)) : -1;
             if (opcode == SSAP_MSG_WRITE_CMD)
                 return 0;
-            /* CCCD write always succeeds */
-            size_t n = ssap_encode_write_rsp(rsp, sizeof(rsp), handle, 0x00, 0);
+            uint8_t result = ok == 0 ? 0x00 : 0x01;
+            uint8_t err = p ? SSAP_ERRCODE_FORBID_WRITE : SSAP_ERRCODE_INVALID_HANDLE;
+            size_t n = ssap_encode_write_rsp(rsp, sizeof(rsp), handle, result, err);
             return srv->send_frame(rsp, n);
         }
-        ssap_property_t *p = find_property(srv, handle);
-        int ok = (p && p->write_cb) ? p->write_cb(handle, pdu + 5, (uint16_t)(len - 5)) : -1;
+        /* multi-item: [{handle u16}{subItemCount u8}{subItem}...]...
+         * subItem = [type u8][len u16 LE][value len bytes] */
+        uint8_t errorNum = 0;
+        uint8_t error_items[128]; /* max errors */
+        size_t ei = 0;
+        size_t off = 2; /* skip msgCode+ctrl */
+        while (off + 3 <= len) {
+            uint16_t handle = (uint16_t)(pdu[off] | ((uint16_t)pdu[off + 1] << 8));
+            uint8_t subCount = pdu[off + 2];
+            off += 3;
+            for (uint8_t s = 0; s < subCount && off + 3 <= len; s++) {
+                uint8_t subType = pdu[off++];
+                uint16_t subLen = (uint16_t)(pdu[off] | ((uint16_t)pdu[off + 1] << 8));
+                off += 2;
+                if (off + subLen > len)
+                    break;
+                ssap_property_t *cccd_prop = find_by_cccd(srv, handle);
+                if (cccd_prop) {
+                    uint16_t val = (subLen >= 2) ? (uint16_t)(pdu[off] | ((uint16_t)pdu[off + 1] << 8)) : 0;
+                    cccd_prop->cccd_value = (val == 0x0001) ? 1 : (val == 0x0002) ? 2 : 0;
+                } else {
+                    ssap_property_t *p = find_property(srv, handle);
+                    int ok = (p && p->write_cb) ? p->write_cb(handle, pdu + off, subLen) : -1;
+                    if (ok != 0 && ei + 3 < sizeof(error_items)) {
+                        error_items[ei++] = (uint8_t)(handle & 0xFF);
+                        error_items[ei++] = (uint8_t)(handle >> 8);
+                        error_items[ei++] = p ? SSAP_ERRCODE_FORBID_WRITE : SSAP_ERRCODE_INVALID_HANDLE;
+                        errorNum++;
+                    }
+                }
+                off += subLen;
+            }
+        }
         if (opcode == SSAP_MSG_WRITE_CMD)
-            return 0; /* no response for write command */
-        /* WRITE_REQ -> WRITE_RSP: ctrl.result=0 success; error items on failure */
-        uint8_t result = ok == 0 ? 0x00 : 0x01; /* 0b01 = partial (error items follow) */
-        uint8_t err = p ? SSAP_ERRCODE_FORBID_WRITE : SSAP_ERRCODE_INVALID_HANDLE;
-        size_t n = ssap_encode_write_rsp(rsp, sizeof(rsp), handle, result, err);
+            return 0;
+        /* WRITE_RSP multi: [ctrl: result:2][errorNum u8][{handle u16}{errorCode u8}]... */
+        uint8_t result = (errorNum > 0) ? 0x01 : 0x00;
+        rsp[0] = SSAP_MSG_WRITE_RSP;
+        rsp[1] = result;
+        rsp[2] = errorNum;
+        size_t n = 3;
+        if (ei > 0 && n + ei <= sizeof(rsp)) {
+            memcpy(rsp + n, error_items, ei);
+            n += ei;
+        }
         return srv->send_frame(rsp, n);
     }
     default:
