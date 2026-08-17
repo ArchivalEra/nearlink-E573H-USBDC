@@ -259,6 +259,29 @@ int main(void)
         CHECK(g_last_tx_len == 3 && g_last_tx[2] == 0, "write_multi success (3B, no errors)");
     }
 
+    /* CALL_METHOD_REQ — invoke method handle */
+    {
+        static int method_called = 0;
+        int test_method(uint16_t h, const uint8_t *p, uint16_t pl,
+                        uint8_t *r, uint16_t *rl, uint16_t mr) {
+            (void)h; (void)p; (void)pl; (void)r; (void)mr;
+            *rl = 0; method_called++; return 0;
+        }
+        uint16_t mhandle = ssap_server_add_method(&srv, svc, 0x9999, 0x01, test_method);
+        (void)mhandle;
+        CHECK(mhandle != 0, "add method returns handle");
+        uint8_t req[6];
+        req[0] = SSAP_MSG_CALL_METHOD_REQ;
+        req[1] = SSAP_CTRL_NO_FRAG;
+        req[2] = (uint8_t)(mhandle & 0xFF);
+        req[3] = (uint8_t)(mhandle >> 8);
+        size_t n = ssap_server_dispatch(&srv, req, 4);
+        CHECK(n == 0, "call_method dispatched (returns 0)");
+        CHECK(g_last_tx[0] == SSAP_MSG_CALL_METHOD_RSP, "call_method rsp opcode");
+        CHECK(g_last_tx_len == 3, "call_method rsp 3 bytes (code+ctrl+result)");
+        CHECK(method_called == 1, "method callback invoked");
+    }
+
     if (g_fail == 0)
         printf("\nALL SERVER TESTS PASSED\n");
     else

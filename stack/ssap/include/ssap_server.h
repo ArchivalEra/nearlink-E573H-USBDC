@@ -35,6 +35,7 @@ enum {
     SSAP_ERRCODE_UNAUTHORIZED,
     SSAP_ERRCODE_UNENCRYPTED,
     SSAP_ERRCODE_ITEM_INEXIST,
+    SSAP_ERRCODE_METHOD_ACCESS,
 };
 
 typedef enum {
@@ -51,6 +52,8 @@ typedef int (*ssap_read_cb)(uint16_t handle, uint8_t *out, uint16_t *out_len,
 typedef int (*ssap_write_cb)(uint16_t handle, const uint8_t *value, uint16_t len);
 typedef int (*ssap_notify_cb)(uint16_t handle, uint8_t *out, uint16_t *out_len,
                               uint16_t max_len);
+typedef int (*ssap_method_cb)(uint16_t handle, const uint8_t *params, uint16_t param_len,
+                              uint8_t *result, uint16_t *result_len, uint16_t max_result_len);
 
 typedef struct {
     uint16_t handle;
@@ -60,6 +63,7 @@ typedef struct {
     uint8_t  permission;        /* AUTH/ENCRYPT/AUTHZ */
     ssap_read_cb  read_cb;
     ssap_write_cb write_cb;
+    ssap_method_cb method_cb;
     /* CCCD descriptor at handle+1 (client writes 0x0001 to enable notify) */
     uint16_t cccd_value;        /* 0=off, 1=notify enabled, 2=indicate enabled */
     uint8_t  desc_count;        /* number of descriptors (0 or 1 = CCCD) */
@@ -96,6 +100,11 @@ uint16_t ssap_server_add_service(ssap_server_t *srv, uint16_t uuid16, uint8_t is
 uint16_t ssap_server_add_property(ssap_server_t *srv, uint16_t svc_handle,
                                   uint16_t uuid16, uint32_t operation,
                                   uint8_t permission, ssap_read_cb rc, ssap_write_cb wc);
+
+/* Add a method to the service; returns its handle or 0. */
+uint16_t ssap_server_add_method(ssap_server_t *srv, uint16_t svc_handle,
+                                uint16_t uuid16, uint32_t operation,
+                                ssap_method_cb mc);
 
 /* Handle an incoming SSAP PDU (msgCode already validated). Returns 0 on handled. */
 int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len);

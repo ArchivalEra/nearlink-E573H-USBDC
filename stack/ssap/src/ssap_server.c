@@ -47,6 +47,47 @@ uint16_t ssap_server_add_service(ssap_server_t *srv, uint16_t uuid16, uint8_t is
     return svc->start_handle;
 }
 
+uint16_t ssap_server_add_method(ssap_server_t *srv, uint16_t svc_handle,
+                                uint16_t uuid16, uint32_t operation,
+                                ssap_method_cb mc)
+{
+    ssap_service_t *svc = NULL;
+    for (uint8_t i = 0; i < srv->service_count; i++) {
+        if (srv->services[i].start_handle == svc_handle) {
+            svc = &srv->services[i];
+            break;
+        }
+    }
+    if (!svc || svc->property_count >= SSAP_MAX_PROPERTIES)
+        return 0;
+    ssap_property_t *p = &svc->properties[svc->property_count];
+    p->handle = srv->next_handle++;
+    p->uuid16 = uuid16;
+    p->type = SSAP_ITEM_METHOD;
+    p->operation = operation;
+    p->permission = 0;
+    p->read_cb = NULL;
+    p->write_cb = NULL;
+    p->method_cb = mc;
+    svc->property_count++;
+    svc->end_handle = p->handle;
+    /* SERVICE_CHANGE notification */
+    if (srv->send_frame) {
+        uint8_t svc_evt[8];
+        size_t n = 0;
+        svc_evt[n++] = SSAP_MSG_VALUE_NTF;
+        svc_evt[n++] = SSAP_CTRL_NO_FRAG;
+        svc_evt[n++] = (uint8_t)(SSAP_HANDLE_SERVICE_CHANGE & 0xFF);
+        svc_evt[n++] = (uint8_t)(SSAP_HANDLE_SERVICE_CHANGE >> 8);
+        svc_evt[n++] = (uint8_t)(svc->start_handle & 0xFF);
+        svc_evt[n++] = (uint8_t)(svc->start_handle >> 8);
+        svc_evt[n++] = (uint8_t)(svc->end_handle & 0xFF);
+        svc_evt[n++] = (uint8_t)(svc->end_handle >> 8);
+        srv->send_frame(svc_evt, n);
+    }
+    return p->handle;
+}
+
 uint16_t ssap_server_add_property(ssap_server_t *srv, uint16_t svc_handle,
                                   uint16_t uuid16, uint32_t operation,
                                   uint8_t permission, ssap_read_cb rc, ssap_write_cb wc)
@@ -206,6 +247,32 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
                     if (p->desc_count > 0) {
                         rsp[n++] = p->desc_type; /* e.g. 0x02 = CLIENT_CONFIG / CCCD */
                     }
+                    srv->send_frame(rsp, n);
+                }
+            }
+            return 0;
+        }
+        if (find_type == SSAP_FIND_METHOD) {
+            for (uint8_t i = 0; i < srv->service_count; i++) {
+                ssap_service_t *svc = &srv->services[i];
+                for (uint8_t j = 0; j < svc->property_count; j++) {
+                    ssap_property_t *p = &svc->properties[j];
+                    if (p->type != SSAP_ITEM_METHOD)
+                        continue;
+                    if (p->handle < start_h || p->handle > end_h)
+                        continue;
+                    size_t n = 0;
+                    rsp[n++] = SSAP_MSG_FIND_STRUCTURE_RSP;
+                    rsp[n++] = SSAP_CTRL_NO_FRAG;
+                    rsp[n++] = (uint8_t)(p->handle & 0xFF);
+                    rsp[n++] = (uint8_t)(p->handle >> 8);
+                    if (!is_v10) {
+                        rsp[n++] = (uint8_t)(p->uuid16 & 0xFF);
+                        rsp[n++] = (uint8_t)(p->uuid16 >> 8);
+                    }
+                    /* method member: [uuid?][5 zero bytes] */
+                    rsp[n++] = 0x00; rsp[n++] = 0x00;
+                    rsp[n++] = 0x00; rsp[n++] = 0x00; rsp[n++] = 0x00;
                     srv->send_frame(rsp, n);
                 }
             }
@@ -440,6 +507,39 @@ int ssap_server_dispatch(ssap_server_t *srv, const uint8_t *pdu, size_t len)
             n += ei;
         }
         return srv->send_frame(rsp, n);
+    }
+    case SSAP_MSG_CALL_METHOD_CMD:
+    case SSAP_MSG_CALL_METHOD_REQ: {
+        /* [msgCode][ctrl:frag2|resv6][handle u16][params...] */
+        if (len < 4)
+            return -1;
+        uint16_t handle = (uint16_t)(pdu[2] | ((uint16_t)pdu[3] << 8));
+        ssap_property_t *p = find_property(srv, handle);
+        if (!p || !p->method_cb) {
+            uint8_t err = p ? SSAP_ERRCODE_METHOD_ACCESS : SSAP_ERRCODE_INVALID_HANDLE;
+            if (opcode == SSAP_MSG_CALL_METHOD_REQ) {
+                rsp[0] = SSAP_MSG_ERROR_RSP;
+                rsp[1] = 0;
+                rsp[2] = opcode;
+                rsp[3] = (uint8_t)(handle & 0xFF);
+                rsp[4] = (uint8_t)(handle >> 8);
+                rsp[5] = err;
+                srv->send_frame(rsp, 6);
+            }
+            return 0;
+        }
+        uint8_t result[SSAP_MAX_VALUE_LEN];
+        uint16_t result_len = 0;
+        int ok = p->method_cb(handle, pdu + 4, (uint16_t)(len - 4),
+                              result, &result_len, sizeof(result));
+        if (opcode == SSAP_MSG_CALL_METHOD_REQ) {
+            /* RSP: [0x14][ctrl:frag=NO_FRAG][result u1] */
+            rsp[0] = SSAP_MSG_CALL_METHOD_RSP;
+            rsp[1] = SSAP_CTRL_NO_FRAG;
+            rsp[2] = (ok == 0) ? 0x00 : 0x01; /* result: 0=success, 1=error */
+            srv->send_frame(rsp, 3);
+        }
+        return 0;
     }
     default:
         return -1;
