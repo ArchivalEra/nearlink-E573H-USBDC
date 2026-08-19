@@ -1,0 +1,49 @@
+HHD-01 AT backup 2026-08-19 19:18
+Board: WS63  SDK:1.10.102  BLE name:violin  addr:11:22:33:44:55:66
+GATT server 1 handle 14 char 16 (0x2a4a) CCC 17 adv ON
+
+>>> AT
+AT
+OK
+APP|[SYS INFO] mem: used:104504, free:261516; log: drop/all[0/0], at_recv 2466.
+
+>>> AT+SYSINFO
+AT+SYSINFO
+SDK Version:1.10.102
+task_info:
+
+Name                   TaskEntryAddr       TID    Priority   Status       StackSize    WaterLine      StackPoint             TopOfStack             SemID        EventMask  CPUP  CPUP 10.0s  CPUP  1.0s  
+----                   -------------       ---    --------   --------     ---------    ----------     ----------             ----------             ----------   ---------  ----  ----------  ----------  
+Swt_Task               0x00a0cb00          0x1    0          Suspend      0x800        0x478          0x00a2e490             0x00a2de00             0xffffffff   0x0         0.0      0.0        0.0   
+IdleCore000            0x00a0c212          0x2    31         Ready        0x400        0x284          0x00a2e7d0             0x00a2e620             0xffffffff   0x0        99.5     99.3       99.0   
+dfx_msg                0x00250682          0x3    5          Pend         0x800        0x1b4          0x00a31390             0x00a30d40             0xffffffff   0x0         0.0      0.0        0.0   
+app                    0x00253dfc          0x4    27         Delay        0x800        0x584          0x00a31dd0             0x00a31760             0xffffffff   0x0         0.0      0.0        0.0   
+log                    0x0035f898          0x5    25         Pend         0x800        0x194          0x00a325f0             0x00a31f80             0x1          0x0         0.0      0.0        0.0   
+bt                     0x0014d368          0x6    1          Pend         0xe00        0x3e4          0x00a333f0             0x00a327a0             0xffffffff   0x0         0.0      0.0        0.0   
+bt_sdk                 0x003159ea          0x7    12         Pend         0x800        0x1b4          0x00a33c10             0x00a335c0             0xffffffff   0x0         0.0      0.0        0.0   
+bth_sdk                0x0032a08e          0x8    13         Pend         0x800        0x164          0x00a34470             0x00a33dd0             0x4          0x0         0.0      0.0        0.0   
+recvBthDataTask        0x0032dc30          0x9    10         Pend         0x800        0x2b4          0x00a34c60             0x00a345f0             0xffffffff   0x0         0.0      0.0        0.0   
+bt_service             0x003145d4          0xa    12         Pend         0x1000       0x2e4          0x00a35c50             0x00a34e10             0xffffffff   0x0         0.0      0.0        0.0   
+at                     0x00247746          0xb    1          Running      0x2000       0x724          0x00a37ca0             0x00a35e30             0xffffffff   0x0         0.0      0.0        0.0   
+radar_driver           0x0034e41c          0xd    23         Pend         0x800        0x194          0x00a3a4d0             0x00a39e60             0xffffffff   0x3         0.0      0.0        0.0   
+radar_feature          0x0034ee40          0xe    24         Pend         0x2600       0x478          0x00a3caf0             0x00a3a680             0xffffffff   0xf         0.0      0.0        0.0   
+schedule_loop          0x00314c0c          0x10   11         Pend         0xa00        0x728          0x00a3f2b0             0x00a3ea10             0x3          0x0         0.3      0.7        1.0   
+wifi_frw_msg           0x0026793e          0x13   4          Pend         0x1400       0x3f4          0x00a42c10             0x00a41980             0xffffffff   0x1         0.0      0.0        0.0   
+wifi_frw_txdata        0x0026793e          0x14   4          Pend         0x1000       0x174          0x00a43cb0             0x00a42e20             0xffffffff   0x1         0.0      0.0        0.0   
+wifi_frw               0x00128d80          0x15   5          Pend         0x1000       0x6c8          0x00a462d0             0x00a45440             0xffffffff   0x1         0.0      0.0        0.0   
+tcpip_thread           0x0026cad0          0x16   5          PendTime     0x1000       0x2e4          0x00a47480             0x00a46640             0xffffffff   0x1         0.0      0.0        0.0   
+OK
+
+>>> AT+BLEGETNAME
+AT+BLEGETNAME
+
+ ble at cmd gap ble get local name:violin 
+OK
+
+>>> AT+BLEGETADDR
+AT+BLEGETADDR
+ble at cmd gap ble get local addr:
+  0x11 0x22 0x33 0x44 0x55 0x66
+OK
+APP|[SYS INFO] mem: used:100328, free:265692; log: drop/all[0/0], at_recv 2508.
+
