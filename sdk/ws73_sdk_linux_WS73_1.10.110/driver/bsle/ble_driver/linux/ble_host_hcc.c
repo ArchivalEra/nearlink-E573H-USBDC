@@ -5,7 +5,7 @@
 
 #include <net/bluetooth/bluetooth.h>
 #include <net/bluetooth/hci_core.h>
-#include <linux/unaligned.h>  /* 7.x: moved from asm/unaligned.h */
+#include <asm/unaligned.h>  /* 4.4: still asm/unaligned.h, not linux/unaligned.h */
 #include <linux/kernel.h>
 #include <linux/skbuff.h>
 
@@ -126,6 +126,11 @@ static td_u32 hcc_bt_rx_proc(hcc_queue_type queue_id, td_u8 sub_type, td_u8 *buf
         hcc_debug("hdev is null, drop recv pkt, buf is%p, %s\n", buf, __func__);
         osal_kfree(user_param);
         return EXT_ERR_FAILURE;
+    }
+
+    if (len > 0 && len < 14) {
+        printk(KERN_ERR "[DBG] bt rx short len=%u d=%02x %02x %02x %02x %02x %02x %02x %02x\n",
+               len, buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
     }
 
     ext_recv(hdev, buf, len);
@@ -437,10 +442,13 @@ int ble_hci_send_frame(uint8_t *buff, uint32_t len, void *user_param)
 {
     int ret;
     hcc_transfer_param bt_transfer_param = { 0 };
+    hcc_handler *dbg_hcc;
     if (len > BT_TX_MAX_FRAME) {
         hcc_debug("len is too large, len=%u\n", len);
         return -EINVAL;
     }
+    dbg_hcc = hcc_get_handler(HCC_CHANNEL_AP);
+    (void)dbg_hcc;
     bt_transfer_param.service_type = HCC_ACTION_TYPE_BT;
     bt_transfer_param.sub_type = 0;
     bt_transfer_param.queue_id = BT_DATA_QUEUE;
@@ -466,6 +474,38 @@ static int hci_bt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
     if (g_ble_state == BLE_OFF) {
         hcc_debug("hci bt send frame ble not open \r\n");
         return -EINVAL;
+    }
+
+    /* [mv310] device 会回 Command Complete（含 Unknown HCI Command 错误）。
+     * 去掉注入，让 device 的 CC 正常处理；BR/EDR 命令 device 返回
+     * Unknown HCI Command 属正常（WS73 LE-only），bluez 会处理。 */
+    if (0 && hci_skb_pkt_type(skb) == HCI_COMMAND_PKT && skb->len >= 3) {
+        u16 dbg_opcode = bt_cb(skb)->hci.opcode;
+
+        /* Prepend skb with frame type */
+        // 此处处理未用安全函数，直接使用linux内核中的处理语句
+        ret = memcpy_s(skb_push(skb, SKB_FRAME_TYPE_LEN), SKB_FRAME_TYPE_LEN,
+                       &hci_skb_pkt_type(skb), SKB_FRAME_TYPE_LEN);
+        if (ret != EOK) {
+            hcc_debug("bt skb memcpy error\n");
+            return -EINVAL;
+        }
+
+        hdev->stat.byte_tx += skb->len;
+        hci_bt_tx_complete(hdev, skb);
+        ret = ble_hci_send_frame(skb->data, skb->len, skb);
+        if (ret == EXT_ERR_SUCCESS) {
+            struct sk_buff *evt_skb = bt_skb_alloc(7, GFP_ATOMIC);
+            if (evt_skb) {
+                u8 evt[7] = { 0x04, 0x0e, 0x04, 0x01,
+                              (u8)(dbg_opcode & 0xff), (u8)(dbg_opcode >> 8), 0x00 };
+                memcpy(skb_put(evt_skb, 7), evt, 7);
+                bt_cb(evt_skb)->pkt_type = HCI_EVENT_PKT;
+                hci_recv_frame(hdev, evt_skb);
+                hcc_debug("hci_bt_send_frame: injected cmd_complete opcode=0x%04x\n", dbg_opcode);
+            }
+        }
+        return ret;
     }
 
     /* Prepend skb with frame type */
@@ -494,7 +534,16 @@ static int hci_bt_flush(struct hci_dev *hdev)
 
 static int hci_bt_setup(struct hci_dev *hdev)
 {
+    int i;
     hcc_debug("hci_bt_setup\n");
+    /* wait for device boot + hcc channel ready before bluez sends commands */
+    for (i = 0; i < 50; i++) {
+        if (hbsle_hcc_customize_get_device_status(BSLE_STATUS_BOOT_FINISH)) {
+            hcc_debug("hci_bt_setup: device boot finish\n");
+            break;
+        }
+        msleep(100);
+    }
     return EXT_ERR_SUCCESS;
 }
 
@@ -641,7 +690,10 @@ static oal_int32 ext_bluetooth_init(void)
 
     boot_finish = hbsle_hcc_customize_get_device_status(BSLE_STATUS_BOOT_FINISH);
     if (boot_finish == false) {
-        hcc_debug("device boot not finish \n");
+        /* [mv310] WORK 态（固件常驻，跳过固件下载）时 device 不会重发
+         * BOOT_FINISH，但固件确实已在跑，直接置位避免后续等待超时 */
+        hcc_debug("device boot not finish, force set (WORK state)\n");
+        hbsle_hcc_customize_force_device_status(BSLE_STATUS_BOOT_FINISH, true);
     }
 
     ret = hcc_service_init(HCC_CHANNEL_AP, HCC_ACTION_TYPE_BT, &g_hcc_ble_adapt);
@@ -670,12 +722,20 @@ static osal_void ext_bluetooth_deinit(void)
     oal_int32 ret;
     hcc_debug("enter:%s\n", __func__);
     bt_unregister_hci_dev();
+    /* [mv310] rmmod 时跳过 pm_ble_close：plat_soc 的 PM 关闭路径在
+     * rmmod ble_soc 时会崩溃（pm_svc_close 访问已释放资源）。
+     * device 侧 BLE 服务由下次加载时重新初始化。 */
+#if 0
     ret = pm_ble_close();
     if (ret != OAL_SUCC) {
         hcc_debug("pm_ble_close failed\n");
     } else {
         hcc_debug("finish: pm_ble_close\n");
     }
+#else
+    hcc_debug("skip pm_ble_close (mv310 rmmod crash workaround)\n");
+    (void)ret;
+#endif
 
     hbsle_hcc_customize_reset_device_status();
     hcc_service_deinit(HCC_CHANNEL_AP, HCC_ACTION_TYPE_BT);

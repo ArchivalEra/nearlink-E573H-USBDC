@@ -168,6 +168,8 @@ bool hbsle_hcc_customize_get_device_status(bsle_hcc_msg_c2h msg_to_host);
 
 td_void hbsle_hcc_customize_reset_device_status(void);
 
+td_void hbsle_hcc_customize_force_device_status(bsle_hcc_msg_c2h msg_to_host, bool value);
+
 td_s32 hbsle_hcc_custom_ini_data_buf(void);
 
 int hbsle_hcc_customize_h2d_data_cfg(void);

@@ -404,9 +404,23 @@ td_s32 ws73_board_service_enter(td_void)
 
 #if defined(_PRE_OS_VERSION) && defined(_PRE_OS_VERSION_LINUX) && (_PRE_OS_VERSION_LINUX == _PRE_OS_VERSION)
     // 5.下载firmware到device
-    ret = firmware_download_enter();
-    if (ret != EXT_ERR_SUCCESS) {
-        return ret;
+    /* [mv310] dongle 固件常驻（USB 5V 常供，重启后即 WORK 态）：
+     * WORK 态表示固件已在跑（BSP_READY 已收到），跳过固件下载，
+     * 否则 patch write 因"非 BOOT 态"失败导致整个 poweron 失败。 */
+    if (usb_get_bus_state() == BUS_USB_WORK) {
+        oal_print_err("ws73_board_service_enter: usb WORK, skip firmware download\n");
+        /* cali_dyn_mem_cfg 把 hcc 切成 FORBID，固件下载里才恢复 HCC_ON；
+         * WORK 态固件已在跑，直接恢复 HCC_ON，并 complete dev_bsp_ready
+         * 让后续 PATCH_LAUCH 不等 bsp_ready 超时 */
+        hcc_switch_status(HCC_ON);
+        if (pm_data != NULL) {
+            complete(&pm_data->dev_bsp_ready);
+        }
+    } else {
+        ret = firmware_download_enter();
+        if (ret != EXT_ERR_SUCCESS) {
+            return ret;
+        }
     }
     // 6.firmware下载完毕, 刷新hcc状态
     ret = plat_pm_power_action(pst_bus, HCC_BUS_POWER_PATCH_LAUCH, pm_data);

@@ -936,11 +936,16 @@ TD_PRV ext_errno hcc_adapt_tx_param_check(hcc_handler *hcc, td_u8 *buf, td_u16 l
         return EXT_ERR_FAILURE;
     }
 
-    if (len <= hcc_get_head_len() || !osal_is_aligned(len, hcc->bus->len_align) ||
-        len > hcc->bus->max_trans_size) {
-        hcc_printf_err_log("tx err: len[%d] min[%d] max[%d] aligned[%d]\r\n",
-                           len, hcc_get_head_len(), hcc->bus->max_trans_size, hcc->bus->len_align);
-        return EXT_ERR_FAILURE;
+    /* BT/SLE 的 HCI 头不解析（与 hcc_header_init/hcc_check_header_vaild 的豁免对称）：
+     * 短 HCI 命令帧（如 READ_LOCAL_VERSION，3B cmd + 1B type = 4B）
+     * 会触发 len <= hcc_get_head_len() 误拒，这里放行 */
+    if ((param->service_type != HCC_ACTION_TYPE_BT) && (param->service_type != HCC_ACTION_TYPE_SLE)) {
+        if (len <= hcc_get_head_len() || !osal_is_aligned(len, hcc->bus->len_align) ||
+            len > hcc->bus->max_trans_size) {
+            hcc_printf_err_log("tx err: len[%d] min[%d] max[%d] aligned[%d]\r\n",
+                               len, hcc_get_head_len(), hcc->bus->max_trans_size, hcc->bus->len_align);
+            return EXT_ERR_FAILURE;
+        }
     }
 
     return EXT_SUCCESS;

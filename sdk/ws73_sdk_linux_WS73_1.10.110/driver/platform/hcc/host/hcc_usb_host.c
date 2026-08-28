@@ -1674,6 +1674,15 @@ td_s32 hcc_usb_reload(hcc_bus *pst_bus)
 td_s32 hcc_usb_reinit(hcc_bus *pst_bus)
 {
     td_u32 usb_state;
+    usb_state = usb_get_bus_state();
+    /* [mv310] dongle 固件常驻（USB 5V 常供，板子重启不复位 dongle）：
+     * 枚举即 WORK 态，boot probe 不会再次触发，此处等待必然超时。
+     * WORK 态表示固件已在跑（BSP_READY 之后的固件下载路径本身就在 WORK 态），
+     * 直接放行，与 boot 态下 boot probe 已完成的语义等价。 */
+    if (usb_state == BUS_USB_WORK) {
+        oal_usb_log(BUS_LOG_DBG, "usb already WORK, skip boot probe wait");
+        return EXT_ERR_SUCCESS;
+    }
     if (!wait_for_completion_timeout(&g_usb_boot_probe, USB_WAIT_TIME * HZ)) {
         usb_state = usb_get_bus_state();
         oal_usb_log(BUS_LOG_ERR, "Waiting for boot timeout, usb state is [%u]", usb_state);

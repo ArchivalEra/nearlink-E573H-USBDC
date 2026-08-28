@@ -194,14 +194,24 @@ bool hbsle_hcc_customize_get_device_status(bsle_hcc_msg_c2h msg_to_host)
         }
     }
     end = oal_get_time_stamp_from_timeval();
-    hcc_debug("get device status:%d,result:%d,time:%lld \n", msg_to_host, device_status, end - start);
-    return device_status;
+    hcc_debug("get device status:%d,result:%d,time:%lld \n", msg_to_host, device_status, end - start);    return device_status;
 }
 
 td_void hbsle_hcc_customize_reset_device_status(void)
 {
     memset_s(bsle_device_msg, sizeof(bool) * BSLE_DEVICE_MSG_BUTT, 0, sizeof(bool) * BSLE_DEVICE_MSG_BUTT);
 }
+
+/* [mv310] WORK 态（固件常驻，不重新下载）时，device 不会重发 BOOT_FINISH/
+ * CUSTOMIZE_RECEIVED 消息，host 侧直接置位，跳过超时等待。 */
+td_void hbsle_hcc_customize_force_device_status(bsle_hcc_msg_c2h msg_to_host, bool value)
+{
+    if (msg_to_host < BSLE_DEVICE_MSG_BUTT) {
+        bsle_device_msg[msg_to_host] = value;
+        hcc_debug("force device status:%d = %d\n", msg_to_host, value);
+    }
+}
+EXPORT_SYMBOL(hbsle_hcc_customize_force_device_status);
 
 // 释放给hcc发送消息的内核内存，回调由hcc来调用
 OAL_STATIC td_void hcc_adapt_bsle_msg_free(hcc_queue_type queue_id, td_u8 *buf, td_u8 *user_param)
@@ -311,10 +321,27 @@ OAL_STATIC td_u32 hcc_adapt_bsle_msg_rx_proc(hcc_queue_type queue_id, td_u8 sub_
     data += sizeof(bsle_msg_tag);
     device_msg = *(uint32_t *)data;
 
-    hcc_debug("start hcc_adapt_bsle_msg_rx_proc,type:%d,device_msg:%d \n", tag->type, device_msg);
+    /* [DBG mv310] 原始字节打点：确认 device 消息的实际布局/取值 */
+    {
+        int dbg_i;
+        int dbg_n = (len < 24) ? len : 24;
+        printk(KERN_ERR "[DBG] bsle rx len=%d hdr=%d tag.type=%d tag.len=%d dev_msg=%u\n",
+            len, hcc_get_head_len(), tag->type, tag->len, device_msg);
+        for (dbg_i = 0; dbg_i < dbg_n; dbg_i++) {
+            printk(KERN_CONT "%02x ", buf[dbg_i]);
+            if ((dbg_i & 0xf) == 0xf) {
+                printk(KERN_CONT "\n");
+            }
+        }
+        printk(KERN_CONT "\n");
+    }
 
     if (tag->type == BSLE_MSG_HCC_TYPE_DEVICE_STATUS) {
-        bsle_device_msg[device_msg] = true;
+        if (device_msg < BSLE_DEVICE_MSG_BUTT) {
+            bsle_device_msg[device_msg] = true;
+        } else {
+            printk(KERN_ERR "[DBG] bsle rx DEVICE_STATUS dev_msg=%u OUT OF RANGE\n", device_msg);
+        }
     } else if (tag->type == BSLE_MSG_HCC_TYPE_DATA_COLLECTION) {
         res = (uint8_t *)data;
 #if defined(WSCFG_PLAT_DIAG_LOG_OUT)

@@ -859,8 +859,11 @@ static struct usb_dev_info *usb_patch_get_usb_info(hcc_bus *usb_bus)
         oal_usb_log(BUS_LOG_ERR, "usb disconnect!");
         return TD_NULL;
     }
-    if (usb_get_bus_state() != BUS_USB_BOOT) {
-        oal_usb_log(BUS_LOG_ERR, "usb state is not BOOT, state[%u]!", usb_get_bus_state());
+    /* [mv310] dongle 固件常驻（USB 5V 常供，重启后即 WORK 态）：
+     * WORK 态表示固件已在跑，patch/cali 寄存器访问仍然有效，
+     * 放行 WORK 态，避免固件下载流程因"非 BOOT 态"误失败。 */
+    if ((usb_get_bus_state() != BUS_USB_BOOT) && (usb_get_bus_state() != BUS_USB_WORK)) {
+        oal_usb_log(BUS_LOG_ERR, "usb state is not BOOT/WORK, state[%u]!", usb_get_bus_state());
         return TD_NULL;
     }
     return usb_get_intfdata(usb->interface_wlan);

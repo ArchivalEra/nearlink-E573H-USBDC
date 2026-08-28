@@ -25,7 +25,8 @@ _INCLUDES += -I$(PLATFORM_LIBC_SEC_DIR)/include
 _INCLUDES += -I$(CUR_MK_DIR)
 
 ccflags-y = $(_INCLUDES)
-ccflags-y += -isystem /usr/lib/llvm-21/lib/clang/21/include
+# 4.4: remove clang-21 isystem leftover from 7.x port
+ccflags-y +=
 # CleanCode Build Option
 ccflags-y +=
 
