@@ -1674,21 +1674,21 @@ td_s32 hcc_usb_reload(hcc_bus *pst_bus)
 td_s32 hcc_usb_reinit(hcc_bus *pst_bus)
 {
     td_u32 usb_state;
-    usb_state = usb_get_bus_state();
-    /* [mv310] dongle 固件常驻（USB 5V 常供，板子重启不复位 dongle）：
-     * 枚举即 WORK 态，boot probe 不会再次触发，此处等待必然超时。
-     * WORK 态表示固件已在跑（BSP_READY 之后的固件下载路径本身就在 WORK 态），
-     * 直接放行，与 boot 态下 boot probe 已完成的语义等价。 */
-    if (usb_state == BUS_USB_WORK) {
-        oal_usb_log(BUS_LOG_DBG, "usb already WORK, skip boot probe wait");
+    /* [mv310] 先等 boot probe（短超时）：rmmod 后 dongle 重新枚举，
+     * 若回 boot loader（2EP）probe 会触发 -> BOOT 态需固件下载。
+     * 若固件常驻（5EP）probe 不触发 -> 超时后判 WORK 跳过下载。 */
+    if (wait_for_completion_timeout(&g_usb_boot_probe, USB_WAIT_TIME * HZ)) {
+        oal_usb_log(BUS_LOG_DBG, "boot probe done");
         return EXT_ERR_SUCCESS;
     }
-    if (!wait_for_completion_timeout(&g_usb_boot_probe, USB_WAIT_TIME * HZ)) {
-        usb_state = usb_get_bus_state();
-        oal_usb_log(BUS_LOG_ERR, "Waiting for boot timeout, usb state is [%u]", usb_state);
-        if (usb_state != BUS_USB_BOOT) {
-            return EXT_ERR_FAILURE;
-        }
+    usb_state = usb_get_bus_state();
+    if (usb_state == BUS_USB_WORK) {
+        oal_usb_log(BUS_LOG_DBG, "usb WORK (firmware resident), skip boot probe wait");
+        return EXT_ERR_SUCCESS;
+    }
+    oal_usb_log(BUS_LOG_ERR, "Waiting for boot timeout, usb state is [%u]", usb_state);
+    if (usb_state != BUS_USB_BOOT) {
+        return EXT_ERR_FAILURE;
     }
     oal_usb_log(BUS_LOG_DBG, "success");
     return EXT_ERR_SUCCESS;
