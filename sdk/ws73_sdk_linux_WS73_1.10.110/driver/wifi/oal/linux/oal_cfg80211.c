@@ -1012,8 +1012,13 @@ void oal_cfg80211_ch_switch_notify(oal_net_device_stru *pst_netdev,
     cfg80211_ch_switch_notify(pst_netdev, pst_chandef, 0, 0);
 #else
 #if defined(LINUX_VERSION_CODE) && (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 5, 0))
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 5, 0))
     /* 7.x: cfg80211_ch_switch_notify() gained link_id arg */
     cfg80211_ch_switch_notify(pst_netdev, pst_chandef, 0);
+#else
+    /* 4.4: 2-arg prototype */
+    cfg80211_ch_switch_notify(pst_netdev, pst_chandef);
+#endif
 #endif
 #endif
 }

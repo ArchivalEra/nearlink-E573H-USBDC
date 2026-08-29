@@ -3,6 +3,8 @@
  * Description: SLE UUID Server Source.
  */
 #include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
 #include "securec.h"
 #include "sle_common.h"
 #include "sle_errcode.h"

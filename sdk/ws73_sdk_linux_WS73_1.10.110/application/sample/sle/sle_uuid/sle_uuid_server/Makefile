@@ -1,5 +1,5 @@
 # CROSS 为交叉编译工具链
-CROSS = arm-himix100-linux-
+CROSS = arm-histbv320-linux-
 CC	= @echo " GCC	$@"; $(CROSS)gcc
 LD	= @echo " LD	$@"; $(CROSS)ld
 AR	= @echo " AR	$@"; $(CROSS)ar
@@ -18,7 +18,7 @@ SRCDIR = $(TOPDIR)/src/
 LIBDIR = $(TOPDIR)/lib/
 
 CFLAGS	+=	-I$(INCDIR_TOP) -I$(INCDIR_COMMON) -I$(INCDIR_BLE) -I$(INCDIR_SEC) 
-CFLAGS	+= -Wall -Os #--std=c++11
+CFLAGS	+= -Wall -Os -std=gnu99 #--std=c++11
 LDFLAGS	+= -lm -lpthread -ldl -Wl,--gc-sections
 
 SRCS := $(wildcard $(SRCDIR)/*.c)
