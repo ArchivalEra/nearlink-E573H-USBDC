@@ -5,7 +5,7 @@
 #   transport /dev/hwsle ACB frame adapter (tcid 0x0A)
 #   server    SSAP server (service table, request dispatch)
 #
-CC      ?= $(shell which ccache >/dev/null 2>&1 && echo "ccache cc" || echo cc)
+CC      := $(shell command -v ccache >/dev/null 2>&1 && echo "ccache cc" || echo cc)
 CFLAGS  ?= -O2 -Wall -Wextra -Iinclude
 CFLAGS  += -std=c11
 

@@ -1190,7 +1190,7 @@ static inline td_s32 oal_net_device_set_macaddr(oal_net_device_stru *dev, td_voi
     mac = (oal_sockaddr_stru *)addr;
 
     /* 7.x: net_device->dev_addr is const; use dev_addr_set() */
-    dev_addr_set(dev, mac->sa_data);
+    memcpy(dev->dev_addr, mac->sa_data, 6);
     return OAL_SUCC;
 }
 

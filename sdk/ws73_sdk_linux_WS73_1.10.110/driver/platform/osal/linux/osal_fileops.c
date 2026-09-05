@@ -14,7 +14,20 @@ char *g_klib_store_path = NULL;
 
 static void os_set_ds(void)
 {
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 8, 0)
     /* Linux >= 6.8: no set_fs(); kernel_read/write handle it. */
+#else
+    set_fs(KERNEL_DS);
+#endif
+}
+
+static void os_restore_ds(mm_segment_t old_fs)
+{
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 8, 0)
+    set_fs(old_fs);
+#else
+    (void)old_fs;
+#endif
 }
 
 static struct file *klib_fopen(const char *file, int flags, int mode)
@@ -34,13 +47,23 @@ static void klib_fclose(struct file *filp)
 static int klib_fwrite(const char *buf, unsigned long size, struct file *filp)
 {
     int writelen;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 8, 0)
+    mm_segment_t old_fs;
+#endif
 
     if (filp == NULL) {
         return -ENOENT;
     }
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 19, 0)
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 8, 0)
+    old_fs = get_fs();
+    set_fs(KERNEL_DS);
+#endif
     writelen = vfs_write(filp, (void __user *)buf, size, &filp->f_pos);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 8, 0)
+    set_fs(old_fs);
+#endif
 #else
     writelen = kernel_write(filp, (void __user *)buf, size, &filp->f_pos);
 #endif
@@ -51,13 +74,23 @@ static int klib_fwrite(const char *buf, unsigned long size, struct file *filp)
 static int klib_fread(char *buf, unsigned long size, struct file *filp)
 {
     int readlen;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 8, 0)
+    mm_segment_t old_fs;
+#endif
 
     if (filp == NULL) {
         return -ENOENT;
     }
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 19, 0)
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 8, 0)
+    old_fs = get_fs();
+    set_fs(KERNEL_DS);
+#endif
     readlen = vfs_read(filp, (void __user *)buf, size, &filp->f_pos);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 8, 0)
+    set_fs(old_fs);
+#endif
 #else
     readlen = kernel_read(filp, (void __user *)buf, size, &filp->f_pos);
 #endif

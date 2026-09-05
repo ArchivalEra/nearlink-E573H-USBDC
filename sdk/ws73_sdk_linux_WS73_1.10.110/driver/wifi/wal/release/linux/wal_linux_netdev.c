@@ -1181,7 +1181,7 @@ osal_void wlan_get_addr_from_plat(osal_void)
     if (net_dev != OSAL_NULL) {
         osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
         if (wlan_get_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev) == OAL_SUCC) {
-            dev_addr_set(net_dev, mac_buf); /* 7.x: dev_addr is const */
+            memcpy(net_dev->dev_addr, mac_buf, 6); /* 7.x: dev_addr is const */
         } else {
             wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
             return;
@@ -1192,7 +1192,7 @@ osal_void wlan_get_addr_from_plat(osal_void)
     if (net_dev != OSAL_NULL) {
         osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
         if (wlan_get_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev) == OAL_SUCC) {
-            dev_addr_set(net_dev, mac_buf);
+            memcpy(net_dev->dev_addr, mac_buf, 6);
         } else {
             wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
             return;
@@ -1203,7 +1203,7 @@ osal_void wlan_get_addr_from_plat(osal_void)
     if (net_dev != OSAL_NULL) {
         osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
         if (wlan_get_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev) == OAL_SUCC) {
-            dev_addr_set(net_dev, mac_buf);
+            memcpy(net_dev->dev_addr, mac_buf, 6);
         } else {
             wifi_printf("wlan_get_addr_from_plat: set [%s] mac failed\r\n", net_dev->name);
             return;
@@ -1248,7 +1248,7 @@ OAL_STATIC osal_s32  _wal_netdev_set_mac_addr(oal_net_device_stru *net_dev, void
 
     osal_u8 mac_buf[WLAN_MAC_ADDR_LEN];
     (void)memcpy_s(mac_buf, WLAN_MAC_ADDR_LEN, mac_addr->sa_data, WLAN_MAC_ADDR_LEN);
-    dev_addr_set(net_dev, mac_buf); /* 7.x: dev_addr is const */
+    memcpy(net_dev->dev_addr, mac_buf, 6); /* 7.x: dev_addr is const */
     ret = wlan_set_mac(mac_buf, WLAN_MAC_ADDR_LEN, net_dev);
 
     return (osal_s32)ret;
