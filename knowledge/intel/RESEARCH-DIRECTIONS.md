@@ -481,3 +481,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 三十七、OKF 时代猎收第二十批（2026-09-13 续跑，深挖③：多入口汇入实现，122→123 concepts）
 
 - `NEW-SMARTEDGE-MULTI-ENTRY.md`：SmartEdge 七入口汇入 = **一头文件一入口**（ble/webserver/mqtt/key/gesture/radar/heart_rate 各一，共享 gateway_frame）+ 编译期特性门控（CONFIG_GATEWAY_MQTT_ENABLE + UNUSED_ATTR 桩）+ 命名时序常量（ACK 18s/轮询 20ms/状态上报地板 3s）+ **内建 latency 计量模块**（gateway_latency.h）。csrc/ 为 u8g2 显示中间件（与控制模型分离）。
+
+## 三十八、OKF 时代猎收第二十一批（2026-09-13 续跑，深挖④：AIGC 云端，123→124 concepts）
+
+- `NEW-AIGC-CLOUD-SERVER.md`：云端 3594 行 = 照片审阅 Web 应用（分页/EXIF/_safe_join 防穿越）+ 三 API 链（高德天气→LLM 提示词优化→通义万相异步文生图轮询）+ encoder_epd_wifi 裸机编码节点（OLED/EPD 共享 MOSI 引脚）。**凭据卫生发现**：DashScope API Key 硬编码入库（报告只记事实不复制密钥，上游应轮换）——`getattr(cfg,KEY,None) or "hardcoded"` 是我们工具链要避免的反模式。

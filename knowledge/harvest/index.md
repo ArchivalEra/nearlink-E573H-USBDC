@@ -1,5 +1,6 @@
 # Harvest Reports
 
+* [WS63E AIGC cloud server — DashScope text2image pipeline with LLM prompt optimization and Amap weather; exposed credential noted (not reproduced)](NEW-AIGC-CLOUD-SERVER.md) - harvest concept (3 KB)
 * [MakeBlackSheepGreat/BearPi-Pico-H3863 — the missing manual for the WS63E/H3863 sample family (sparse-adopted docs)](NEW-BEARPI-H3863-DOCS.md) - harvest concept (4 KB)
 * [New repo knowledge harvest: Ai-BS21 SDK + wtsl_app](NEW-BS21-WTSL.md) - harvest concept (19 KB)
 * [BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)](NEW-BearPi-NLChat.md) - harvest concept (24 KB)
