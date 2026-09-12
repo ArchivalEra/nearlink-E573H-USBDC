@@ -469,3 +469,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 三十四、OKF 时代猎收第十七批（2026-09-13 收官，Port FSM 三源闭环，119→120 concepts）
 
 - `NEW-PORT-PROFILE-FSM.md`：tethering port_stm.h 八态 FSM（IDLE→REGISTER_APP→CREATE_LINK→GET_SERVICE→FIND_SERVICE→READ_PROPERTY→SET_NET→CONNECTED）+ 用户会话事件与 SSAP 回调同rank 事件集。Port 抽象三源闭环完成（tethering 1.x FSM + HiDiTing 2.0 bs_sle_port API + find/middleware 参照）——Port 作为 SLE 传输抽象已成生态方向，我们 SSAP 栈的 bring-up 状态机蓝图齐备。
+
+## 三十五、OKF 时代猎收第十八批（2026-09-13 续跑，深挖①：port 实现机制，120→121 concepts）
+
+- `NEW-PORT-PROFILE-INTERNALS.md`：port FSM 实现机制——**每状态分发表**（各态自带事件分发器，非迁移矩阵）+ 客户端**三键会话缓存**（addr/appId/UUID 三比较器查同一表）+ 对称启停/注册括号纪律。对我们 SSAP：per-state dispatch 优于全局迁移矩阵；三键缓存对应 server 端 clientConfigs 向量需求。

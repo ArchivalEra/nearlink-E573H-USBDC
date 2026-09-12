@@ -25,6 +25,7 @@
 * [yeyeye0212/starflash-pet-collar — WS63 Three-Node Pet Collar (SLE-WiFi Gateway Bridge, MPU6050 State Machine)](NEW-PET-COLLAR-GATEWAY.md) - harvest concept (4 KB)
 * [Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)](NEW-PLAYJOY-HID-KEYBOARD.md) - harvest concept (11 KB)
 * [tethering port_stm.h — the Port Profile connection FSM: eight states from IDLE to CONNECTED via SSAP service discovery and network set](NEW-PORT-PROFILE-FSM.md) - harvest concept (3 KB)
+* [tethering port profile internals — per-state dispatch FSM and per-address client cache (port_stm.c 566 lines, port_client.c 236 lines)](NEW-PORT-PROFILE-INTERNALS.md) - harvest concept (3 KB)
 * [cxl0928/hi3863-sle-1v8-vehicle — SLE 1-Client-to-8-Server Vehicle Sample (WS63, SBUS + UWB Follow)](NEW-SLE-1V8-VEHICLE.md) - harvest concept (4 KB)
 * [BH4ME/sle_mesh_new — most mature public SLE team-mesh engineering tree (v4.5.56): portable packet core, relay optimizer, on-board Web API, release evidence chain](NEW-SLE-TEAM-MESH-V456.md) - harvest concept (4 KB)
 * [New SLE UART Variants: `sle_uart` vs `Hi3863-SLE-2025`](NEW-SLE-UART-VARIANTS.md) - harvest concept (55 KB)
