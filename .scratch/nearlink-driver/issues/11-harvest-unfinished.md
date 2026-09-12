@@ -27,6 +27,10 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 | fbb_bs2x_rust (659M) | **已完成**：`NEW-SLEMESH-RUST.md` | BS2x Rust fork；已记录 Rust `no_std` staticlib 与 C/LiteOS 共存模式 |
 | NearLink Assembly Optimization（网络汇编/编译器/链接优化） | **已完成**：`NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md` | 汇编 inline/寄存器访问、GCC/Clang/LLVM 标志分级、LTO/gc-sections 边界、Rust release profile、通用优化指令集与度量门禁 |
 | nearlink-uwb-like-ranging (2026-09-12 推送，5.8M) | **已完成**：`NEW-NEARLINK-UWB-LIKE-RANGING.md` | 首个公开 SLE Channel Sounding 多锚点测距全栈（Anchor/Client/Collector 三角色 + 332B IQ 结构 + 主机 GnUls 定位）；**WS73 sle_hadm_manager.h API 同构，dongle 可做测距端** |
+| tethering_nearlink (2026-09-11 推送，5M) | **已完成**：`NEW-OHOS-TETHERING-SERVICE.md` | OHOS 星闪网络共享：socket+epoll 泵 → SleDataTransferService（port↔uid/pid 映射+每应用缓存）→ SLE Port Profile（SSAP 之上端口透传，portId+manufacturerId+UUID）；CACHE_FULL 显式背压 |
+| hi3863-sle-1v8-vehicle (2026-08-17 推送，899K) | **已完成**：`NEW-SLE-1V8-VEHICLE.md` | SLE 1 拖 8 拓扑：MAX_CON=8 定长 conn_id 表 + MAC 去重 + 扫描→连接→MTU 交换→重扫描循环；SBUS/MT6816/PID 集成 |
+| Eironax/Qwac (2026-08-31 推送，80KB) | **甄别空仓**：全仓仅 LICENSE，不产报告 | 蹭 Playjoy 名的空仓，克隆已删 |
+| openharmony/communication_nearlink_service (pull 544 commits) | **已完成**：`NEW-OHOS-NEARLINK-SEPT-INCREMENT.md` | SSAP ReplayConnectedLink 复用链补发、DTAP_CopyFrame 指针重定基、帧4 天线钉扎、DLI autorate+敏感指令隐匿化、全栈 fuzzer 基建 |
 
 ## 未搜方向
 
@@ -35,7 +39,7 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 - openharmony/communication_dsoftbus（软总线，46M，与 nearlink 竞合）未评估
 - openharmony/device_soc_hisilicon（gh code search 出现过 ws63v100/sdk 路径）未克隆
 - gitee 侧需 token，GitHub API 匿名限流（10 次/分钟搜索）
-- 2026-09-12 热点扫描后续队列：openharmony/communication_nearlink_service 9-11 推送（本地克隆早于更新）需 pull+diff；cxl0928/hi3863-sle-1v8-vehicle（SLE 1 客户端对 8 服务器拓扑）待克隆；yanlinkos/fbb_ws63 + fbb_bs2x（YL63 厂商 fork，472M/217M）需 fork-diff 判定；xingkaiyueying/tethering_nearlink（星闪网络共享）待克隆；Eironax/Qwac（Playjoy 开源替代，80KB）小仓可顺手；Heebu/NearLinkChat（Flutter 星闪聊天）低优先级
+- 2026-09-13 队列余量：yanlinkos/fbb_ws63 + fbb_bs2x（YL63 厂商 fork，472M/217M）需 fork-diff 判定；Heebu/NearLinkChat（Flutter 星闪聊天）低优先级；openharmony/communication_dsoftbus（46M 竞合评估）；openharmony/device_soc_hisilicon
 
 ## Answer
 

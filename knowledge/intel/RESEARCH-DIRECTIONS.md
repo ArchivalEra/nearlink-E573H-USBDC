@@ -356,3 +356,16 @@ exchange_info → find（含 CCCD 描述符）→ write CCCD → read/notify
 - 测试: 四套全绿
 - 明天: HHD-01 AT 脚本就绪，WS73 dongle + PC 栈互连就绪
 
+## 十八、OKF 时代猎收第一批（2026-09-13，队列仓 4 消化 + 1 甄别空仓，知识束 92→95 concepts）
+
+前置过时确认（GitHub API pushed_at/archived，全部存活）：openharmony/communication_nearlink_service 9-11 推送、tethering_nearlink 9-11、hi3863-sle-1v8-vehicle 8-17、Eironax/Qwac 8-31。
+
+产出（knowledge/harvest/）：
+- `NEW-OHOS-NEARLINK-SEPT-INCREMENT.md`：openharmony 主仓 pull 544 commits（8-14→9-11）。可复用：①SSAP 服务端 `NLSTK_SsapServerReplayConnectedLink`（复用已建链场景注册后补发存量链路状态——我们 SSAP server 同款盲区，直接可移植）；②DTAP_CopyFrame 拷贝后指针重定基（内指针结构深拷贝必须 rebase，防 UAF）；③帧4 广播/扫描双引用计数天线钉扎管理器（SleFrame4AntennaMgr，串行队列免锁）；④DLI_SetICGAutorateParam（同步链路自适应速率）+ DLI_RegisterSnoopSensitiveOpcodes（敏感指令日志隐匿化）；⑤全栈 per-module fuzzer 基建（25+ 模块）。含 OpenHarmony v7.0 Release 标签。
+- `NEW-OHOS-TETHERING-SERVICE.md`：xingkaiyueying/tethering_nearlink = OHOS 星闪网络共享服务：本地 socket+epoll 泵（PortInfo port/addr/mtu/fd，50KB 缓冲）→ SleDataTransferService（UUID↔port↔tokenId/uid/pid 映射 + 每应用缓存 + ACB 状态路由）→ SLE Port Profile（portId+manufacturerId+UUID 三元组，SSAP 之上的端口透传）。CACHE_FULL 显式背压枚举。车机连接请求路径（ConnectCarReq）。
+- `NEW-SLE-1V8-VEHICLE.md`：cxl0928 竞赛仓。1 拖 8 拓扑 = MAX_CON=8 定长 conn_id 表 + MAC 去重 + 扫描→连接→MTU 交换→重扫描循环 + 断链数组压实。SBUS 25B 帧 16×11bit 解析、MT6816 14bit 磁编码器、PID 闭环。
+- Eironax/Qwac：**空仓甄别**（全仓仅 LICENSE，单 Initial commit，蹭 Playjoy 名），不产报告，克隆已删。
+
+可复用/不可复用边界：Replay-on-register、copy-then-rebase、opcode 隐匿化、引用计数资源钉扎、1v8 连接循环均可移植；tethering 的 socket 桥无 IP 转发逻辑（NAT/DHCP 不在仓内），port profile 为部分片段不可独立构建。
+
+队列余量：yanlinkos/fbb_ws63+fbb_bs2x（fork-diff 判定）、Heebu/NearLinkChat（低优先）、openharmony/communication_dsoftbus、openharmony/device_soc_hisilicon。
