@@ -494,3 +494,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-SSAP-LINK-PLANE.md`：ssap_link/link_state（695 行）= 四态链路模型（DISCONNECTED/CONNECTING/CONNECTED/**DISCONNECTING**）+ 显式重试契约写入头文件（DISCONNECTING 期间调用者缓存请求断开后重试）+ 地址键控空安全查询。三层状态组合（连接平面/应用 SM/profile FSM）而非复制。与 OSPL-CONN-FSM 跨方言互证。
 - 刷新扫描：无新仓（发现空间持续稳定）。
+
+## 四十一、OKF 时代猎收第二十四批（2026-09-13 续跑，深挖⑦：fuzzer 解剖，126→127 concepts）
+
+- `NEW-STACK-FUZZER-ANATOMY.md`：hydra-fuzz GN 目标解剖——**include 图 = 闭源栈的内部层分类学**（sdf/oal 原语→sdf 框架→dli→dp→cp/bsl 服务面→nai）；共享 stack_fuzz.gni 去重；fuzz 入口走真实内部边界（cm_trans_channel→dli_layer→dtap_scheduler，LLVM FuzzedDataProvider）。对我们：栈目录骨架参照 + 模块边界 fuzz 模板 + 共享 GNI 模式。

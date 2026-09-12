@@ -39,6 +39,7 @@
 * [OHOS ssapc_client.c client view — SSAP services are a property/method/event object model; find responses decode into a per-address member cache](NEW-SSAPC-CLIENT-OBJECT-MODEL.md) - harvest concept (4 KB)
 * [OHOS ssaps_server_find.c — the authoritative FIND-family server reference (FIND_STRUCTURE / _BY_UUID, V10 framing split, MTU-chunked responses)](NEW-SSAPS-FIND-REFERENCE.md) - harvest concept (4 KB)
 * [OHOS ssaps_server write/read families — multi-READ and multi-WRITE CONFIRMED (correction of an earlier miss); multi-processing negotiated at MTU exchange](NEW-SSAPS-MULTI-OPERATIONS-CORRECTION.md) - harvest concept (4 KB)
+* [OHOS nearlink stack_fuzzer anatomy — hydra-fuzz GN targets, a shared include map that doubles as the stack's internal layer taxonomy, and module-boundary fuzz entries](NEW-STACK-FUZZER-ANATOMY.md) - harvest concept (3 KB)
 * [Arctic2520/starbridge-ws63-firmware — SS928 edge computer drives WS63 SLE bridge: UART JSON-line master to remote IR sensor node](NEW-STARBRIDGE-EDGE-BRIDGE.md) - harvest concept (2 KB)
 * [teki128/nearlink — Minimal 564-line SLE Client/Server Pair (WS63 SDK, fixed-address dialect)](NEW-TEKI128-MINIMAL-PAIR.md) - harvest concept (4 KB)
 * [La-OHV/tx_star — DS10 control-loop companion: Android 20 Hz binary-frame joystick over NearLink DTU to STM32 receiver](NEW-TXSTAR-DS10-REMOTE.md) - harvest concept (3 KB)
