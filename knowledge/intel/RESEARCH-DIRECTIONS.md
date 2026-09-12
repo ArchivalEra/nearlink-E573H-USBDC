@@ -473,3 +473,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 三十五、OKF 时代猎收第十八批（2026-09-13 续跑，深挖①：port 实现机制，120→121 concepts）
 
 - `NEW-PORT-PROFILE-INTERNALS.md`：port FSM 实现机制——**每状态分发表**（各态自带事件分发器，非迁移矩阵）+ 客户端**三键会话缓存**（addr/appId/UUID 三比较器查同一表）+ 对称启停/注册括号纪律。对我们 SSAP：per-state dispatch 优于全局迁移矩阵；三键缓存对应 server 端 clientConfigs 向量需求。
+
+## 三十六、OKF 时代猎收第十九批（2026-09-13 续跑，深挖②：SSAP servm 模块地图，121→122 concepts）
+
+- `NEW-SSAP-SERVM-MODULE-MAP.md`：SSAP servm 全套 9601 行模块地图（server 4652 + client 4949）——客户端 **peer 服务缓存**（ssapc_cache 1009 行，每链路缓存远端服务/属性免重复发现）+ **客户端应用链路 SM**（ssapc_app_link_sm 623 行，应用级生命周期独立于 ACL）+ 共享链路/句柄平面（ssap_link/handle/manager）。对我们栈的建设路线图：缺口（find/多操作/客户端缓存/app SM）各 600-1500 行，与既有规划工作量假设吻合。
