@@ -416,3 +416,11 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-OHOS-DK3863-SLE-CURRICULUM.md`：vendor_hihope nearlink_dk_3863 = 28 样例课程，SLE 应用系列 5 个（23_uart/24_humi/25_led/26_gas/27_oled）共用 UART 骨架，载荷分 taxonomy：透传/传感器上报/执行器命令/模拟量/显示流。配对状态（SlePairStateType）为连接回调一等信号（证实 BearPi 手册配对前置）。OHOS BUILD.gn 集成 = 设备侧 OHOS 化实例。可作为 WS73 SSAP 栈验收测试矩阵。
 - 空白轴结论：hi3798×nearlink、nearlink sniffer、sparklink dongle 关键词 GitHub 零结果（嗅探工具空间空白）；WS73 USB host 栈唯一性 9-13 复验成立（仍仅本仓库 + gtxaspec）。
+
+## 二十五、OKF 时代猎收第八批（2026-09-13，中文关键词轴爆发：商用 DTU 生态，105→108 concepts）
+
+中文轴（星闪）扫出商用生态三仓 + 收尾 MeshGatewayAPP：
+
+- `NEW-DS10-SLE-DTU.md`：**WANG-XU-create/DS10-TTL = 首个公开的星闪 SLE 串口透传实测画像**（32B≈14ms / 1400B≈419ms·44% 成功率，分片逐片 ACK 所致；上行 1100B / 下行 4095B 不对称；≥5ms 帧间隔；1 主 ≤15 从；GFSK/Polar 可选 200m）。**第三代 AT 方言**：双平面（运行态/配置态）+ 草稿事务（CFG_NEW/SAVE/DISCARD 原子生效）+ AT+CFG_SLE=<frameType>,<tier> + Modbus over SLE 分站路由。ROS2 驱动（master/slave 角色、Frame 消息、噪声地板诊断）。对我们 SLE 传输：小帧+信用步调的实证依据。
+- `NEW-TXSTAR-DS10-REMOTE.md`：La-OHV/tx_star = DS10 控制环（Android 摇杆 CH340 USB 串口 20Hz 二进制帧 + 序号/CRC-8/STM32 自动重同步/掉线判 + 总开关清零安全不变量）。
+- `NEW-MESHGATEWAY-APP-PROTOCOL.md`：NearLink-ePaper/MeshGatewayAPP = SLE-mesh 图传协议手机侧规范（v2 检查点 + 30B 缺包位图一次补 240 包；v2.1 FAST/ACK 双流控；14B 图像头；Kotlin RLE 与固件 image_rle.c 位级 round-trip）。与 AIGC frame 仓合读 = 协议两端齐备。
