@@ -1,7 +1,7 @@
 # 04 — migration map and workflow sync list
 
 Type: task
-Status: open
+Status: resolved
 Blocked by: 03
 
 ## Question
@@ -21,3 +21,14 @@ Produce the complete, path-exact migration map and the workflow-sync checklist t
 4. **History-preservation strategy**: `git mv` batching so `git log --follow` survives; commit granularity (one commit per batch, gates green each batch).
 
 Deliverable: the map + checklist as this ticket's Answer, sized so ticket 05 is pure execution with no remaining decisions.
+## Answer
+
+Executed as designed (2026-09-12, batched commits, every batch gates-green):
+
+| Batch | Move | Synced references | Commit |
+|---|---|---|---|
+| B | lab-notes+scratch assets+docs intel → knowledge/{harvest,intel}; frontmatter ×90; index/log | check-harvest pathspec, README zh/en tables, AGENTS.md, harvest skill drop paths | f4720ea |
+| C | stack → assets/stack; sdk → assets/sdk (disk rename; gitignored binaries) | .gitignore modes, flash-dongle/load-driver/test-hhd01-at, AGENTS.md | e718074 |
+| D | — | check-okf.py wired into .githooks/pre-push | 1b6113a |
+
+Incidents fixed mid-flight: README backtick references `index.md`/`log.md` failed doc-index check 2 (patched to `knowledge/index.md` form); `git add -A` staged workspace metadata (.mimosa/.vscode/.zcode) via the `!*.json` whitelist — removed from the commit and hard-excluded in .gitignore section 8.

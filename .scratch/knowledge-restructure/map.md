@@ -27,8 +27,18 @@ The repo's knowledge plane and artifact plane are decoupled: a top-level `knowle
 - [OKF v0.2 specification research](issues/01-okf-spec-research.md): adopt v0.2; hard gate = §11's three MUST rules via self-hosted `scripts/check-okf.py`; tolerated-list semantics preserved; `language` extension key is spec-legal.
 - [knowledge vs assets boundary](issues/02-knowledge-assets-boundary.md): knowledge=read-to-decide, assets=run-or-referenced-by-builds, root infra stays root; lab-notes+scratch assets+docs intel → knowledge, stack+sdk → assets, trackers stay, docs/agents stays.
 - [knowledge topology and bilingual policy](issues/03-knowledge-topology-and-bilingual.md): single bundle, `harvest/`+`intel/`+`decisions/` typed subdirs with per-dir index.md, file names kept, lossless migration with `language` frontmatter, English-only applies to new docs, README pair stays the only bilingual surface.
+- [migration map and workflow sync](issues/04-migration-map-and-workflow.md): executed as batches B/C/D (f4720ea/e718074/1b6113a); all path-sensitive surfaces synced; metadata-staging incident fixed with .gitignore section 8.
+- [execute migration in batches](issues/05-execute-migration.md): done; renames 93-100%, working tree clean per batch.
+- [gates regression and push](issues/06-gates-regression-push.md): check-docs 6/6, check-okf 90 concepts green, controlled S1/S2/S3 scenarios verified, pushed.
 
 ## Not yet specified
+
+<!-- fog: in-scope, not yet sharp enough to ticket -->
+
+**Post-migration fog** (all graduated-optional, none blocking the destination which is reached):
+- `okf serve --mcp` integration for agent consumption (candidates: galkleinman/okf-toolkit; zero-runtime alternative stays default).
+- `sources`/`stale_after` provenance backfill on harvest concepts (opportunistic, not conformance).
+- GH Action OKF validation on PRs (pre-push gate already covers local pushes).
 
 <!-- fog: in-scope, not yet sharp enough to ticket -->
 
