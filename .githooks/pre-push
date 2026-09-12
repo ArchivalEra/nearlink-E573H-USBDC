@@ -1,5 +1,6 @@
 #!/bin/sh
-# pre-push hook: run documentation hygiene and harvest archive checks.
+# pre-push hook: run documentation hygiene, OKF bundle conformance, and
+# harvest archive checks.
 # Installed by: bash scripts/install-hooks.sh
 # Skip with:    git push --no-verify
 
@@ -7,4 +8,5 @@ root="$(git rev-parse --show-toplevel 2>/dev/null)"
 [ -n "$root" ] || exit 0
 
 bash "$root/scripts/check-docs.sh" || exit 1
+python3 "$root/scripts/check-okf.py" || exit 1
 exec bash "$root/scripts/check-harvest-archive.sh"
