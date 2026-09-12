@@ -369,3 +369,14 @@ exchange_info → find（含 CCCD 描述符）→ write CCCD → read/notify
 可复用/不可复用边界：Replay-on-register、copy-then-rebase、opcode 隐匿化、引用计数资源钉扎、1v8 连接循环均可移植；tethering 的 socket 桥无 IP 转发逻辑（NAT/DHCP 不在仓内），port profile 为部分片段不可独立构建。
 
 队列余量：yanlinkos/fbb_ws63+fbb_bs2x（fork-diff 判定）、Heebu/NearLinkChat（低优先）、openharmony/communication_dsoftbus、openharmony/device_soc_hisilicon。
+
+## 十九、OKF 时代猎收第二批（2026-09-13，热点扫描 3 消化 + 1 fork-diff 判定，95→98 concepts）
+
+热点扫描（sort=updated）+ 甄别：santes210/NearLink（Android 壳仓）、Leiyimei/ws63_sensor_sle（空仓）、bhengubv/aether-protocol（C# 名称撞车）一行跳过；Sky05y/smart_cabinet（BearPi H3863 药柜样例，2.5 月未推）留观察不克隆。
+
+产出（knowledge/harvest/）：
+- `NEW-TEKI128-MINIMAL-PAIR.md`：teki128/nearlink = 564 行最小 SLE 客户端/服务端对。服务端 5 步 SSAP 序列（0x00A0/0x01A0/0x02A0 + CCCD + start_service）+ 客户端固定地址直连（G_CAN_NEGO、interval 100、MTU 512）。客户端地址 11:22:33:44:55:66 即 HHD-01 violin 的 SDK 默认值。可作为 WS73 host SSAP 栈 bring-up 冒烟验收基准。
+- `NEW-PET-COLLAR-GATEWAY.md`：starflash-pet-collar = 三端系统 + **sle_gateway 双无线电桥**（SLE report/write 双向 ↔ lwIP UDP 512B）。证明 WS63 应用层 SLE+WiFi 并发共存可行（对三模目标 prior art）。证实 sle_uart_1_vs_8 已是 HiSpark 样例家族标配（两仓出现）。硬编码 WiFi 演示凭据按凭据卫生不传播。
+- `NEW-YL63-FORK-VERDICT.md`：yanlinkos/fbb_ws63 fork-diff 判定（metadata-only clone + 文件清单 comm + 稀疏检出 684K）：非同字节 rehost，YL63 重构代次。**官方 AT 指南 7791 行/100 命令**稀疏采纳——AT+BLESETNAME=<len,name> 官方证实 HHD-01 逆向格式；SLE 全家族（SLESETMCS/SLESETDEFAULTCONNP/SLEPAIR）首次有官方文档。fbb_bs2x 判定暂缓。
+
+方法论沉淀：大厂商 fork 判定 playbook = `--filter=blob:none --no-checkout` 元数据克隆 → 文件清单 comm 差集 → 高价值路径 sparse-checkout（472M 仓只花 684K）。
