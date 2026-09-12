@@ -489,3 +489,8 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 三十九、OKF 时代猎收第二十二批（2026-09-13 续跑，深挖⑤：客户端对象模型，124→125 concepts）
 
 - `NEW-SSAPC-CLIENT-OBJECT-MODEL.md`：**概念级发现——OHOS SSAP 服务是 property/method/event 三类成员的对象模型**（× STD/VENDOR 变体），非纯 GATT 特征。客户端发现解码时顺带填充 per-address 缓存（Prty/Method/Event 三桶）；V10 响应按 itemType 三态解码；SSAP_DecodeSingleProperty 用计算 needSize 的游标逐字段硬校验。对我们栈：接口描述层（瘦身 IDL）应进入 ssap server/client 设计。
+
+## 四十、OKF 时代猎收第二十三批（2026-09-13 续跑，深挖⑥：共享链路平面，125→126 concepts）
+
+- `NEW-SSAP-LINK-PLANE.md`：ssap_link/link_state（695 行）= 四态链路模型（DISCONNECTED/CONNECTING/CONNECTED/**DISCONNECTING**）+ 显式重试契约写入头文件（DISCONNECTING 期间调用者缓存请求断开后重试）+ 地址键控空安全查询。三层状态组合（连接平面/应用 SM/profile FSM）而非复制。与 OSPL-CONN-FSM 跨方言互证。
+- 刷新扫描：无新仓（发现空间持续稳定）。
