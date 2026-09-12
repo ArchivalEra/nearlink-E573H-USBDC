@@ -404,3 +404,8 @@ gh 符号搜索轴（sle_hadm/ssaps_notify_indicate/sle_iso_manager）：新候�
 - `NEW-FBB-WS63-QEMU-FORK.md`：fbb_ws63-qemu fork 稀疏采纳（3.5M）。**RF 初始化仿真缺口清单**：BT/WiFi 任务深初始化依赖片上 ROM 数据 + RF 校准 + efuse dump，QEMU 不可建模——正是三模固件仿真需补的三件套。boot 实证：flashboot→liteos→调度器空闲。本地 hisi-riscv-qemu（=ws63-qemu）已建模 xlinx ISA + 全部 35 个 SVD 外设 + mask-ROM 拦截。
 
 hispark-rs 澄清：本地 hispark-rs/hisi-riscv-qemu 即 ws63-qemu（README 交叉证实 boot 状态），fbb_ws63-qemu 为其配套 SDK fork。
+
+## 二十三、OKF 时代猎收第六批（2026-09-13，队列收尾 + 样例家族手册，103→104 concepts）
+
+- Heebu/NearLinkChat **蹭名结案**：pubspec 依赖仅 connectivity_plus/wifi_iot/flutter_webrtc，纯 WiFi/LAN WebRTC 应用，无任何星闪 SDK。不产报告。
+- `NEW-BEARPI-H3863-DOCS.md`：MakeBlackSheepGreat/BearPi-Pico-H3863 稀疏采纳 160K（docs/communication 7 篇 1284 行）= 本批已消化样例家族（sle_uart/sle-1-to-8/sle_gateway/ble_uart）的教程手册。新事实：**SLE UART 家族要求两板配对后方可互发**（代码消化未显现的流程前置）；证实 pet-collar 的 sle_gateway 与 1v8 车拓扑均为 BearPi 标配样例而非原创。hardware/datasheets 按边界未拉。

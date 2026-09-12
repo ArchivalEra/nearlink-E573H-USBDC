@@ -43,7 +43,7 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 - openharmony/communication_dsoftbus **已评估结案**：`NEW-DSOFTBUS-SLE-STUB.md`（SLE 传输为公共桩，能力账本+SLB 双栈枚举已备）
 - openharmony/device_soc_hisilicon **已稀疏采纳**：`NEW-OHOS-DEVICE-SOC-WS63.md`（API 同面实证；protocol/middleware 深挖留待后续）
 - gitee 侧需 token，GitHub API 匿名限流（10 次/分钟搜索）
-- 2026-09-13 队列余量：yanlinkos/fbb_bs2x（217M，BS2X AT 文档需要时再判定）；Heebu/NearLinkChat（Flutter 星闪聊天）低优先级；openharmony/communication_dsoftbus（46M 竞合评估）；Sky05y/smart_cabinet（观察）；符号轴过时镜像仓（BearPi H3863 Pico 2024-08 / bs2x_sdk 2025-03 / sanchuanhehe 2025-08 / taqminum 2026-07）已标注降级；MakeBlackSheepGreat/BearPi-Pico-H3863 资料库（观察）；hispark-rs/fbb_ws63-qemu 已稀疏采纳（NEW-FBB-WS63-QEMU-FORK.md，RF 仿真缺口清单）
+- 2026-09-13 队列余量：yanlinkos/fbb_bs2x（217M，BS2X AT 文档需要时再判定）；Heebu/NearLinkChat（Flutter 星闪聊天）低优先级；openharmony/communication_dsoftbus（46M 竞合评估）；Sky05y/smart_cabinet（观察）；符号轴过时镜像仓（BearPi H3863 Pico 2024-08 / bs2x_sdk 2025-03 / sanchuanhehe 2025-08 / taqminum 2026-07）已标注降级；MakeBlackSheepGreat/BearPi-Pico-H3863 **已稀疏采纳**：`NEW-BEARPI-H3863-DOCS.md`（样例家族手册+配对前置）；hispark-rs/fbb_ws63-qemu 已稀疏采纳（NEW-FBB-WS63-QEMU-FORK.md，RF 仿真缺口清单）
 
 ## Answer
 
