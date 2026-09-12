@@ -461,3 +461,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-SSAPS-FIND-REFERENCE.md`：OHOS ssaps_server_find.c（1498 行）= FIND_BY_UUID/STRUCTURE 的权威实现参照——请求码路由响应、STANDARD/CUSTOMIZE/MIX 三态 UUID 类型、**MTU 作为预算参数传入载荷构建器**、V10 协议版本分叉显式并存。直指我们 assets/stack/ssap 缺失的 FIND_BY_UUID 功能（此前 ssap 审计已标注）。
 - **本地库保鲜扫**：45 仓 ls-remote SHA 对照全部 current（API 限额后改走 Git 协议）；已消化仓（uwb-like-ranging/keyboard-cli/nearlink_service）均无新推送。
+
+## 三十三、OKF 时代猎收第十六批（2026-09-13，**修正批**：multi-READ/WRITE 实存，118→119 concepts）
+
+- `NEW-SSAPS-MULTI-OPERATIONS-CORRECTION.md`：**修正本会话早前误判**——OHOS 栈 multi-READ/WRITE 实存（命名 `*MultiRead*`/`*WriteMulti*`，此前 grep MULTI_WRITE 模式漏检）：WriteMulti 子项循环带逐项准入（SSAP_LoopControlType_E）、ReadMulti 按"先授权→再算预算→后序列化"次序、**multi-processing 是 MTU 交换时协商的链路能力位**、CCCD 状态按对端地址存 clientConfigs 向量。原始记忆"multi-READ/WRITE done"说法正确；审计方法失当。教训入库：SSAP 多操作特性命名规范。
