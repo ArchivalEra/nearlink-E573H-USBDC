@@ -1,10 +1,28 @@
 # 02 — knowledge vs assets boundary
 
 Type: grilling
-Status: open
+Status: resolved
 Blocked by:
 
-## Question
+## Answer
+
+User confirmed all recommendations (2026-09-12, "全都按你推荐"). Decision rule, one sentence: **knowledge = read-to-decide (documents carrying intelligence, research, decisions); assets = run-or-referenced-by-builds (code, toolchains, hooks, vendor SDK); root infra stays at root.**
+
+| Path | Plane | Rationale |
+|---|---|---|
+| `.scratch/nearlink-driver/lab-notes/*.md` (79 files) | knowledge | research/intelligence documents |
+| `.scratch/nearlink-driver/assets/*.md` (6 spec/intel files) | knowledge | firmware/DLI dialect reference documents |
+| `docs/*.md` (4 English intel files) | knowledge | English intel documents |
+| `docs/agents/*.md` (3 files) | **stays at `docs/agents/`** | agent operating conventions, referenced by AGENTS.md and user-level skills; moving them widens blast radius for zero knowledge-plane value |
+| `.scratch/nearlink-driver/{issues,map.md}`, `.scratch/rust-ws73-tri-mode/` | neither — stays | living wayfinder trackers / process artifacts (user-confirmed) |
+| `stack/` (`stack/ssap` self-written stack) | **assets** | the repo's core code artifact |
+| `sdk/ws73_sdk_linux_WS73_1.10.110/` | **assets** | vendor reference source + gitignored binaries; build/reference context, not decision material |
+| `scripts/` | stays at root | tooling adjacent to hooks/gates (user-confirmed root infra) |
+| `.githooks/`, `.gitignore`, `README.md`, `README.en.md`, `LICENSE` | stays at root | root infrastructure |
+
+Boundary stress case (settled): the SSAP wire protocol has two truths — prose in lab notes (knowledge) and `stack/ssap/include/ssap_pkt.h` in code (assets). Intended duplication resolved by reference: code is wire ground truth; knowledge documents **cite** the header and must not restate it as an independent authority. Firmware blobs/calibration data are gitignored → in neither plane.
+
+Naming: top-level `knowledge/` + `assets/`, literal per user's words (Q2=A). Veto-able assumption recorded: none outstanding.
 
 What is the decision rule that separates the knowledge plane from the artifact plane, and where does every existing directory/file land?
 

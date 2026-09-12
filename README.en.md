@@ -5,7 +5,7 @@
 Turn the USB `ffff:3733` ("00000000") — a **HiSilicon WS73 tri-mode dongle** (Bluetooth + WiFi 6 + NearLink SLE) — into a **tri-mode wireless adapter** for a Linux TV box: real high-speed WiFi / Bluetooth / NearLink, plus the control interface. Core output: **a fully reverse-engineered WS73 NearLink control plane + a self-written SSAP userspace protocol stack** (x86-compilable, resource-adaptive).
 
 > **⚠️ read before pushing — doc maintenance checklist**: see [Document index & maintenance](#document-index--maintenance).
-> The pre-push hooks (`scripts/check-docs.sh` + `scripts/check-harvest-archive.sh`) enforce README cross-links, doc-index completeness, English-only docs/, whitelist sanity, README zh/en sync, and block new NEW-*.md archives unless both README files change in the same push.
+> The pre-push hooks (`scripts/check-docs.sh` + `scripts/check-harvest-archive.sh`) enforce README cross-links, doc-index completeness, English-only docs/, whitelist sanity, README zh/en sync, and block new knowledge/harvest archives unless both README files change in the same push.
 
 ## Project status (2026-08)
 
@@ -20,7 +20,7 @@ Turn the USB `ffff:3733` ("00000000") — a **HiSilicon WS73 tri-mode dongle** (
 
 ### ✅ Software side (self-written)
 ```
-stack/ssap/                          # SSAP userspace stack (Apache-2.0 port + own code)
+assets/stack/ssap/                    # SSAP userspace stack (Apache-2.0 port + own code)
 ├── ssap_codec   PDU encode/decode (0x01-0x14, byte-level)
 ├── hwsle_transport  /dev/hwsle ACB frame adapter (tcid 0x0A)
 ├── ssap_server  service table + request dispatch (EXCHANGE/FIND/READ/WRITE/NOTIFY)
@@ -29,18 +29,18 @@ stack/ssap/                          # SSAP userspace stack (Apache-2.0 port + o
 ```
 Tests: codec + server + feature suites all green, x86 zero-dependency build.
 
-### 📚 Intel library (78 research docs)
-Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire protocol as device firmware — port path proven**), connection manager, data plane (DTAP/SDR), security pairing, ranging, standard params (SLE 12Mbps/250µs/256 users), 6 OpenSparklink contract reports (DLI/UAPI/CONN-FSM/SSAP/PHY/USB transport), 15 NEW harvest reports (WS63/HHD-01, community classifications, SLE UART variants, Rust ecosystem/mesh, NLChat Web, Toolbox, assembly/compiler/linker optimization resources, and the **UWB-like multi-anchor SLE ranging suite** — first public SLE Channel Sounding full-stack reference), and the OHOS ecosystem batches (AT framework/SLE mesh/framework/HDI/SSAP engine/client/HID remote/SA service/ranging/radar/DLI/DTAP/NAI/device-mgr/GLE/BGTP/SM-security/measure-QoS/SSAP-plan-audit/NearLinkSLE/LinkNebula).
+### 📚 Intel library (89 research docs, OKF bundle)
+`knowledge/` is an OKF v0.2 knowledge bundle (root `knowledge/index.md`/`knowledge/log.md` + harvest/intel/decisions domains): 89 concepts = 15 harvest reports + 74 protocol/chip/SDK/driver deep-dives, plus recorded architecture decisions. Coverage: SSAP dialect comparison (**OHOS = same wire protocol as device firmware — port path proven**), connection manager, data plane (DTAP/SDR), security pairing, ranging (including the first public UWB-like multi-anchor SLE Channel Sounding full-stack reference), standard params (SLE 12Mbps/250µs/256 users), 6 OpenSparklink contract reports (DLI/UAPI/CONN-FSM/SSAP/PHY/USB transport), assembly/compiler/linker optimization resources with a general instruction set, and the OHOS ecosystem batches (AT framework/SLE mesh/framework/HDI/SSAP engine/client/HID remote/SA service/ranging/radar/DLI/DTAP/NAI/device-mgr/GLE/BGTP/SM-security/measure-QoS/SSAP-plan-audit/NearLinkSLE/LinkNebula).
 
 ## Repository layout
 
 ```
 .
-├── stack/ssap/          # self-written SSAP userspace stack (core asset)
+├── knowledge/           # OKF v0.2 knowledge bundle (harvest/intel/decisions + index/log)
+├── assets/              # artifact plane (stack/ssap self-written stack + WS73 SDK reference)
 ├── scripts/             # ws73-probe×3 + load-driver/flash-dongle + check scripts
-├── docs/                # English intel (DEVICE/SDK/USB-PROTOCOL/ECOSYSTEM)
-├── sdk/                 # HiSilicon WS73 SDK (sources + x86 port, binaries gitignored)
-└── .scratch/            # wayfinder decision map + 78 research docs + shifu list
+├── docs/agents/         # agent operating conventions
+└── .scratch/            # wayfinder trackers (nearlink-driver / rust-ws73-tri-mode / knowledge-restructure)
 ```
 
 ## Document index & maintenance
@@ -50,14 +50,15 @@ Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire p
 | File | Description | Lang |
 |---|---|---|
 | `README.md` / `README.en.md` | Project overview (cross-linked) | zh/en |
-| `docs/DEVICE-INTEL.md` | ffff:3733 device enumeration intel | en |
-| `docs/SDK-INTEL.md` | WS73 SDK structure/build/reusable pieces | en |
-| `docs/USB-PROTOCOL.md` | HCC-over-USB protocol essentials | en |
-| `docs/ECOSYSTEM.md` | NearLink open-source ecosystem map + roadmap | en |
-| `stack/ssap/` | SSAP userspace stack (codec/transport/server/link/feature) | — |
+| `knowledge/` | **OKF v0.2 knowledge bundle**: harvest/intel/decisions domains + index/log (root index.md is the agent-facing progressive-disclosure surface) | mixed (legacy zh tagged via `language`, new docs English) |
+| `knowledge/intel/DEVICE-INTEL.md` | ffff:3733 device enumeration intel | en |
+| `knowledge/intel/SDK-INTEL.md` | WS73 SDK structure/build/reusable pieces | en |
+| `knowledge/intel/USB-PROTOCOL.md` | HCC-over-USB protocol essentials | en |
+| `knowledge/intel/ECOSYSTEM.md` | NearLink open-source ecosystem map + roadmap | en |
+| `knowledge/intel/SHIFU-BUILD-LIST.md` | TV-box cross-compile list (hi3798 SDIO/USB variants) | zh |
+| `knowledge/decisions/knowledge-assets-split.md` | knowledge/assets split decision record | en |
+| `assets/stack/ssap/` | SSAP userspace stack (codec/transport/server/link/feature) | — |
 | `scripts/` | test/verify/check scripts | — |
-| `.scratch/nearlink-driver/lab-notes/` | **78 research docs** (SSAP dialect/CM/DTAP/SDR/SM/HADM/standard/OSPL/WS63/OHOS/NEW harvest notes…) | zh+en |
-| `.scratch/nearlink-driver/lab-notes/SHIFU-BUILD-LIST.md` | TV-box cross-compile list (hi3798 SDIO/USB variants) | zh |
 
 ## Roadmap
 

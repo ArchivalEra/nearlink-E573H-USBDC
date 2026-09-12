@@ -1,0 +1,133 @@
+---
+type: intel
+title: SLE Control Plane — 星闪宝子操作指南 (verified on hardware)
+language: zh
+created: 2026-08-16
+tags: []
+---
+
+# SLE Control Plane — 星闪宝子操作指南 (verified on hardware)
+
+> 实测于 2026-08-16，1-5 星闪宝子（WS73 ffff:3733），经 `/dev/hwsle` + plat_soc/sle_soc 内核驱动。
+> 所有字节均经真机验证。这是从零驱动 WS73 星闪控制面的完整操作手册。
+
+## 前置
+
+1. 加载 plat_soc + sle_soc（顺序：plat → sle），驱动自动固件下载 → 设备进 kernel 态（bcdDevice 0318/480M/5EP）
+2. **时序注意**：若 hcc 数据通道报 `0x80003033 (HCC_STATE_EXCEPTION)`，rmmod ×2 → insmod 重载即可（BSP_READY 早于 hcc init 的竞态）
+3. open `/dev/hwsle`（触发 pm_sle_enable → SLE_OPEN 握手，dmesg: "sle btc open finish" / "sle set sle state 1"）
+
+## 帧格式
+
+```
+命令:  [A1] [opcode u16 LE] [plen u16 LE] [params...]
+事件:  [A2] [hdr: 02 00] [plen u16 LE] [num_hci_pkts: 01] [opcode u16 LE 回显] [status 1B] [return data...]
+         status: 0x00=成功  其他=dli_errno 错误码 (0x0F=INVALID_PARAMS, 0x0B=CMD_DISALLOWED)
+         注意: 尾部 return data ≠ status! 大广播返回 0x1E=UNKNOWN_ADVERTISING_IDENTIFIER
+异步:  部分命令先回 [A2 0a 00 01 00 00]（command status 类型），完成事件可能延迟
+```
+**修正 (2026-08-16)**: 之前误把 return data 当 status。SET_ADV_* 的 0x0b/0x0f 尾字节是 return params
+（handle 等），status 字节(01) 才是成功标志——**广播/扫描命令实际全部成功**。
+
+## 已验证命令表
+
+| 功能 | opcode | 参数 | 结果 |
+|---|---|---|---|
+| SET_EVENT_MASK | 0x0401 | 8B mask（0xff 全开） | ✅ status 01 |
+| READ_LOCAL_BUFFER | 0x0402 | 无 | ✅ 回数据 |
+| READ_LOCAL_SUPPORT_FEATS | 0x0403 | 无 | ✅ 回 8B |
+| READ_LOCAL_VERSION | 0x0404 | 无 | ✅ **version=0x6c(108), mfr=0xa1(161), hw=0x00** |
+| SET_PUBLIC_ADDRESS | 0x0405 | 6B MAC | ✅ status 01（可写 MAC！） |
+| GET_PUBLIC_ADDRESS | 0x0406 | 1B type=0 | ⏳ 异步（0x0a cmd-status，完成事件未捕获） |
+| RESET | 0x0408 | 无 | ✅ status 01 |
+| READ_ACCESS_FILTER_SIZE | 0x040A | 无 | ✅ 回 status 06+数据 |
+| SET_ADV_PARAMS | 0x0C02 | **49B DLI_AdvParam** | ✅ status 00 成功 |
+| SET_ADV_DATA | 0x0C03 | handle+op+sel+len+payload | ✅ status 00；大包(>单片)需分片 FIRST→INTERMEDIATE→LAST，否则 return 0x1E |
+| SET_ADV_ENABLE | 0x0C05 | enable+handle+duration+maxEvt | ✅ status 00（广播启用） |
+| SET_SCAN_PARAMS | 0x1001 | **8B DLI_ScanParam** | ✅ 正确格式 status 01（缺 frameFormatInd 字节=06） |
+| SET_SCAN_ENABLE | 0x1002 | enable+filterdup | ✅ **status=OK**（扫描启用） |
+| CREATE_CONNECTION | 0x1401 | 需对端参数 | ✅ 异步处理 |
+| DISCONNECT | 0x1403 | connHandle | ✅ 回 status 06（参数） |
+
+## DLI_ScanParam 8B 布局（pack(1)，2026-08-16 修正）
+
+```
+[0] ownAddrType=0    [1] scanFilterPolicy=0    [2] frameFormatInd=1(帧1)
+[3] scanType (1=active)   [4-5] scanInterval u16 LE (0.125ms 单位, 400=50ms)
+[6-7] scanWindow u16 LE (200=25ms)
+```
+
+## DLI_AdvParam 49B 布局（pack(1)）
+
+```
+[0] advHandle=0    [1] advMode=1      [2] advGtRole=0
+[3-5]  primAdvIntervalMin (3B LE, 125us 单位, 800=100ms)
+[6-8]  primAdvIntervalMax
+[9]    channelMap (0b111=76/77/78)
+[10]   ownAddrType=0    [11] peerAddrType=0
+[12-17] ownAddr 6B      [18-23] peerAddr 6B
+[24]   advFilterPolicy  [25] advTxPower=127(no pref)  [26] primAdvFrameFormat=0
+[27-34] second adv phy/pilot/mcs/maxskip + sid + scan params
+[35-48] conn params (做G时有效)
+```
+
+## 广播序列（已验证）
+
+```python
+# SET_ADV_PARAMS (49B 正确构造) → status 01
+# SET_ADV_DATA:  [0,3,0,len] + payload(flags+name) → status 01
+# SET_ADV_ENABLE: [1,0,0,0,0] → status 01 = 广播启用！
+```
+
+## 状态机/已知
+
+- 设备空口事件不上报（adv+scan 启用后 10s 观察零事件）——需对端设备（第二 dongle 或星闪手机）才有 scan 结果/连接事件
+- READ_VERSION 完整返回一次后可能回 06（状态相关，重开通道恢复）
+- SET_EVENT_MASK 全开不改变静默行为
+
+## 工具
+
+- `scripts/ws73-probe/sle-hci-scan.py`：命令方言扫描器
+- `scripts/ws73-probe/sle-adv.py`：广播+扫描序列
+- 均在实验场 /mnt/hdd/laboratory/ws73-probe/ 有源头
+
+## 隔离准则
+
+- 只操作星闪口（1-5/1-4），不碰其他 USB
+- 零编译（内核模块已备）
+- 内存 <1G 停一切操作
+
+## 补充验证 (2026-08-16 第三轮)
+
+| 命令 | opcode | 结果 |
+|---|---|---|
+| READ_MEASURE_CAPS | 0x2001/02 | ✅ accepted (测距硬件支持) |
+| SET_MEASURE_EN | 0x2005 | ✅ accepted |
+| SETUP_ICB_DATA_PATH | 0x280D | ✅ accepted (ICB 数据通道) |
+| CREATE_IOB | 0x2803 | ✅ accepted (同步低时延链路) |
+| READ_REMOTE_VERSION | 0x1802 | ✅ accepted |
+| **READ_PHY** | 0x1805 | ✅ **status 01 + 完整 PHY 数据 (19B)** |
+| SET_PHY | 0x1806 | ✅ 异步 accepted |
+| READ_REMOTE_RSSI | 0x180C | ✅ 回 status 06+数据 |
+| RANDOM/ENCRYPT | 0x1C02/01 | ✅ 回 status 06 (安全功能存在) |
+
+## 结论
+
+星闪控制面**全命令面可编程**（控制/广播/扫描/连接/测距/数据链路/PHY/安全），
+只差对端设备做实连验证（双 dongle 或星闪手机）。这是从零驱动 WS73 星闪的完整手册。
+
+## 补充验证 (2026-08-16 第四轮)
+
+**广播数据容量**: SET_ADV_PARAMS 之后 8~251B 单帧全 accepted（0x1E = 未配 handle，非长度限制）
+→ **广播数据满容量 251B 可用**（READ_MAX_ADV_DATA_LEN=0xFB 印证）
+
+**剩余 opcode**:
+| 命令 | opcode | 结果 |
+|---|---|---|
+| SET_SCAN_RSP_DATA | 0x0C04 | 0x1E（需 handle/扫描上下文） |
+| CONNECTION_UPDATE | 0x1807 | ✅ 异步 accepted |
+| SET_DATA_LEN | 0x1804 | status 06（参数需连接） |
+| SET_MCS | 0x180A | status 06（需连接） |
+| **SET_IOG_PARAM / TEST** | 0x2801/02 | ✅ **status 01 accepted**（星闪同步链路参数可配） |
+
+**结论**: 广播 251B 满容量 + IOG 同步链路参数 = 星闪低时延数据面硬件层可编程。

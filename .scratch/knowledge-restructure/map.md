@@ -24,6 +24,10 @@ The repo's knowledge plane and artifact plane are decoupled: a top-level `knowle
 
 <!-- one line per closed ticket: [ticket name](path): gist -->
 
+- [OKF v0.2 specification research](issues/01-okf-spec-research.md): adopt v0.2; hard gate = §11's three MUST rules via self-hosted `scripts/check-okf.py`; tolerated-list semantics preserved; `language` extension key is spec-legal.
+- [knowledge vs assets boundary](issues/02-knowledge-assets-boundary.md): knowledge=read-to-decide, assets=run-or-referenced-by-builds, root infra stays root; lab-notes+scratch assets+docs intel → knowledge, stack+sdk → assets, trackers stay, docs/agents stays.
+- [knowledge topology and bilingual policy](issues/03-knowledge-topology-and-bilingual.md): single bundle, `harvest/`+`intel/`+`decisions/` typed subdirs with per-dir index.md, file names kept, lossless migration with `language` frontmatter, English-only applies to new docs, README pair stays the only bilingual surface.
+
 ## Not yet specified
 
 <!-- fog: in-scope, not yet sharp enough to ticket -->
