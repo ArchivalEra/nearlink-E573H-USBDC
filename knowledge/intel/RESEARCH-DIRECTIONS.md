@@ -388,3 +388,11 @@ gh 符号搜索轴（sle_hadm/ssaps_notify_indicate/sle_iso_manager）：新候�
 产出（knowledge/harvest/）：
 - `NEW-OHOS-DEVICE-SOC-WS63.md`：openharmony/device_soc_hisilicon（9-09 推送，465MB）稀疏采纳 3.9M。**核心实证：OHOS ws63v100 与 WS73 1.10.110 三个关键 SLE 头（ssap_server/ssap_client/hadm_manager）的 NLSTK_* 函数集 100% 相同、零单边符号**——设备侧与主机侧同一公共 API 代次，可移植性论证闭环（扩展 UWB-like 报告的 hadm 同构注记至全 SSAP 面）。adapter/hals 为标准 OHOS 粘合。protocol/662 + middleware/516 文件留待未来深挖。
 - 同批过时确认重置队列：sle_iso 唯一用户 = wtsl_app（已消化）；符号轴 SDK 镜像仓多为 1-2 年未推。
+
+## 二十一、OKF 时代猎收第四批（2026-09-13，窄词扫描 + dsoftbus 评估，99→101 concepts）
+
+窄词扫描（ws73/h3863/dongle/usb）：twyora/WildLink 对（新）、MakeBlackSheepGreat/BearPi-Pico-H3863（资料库，观察）、gtxaspec/ws73v100-wifi（已知）、FlashKeyboard（已本地）；OpenSparklink/sparklink 本地已最新（0 behind）。
+
+产出（knowledge/harvest/）：
+- `NEW-WILDLINK-SENSOR-PAIR.md`：twyora/WildLink = 多属性 SSAP 服务端（每传感器独立 property handle：MAX30102/MAX30205，自定义 UUID base 37BEA880-FC70-11EA）+ **三链路节点**（app_entry 同时起 sle_client + ble_server + atk_lora）。Kconfig-per-task 门控。与 1v8 车（多服务器单属性）构成 WS63 家族两个正交多轴设计。
+- `NEW-DSOFTBUS-SLE-STUB.md`：dsoftbus 46MB 队列项以证据结案——公共树 ConnSleInit **显式返回 NULL**（"do not support sle init" 桩），但脚手架完整：net-ledger 带 SLE_MAC/SLE_CAP 能力账本 + MAC 变更同步消息；适配器枚举**同时含 SLE 与 SLB（SparkLink Basic）双栈状态 + TURN_HALF 态**（新词汇）；lnn_sle fuzzer 先于传输实现。"公共桩/私有实现"模式再次实锤。
