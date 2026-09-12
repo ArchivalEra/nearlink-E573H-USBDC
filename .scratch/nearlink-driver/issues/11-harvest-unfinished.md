@@ -76,3 +76,20 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 空白空间结论：nearlink sniffer/抓包工具、hi3798×nearlink、sparklink dongle 均无公开实现；WS73 USB host 栈唯一性 9-13 复验成立。
 
 方法论沉淀：大仓四步 playbook（blob:none 元数据克隆→文件清单 comm→高价值路径 sparse-checkout→超时改 raw 直取）；每仓过时确认（pushed_at/archived）；OKF R1 红线=英文报告禁引中文文件名。
+
+## 2026-09-13 续跑总账（第十至十六批，+9 份，累计 26 份 / 92→119 concepts）
+
+| # | 报告 | 一句话 |
+|---|---|---|
+| 18 | NEW-SMART-CABINET-FULLCHAIN | 全链路多节点：六类传感器→SLE→主控→HTTP 上云→Web（观察项①结） |
+| 19 | NEW-GLE-HOST-SYMBOL-SURFACE | 设备侧 SLE host 闭源 libbth_gle.a 符号面：gle_sm(77)=SM 层完整参照（观察项②结） |
+| 20 | NEW-WS63-MIDDLEWARE-OPEN-CLOSED | HCC 架构头开源（flow_ctrl 三阶段+DFX 丢包计数）、bt_cmd 表闭源 |
+| 21 | NEW-SLE-TEAM-MESH-V456 | 最成熟公开 mesh 工程：254B 报文/四路由类型/tick 中继优化/板上 Web API/发布证据 |
+| 22 | NEW-WS63-SDK-DEV-SKILL | 第三方 WS63 agent skill：三次盲改即停/样例卫生清单/多设备状态机 |
+| 23 | NEW-STARBRIDGE-EDGE-BRIDGE | SS928 JSON line→SLE 桥（串口控制切分点之三） |
+| 24 | NEW-SMARTEDGE-GATEWAY-FRAME | 全屋网关：0xAA 帧+分组地址+三 UUID+七入口汇一 |
+| 25 | NEW-HIDITING-LWIP-SLE-NETIF | **首个开源 IP-over-SLE**：lwIP 虚拟以太 netif（ARP/IGMP 全语义） |
+| 26 | NEW-SSAPS-FIND-REFERENCE | FIND 家族权威实现（MTU 预算参数化/V10 分叉） |
+| 27 | NEW-SSAPS-MULTI-OPERATIONS-CORRECTION | **修正批**：multi-READ/WRITE 实存（MultiRead/WriteMulti 命名），multi-processing 为交换协商位 |
+
+保鲜扫：45 仓 ls-remote 全 current。新仓发现：0（发现空间稳定）。不写记忆约束全程遵守。
