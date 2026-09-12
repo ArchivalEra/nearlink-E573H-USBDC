@@ -396,3 +396,11 @@ gh 符号搜索轴（sle_hadm/ssaps_notify_indicate/sle_iso_manager）：新候�
 产出（knowledge/harvest/）：
 - `NEW-WILDLINK-SENSOR-PAIR.md`：twyora/WildLink = 多属性 SSAP 服务端（每传感器独立 property handle：MAX30102/MAX30205，自定义 UUID base 37BEA880-FC70-11EA）+ **三链路节点**（app_entry 同时起 sle_client + ble_server + atk_lora）。Kconfig-per-task 门控。与 1v8 车（多服务器单属性）构成 WS63 家族两个正交多轴设计。
 - `NEW-DSOFTBUS-SLE-STUB.md`：dsoftbus 46MB 队列项以证据结案——公共树 ConnSleInit **显式返回 NULL**（"do not support sle init" 桩），但脚手架完整：net-ledger 带 SLE_MAC/SLE_CAP 能力账本 + MAC 变更同步消息；适配器枚举**同时含 SLE 与 SLB（SparkLink Basic）双栈状态 + TURN_HALF 态**（新词汇）；lnn_sle fuzzer 先于传输实现。"公共桩/私有实现"模式再次实锤。
+
+## 二十二、OKF 时代猎收第五批（2026-09-13，nearlink+mesh 轴 + hispark-rs 增量，101→103 concepts）
+
+产出（knowledge/harvest/）：
+- `NEW-WS63E-MESH-AIGC-FRAME.md`：leion-kk WS63E 分布式 AIGC 画框。**SLE Mesh 上的按目的地路由表**（mesh_route_entry_t: dest/next_hop/hop_count/lifetime_ms，AODV 家族带 lifetime 过期）——与 sle_mesh 的 leader 根树路由构成两种公开 mesh 设计。图像管线 = 分块接收→片上 TJpgDec JPEG 解码→RLE→流缓冲→墨水屏 SPI 边收边刷（零本地存储）。网关双无线电分工（WiFi 走云端 AIGC / Mesh 走分发）。
+- `NEW-FBB-WS63-QEMU-FORK.md`：fbb_ws63-qemu fork 稀疏采纳（3.5M）。**RF 初始化仿真缺口清单**：BT/WiFi 任务深初始化依赖片上 ROM 数据 + RF 校准 + efuse dump，QEMU 不可建模——正是三模固件仿真需补的三件套。boot 实证：flashboot→liteos→调度器空闲。本地 hisi-riscv-qemu（=ws63-qemu）已建模 xlinx ISA + 全部 35 个 SVD 外设 + mask-ROM 拦截。
+
+hispark-rs 澄清：本地 hispark-rs/hisi-riscv-qemu 即 ws63-qemu（README 交叉证实 boot 状态），fbb_ws63-qemu 为其配套 SDK fork。
