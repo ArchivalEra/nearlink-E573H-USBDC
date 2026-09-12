@@ -485,3 +485,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 三十八、OKF 时代猎收第二十一批（2026-09-13 续跑，深挖④：AIGC 云端，123→124 concepts）
 
 - `NEW-AIGC-CLOUD-SERVER.md`：云端 3594 行 = 照片审阅 Web 应用（分页/EXIF/_safe_join 防穿越）+ 三 API 链（高德天气→LLM 提示词优化→通义万相异步文生图轮询）+ encoder_epd_wifi 裸机编码节点（OLED/EPD 共享 MOSI 引脚）。**凭据卫生发现**：DashScope API Key 硬编码入库（报告只记事实不复制密钥，上游应轮换）——`getattr(cfg,KEY,None) or "hardcoded"` 是我们工具链要避免的反模式。
+
+## 三十九、OKF 时代猎收第二十二批（2026-09-13 续跑，深挖⑤：客户端对象模型，124→125 concepts）
+
+- `NEW-SSAPC-CLIENT-OBJECT-MODEL.md`：**概念级发现——OHOS SSAP 服务是 property/method/event 三类成员的对象模型**（× STD/VENDOR 变体），非纯 GATT 特征。客户端发现解码时顺带填充 per-address 缓存（Prty/Method/Event 三桶）；V10 响应按 itemType 三态解码；SSAP_DecodeSingleProperty 用计算 needSize 的游标逐字段硬校验。对我们栈：接口描述层（瘦身 IDL）应进入 ssap server/client 设计。
