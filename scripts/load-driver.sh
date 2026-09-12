@@ -8,7 +8,7 @@
 #
 # Usage: bash scripts/load-driver.sh [--unload] [--sdk <path>] [--quiet]
 #   --unload  rmmod both modules first
-#   --sdk     SDK root (default: sdk/ws73_sdk_linux_WS73_1.10.110)
+#   --sdk     SDK root (default: assets/sdk/ws73_sdk_linux_WS73_1.10.110)
 #   --quiet   suppress status chatter
 #
 # Exit: 0 both loaded · 1 preconditions missing · 2 insmod failed
@@ -16,7 +16,7 @@
 set -u
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SDK="$REPO_ROOT/sdk/ws73_sdk_linux_WS73_1.10.110"
+SDK="$REPO_ROOT/assets/sdk/ws73_sdk_linux_WS73_1.10.110"
 UNLOAD=0
 QUIET=0
 

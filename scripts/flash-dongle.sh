@@ -17,7 +17,7 @@
 set -eu
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SDK="$REPO_ROOT/sdk/ws73_sdk_linux_WS73_1.10.110"
+SDK="$REPO_ROOT/assets/sdk/ws73_sdk_linux_WS73_1.10.110"
 FW="$SDK/firmware/us"
 PORT="${1:-}"
 SKIP=""

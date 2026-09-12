@@ -16,7 +16,7 @@
 #   - Starts advertising
 #   - Waits for our PC stack to connect
 #
-# After this runs, our PC stack (stack/ssap/) can connect to
+# After this runs, our PC stack (assets/stack/ssap/) can connect to
 # the HHD-01's SSAP service and exchange data.
 
 set -euo pipefail

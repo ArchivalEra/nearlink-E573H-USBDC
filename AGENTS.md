@@ -25,4 +25,4 @@ Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
 - **Two-plane layout**: `knowledge/` is an OKF v0.2 bundle (harvest/intel/decisions + index/log) holding all research and decisions; `assets/` holds the artifact plane (code, vendor SDK). Root infra (`scripts/`, `.githooks/`, README pair) stays at root.
 - **New knowledge documents are English-only** (`knowledge/`); legacy Chinese documents carry `language: zh` frontmatter and stay unchanged. `README.md` (zh) ↔ `README.en.md` (en) cross-link. A pre-push hook (`scripts/check-docs.sh` + `scripts/check-okf.py`, installed via `scripts/install-hooks.sh`) enforces this — see README's document index.
 - **Whitelist gitignore**: nothing is tracked unless allowlisted. SDK binaries/firmware/archives stay out of git; sources/docs are tracked.
-- The SDK tree lives at `sdk/ws73_sdk_linux_WS73_1.10.110/` (HiSilicon source, reference only — do not commit firmware blobs or prebuilt daemons).
+- The SDK tree lives at `assets/sdk/ws73_sdk_linux_WS73_1.10.110/` (HiSilicon source, reference only — do not commit firmware blobs or prebuilt daemons).
