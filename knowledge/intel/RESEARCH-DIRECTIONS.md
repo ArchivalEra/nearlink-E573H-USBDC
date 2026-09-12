@@ -409,3 +409,10 @@ hispark-rs 澄清：本地 hispark-rs/hisi-riscv-qemu 即 ws63-qemu（README 交
 
 - Heebu/NearLinkChat **蹭名结案**：pubspec 依赖仅 connectivity_plus/wifi_iot/flutter_webrtc，纯 WiFi/LAN WebRTC 应用，无任何星闪 SDK。不产报告。
 - `NEW-BEARPI-H3863-DOCS.md`：MakeBlackSheepGreat/BearPi-Pico-H3863 稀疏采纳 160K（docs/communication 7 篇 1284 行）= 本批已消化样例家族（sle_uart/sle-1-to-8/sle_gateway/ble_uart）的教程手册。新事实：**SLE UART 家族要求两板配对后方可互发**（代码消化未显现的流程前置）；证实 pet-collar 的 sle_gateway 与 1v8 车拓扑均为 BearPi 标配样例而非原创。hardware/datasheets 按边界未拉。
+
+## 二十四、OKF 时代猎收第七批（2026-09-13，openharmony org 全扫 + DK 课程，104→105 concepts）
+
+org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代码搜索）：除已消化的 service/device_soc/dsoftbus 外发现 **openharmony/vendor_hihope**（9-12 推送，全会话最新鲜）。
+
+- `NEW-OHOS-DK3863-SLE-CURRICULUM.md`：vendor_hihope nearlink_dk_3863 = 28 样例课程，SLE 应用系列 5 个（23_uart/24_humi/25_led/26_gas/27_oled）共用 UART 骨架，载荷分 taxonomy：透传/传感器上报/执行器命令/模拟量/显示流。配对状态（SlePairStateType）为连接回调一等信号（证实 BearPi 手册配对前置）。OHOS BUILD.gn 集成 = 设备侧 OHOS 化实例。可作为 WS73 SSAP 栈验收测试矩阵。
+- 空白轴结论：hi3798×nearlink、nearlink sniffer、sparklink dongle 关键词 GitHub 零结果（嗅探工具空间空白）；WS73 USB host 栈唯一性 9-13 复验成立（仍仅本仓库 + gtxaspec）。
