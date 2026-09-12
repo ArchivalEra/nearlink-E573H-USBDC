@@ -11,20 +11,21 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 ## 已完成（会话内）
 
 - 本地仓 39 个 / 9.4G（/mnt/hdd/nearlink-stuff/），含 hispark-rs 24 子仓全家桶
-- NEW-* 报告 6 份归队（1804 行）：BearPi-NLChat / BS21-WTSL / HiSilicon-Assessment / WS63FLASH-GHIDRA / XF-BURN / XFUSION
+- NEW-* 报告 14 份归队（含本轮汇编优化资源报告）：BearPi-NLChat / BS21-WTSL / HiSilicon-Assessment / WS63FLASH-GHIDRA / XF-BURN / XFUSION / HISPARK-RS 生态 / SLE Mesh + BS2X Rust / nearLinKernel 甄别 / SLE UART 变体 / Xinghongpai WS63 固件程序知识 / NearLink Toolbox 网站程序知识 / NLChat Web 端程序知识 / NearLink Assembly Optimization（汇编/编译器/链接器优化资源与通用优化指令集）
 
-## 未消化（已克隆，未派/未归队）
+## 已克隆仓库消化状态
 
-| 仓 | 价值点 | 建议 |
+| 仓 | 归档结果 | 结论 |
 |---|---|---|
-| nearLinKernel (29K, Julia) | 名字像 NearLink 实为 Julia，需一句话甄别 | 快速甄别即可 |
-| NLChat_Web (636K) | NLChat 网页端 | 低价值，README 级 |
-| nearlink-toolbox-website (71 files) | 星闪工具箱网站（Next.js） | 工具箱固件下载方法论 |
-| xinghongpai-nearlink-dev-board (178 files) | 华秋开源 WS63V100 板（KiCad 原理图+BOM） | 引脚 vs HHD-01、外设布线 |
-| sle_uart + Hi3863-SLE-2025 (小) | SLE 透传变体、传感器-over-SLE 数据帧 | 与 NearLinkSLE-SAMPLES 对比 UUID/MTU |
-| hispark-rs/* 24 子仓 (771M) | **重磅**：WS63/BS2X Rust 全家桶（QEMU/rt/pac/crypto/nvs/rtos/rf-facade/fwpkg/flash） | rust-ws73 ticket 04 option B 的现成地基，最优先 |
-| sle_mesh v4.4.9 (19M) | 2026-06 推送，比 Mesh-ePaper 新 | HELLO-DV/AIMD/dedup 增量 |
-| fbb_bs2x_rust (659M) | BS2x Rust fork——芯片内 Rust 先例 | Rust+LiteOS 共存模式 |
+| nearLinKernel (29K, Julia) | **已完成**：`NEW-NEARLINKERNEL-CLASSIFICATION.md` | 名字像 NearLink，实际是 near-linear kernel 数值线性代数论文代码，属于名称碰撞 |
+| NLChat_Web (636K) | **已完成**：`NEW-NLCHAT-WEB.md` | 浏览器端 Web Serial 串口终端/聊天 UI；没有 SLE/SSAP/HADM/DLI 协议实现，仅可借鉴浏览器串口生命周期与诊断界面 |
+| nearlink-toolbox-website (71 files) | **已完成**：`NEW-NEARLINK-TOOLBOX-WEBSITE.md` | 实际是 Next.js 静态宣传页；下载只取远端 JSON 并打开 Windows URL，不是 Tauri/Rust/串口/烧录实现 |
+| xinghongpai-nearlink-dev-board (178 files) | **程序知识已完成**：`NEW-XINGHONGPAI-FIRMWARE-KNOWLEDGE.md`；硬件/PCB 按要求不纳入本轮 | 固件示例的 SDK API、AHT20/SSD1306、ADC、Wi-Fi/lwIP 与缺陷边界；引脚/PCB 留给后续硬件 session |
+| sle_uart + Hi3863-SLE-2025 (小) | **已完成**：`NEW-SLE-UART-VARIANTS.md` | SLE 透传变体、传感器-over-SLE 数据帧；已对比 UUID、MTU、CCCD 和显式 framing 缺口 |
+| hispark-rs/* 24 子仓 (771M) | **已完成**：`NEW-HISPARK-RS-ECOSYSTEM.md` | WS63/BS2X Rust 全家桶（QEMU/rt/pac/crypto/nvs/rtos/rf-facade/fwpkg/flash），可作为 rust-ws73 参考地基 |
+| sle_mesh v4.4.9 (19M) | **已完成**：`NEW-SLEMESH-RUST.md` | 2026-06 推送；已记录 leader-rooted tier routing、directed relay、无 flooding/dedup cache 等边界 |
+| fbb_bs2x_rust (659M) | **已完成**：`NEW-SLEMESH-RUST.md` | BS2x Rust fork；已记录 Rust `no_std` staticlib 与 C/LiteOS 共存模式 |
+| NearLink Assembly Optimization（网络汇编/编译器/链接优化） | **已完成**：`NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md` | 汇编 inline/寄存器访问、GCC/Clang/LLVM 标志分级、LTO/gc-sections 边界、Rust release profile、通用优化指令集与度量门禁 |
 
 ## 未搜方向
 

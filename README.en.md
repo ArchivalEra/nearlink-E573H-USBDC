@@ -5,7 +5,7 @@
 Turn the USB `ffff:3733` ("00000000") — a **HiSilicon WS73 tri-mode dongle** (Bluetooth + WiFi 6 + NearLink SLE) — into a **tri-mode wireless adapter** for a Linux TV box: real high-speed WiFi / Bluetooth / NearLink, plus the control interface. Core output: **a fully reverse-engineered WS73 NearLink control plane + a self-written SSAP userspace protocol stack** (x86-compilable, resource-adaptive).
 
 > **⚠️ read before pushing — doc maintenance checklist**: see [Document index & maintenance](#document-index--maintenance).
-> The pre-push hook (`scripts/check-docs.sh`) enforces: README cross-links, doc-index completeness, English-only docs/, whitelist gitignore, and **README zh/en sync**.
+> The pre-push hooks (`scripts/check-docs.sh` + `scripts/check-harvest-archive.sh`) enforce README cross-links, doc-index completeness, English-only docs/, whitelist sanity, README zh/en sync, and block new NEW-*.md archives unless both README files change in the same push.
 
 ## Project status (2026-08)
 
@@ -29,8 +29,8 @@ stack/ssap/                          # SSAP userspace stack (Apache-2.0 port + o
 ```
 Tests: codec + server + feature suites all green, x86 zero-dependency build.
 
-### 📚 Intel library (53 research docs)
-Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire protocol as device firmware — port path proven**), connection manager, data plane (DTAP/SDR), security pairing, ranging, standard params (SLE 12Mbps/250µs/256 users), 6 OpenSparklink contract reports (DLI/UAPI/CONN-FSM/SSAP/PHY/USB transport), plus 8-report WS63/HHD-01 and 21-report OHOS ecosystem batches (AT framework/SLE mesh/framework/HDI/SSAP engine/client/HID remote/SA service/ranging/radar/DLI/DTAP/NAI/device-mgr/GLE/BGTP/SM-security/measure-QoS/SSAP-plan-audit/NearLinkSLE/LinkNebula).
+### 📚 Intel library (76 research docs)
+Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire protocol as device firmware — port path proven**), connection manager, data plane (DTAP/SDR), security pairing, ranging, standard params (SLE 12Mbps/250µs/256 users), 6 OpenSparklink contract reports (DLI/UAPI/CONN-FSM/SSAP/PHY/USB transport), 14 NEW harvest reports (WS63/HHD-01, community classifications, SLE UART variants, Rust ecosystem/mesh, NLChat Web, Toolbox, plus assembly/compiler/linker optimization resources and general optimization instruction set), and the OHOS ecosystem batches (AT framework/SLE mesh/framework/HDI/SSAP engine/client/HID remote/SA service/ranging/radar/DLI/DTAP/NAI/device-mgr/GLE/BGTP/SM-security/measure-QoS/SSAP-plan-audit/NearLinkSLE/LinkNebula).
 
 ## Repository layout
 
@@ -40,7 +40,7 @@ Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire p
 ├── scripts/             # ws73-probe×3 + load-driver/flash-dongle + check scripts
 ├── docs/                # English intel (DEVICE/SDK/USB-PROTOCOL/ECOSYSTEM)
 ├── sdk/                 # HiSilicon WS73 SDK (sources + x86 port, binaries gitignored)
-└── .scratch/            # wayfinder decision map + 53 research docs + shifu list
+└── .scratch/            # wayfinder decision map + 76 research docs + shifu list
 ```
 
 ## Document index & maintenance
@@ -56,7 +56,7 @@ Full NearLink protocol deep-dives: SSAP dialect comparison (**OHOS = same wire p
 | `docs/ECOSYSTEM.md` | NearLink open-source ecosystem map + roadmap | en |
 | `stack/ssap/` | SSAP userspace stack (codec/transport/server/link/feature) | — |
 | `scripts/` | test/verify/check scripts | — |
-| `.scratch/nearlink-driver/lab-notes/` | **53 research docs** (SSAP dialect/CM/DTAP/SDR/SM/HADM/standard/OSPL/WS63/OHOS…) | zh+en |
+| `.scratch/nearlink-driver/lab-notes/` | **76 research docs** (SSAP dialect/CM/DTAP/SDR/SM/HADM/standard/OSPL/WS63/OHOS/NEW harvest notes…) | zh+en |
 | `.scratch/nearlink-driver/lab-notes/SHIFU-BUILD-LIST.md` | TV-box cross-compile list (hi3798 SDIO/USB variants) | zh |
 
 ## Roadmap

@@ -187,6 +187,72 @@ SLESETSCANPAR→SLECONN→SSAPCFNDSTRU→SSAPCWRITECMD 客户端）→ ④ 板�
 - WS63-RADAR.md — 雷达=2.4G 存在/接近检测（复用 WiFi RF，非毫米波，粗粒度上下界），
   WS73 无人体雷达（仅 DFS）→ 雷达是 WS63E 专属机会，不进我们 Linux 栈
 
+## 十五、Xinghongpai WS63 固件程序知识（2026-09-11）
+
+- 产出：`NEW-XINGHONGPAI-FIRMWARE-KNOWLEDGE.md`
+- 范围：只读梳理 `firmware/examples` 的 OpenHarmony/Hi3863 程序结构；未编译、未操作硬件、未分析 PCB。
+- 应用模型：CMSIS-RTOS2 `osThread*`/`osTimer*`/`osMutex*`/`osSemaphore*`/`osMessageQueue*`；
+  OpenHarmony `APP_FEATURE_INIT`、`SYS_RUN`，以及新版 `app_run` + `osal_kthread_create`。
+- 可复用算法：AHT20（0x38、忙等待/校准/20 位换算）、SSD1306（0x3C、命令/数据前缀、页寻址）、
+  ADC 采样、Wi-Fi STA/SoftAP 状态机、lwIP TCP/UDP 基础调用。
+- API 方言：老 `IoTGpio*`/`IoTI2c*` 与新 `uapi_gpio_*`/`uapi_i2c_master_init`/`uapi_adc_*` 混用；
+  引脚号、I2C 总线、pinmux 必须按目标 SDK 和板卡重新验证。
+- 关键缺陷：ADC 回调 `buffer[length-1]` 无长度检查且无自动扫描配置时可能返回未初始化数据；
+  网络示例存在 11 字节数组写 `display_data[11]`、UDP `&response`、负 `recvfrom` 下标、
+  零地址 UDP 初始发送、失败后继续执行、socket 未关闭和硬编码凭据。
+- 协议边界：固件树没有 `SLE`、`SSAP`、`HADM`、`DLI`、`NearLink`、`SparkLink` 或 `USB` 实现，
+  不能直接喂 WS73 USB/DLI/SSAP 设计；只能作为 WS63 固件侧协议算法和 SDK API 参考。
+- 后续硬件 session 再做：物理引脚映射、PCB/电源/时钟/天线验证、烧录和实机日志；本轮不触碰 PCB。
+
+## 十六、NearLink Toolbox 网站程序知识（2026-09-11）
+
+- 产出：`NEW-NEARLINK-TOOLBOX-WEBSITE.md`
+- 实际形态：Next.js 15.1.11 + React 19 的静态 export 网站；没有 Rust、Tauri、`src-tauri`、Cargo、serialport 或烧录后端。
+- 文档落差：`docs.md` 描述 Tauri 2 + Rust + React 18 + TanStack Router + React Query + Tokio/serialport，但仓库中只有营销页、组件和截图。
+- 下载链路：点击按钮后获取 `https://haohanyh-ctcc.gcxstudio.cn/software-updater.json`，再直接 `window.open` 其中的 Windows URL；无 manifest 运行时校验、签名/哈希/大小校验、平台白名单或安装流程。
+- 功能边界：固件商店、固件管理、串口烧写、串口调试、AT 命令、云镜像等均以 UI 文案/卡片呈现，没有对应执行代码。
+- 额外边界：`app/layout.tsx` 注入 51.la 第三方脚本并开启 `screenRecord:true`；统计图和 4.8/5.0 评分是硬编码展示数据。
+- 对 WS73/HHD-01 的价值：只借鉴信息架构和产品词汇；真实工具必须补 signed manifest、可信下载、设备识别、串口/USB 后端、烧录状态机、日志、回滚和平台打包。
+
+## 十七、NLChat Web 端程序知识（2026-09-12）
+
+- 产出：`NEW-NLCHAT-WEB.md`
+- 实际形态：Vite + React 18 + TypeScript 单页应用，通过 Cloudflare Pages 静态部署；没有服务端后端、Rust/Tauri、固件或测试脚本。
+- 串口生命周期：`navigator.serial.requestPort()` → `open()` → `readable.getReader()` 循环读取 → `writable.getWriter()` 写入 UTF-8 → reader/port 清理与关闭。
+- 终端能力：text/hex/ANSI 显示、时间戳、自动滚动、行尾选择、命令历史、复制、清屏和日志导出。
+- 聊天边界：`ChatUI` 只把 `ssapc`、`[sle` 和 `This is the content of the client/server:` 等文本约定转换成气泡；它不是 SSAP/SLE 解析器。
+- 关键缺陷：没有显式帧头/长度/序号/校验；按超时合包不等于协议重组；聊天解析只按 CRLF 拆分；关闭连接时流式 UTF-8 decoder 没有最终 flush；没有设备身份、版本协商、安全、重连或二进制载荷验证。
+- 可借鉴：浏览器 Web Serial 生命周期、原始终端与高层展示分离、诊断日志导出和用户主动选择串口。
+- 不可直接借鉴：把 CRLF/英文标记当协议边界，或把 README 的星闪产品宣传当成该仓库已实现星闪协议。
+- 对 WS73 的价值：可作为未来浏览器诊断工具的 UI/串口生命周期参考；WS73 USB/SSAP 的传输、framing、安全和互操作仍必须由独立协议与实机测试确定。
+
+## 十八、汇编/编译器/链接器优化资源（2026-09-12，NEW-NEARLINK-ASSEMBLY-OPTIMIZATION）
+
+- 产出：`NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md`（网络研究 + 本地程序证据）
+- 范围：公开网络检索 NearLink/SparkLink/SLE/WS63/WS73 汇编、编译器、链接器与运行时优化资料，并整理为可复用的通用优化指令集；仅程序/源码/构建知识，未触碰 PCB，未构建或操作硬件。
+- 核心结论：
+  1. **编译器分级**：主机用户态可用 `-flto -ffunction-sections -fdata-sections -O2` + `-Wl,--gc-sections`（LTO=1 门控）；设备 KOs 默认维持 `-Os`，LTO/gc 只可作为配置门控的受控子集试点，不得 blanket 开启。
+  2. **Rust release 分级**：`lto="thin"`（最终 binary 可升 `fat`）、`codegen-units=1`、`panic="abort"`、`strip=true`；dev/test 保持 `codegen-units=16`。
+  3. **inline 节制**：`always` 只用于极小纯 helper；packed 线结构体作为 wire 事实保留，不作为优化目标；register/volatile 访问器不能让优化丢弃跨线程/中断状态。
+  4. **LTO/链接边界**：Kbuild `ld -r` 下的 KOs 不能直接注入 LTO；固定 ROM 用 `-fno-lto` + `KEEP()` 锚点；PGO 当前不可用，需先有 `.gcno` 与内核 profiling 数据。
+  5. **度量门禁**：任何优化增益必须用 `size` / `nm --print-size --size-sort` / `-Wl,-Map` 三要素验证，并断言文本缩减或死符号消除，不能只看字节。
+  6. **通用指令集**：已沉淀为可复用通用规则集（编译器分级、inline 与 section 控制、目标 ABI 纪律、Kernel/LTO 边界、SLE/USB 运行时门控、度量验收），适用于 NearLink/SparkLink 共享工具链与宿主用户态/目标设备栈。
+- 本地关键证据（已链接，不重复）：
+  - `stack/ssap/Makefile:8-10`（主机 `-O2 -std=c11`，无 LTO）；
+  - `sdk/.../driver/wifi/Makefile:467-474`（KOs `ccflags-y -fno-pic -Os -DDMAC_ON_HOST`）；
+  - `sdk/.../driver/platform/drv/device/romable/include/hi_types.h:143-144` + `td_base.h:77-78`（SoC register `always_inline` 访问器）；
+  - `stack/ssap/include/ssap_pkt.h:186-588`（packed PDU 线事实）；
+  - `stack/ssap/src/ssap_codec.c:43-53`（`put_u16`/`get_u16` 纯 helper 作为 `always` 候选）。
+- 网络外部来源（仅元数据核验，未拉取完整源码）：
+  - `hispark-rs/bs2x-svd`（BS21/BS2X CMSIS-SVD + svd2rust，Rust-rv32m 工具链源参考）；
+  - `hispark-rs/riscv32-ws63-gcc730-toolchain`（riscv32 ws63 GCC 7.3.0 工具链脚本，目标 ABI 证据）；
+  - `hispark-rs/fbb_bs2x-qemu`（QEMU 可跑 BS2x 精简 SDK fork，bare-metal RISC-V 运行优化背景）；
+  - `hispark-rs/bs2x-guide`（BS21/BS2X 用户指南，SLE/NearLink 行为指引）；
+  - `OpenSparklink/nearlink_sdr_sim`（NearLink SDR 仿真，用于线速率度量验证）；
+  - `Hny0305Lin/NLChat`、`Hny0305Lin/Hihope_WS63_NearLink_SDK`（SLE_UART/WS63 程序侧传输与 framing 证据）；
+  - `NearLink-ePaper/NearLink-Mesh-ePaper`（H3863 SLE Mesh PoC，AODV/AIMD 运行性能/开销证据）。
+- 后续可用：网络资源可继续作为通用规则集的补充，但所有性能主张必须以本地实测 `size`/`nm`/`Map` 与对端实机测量为准，不能把网络资料直接声明为已验证性能结论。
+
 **代码落地方向（下一批）**: OHOS-SSAP-ENGINE P0 差距清单 → 修 stack/ssap 服务端（多值 READ、
 READ_BY_UUID、CCCD 门控、能力位）；OHOS-SSAP-CLIENT 蓝本 → 新增 ssap_client 模块（电视盒遥控
 dongle 侧必需）；OHOS-DLI-LAYER → hwsle_transport 加 pending-command 表 + 0x00EE 超时 + CmdStatus

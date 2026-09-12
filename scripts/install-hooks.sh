@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 #
-# install-hooks.sh — install the pre-push doc-hygiene hook for this repo.
+# install-hooks.sh — install the pre-push docs + harvest archive hooks for this repo.
 #
 # Usage:
 #     bash scripts/install-hooks.sh
 #
 # Sets core.hooksPath to .githooks/ (repo-local, tracked in git, shared
-# with everyone). Run once per clone; re-run to upgrade.
+# with everyone). The hook runs documentation hygiene plus the harvest
+# archive/README coupling check. Run once per clone; re-run to upgrade.
 
 set -eu
 
