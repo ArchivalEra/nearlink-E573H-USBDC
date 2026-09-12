@@ -456,3 +456,8 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-HIDITING-LWIP-SLE-NETIF.md`：hs-fbb src 图谱（10020 个 .c 盘点）——`interim_binary/3322` 为闭源二进制挂载点、`application/wearable`(1579) 开源。核心发现：**lwip_sle_adapter.c（434 行）= 首个开源的 IP-over-SLE 集成**——lwIP 虚拟以太网 netif（etharp_output + sle_chba_send_pkt linkoutput、BROADCAST/ETHARP/IGMP flags、IP_FRAG_MAX_MTU），SLE 链路状态 1:1 映射 netif。对我们 WS73：lwIP netif 模式 = 把 dongle 暴露为真网络接口的现成蓝图（ping/TCP 工具直接可用）；小 MTU 缺口由 IP 分片吸收。
 - 大仓方法论：纯 ls-tree 盘点 + 单文件 raw 直取，零 checkout 完成 764MB 树的图谱。
+
+## 三十二、OKF 时代猎收第十五批（2026-09-13，FIND 家族权威参照 + 本地库保鲜扫，117→118 concepts）
+
+- `NEW-SSAPS-FIND-REFERENCE.md`：OHOS ssaps_server_find.c（1498 行）= FIND_BY_UUID/STRUCTURE 的权威实现参照——请求码路由响应、STANDARD/CUSTOMIZE/MIX 三态 UUID 类型、**MTU 作为预算参数传入载荷构建器**、V10 协议版本分叉显式并存。直指我们 assets/stack/ssap 缺失的 FIND_BY_UUID 功能（此前 ssap 审计已标注）。
+- **本地库保鲜扫**：45 仓 ls-remote SHA 对照全部 current（API 限额后改走 Git 协议）；已消化仓（uwb-like-ranging/keyboard-cli/nearlink_service）均无新推送。

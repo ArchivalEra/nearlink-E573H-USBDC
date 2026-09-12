@@ -30,6 +30,7 @@
 * [NEW: sle_mesh v4.4.x Delta + fbb_bs2x_rust (Rust-in-Firmware Precedent)](NEW-SLEMESH-RUST.md) - harvest concept (30 KB)
 * [Sky05y/smart_cabinet — full-chain multi-node SLE reference (2 sensor nodes -> SLE center -> WiFi HTTP cloud -> web dashboard)](NEW-SMART-CABINET-FULLCHAIN.md) - harvest concept (3 KB)
 * [SlumberMin/SmartEdge-WS63 — whole-home SLE gateway: unified 0xAA frame protocol, grouped address space, seven converging control entries](NEW-SMARTEDGE-GATEWAY-FRAME.md) - harvest concept (3 KB)
+* [OHOS ssaps_server_find.c — the authoritative FIND-family server reference (FIND_STRUCTURE / _BY_UUID, V10 framing split, MTU-chunked responses)](NEW-SSAPS-FIND-REFERENCE.md) - harvest concept (4 KB)
 * [Arctic2520/starbridge-ws63-firmware — SS928 edge computer drives WS63 SLE bridge: UART JSON-line master to remote IR sensor node](NEW-STARBRIDGE-EDGE-BRIDGE.md) - harvest concept (2 KB)
 * [teki128/nearlink — Minimal 564-line SLE Client/Server Pair (WS63 SDK, fixed-address dialect)](NEW-TEKI128-MINIMAL-PAIR.md) - harvest concept (4 KB)
 * [La-OHV/tx_star — DS10 control-loop companion: Android 20 Hz binary-frame joystick over NearLink DTU to STM32 receiver](NEW-TXSTAR-DS10-REMOTE.md) - harvest concept (3 KB)
