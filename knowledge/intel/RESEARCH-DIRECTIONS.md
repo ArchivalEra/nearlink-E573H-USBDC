@@ -498,3 +498,8 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十一、OKF 时代猎收第二十四批（2026-09-13 续跑，深挖⑦：fuzzer 解剖，126→127 concepts）
 
 - `NEW-STACK-FUZZER-ANATOMY.md`：hydra-fuzz GN 目标解剖——**include 图 = 闭源栈的内部层分类学**（sdf/oal 原语→sdf 框架→dli→dp→cp/bsl 服务面→nai）；共享 stack_fuzz.gni 去重；fuzz 入口走真实内部边界（cm_trans_channel→dli_layer→dtap_scheduler，LLVM FuzzedDataProvider）。对我们：栈目录骨架参照 + 模块边界 fuzz 模板 + 共享 GNI 模式。
+
+## 四十二、OKF 时代猎收第二十五批（2026-09-13 续跑，深挖⑧：节点侧帧收发，127→128 concepts）
+
+- `NEW-SMARTEDGE-ENVIR-NODE.md`：envir 节点 = 五类环境传感器（BH1750/BMP180/DC01/DHT20/GUVA）+ 帧编解码字节级落实（[0]=0xAA、[3]=cmd、reject-early 校验）+ 标准 server/adv 骨架。SmartEdge 故事闭环（网关帧+入口汇入+节点侧）。
+- 已消化仓上游检查：uwb-like-ranging current。

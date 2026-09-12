@@ -32,6 +32,7 @@
 * [New SLE UART Variants: `sle_uart` vs `Hi3863-SLE-2025`](NEW-SLE-UART-VARIANTS.md) - harvest concept (55 KB)
 * [NEW: sle_mesh v4.4.x Delta + fbb_bs2x_rust (Rust-in-Firmware Precedent)](NEW-SLEMESH-RUST.md) - harvest concept (30 KB)
 * [Sky05y/smart_cabinet — full-chain multi-node SLE reference (2 sensor nodes -> SLE center -> WiFi HTTP cloud -> web dashboard)](NEW-SMART-CABINET-FULLCHAIN.md) - harvest concept (3 KB)
+* [SmartEdge envir node — five environment sensors over the 0xAA frame protocol; symmetric frame build/parse with magic+min-length guard](NEW-SMARTEDGE-ENVIR-NODE.md) - harvest concept (3 KB)
 * [SlumberMin/SmartEdge-WS63 — whole-home SLE gateway: unified 0xAA frame protocol, grouped address space, seven converging control entries](NEW-SMARTEDGE-GATEWAY-FRAME.md) - harvest concept (3 KB)
 * [SmartEdge gateway_ui — seven control entries as one-header-per-entry modules converging in a feature-gated main; latency meter built in](NEW-SMARTEDGE-MULTI-ENTRY.md) - harvest concept (4 KB)
 * [OHOS ssap_link plane — a four-state link model (DISCONNECTED/CONNECTING/CONNECTED/DISCONNECTING) shared by server and client, with documented retry semantics](NEW-SSAP-LINK-PLANE.md) - harvest concept (3 KB)
