@@ -48,3 +48,31 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 ## Answer
 
 （待接手会话填写）
+
+## 2026-09-13 无人值守会话总账（九批 17 份新报告，92→109 concepts）
+
+| # | 报告 | 一句话 |
+|---|---|---|
+| 1 | NEW-OHOS-NEARLINK-SEPT-INCREMENT | OHOS 主仓 544 commits：ReplayConnectedLink/DTAP 重定基/帧4 天线钉扎/DLI autorate+fuzzer 基建 |
+| 2 | NEW-OHOS-TETHERING-SERVICE | OHOS 星闪网络共享：socket 泵→datatransfer→SLE Port Profile |
+| 3 | NEW-SLE-1V8-VEHICLE | 1 拖 8 连接循环（MAX_CON=8+MAC 去重+重扫描） |
+| 4 | NEW-TEKI128-MINIMAL-PAIR | 564 行最小 SLE 客户端/服务端对（冒烟验收基准） |
+| 5 | NEW-PET-COLLAR-GATEWAY | SLE↔UDP 双无线电桥（三模应用层 prior art） |
+| 6 | NEW-YL63-FORK-VERDICT | YL63 fork 判定+官方 AT 指南 100 命令稀疏采纳 |
+| 7 | NEW-OHOS-DEVICE-SOC-WS63 | OHOS ws63v100 与 WS73 1.10.110 SLE API 函数级 100% 同面 |
+| 8 | NEW-WILDLINK-SENSOR-PAIR | 多属性 SSAP+三链路（SLE/BLE/LoRa）节点 |
+| 9 | NEW-DSOFTBUS-SLE-STUB | dsoftbus SLE 传输=公共桩；SLE/SLB 双栈枚举+TURN_HALF 新词汇 |
+| 10 | NEW-WS63E-MESH-AIGC-FRAME | SLE mesh 路由表+JPEG/RLE 流式墨水屏直驱 |
+| 11 | NEW-FBB-WS63-QEMU-FORK | QEMU fork：RF 初始化仿真缺口清单（ROM/efuse/RF 校准） |
+| 12 | NEW-BEARPI-H3863-DOCS | 样例家族官方手册：配对前置实锤 |
+| 13 | NEW-OHOS-DK3863-SLE-CURRICULUM | OHOS DK-3863 五个 SLE 应用样例课程 |
+| 14 | NEW-DS10-SLE-DTU | **首个公开 SLE 串口透传实测画像**（32B≈14ms/1400B≈419ms·44%）+第三代事务型 AT+ROS2 驱动 |
+| 15 | NEW-TXSTAR-DS10-REMOTE | DS10 控制环（20Hz 帧序号/CRC-8/重同步） |
+| 16 | NEW-MESHGATEWAY-APP-PROTOCOL | mesh 图传手机侧规范（检查点+240 包位图+FAST/ACK 双流控） |
+| 17 | NEW-HIDITING-SLE2-EVIDENCE | **SLE 2.0（16Mbps）首个公开实证**：bs_sle_* API 代+Port 服务一等公民 |
+
+甄别空仓/蹭名/降级：Qwac（空）、Leiyimei（空）、NearLinkChat（纯 WiFi WebRTC）、santes210（Android 壳）、aether（C# 撞名）、pressplay（媒体）、BearPi H3863 Pico/bs2x_sdk/sanchuanhehe/taqminum（1-2 年未推）。
+
+空白空间结论：nearlink sniffer/抓包工具、hi3798×nearlink、sparklink dongle 均无公开实现；WS73 USB host 栈唯一性 9-13 复验成立。
+
+方法论沉淀：大仓四步 playbook（blob:none 元数据克隆→文件清单 comm→高价值路径 sparse-checkout→超时改 raw 直取）；每仓过时确认（pushed_at/archived）；OKF R1 红线=英文报告禁引中文文件名。
