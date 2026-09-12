@@ -445,3 +445,9 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 - `NEW-WS63-MIDDLEWARE-OPEN-CLOSED.md`：device_soc middleware 开闭图谱——**HCC 架构头开源**（hcc_flow_ctrl 三阶段 API + DFX 队列丢包计数器=设备侧也在量化丢包）、AT 框架 core/wifi 开源而 **bt_cmd 表体闭源**（与 libbth_gle.a 同一闭源边界）。设备侧三阶段流控（sched_check→pre_proc→process）实证我们主机侧信用门控的架构同构。
 - `NEW-SLE-TEAM-MESH-V456.md`：BH4ME/sle_mesh_new（v4.5.56）= 成熟度最高的公开 SLE mesh 工程：254B 有界报文（四种路由类型 FLOOD/DIRECT 混合 + leader term + FW compat 字节）、tick 切片中继优化器、板上 Web API + 契约测试、发布证据 JSON/多板烧录自动化。第三个独立 SLE mesh 设计（与 sle_mesh v4.4.9 tier 路由、AIGC frame 路由表并列）。
 - 固件轴新扫出：SlumberMin/SmartEdge-WS63（固件+Flutter）、starbridge-ws63-firmware、ws63-sdk-dev-skill（WS63 SDK 的 AI agent skill）——留观察。
+
+## 三十、OKF 时代猎收第十三批（2026-09-13，固件轴三连，113→116 concepts）
+
+- `NEW-WS63-SDK-DEV-SKILL.md`：独立第三方给 WS63 SDK 做的 785 行 agent skill——痛点画像（build 失败/产物定位/fwpkg/串口日志）+ 方法论（证据优先、单根因轮次、**三次盲改即停**、单写者）+ references 蒸馏（GPIO 上电禁用表、样例卫生清单、多设备连接状态机模式）。
+- `NEW-STARBRIDGE-EDGE-BRIDGE.md`：SS928 边缘机 UART JSON line → WS63 主控 → SLE → 远端 IR 节点。三种串口控制切分点之三（AT/二进制帧/JSON line）。
+- `NEW-SMARTEDGE-GATEWAY-FRAME.md`：全屋智能网关——统一 0xAA 帧协议（6-253B）+ 分组地址（0x10-0x1F 四域）+ SLE 三 UUID（FF00 服务/FF01 控制/FF02 状态）+ 七入口汇入单控制模型。247B 载荷预算与 DS10 实测下行上限交叉印证。
