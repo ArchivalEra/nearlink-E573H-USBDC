@@ -439,3 +439,9 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-GLE-HOST-SYMBOL-SURFACE.md`：device_soc ws63v100 protocol 层深挖——设备侧 SLE host **闭源发布为 libbth_gle.a**（bt host 无源码，仅 bgtp 控制器传输开源）。nm 符号面（1035 符号）揭开内部分层：**gle_sm(77)=安全管理器**（authentication g_node/t_node 双角色、number_compare、encrypt_param/block——我们 SSAP 缺失 SM 层的完整参照规范）、sle_at(69)（AT 内部层在 host 库内）、gle_hci/sapi/uapi 双边界、gle_tm/dm/cm/dd/aa。**uapi_ssaps 权威面**含我们栈未建模的 `_ex` 变体与 `update_item_value_by_{handle,uuid}` 服务端主动更新族。
 - 大仓 playbook 第五次应用：20MB protocol 层物化 + nm 符号表互操作分析（仅符号名，无反汇编）。
+
+## 二十九、OKF 时代猎收第十二批（2026-09-13，middleware 开闭图谱 + 成熟 mesh 工程，111→113 concepts）
+
+- `NEW-WS63-MIDDLEWARE-OPEN-CLOSED.md`：device_soc middleware 开闭图谱——**HCC 架构头开源**（hcc_flow_ctrl 三阶段 API + DFX 队列丢包计数器=设备侧也在量化丢包）、AT 框架 core/wifi 开源而 **bt_cmd 表体闭源**（与 libbth_gle.a 同一闭源边界）。设备侧三阶段流控（sched_check→pre_proc→process）实证我们主机侧信用门控的架构同构。
+- `NEW-SLE-TEAM-MESH-V456.md`：BH4ME/sle_mesh_new（v4.5.56）= 成熟度最高的公开 SLE mesh 工程：254B 有界报文（四种路由类型 FLOOD/DIRECT 混合 + leader term + FW compat 字节）、tick 切片中继优化器、板上 Web API + 契约测试、发布证据 JSON/多板烧录自动化。第三个独立 SLE mesh 设计（与 sle_mesh v4.4.9 tier 路由、AIGC frame 路由表并列）。
+- 固件轴新扫出：SlumberMin/SmartEdge-WS63（固件+Flutter）、starbridge-ws63-firmware、ws63-sdk-dev-skill（WS63 SDK 的 AI agent skill）——留观察。
