@@ -380,3 +380,11 @@ exchange_info → find（含 CCCD 描述符）→ write CCCD → read/notify
 - `NEW-YL63-FORK-VERDICT.md`：yanlinkos/fbb_ws63 fork-diff 判定（metadata-only clone + 文件清单 comm + 稀疏检出 684K）：非同字节 rehost，YL63 重构代次。**官方 AT 指南 7791 行/100 命令**稀疏采纳——AT+BLESETNAME=<len,name> 官方证实 HHD-01 逆向格式；SLE 全家族（SLESETMCS/SLESETDEFAULTCONNP/SLEPAIR）首次有官方文档。fbb_bs2x 判定暂缓。
 
 方法论沉淀：大厂商 fork 判定 playbook = `--filter=blob:none --no-checkout` 元数据克隆 → 文件清单 comm 差集 → 高价值路径 sparse-checkout（472M 仓只花 684K）。
+
+## 二十、OKF 时代猎收第三批（2026-09-13，符号搜索轴 + API 同面实证，98→99 concepts）
+
+gh 符号搜索轴（sle_hadm/ssaps_notify_indicate/sle_iso_manager）：新候选多数过时（BearPi H3863 Pico 2024-08、bs2x_sdk 2025-03、sanchuanhehe/fbb_ws63 2025-08、BearPi H2821 Pico 2024-06——按过时规则降级标注不克隆）；sle_iso_manager 全球仍仅 wtsl_app 一家使用（印证 NEW-BS21-WTSL 的下一代 API 稀缺结论）。
+
+产出（knowledge/harvest/）：
+- `NEW-OHOS-DEVICE-SOC-WS63.md`：openharmony/device_soc_hisilicon（9-09 推送，465MB）稀疏采纳 3.9M。**核心实证：OHOS ws63v100 与 WS73 1.10.110 三个关键 SLE 头（ssap_server/ssap_client/hadm_manager）的 NLSTK_* 函数集 100% 相同、零单边符号**——设备侧与主机侧同一公共 API 代次，可移植性论证闭环（扩展 UWB-like 报告的 hadm 同构注记至全 SSAP 面）。adapter/hals 为标准 OHOS 粘合。protocol/662 + middleware/516 文件留待未来深挖。
+- 同批过时确认重置队列：sle_iso 唯一用户 = wtsl_app（已消化）；符号轴 SDK 镜像仓多为 1-2 年未推。
