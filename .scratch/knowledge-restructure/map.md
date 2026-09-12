@@ -4,7 +4,7 @@
 
 ## Destination
 
-The repo's knowledge plane and artifact plane are decoupled: a top-level `knowledge/` domain organized as a Google Open Knowledge Format (v0.2) bundle carries all intelligence/research/decision documents, while `assets/` holds the actual artifacts (code, scripts, SDK, hooks). Every index, gate, and workflow that references the old paths — `check-docs.sh` doc-index, `check-harvest-archive.sh` REPORT_PATHSPEC, bilingual README sync, `AGENTS.md`, the harvest skill's drop paths, existing wayfinder trackers — is updated in the same movement, and all 78 existing research documents migrate losslessly (git history preserved). The way is clear when every decision below is resolved, a step-by-step migration spec exists, and gates pass — execution rides inside this map (see Notes).
+The repo's knowledge plane and artifact plane are decoupled: a top-level `knowledge/` domain organized as a Google Open Knowledge Format (v0.2) bundle carries all intelligence/research/decision documents, while `assets/` holds the actual artifacts (code, scripts, SDK, hooks). Every index, gate, and workflow that references the old paths — `check-docs.sh` doc-index, `check-harvest-archive.sh` REPORT_PATHSPEC, bilingual README sync, `AGENTS.md`, the harvest skill's drop paths, existing wayfinder trackers — is updated in the same movement, and all 92 concepts in the OKF v0.2 bundle migrate losslessly (git history preserved). The way is clear when every decision below is resolved, a step-by-step migration spec exists, and gates pass — execution rides inside this map (see Notes).
 
 ## Notes
 
@@ -29,7 +29,7 @@ The repo's knowledge plane and artifact plane are decoupled: a top-level `knowle
 - [knowledge topology and bilingual policy](issues/03-knowledge-topology-and-bilingual.md): single bundle, `harvest/`+`intel/`+`decisions/` typed subdirs with per-dir index.md, file names kept, lossless migration with `language` frontmatter, English-only applies to new docs, README pair stays the only bilingual surface.
 - [migration map and workflow sync](issues/04-migration-map-and-workflow.md): executed as batches B/C/D (f4720ea/e718074/1b6113a); all path-sensitive surfaces synced; metadata-staging incident fixed with .gitignore section 8.
 - [execute migration in batches](issues/05-execute-migration.md): done; renames 93-100%, working tree clean per batch.
-- [gates regression and push](issues/06-gates-regression-push.md): check-docs 6/6, check-okf 90 concepts green, controlled S1/S2/S3 scenarios verified, pushed.
+- [gates regression and push](issues/06-gates-regression-push.md): check-docs 6/6, check-okf 92 concepts green, controlled S1/S2/S3 scenarios verified, pushed.
 
 ## Not yet specified
 
@@ -42,7 +42,7 @@ The repo's knowledge plane and artifact plane are decoupled: a top-level `knowle
 
 <!-- fog: in-scope, not yet sharp enough to ticket -->
 
-- Batch frontmatter/metadata plan for the 78 existing documents: hangs on the OKF field set (ticket 01) and the split boundary (ticket 02). Suspected work: map every existing file to an OKF concept type, invent per-type frontmatter templates, decide what `index.md`(s) enumerate.
+- Batch frontmatter/metadata plan for the 92 concepts in the OKF v0.2 bundle: hangs on the OKF field set (ticket 01) and the split boundary (ticket 02). Suspected work: map every existing file to an OKF concept type, invent per-type frontmatter templates, decide what `index.md`(s) enumerate.
 - Relationship of the two existing wayfinder trackers (`.scratch/nearlink-driver/`, `.scratch/rust-ws73-tri-mode/`) to the new knowledge plane: stay in place as working trackers, migrate, or re-expressed as OKF concepts/log entries.
 - Consumption mode for agents: pure file reads vs a serving layer (`okf serve --mcp` candidates) — may become a prototype ticket once the bundle exists.
 - CI gate: whether to adopt an OKF validator (Rust toolkit Action, Node conformance suite, or the official sample tooling) and at which tier (validate vs strict lint vs specific deny-rules such as broken-link).
@@ -52,5 +52,5 @@ The repo's knowledge plane and artifact plane are decoupled: a top-level `knowle
 ## Out of scope
 
 - **Behavior changes to `stack/ssap` or scripts**: the restructure moves and re-links; it does not change what the code does.
-- **Rewriting knowledge content**: migration is lossless relocation plus metadata; re-authoring or condensing the 78 documents is not this effort.
+- **Rewriting knowledge content**: migration is lossless relocation plus metadata; re-authoring or condensing the 92 concepts is not this effort.
 - **PCB / hardware-design material**: remains excluded from all work in this repo (standing user rule).

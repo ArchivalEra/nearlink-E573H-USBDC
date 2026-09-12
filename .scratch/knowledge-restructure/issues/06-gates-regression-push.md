@@ -18,7 +18,7 @@ Final regression over the restructured repo, then push:
 Regression results (2026-09-12):
 
 - check-docs.sh: 6/6 pass (cross-links, doc-index completeness over knowledge-plane paths, English-only docs/agents, whitelist sanity, identity, zh/en sync).
-- check-okf.py: 90 concepts, M1-M3 + repo quality rules pass.
+- check-okf.py: 92 concepts, M1-M3 + repo quality rules pass.
 - check-harvest-archive.sh: pass (new pathspec knowledge/harvest/*.md).
 - Controlled scenarios (throwaway repo): S1 new harvest concept + both READMEs = PASS; S2 new concept + neither README = rejected (coupling); S3 one-sided README = rejected (docs sync).
 - git diff --check: clean at every batch.

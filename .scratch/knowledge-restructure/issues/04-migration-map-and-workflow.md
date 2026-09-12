@@ -8,7 +8,7 @@ Blocked by: 03
 
 Produce the complete, path-exact migration map and the workflow-sync checklist that ticket 05 will execute — nothing executed yet, everything pinned.
 
-1. **Migration map**: for every existing path that changes (78 research docs, `docs/` intel, tracker dirs, any `assets/` relocations), the table old-path → new-path → method (`git mv` preserving history vs fresh file) — batched into independently revertable groups.
+1. **Migration map**: for every existing path that changes (92 concepts, `docs/` intel, tracker dirs, any `assets/` relocations), the table old-path → new-path → method (`git mv` preserving history vs fresh file) — batched into independently revertable groups.
 2. **Path-sensitive inventory** (every place that references the old locations):
    - `scripts/check-docs.sh`: README cross-links, doc-index completeness, English-only `docs/` scan (path changes if docs move into knowledge plane).
    - `scripts/check-harvest-archive.sh`: `REPORT_PATHSPEC=".scratch/nearlink-driver/lab-notes/NEW-*.md"` — must track the new harvest location; README-change coupling semantics.
