@@ -477,3 +477,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 三十六、OKF 时代猎收第十九批（2026-09-13 续跑，深挖②：SSAP servm 模块地图，121→122 concepts）
 
 - `NEW-SSAP-SERVM-MODULE-MAP.md`：SSAP servm 全套 9601 行模块地图（server 4652 + client 4949）——客户端 **peer 服务缓存**（ssapc_cache 1009 行，每链路缓存远端服务/属性免重复发现）+ **客户端应用链路 SM**（ssapc_app_link_sm 623 行，应用级生命周期独立于 ACL）+ 共享链路/句柄平面（ssap_link/handle/manager）。对我们栈的建设路线图：缺口（find/多操作/客户端缓存/app SM）各 600-1500 行，与既有规划工作量假设吻合。
+
+## 三十七、OKF 时代猎收第二十批（2026-09-13 续跑，深挖③：多入口汇入实现，122→123 concepts）
+
+- `NEW-SMARTEDGE-MULTI-ENTRY.md`：SmartEdge 七入口汇入 = **一头文件一入口**（ble/webserver/mqtt/key/gesture/radar/heart_rate 各一，共享 gateway_frame）+ 编译期特性门控（CONFIG_GATEWAY_MQTT_ENABLE + UNUSED_ATTR 桩）+ 命名时序常量（ACK 18s/轮询 20ms/状态上报地板 3s）+ **内建 latency 计量模块**（gateway_latency.h）。csrc/ 为 u8g2 显示中间件（与控制模型分离）。
