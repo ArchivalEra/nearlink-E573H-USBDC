@@ -451,3 +451,8 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 - `NEW-WS63-SDK-DEV-SKILL.md`：独立第三方给 WS63 SDK 做的 785 行 agent skill——痛点画像（build 失败/产物定位/fwpkg/串口日志）+ 方法论（证据优先、单根因轮次、**三次盲改即停**、单写者）+ references 蒸馏（GPIO 上电禁用表、样例卫生清单、多设备连接状态机模式）。
 - `NEW-STARBRIDGE-EDGE-BRIDGE.md`：SS928 边缘机 UART JSON line → WS63 主控 → SLE → 远端 IR 节点。三种串口控制切分点之三（AT/二进制帧/JSON line）。
 - `NEW-SMARTEDGE-GATEWAY-FRAME.md`：全屋智能网关——统一 0xAA 帧协议（6-253B）+ 分组地址（0x10-0x1F 四域）+ SLE 三 UUID（FF00 服务/FF01 控制/FF02 状态）+ 七入口汇入单控制模型。247B 载荷预算与 DS10 实测下行上限交叉印证。
+
+## 三十一、OKF 时代猎收第十四批（2026-09-13，HiDiTing src 图谱 + IP-over-SLE 首个开源实现，116→117 concepts）
+
+- `NEW-HIDITING-LWIP-SLE-NETIF.md`：hs-fbb src 图谱（10020 个 .c 盘点）——`interim_binary/3322` 为闭源二进制挂载点、`application/wearable`(1579) 开源。核心发现：**lwip_sle_adapter.c（434 行）= 首个开源的 IP-over-SLE 集成**——lwIP 虚拟以太网 netif（etharp_output + sle_chba_send_pkt linkoutput、BROADCAST/ETHARP/IGMP flags、IP_FRAG_MAX_MTU），SLE 链路状态 1:1 映射 netif。对我们 WS73：lwIP netif 模式 = 把 dongle 暴露为真网络接口的现成蓝图（ping/TCP 工具直接可用）；小 MTU 缺口由 IP 分片吸收。
+- 大仓方法论：纯 ls-tree 盘点 + 单文件 raw 直取，零 checkout 完成 764MB 树的图谱。
