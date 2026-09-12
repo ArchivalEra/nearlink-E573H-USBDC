@@ -6,6 +6,7 @@
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (5 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
 * [hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)](NEW-FBB-WS63-QEMU-FORK.md) - harvest concept (3 KB)
+* [elfbobo/hs-fbb (HiDiTing) — SLE 2.0 public evidence: new bs_sle_* API generation, first-class Port service, auto-connection management (sparse-adopted)](NEW-HIDITING-SLE2-EVIDENCE.md) - harvest concept (4 KB)
 * [Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)](NEW-HISPARK-RS-ECOSYSTEM.md) - harvest concept (32 KB)
 * [hispark-rs September Increment (2026-09-01 → 2026-09-10)](NEW-HISPARK-RS-SEPT-INCREMENT.md) - harvest concept (7 KB)
 * [Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment](NEW-HiSilicon-Assessment.md) - harvest concept (15 KB)

@@ -424,3 +424,9 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 - `NEW-DS10-SLE-DTU.md`：**WANG-XU-create/DS10-TTL = 首个公开的星闪 SLE 串口透传实测画像**（32B≈14ms / 1400B≈419ms·44% 成功率，分片逐片 ACK 所致；上行 1100B / 下行 4095B 不对称；≥5ms 帧间隔；1 主 ≤15 从；GFSK/Polar 可选 200m）。**第三代 AT 方言**：双平面（运行态/配置态）+ 草稿事务（CFG_NEW/SAVE/DISCARD 原子生效）+ AT+CFG_SLE=<frameType>,<tier> + Modbus over SLE 分站路由。ROS2 驱动（master/slave 角色、Frame 消息、噪声地板诊断）。对我们 SLE 传输：小帧+信用步调的实证依据。
 - `NEW-TXSTAR-DS10-REMOTE.md`：La-OHV/tx_star = DS10 控制环（Android 摇杆 CH340 USB 串口 20Hz 二进制帧 + 序号/CRC-8/STM32 自动重同步/掉线判 + 总开关清零安全不变量）。
 - `NEW-MESHGATEWAY-APP-PROTOCOL.md`：NearLink-ePaper/MeshGatewayAPP = SLE-mesh 图传协议手机侧规范（v2 检查点 + 30B 缺包位图一次补 240 包；v2.1 FAST/ACK 双流控；14B 图像头；Kotlin RLE 与固件 image_rle.c 位级 round-trip）。与 AIGC frame 仓合读 = 协议两端齐备。
+
+## 二十六、OKF 时代猎收第九批（2026-09-13，topic 轴 + SLE 2.0 首个公开实证，108→109 concepts）
+
+- `NEW-HIDITING-SLE2-EVIDENCE.md`：elfbobo/hs-fbb = 海思谛听 HiDiTing 轻智能终端方案（764MB，稀疏/raw 采纳 4 篇 SLE API 文档）。**SLE 2.0（16Mbps 双向）首次入公档**；新一代 `bs_sle_*` API 族（对比我们 NLSTK_* 1.x）新增 auto_conn 自动重连管理、set_data_length（DLE）、directed_reconnect；**Port 服务成一等 API**（bs_sle_port_create_local/remote_port、write_by_uuid/by_port）——与 tethering Port Profile、MeshGatewayAPP 三源收敛，port 抽象是 SLE 传输层的方向。
+- 大仓 playbook 第四次应用：764MB 元数据化，sparse-checkout 因图 blobs 超时改走 raw 直取（4 文件 3.7K 行）。
+- rzy0901/sle_measure_sdk1.0.12 与本地 sle_measure_sdk 同构（论文测量代码版本标签），跳过；dxnz-id/pressplay 为媒体应用蹭名，跳过。
