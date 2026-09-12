@@ -434,3 +434,8 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 二十七、OKF 时代猎收第十批（2026-09-13，观察项收尾 1/2，109→110 concepts）
 
 - `NEW-SMART-CABINET-FULLCHAIN.md`：Sky05y/smart_cabinet（6-28 推送，2.5 月静默未归档）全链路多节点 SLE 参考——2 从节点（DHT11/BH1750/MQ 气体/指纹/锁/OLED 六类传感器）→ SLE → 主控（device_no 键多服务器表）→ WiFi STA → lwIP 原生 HTTP POST 上云 → Web 看板。无 MQTT/SDK 的可审计云端出口。与 pet-collar（UDP 单跳）构成网关复杂度两端。
+
+## 二十八、OKF 时代猎收第十一批（2026-09-13，观察项收尾 2/2：protocol 深挖，110→111 concepts）
+
+- `NEW-GLE-HOST-SYMBOL-SURFACE.md`：device_soc ws63v100 protocol 层深挖——设备侧 SLE host **闭源发布为 libbth_gle.a**（bt host 无源码，仅 bgtp 控制器传输开源）。nm 符号面（1035 符号）揭开内部分层：**gle_sm(77)=安全管理器**（authentication g_node/t_node 双角色、number_compare、encrypt_param/block——我们 SSAP 缺失 SM 层的完整参照规范）、sle_at(69)（AT 内部层在 host 库内）、gle_hci/sapi/uapi 双边界、gle_tm/dm/cm/dd/aa。**uapi_ssaps 权威面**含我们栈未建模的 `_ex` 变体与 `update_item_value_by_{handle,uuid}` 服务端主动更新族。
+- 大仓 playbook 第五次应用：20MB protocol 层物化 + nm 符号表互操作分析（仅符号名，无反汇编）。
