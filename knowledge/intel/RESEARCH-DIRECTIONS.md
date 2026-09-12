@@ -465,3 +465,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 三十三、OKF 时代猎收第十六批（2026-09-13，**修正批**：multi-READ/WRITE 实存，118→119 concepts）
 
 - `NEW-SSAPS-MULTI-OPERATIONS-CORRECTION.md`：**修正本会话早前误判**——OHOS 栈 multi-READ/WRITE 实存（命名 `*MultiRead*`/`*WriteMulti*`，此前 grep MULTI_WRITE 模式漏检）：WriteMulti 子项循环带逐项准入（SSAP_LoopControlType_E）、ReadMulti 按"先授权→再算预算→后序列化"次序、**multi-processing 是 MTU 交换时协商的链路能力位**、CCCD 状态按对端地址存 clientConfigs 向量。原始记忆"multi-READ/WRITE done"说法正确；审计方法失当。教训入库：SSAP 多操作特性命名规范。
+
+## 三十四、OKF 时代猎收第十七批（2026-09-13 收官，Port FSM 三源闭环，119→120 concepts）
+
+- `NEW-PORT-PROFILE-FSM.md`：tethering port_stm.h 八态 FSM（IDLE→REGISTER_APP→CREATE_LINK→GET_SERVICE→FIND_SERVICE→READ_PROPERTY→SET_NET→CONNECTED）+ 用户会话事件与 SSAP 回调同rank 事件集。Port 抽象三源闭环完成（tethering 1.x FSM + HiDiTing 2.0 bs_sle_port API + find/middleware 参照）——Port 作为 SLE 传输抽象已成生态方向，我们 SSAP 栈的 bring-up 状态机蓝图齐备。
