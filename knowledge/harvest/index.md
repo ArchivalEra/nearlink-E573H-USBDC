@@ -9,6 +9,7 @@
 * [NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge](NEW-NEARLINK-UWB-LIKE-RANGING.md) - harvest concept (23 KB)
 * [NEW-NEARLINKERNEL-CLASSIFICATION](NEW-NEARLINKERNEL-CLASSIFICATION.md) - harvest concept (29 KB)
 * [NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI](NEW-NLCHAT-WEB.md) - harvest concept (11 KB)
+* [Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)](NEW-PLAYJOY-HID-KEYBOARD.md) - harvest concept (11 KB)
 * [New SLE UART Variants: `sle_uart` vs `Hi3863-SLE-2025`](NEW-SLE-UART-VARIANTS.md) - harvest concept (55 KB)
 * [NEW: sle_mesh v4.4.x Delta + fbb_bs2x_rust (Rust-in-Firmware Precedent)](NEW-SLEMESH-RUST.md) - harvest concept (30 KB)
 * [NEW — ws63flash (UART flasher) + Ghidra_RISCV31 (Huawei custom RISC-V module) harvest](NEW-WS63FLASH-GHIDRA.md) - harvest concept (20 KB)
