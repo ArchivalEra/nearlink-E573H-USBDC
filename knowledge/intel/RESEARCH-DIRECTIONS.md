@@ -430,3 +430,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 - `NEW-HIDITING-SLE2-EVIDENCE.md`：elfbobo/hs-fbb = 海思谛听 HiDiTing 轻智能终端方案（764MB，稀疏/raw 采纳 4 篇 SLE API 文档）。**SLE 2.0（16Mbps 双向）首次入公档**；新一代 `bs_sle_*` API 族（对比我们 NLSTK_* 1.x）新增 auto_conn 自动重连管理、set_data_length（DLE）、directed_reconnect；**Port 服务成一等 API**（bs_sle_port_create_local/remote_port、write_by_uuid/by_port）——与 tethering Port Profile、MeshGatewayAPP 三源收敛，port 抽象是 SLE 传输层的方向。
 - 大仓 playbook 第四次应用：764MB 元数据化，sparse-checkout 因图 blobs 超时改走 raw 直取（4 文件 3.7K 行）。
 - rzy0901/sle_measure_sdk1.0.12 与本地 sle_measure_sdk 同构（论文测量代码版本标签），跳过；dxnz-id/pressplay 为媒体应用蹭名，跳过。
+
+## 二十七、OKF 时代猎收第十批（2026-09-13，观察项收尾 1/2，109→110 concepts）
+
+- `NEW-SMART-CABINET-FULLCHAIN.md`：Sky05y/smart_cabinet（6-28 推送，2.5 月静默未归档）全链路多节点 SLE 参考——2 从节点（DHT11/BH1750/MQ 气体/指纹/锁/OLED 六类传感器）→ SLE → 主控（device_no 键多服务器表）→ WiFi STA → lwIP 原生 HTTP POST 上云 → Web 看板。无 MQTT/SDK 的可审计云端出口。与 pet-collar（UDP 单跳）构成网关复杂度两端。
