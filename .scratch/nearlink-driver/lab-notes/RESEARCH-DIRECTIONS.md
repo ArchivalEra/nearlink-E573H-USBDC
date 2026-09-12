@@ -253,6 +253,20 @@ SLESETSCANPAR→SLECONN→SSAPCFNDSTRU→SSAPCWRITECMD 客户端）→ ④ 板�
   - `NearLink-ePaper/NearLink-Mesh-ePaper`（H3863 SLE Mesh PoC，AODV/AIMD 运行性能/开销证据）。
 - 后续可用：网络资源可继续作为通用规则集的补充，但所有性能主张必须以本地实测 `size`/`nm`/`Map` 与对端实机测量为准，不能把网络资料直接声明为已验证性能结论。
 
+## 十九、UWB-like 多锚点 SLE 测距套件（2026-09-12，NEW-NEARLINK-UWB-LIKE-RANGING）
+
+- 产出：`NEW-NEARLINK-UWB-LIKE-RANGING.md`（热点自主发现：GitHub sort=updated 全网最新推送仓，2026-09-12）
+- 甄别：`zhuzhengyan50-spec/nearlink-uwb-like-ranging`，Apache-2.0（新代码）+ SDK 派生文件保留原许可；明确声明"UWB-Like"仅指定位体验，技术是 SLE Channel Sounding（非 UWB 协议）；单 commit 2026-09-12。
+- **定位意义**：测距方向（本文方向 6）第一份公开端到端实现——此前 OpenSparklink/OHOS 侧测距完全缺席，只有 DLI 固件级线索（WS63-HADM-LL / OHOS-HADM-FULL）。
+- 三角色架构：Anchor（≤4）/ Ranging Client / **Collector（不参与 CS，独立串口输出）**——Collector 拆分使移动端串口不承载数据洪流（串口阻塞会打断测距时序，IQ 输出用编译开关控制）。
+- 线协议（PROTOCOL.md 权威）：8B 帧 `{type u32 LE, len u32 LE}`；消息 0xFFFFFFEA（Client→Anchor IQ）+ 0x10/0x11/0x12/0x13/0x14/0x15；32B 距离元数据（anchor/client/rssi/conn_id/dist_mm/双端 timestamp_sn/双端 tof/双端 rssi）；332B IQ 结构 = samp_cnt(≤80)+rssi+es_sn+timestamp_sn+80×(I u16+Q u16 LE)+tof_result（Mode 3）；Collector 串口为大写 hex ≤24B/行、seq 连续重组、32/332 定长校验、丢行即弃样重同步。
+- API 方言（BS21E / fbb_bs2x，`standard-bs21e-1100e` 目标）：`sle_hadm_register_callbacks` + `sle_set_channel_sounding_param_ex`/`enable` + `cs_caps/cs_state_changed/cs_param/cs_iq_report/cs_retry` 回调族 + CS 重试调度（client.c:767,827,837）；设备侧距离平滑用 SDK 内置 `slem_smooth`/`slem_alg_smooth_dis`（DIS_ALG_MODE 5，dist_mm=dis_smoothed×1000）；SSAP 通道共存（CCCD=property_handle+1，与我们 P0-6 同约定）。
+- **WS73 适配核心发现**：WS73 SDK `include/bsle/sle/sle_hadm_manager.h:282,299,316,333` 暴露**同构 API**（param_ex/enable/disable/register_callbacks），`:68-83` 的 `sle_channel_sounding_iq_report_t` 含同名同型 `es_sn`/`timestamp_sn`/`tof_result`——同族 FBB 栈结论延伸到 CS/HADM 域，WS73 dongle 具备做测距端的头文件级前提；WS73 无 `slem_smooth` 头 → 平滑/定位必须主机侧做（与该仓主机 GnUls+Kalman 架构天然吻合）。
+- 对比锚点：OHOS 0x0028 IQ=3B/12bit 解包 vs 此仓 SDK 原生 4B/点 u16；此仓 "slem" 前缀=SDK 测距平滑库（**名字撞 OHOS NAI 的 SLEM 网络层，语义完全不同**，勿混淆）；该仓不含 PHY/MCS/QoS 调参（与 SLE-MEASURE-QOS 正交）。
+- 实测边界：BearPi-Pico H2821E + 3dBi 外置天线，空旷 LOS >100m 保留原 SDK 校准；~2Hz/链路、4 anchor→~8 次/秒/client；第 5 anchor 不稳故默认 4；hex 文本协议带宽低，versioned binary+CRC 在其 Roadmap。
+- 可直接复用模式：Collector 角色拆分、双向 IQ 按 timestamp 配对+丢行弃样重同步、每连接槽位+断连清槽、CS 重试 FSM、主机侧 GnUls（ULS 初值+一步高斯-牛顿）定位管线。
+- 行动项：① WS73 测距客户端原型（stack/ssap 加 sle_hadm seam，复用 8B 帧+IQ 槽位，主机 GnUls 定位）→ 新 issue；② WS73 单报 vs BS21E 80 点聚合的 IQ 结构差异待实机核对；③ 采纳 seq=0 重同步+定长校验契约到未来 Collector/采集工具。
+
 **代码落地方向（下一批）**: OHOS-SSAP-ENGINE P0 差距清单 → 修 stack/ssap 服务端（多值 READ、
 READ_BY_UUID、CCCD 门控、能力位）；OHOS-SSAP-CLIENT 蓝本 → 新增 ssap_client 模块（电视盒遥控
 dongle 侧必需）；OHOS-DLI-LAYER → hwsle_transport 加 pending-command 表 + 0x00EE 超时 + CmdStatus

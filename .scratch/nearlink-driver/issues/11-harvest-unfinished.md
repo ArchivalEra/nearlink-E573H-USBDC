@@ -11,7 +11,7 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 ## 已完成（会话内）
 
 - 本地仓 39 个 / 9.4G（/mnt/hdd/nearlink-stuff/），含 hispark-rs 24 子仓全家桶
-- NEW-* 报告 14 份归队（含本轮汇编优化资源报告）：BearPi-NLChat / BS21-WTSL / HiSilicon-Assessment / WS63FLASH-GHIDRA / XF-BURN / XFUSION / HISPARK-RS 生态 / SLE Mesh + BS2X Rust / nearLinKernel 甄别 / SLE UART 变体 / Xinghongpai WS63 固件程序知识 / NearLink Toolbox 网站程序知识 / NLChat Web 端程序知识 / NearLink Assembly Optimization（汇编/编译器/链接器优化资源与通用优化指令集）
+- NEW-* 报告 15 份归队（含汇编优化 + UWB-like 测距）：BearPi-NLChat / BS21-WTSL / HiSilicon-Assessment / WS63FLASH-GHIDRA / XF-BURN / XFUSION / HISPARK-RS 生态 / SLE Mesh + BS2X Rust / nearLinKernel 甄别 / SLE UART 变体 / Xinghongpai WS63 固件程序知识 / NearLink Toolbox 网站程序知识 / NLChat Web 端程序知识 / NearLink Assembly Optimization（汇编/编译器/链接器优化资源与通用优化指令集）/ NearLink UWB-Like Ranging（首个公开 SLE Channel Sounding 多锚点测距全栈参考）
 
 ## 已克隆仓库消化状态
 
@@ -26,6 +26,7 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 | sle_mesh v4.4.9 (19M) | **已完成**：`NEW-SLEMESH-RUST.md` | 2026-06 推送；已记录 leader-rooted tier routing、directed relay、无 flooding/dedup cache 等边界 |
 | fbb_bs2x_rust (659M) | **已完成**：`NEW-SLEMESH-RUST.md` | BS2x Rust fork；已记录 Rust `no_std` staticlib 与 C/LiteOS 共存模式 |
 | NearLink Assembly Optimization（网络汇编/编译器/链接优化） | **已完成**：`NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md` | 汇编 inline/寄存器访问、GCC/Clang/LLVM 标志分级、LTO/gc-sections 边界、Rust release profile、通用优化指令集与度量门禁 |
+| nearlink-uwb-like-ranging (2026-09-12 推送，5.8M) | **已完成**：`NEW-NEARLINK-UWB-LIKE-RANGING.md` | 首个公开 SLE Channel Sounding 多锚点测距全栈（Anchor/Client/Collector 三角色 + 332B IQ 结构 + 主机 GnUls 定位）；**WS73 sle_hadm_manager.h API 同构，dongle 可做测距端** |
 
 ## 未搜方向
 
@@ -34,6 +35,7 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 - openharmony/communication_dsoftbus（软总线，46M，与 nearlink 竞合）未评估
 - openharmony/device_soc_hisilicon（gh code search 出现过 ws63v100/sdk 路径）未克隆
 - gitee 侧需 token，GitHub API 匿名限流（10 次/分钟搜索）
+- 2026-09-12 热点扫描后续队列：xingkaiyueying/tethering_nearlink（星闪网络共享，C++ 5M，本地无）待克隆；hispark-rs 生态 9 月密集更新（ws63-radio-sys 9-09、hisi-rs-template 9-09、ws63-examples 9-09、hisi-rf-ws63 9-10）——NEW-HISPARK-RS-ECOSYSTEM 报告为早前快照，需增量更新报告；yanlinkos/fbb_ws63 + fbb_bs2x（YL63 厂商 fork，472M/217M）需 diff 判定是否值得克隆；Heebu/NearLinkChat（Flutter 星闪聊天）低优先级
 
 ## Answer
 

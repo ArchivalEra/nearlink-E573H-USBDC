@@ -29,8 +29,8 @@ stack/ssap/                          # SSAP 用户态协议栈（Apache-2.0 移�
 ```
 测试：codec + server + feature 三套单元测试全绿，x86 零依赖可编译。
 
-### 📚 情报库（76 份研究文档）
-星闪协议全套深挖：SSAP 方言对照（**OHOS 与设备固件同协议，移植路线实证**）、连接管理、数据面（DTAP/SDR）、安全配对、测距、标准参数（SLE 12Mbps/250µs/256 用户），外加 6 份 OpenSparklink 契约、14 份 NEW 猎收报告（WS63/HHD-01、社区甄别、SLE UART 变体、Rust 生态/mesh、NLChat Web、Toolbox，以及汇编/编译器/链接器优化资源与通用优化指令集）以及 OHOS 生态批次（AT 框架/SLE mesh/framework/HDI/SSAP 权威引擎/客户端/HID 遥控/SA 服务/测距全链路/雷达/DLI 传输/DTAP 数据面/NAI 管理/设备管理/GLE/BGTP/SM 安全/QoS 信用/计划审计/NearLinkSLE 示例/LinkNebula mesh）。
+### 📚 情报库（78 份研究文档）
+星闪协议全套深挖：SSAP 方言对照（**OHOS 与设备固件同协议，移植路线实证**）、连接管理、数据面（DTAP/SDR）、安全配对、测距、标准参数（SLE 12Mbps/250µs/256 用户），外加 6 份 OpenSparklink 契约、15 份 NEW 猎收报告（WS63/HHD-01、社区甄别、SLE UART 变体、Rust 生态/mesh、NLChat Web、Toolbox、汇编/编译器/链接器优化资源、**UWB-like 多锚点 SLE 测距套件**——首个公开 SLE Channel Sounding 全栈参考）以及 OHOS 生态批次（AT 框架/SLE mesh/framework/HDI/SSAP 权威引擎/客户端/HID 遥控/SA 服务/测距全链路/雷达/DLI 传输/DTAP 数据面/NAI 管理/设备管理/GLE/BGTP/SM 安全/QoS 信用/计划审计/NearLinkSLE 示例/LinkNebula mesh）。
 
 ## 仓库结构
 
@@ -40,7 +40,7 @@ stack/ssap/                          # SSAP 用户态协议栈（Apache-2.0 移�
 ├── scripts/             # ws73-probe×3 + load-driver/flash-dongle + 检查脚本
 ├── docs/                # 英文情报（DEVICE/SDK/USB-PROTOCOL/ECOSYSTEM）
 ├── sdk/                 # 海思 WS73 SDK（源码 + x86 移植，二进制 gitignored）
-└── .scratch/            # wayfinder 决策图 + 76 份研究报告 + 师傅清单
+└── .scratch/            # wayfinder 决策图 + 78 份研究报告 + 师傅清单
 ```
 
 ## 文档索引与维护
@@ -56,7 +56,7 @@ stack/ssap/                          # SSAP 用户态协议栈（Apache-2.0 移�
 | `docs/ECOSYSTEM.md` | 星闪开源生态地图 + 定稿路线 | 英文 |
 | `stack/ssap/` | SSAP 用户态栈源码（codec/transport/server/link/feature） | — |
 | `scripts/` | 测试/验证/检查脚本 | — |
-| `.scratch/nearlink-driver/lab-notes/` | **76 份研究报告**（SSAP 方言/CM/DTAP/SDR/SM/HADM/标准/OSPL/WS63/OHOS/NEW 猎收报告…） | 中英混合 |
+| `.scratch/nearlink-driver/lab-notes/` | **78 份研究报告**（SSAP 方言/CM/DTAP/SDR/SM/HADM/标准/OSPL/WS63/OHOS/NEW 猎收报告…） | 中英混合 |
 | `.scratch/nearlink-driver/lab-notes/SHIFU-BUILD-LIST.md` | 电视盒交叉编译清单（hi3798 SDIO/USB 变体） | 中文 |
 
 ## Roadmap
