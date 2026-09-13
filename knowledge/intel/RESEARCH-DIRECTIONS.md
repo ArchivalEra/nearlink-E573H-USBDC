@@ -551,3 +551,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十四、OKF 时代猎收第三十七批（2h 续跑 6/8，契约层诊断学，139→140 concepts）
 
 - `NEW-HISI-RF-CORE-CONTRACTS.md`：hisi-rf-core = 芯片中立契约（WifiBackend trait@508、wifi/ble/sle 全契约、零 IP 栈所有权——app 选 embassy-net 或 smoltcp::phy::Device）。**诊断 schema v2 为本会话最佳错误报告设计**：零分配+稳定机器码+恢复动作+四条目数值 trace，**刻意排除 SSID/密钥材料/任意后端文本**；README 契约式排除清单（永不依赖 PAC/blob/调度器/分配器/ROM/NVS/TLS/镜像格式）。
+
+## 五十五、OKF 时代猎收第三十八批（2h 续跑 7/8，五层链顶完工，140→141 concepts）
+
+- `NEW-HISI-RF-FACADE.md`：hisi-rf facade 薄选择层（lib.rs+诊断再导出，chip-* + **命名 profile**）——**profile-wifi-wpa3-smoltcp 在列（WPA3 已通）**。五层链（facade→core 契约→ws63 后端→radio-sys blob→rtos）文档闭环。rust-ws73 采用 feature 命名 profile 惯例 + WPA3 从起步规划。
