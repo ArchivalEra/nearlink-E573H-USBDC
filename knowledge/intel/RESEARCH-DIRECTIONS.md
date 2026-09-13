@@ -613,3 +613,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 六十八、OKF 时代猎收第五十一批（无限 harvest 同步 55，WS63E 电安，153→154 concepts）
 
 - `NEW-WS63E-ELECTRIC-SAFETY.md`：16781 = WS63E 一主两从星型（A 主控/B 网关 OLED+WiFi/C 执行）+ MQTT 云出口。WS63E 应用层兼容性实证 + 网关模式第七例。拓扑谱系完备：星（本作）/树（DTU）/路由表（AIGC）。
+
+## 六十九、OKF 时代猎收第五十二批（无限 harvest 同步 56，WS53 新芯片家族，154→155 concepts）
+
+- `NEW-FBB-WS53-SDK.md`：HiSpark/fbb_ws53 = **WS53V100 Wi-Fi/BLE/SLE Combo SoC 官方 SDK**（FBB 统一框架，跨芯片移植为设计目标）。独有样例：**sle_conn_param_tuning**（连接参数调优教学样例）+ **sle_chba**（CHBA 命名跨双芯片族闭合：ws53 样例 ↔ HiDiTing lwip 适配器）。FBB 归一化仓库布局解释社区示例跨芯片移植低摩擦。

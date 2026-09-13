@@ -9,6 +9,7 @@
 * [tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking](NEW-DATATRANSFER-CACHE-INTERNALS.md) - harvest concept (3 KB)
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (5 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
+* [HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples](NEW-FBB-WS53-SDK.md) - harvest concept (3 KB)
 * [hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)](NEW-FBB-WS63-QEMU-FORK.md) - harvest concept (3 KB)
 * [device_soc ws63v100 protocol layer deep-dive — device-side SLE host ships closed as libbth_gle.a; symbol surface reveals full SM/TM/DM/CM layering and the authoritative uapi_ssaps surface](NEW-GLE-HOST-SYMBOL-SURFACE.md) - harvest concept (4 KB)
 * [hs-fbb src map — interim_binary holds the closed SLE stack, wearable apps are open, and lwip ships an IP-over-SLE virtual netif (lwip_sle_adapter.c)](NEW-HIDITING-LWIP-SLE-NETIF.md) - harvest concept (3 KB)
