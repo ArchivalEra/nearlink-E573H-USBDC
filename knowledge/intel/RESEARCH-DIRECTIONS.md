@@ -531,3 +531,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十九、OKF 时代猎收第三十二批（2h 续跑 1/8，服务注册表+句柄分配器，134→135 concepts）
 
 - `NEW-SSAP-REGISTRY-HANDLE-ALLOC.md`：服务注册 = Cache 三族（Service/Property/Descriptor 带异步回调）+ **按 handle 区间删除**；16-bit 句柄 = **范围块分配器**（整块 [MIN,MAX] 起始、分配切分、容量限碎片数）。对我们：动态服务生命周期三件套（异步注册/区间删除/块分配器）。
+
+## 五十、OKF 时代猎收第三十三批（2h 续跑 2/8，Rust 示例课程，135→136 concepts）
+
+- `NEW-WS63-EXAMPLES-RUST.md`：ws63-examples = 30+ 示例课程（async/rtos-interop/connectivity/hazards 四域）。**ARCHITECTURE.md 自报过时**（称仅 blinky，实况 wifi_connectivity 2180 行 Rust/wifi_softap 1445 行）。核心机制：**wifi_blob_link 的 build.rs 将厂商 WiFi ROM blob（ws63-radio-sys 提供，rv32imfc/ilp32f）以 +whole-archive 链入 .wifi_pkt_ram NOLOAD 段**（0xA00000/0xC000，g_mem_start_addr_cfg 相对 __wifi_pkt_ram_begin__ 寻址）——Rust 裸机跑厂商 WiFi 栈的完整配方。rust-ws73 直接可用。
