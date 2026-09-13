@@ -519,3 +519,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十六、OKF 时代猎收第二十九批（2026-09-13 续跑，第三协议消费端，131→132 concepts）
 
 - `NEW-MESHMAX-DESKTOP.md`：MeshMaxDesktop v2.2.0（Electron+Nuxt+**noble BLE**）= mesh 图传协议第三消费端（手机 App/板载 Web/PC 桌面）。**混合传输策略**：START/END 带应答串行 + IMG_DATA 无应答并行 6 包 in-flight（7B 头 dst/seq/len 分块）。三实现位级 RLE 一致 = 互操作完整性的最强证据集。@abandonware/noble 供应链注意。
+
+## 四十七、OKF 时代猎收第三十批（2026-09-13 续跑，mesh 底座容量学，132→133 concepts）
+
+- `NEW-MESH-TRANSPORT-SUBSTRATE.md`：AIGC mesh 底座 = **双角色连接池**（固定数组，server 入向 1 + client 出向 4，注释标"芯片硬限制"——树形成因）+ conn_id/mesh_addr 双键查找 + **环形去重缓存**（src+seq→msg_id，最新优先反向扫）。分层：transport(谁连着)→route(发哪)→forward(转发+去重)→main。规划硬数字：WS63 家族多连接预算 1+4（车控 8 client 纯角色对照）。
