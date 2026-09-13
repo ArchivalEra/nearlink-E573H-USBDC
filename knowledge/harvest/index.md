@@ -62,6 +62,7 @@
 * [OHOS ssaps_server write/read families — multi-READ and multi-WRITE CONFIRMED (correction of an earlier miss); multi-processing negotiated at MTU exchange](NEW-SSAPS-MULTI-OPERATIONS-CORRECTION.md) - harvest concept (4 KB)
 * [OHOS nearlink stack_fuzzer anatomy — hydra-fuzz GN targets, a shared include map that doubles as the stack's internal layer taxonomy, and module-boundary fuzz entries](NEW-STACK-FUZZER-ANATOMY.md) - harvest concept (3 KB)
 * [Arctic2520/starbridge-ws63-firmware — SS928 edge computer drives WS63 SLE bridge: UART JSON-line master to remote IR sensor node](NEW-STARBRIDGE-EDGE-BRIDGE.md) - harvest concept (2 KB)
+* [2026 competition — ws63_data_transfer_unit: a layered student DTU with AA55 binary config protocol, RS485 bridge, and a tree-mesh preview](NEW-STUDENT-DTU-AA55.md) - harvest concept (3 KB)
 * [teki128/nearlink — Minimal 564-line SLE Client/Server Pair (WS63 SDK, fixed-address dialect)](NEW-TEKI128-MINIMAL-PAIR.md) - harvest concept (4 KB)
 * [La-OHV/tx_star — DS10 control-loop companion: Android 20 Hz binary-frame joystick over NearLink DTU to STM32 receiver](NEW-TXSTAR-DS10-REMOTE.md) - harvest concept (3 KB)
 * [StarFish nearlink-web-flasher + nearlink-contrib — browser-side LoaderBoot/YMODEM flashing with fwpkg container format; a young community component collection](NEW-WEB-FLASHER-FWPKG.md) - harvest concept (4 KB)
