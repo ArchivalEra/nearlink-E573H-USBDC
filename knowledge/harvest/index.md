@@ -72,6 +72,7 @@
 * [hispark-rs/ws63-examples — 30+ example curriculum with substantial WiFi implementations; wifi_blob_link links the vendor ROM blob into packet-RAM from Rust](NEW-WS63-EXAMPLES-RUST.md) - harvest concept (4 KB)
 * [device_soc ws63v100 middleware map — HCC architecture headers open (flow-ctrl + DFX loss counters), AT framework open except BT/SLE command table](NEW-WS63-MIDDLEWARE-OPEN-CLOSED.md) - harvest concept (4 KB)
 * [SlumberMin/ws63-sdk-dev-skill — an independent agent skill for WS63 SDK development; distills build, serial-log, GPIO-mux and sample-hygiene knowledge](NEW-WS63-SDK-DEV-SKILL.md) - harvest concept (3 KB)
+* [2026 competition — WS63E electric-safety system: one-master-two-slave SLE star with WiFi/MQTT cloud egress](NEW-WS63E-ELECTRIC-SAFETY.md) - harvest concept (1 KB)
 * [leion-kk/WS63E-NearLink-Mesh-AIGC-Frame — JPEG-over-SLE-Mesh Distributed E-Paper (AODV-style route table, on-chip decode + RLE direct drive)](NEW-WS63E-MESH-AIGC-FRAME.md) - harvest concept (4 KB)
 * [NEW — ws63flash (UART flasher) + Ghidra_RISCV31 (Huawei custom RISC-V module) harvest](NEW-WS63FLASH-GHIDRA.md) - harvest concept (20 KB)
 * [NEW — xf_burn_tools (Python AutoBurn): WS63 UART flash protocol confirmation + fwpkg.py manifest harvest](NEW-XF-BURN.md) - harvest concept (16 KB)
