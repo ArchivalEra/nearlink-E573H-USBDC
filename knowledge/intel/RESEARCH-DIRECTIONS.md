@@ -617,3 +617,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 六十九、OKF 时代猎收第五十二批（无限 harvest 同步 56，WS53 新芯片家族，154→155 concepts）
 
 - `NEW-FBB-WS53-SDK.md`：HiSpark/fbb_ws53 = **WS53V100 Wi-Fi/BLE/SLE Combo SoC 官方 SDK**（FBB 统一框架，跨芯片移植为设计目标）。独有样例：**sle_conn_param_tuning**（连接参数调优教学样例）+ **sle_chba**（CHBA 命名跨双芯片族闭合：ws53 样例 ↔ HiDiTing lwip 适配器）。FBB 归一化仓库布局解释社区示例跨芯片移植低摩擦。
+
+## 七十、OKF 时代猎收第五十三批（无限 harvest 同步 57，官方 agent 契约 CLI，155→156 concepts）
+
+- `NEW-HS-FBB-CLI.md`：hs-fbb-cli = fbb 框架族单 CLI（SDK 自动检测 + 组件管理 + 镜像配置）+ **显式 AI agent 契约章节**："fbb 是机制层，skills 是策略层"+ **fbb describe --json 单次态势探针**（schema 版本/工具链路径/SDK chips/targets/verbs 一调全回）+ 自激活环境免 shell 状态。厂商社区 agent-first 工具化实证；nearlink-harvest 类技能应对齐该契约。

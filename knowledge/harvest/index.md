@@ -20,6 +20,7 @@
 * [hispark-rs/hisi-rtos — a no_std Rust scheduler for HiSilicon: three run policies, 272-byte unified trap frame, deferred preemption, capability-gated porting](NEW-HISI-RTOS-SCHEDULER.md) - harvest concept (3 KB)
 * [Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)](NEW-HISPARK-RS-ECOSYSTEM.md) - harvest concept (32 KB)
 * [hispark-rs September Increment (2026-09-01 → 2026-09-10)](NEW-HISPARK-RS-SEPT-INCREMENT.md) - harvest concept (7 KB)
+* [HiSpark/hs-fbb-cli — official fbb framework CLI with an explicit AI-agent contract: mechanism/policy split and a one-call JSON situational probe](NEW-HS-FBB-CLI.md) - harvest concept (3 KB)
 * [Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment](NEW-HiSilicon-Assessment.md) - harvest concept (15 KB)
 * [OHOS NearLink IPC opcode taxonomy — CALL_METHOD closes the object-model loop; coex parameter and VCP volume ride the same surface](NEW-IPC-OPCODE-TAXONOMY.md) - harvest concept (3 KB)
 * [nearlink-uwb-like-ranging parse_iq_raw.py — a 21-feature IQ signal-analysis schema (time/constellation/frequency/quality/statistics) over the COLLECT stream](NEW-IQ-FEATURES-SCHEMA.md) - harvest concept (3 KB)
