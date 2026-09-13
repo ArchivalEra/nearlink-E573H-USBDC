@@ -588,3 +588,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 六十二、OKF 时代猎收第四十五批（无限 harvest 同步 49，浏览器烧录，147→148 concepts）
 
 - `NEW-WEB-FLASHER-FWPKG.md`：StarFish nearlink-web-flasher = **零依赖 Web Serial 烧录器**（WS63/BS2x：fwpkg 解析→LoaderBoot 握手→波特率切换→YMODEM CRC/1024B→复位，903 行 JS）。**fwpkg 容器魔数 0xEFBEADDF**（与 boot-ROM 同步字 0xEFBEADDE 同族差一尼布尔——容器层 vs 传输层）；CRC16 覆盖窗 + bin-info 表。nearlink-contrib = 早期组件集（仅 mpu6050，Step1/Step2 惯例）。烧录协议第三独立实现（ws63flash/xf_burn 后）。
+
+## 六十三、OKF 时代猎收第四十六批（无限 harvest 同步 50，上游归属 + 官方 ArkTS 面，148→149 concepts）
+
+- `NEW-SIG-UPSTREAM-NEARLINKKIT.md`：**归属裁决**——openharmony-sig/communication_nearlink = tethering_nearlink 的上游家族（sa_profile 字节同、services ~500 处分叉，fork 演进属 datatransfer/天线管理）；官方 App 面 = **@kit.NearLinkKit 四模块（scan/ssap/dataTransfer/constant）**，官方样例 SsapClientPage/ScanConfigPage 实操（App 面只暴露 client 侧+传输，server 留内部）。
