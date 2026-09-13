@@ -535,3 +535,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十、OKF 时代猎收第三十三批（2h 续跑 2/8，Rust 示例课程，135→136 concepts）
 
 - `NEW-WS63-EXAMPLES-RUST.md`：ws63-examples = 30+ 示例课程（async/rtos-interop/connectivity/hazards 四域）。**ARCHITECTURE.md 自报过时**（称仅 blinky，实况 wifi_connectivity 2180 行 Rust/wifi_softap 1445 行）。核心机制：**wifi_blob_link 的 build.rs 将厂商 WiFi ROM blob（ws63-radio-sys 提供，rv32imfc/ilp32f）以 +whole-archive 链入 .wifi_pkt_ram NOLOAD 段**（0xA00000/0xC000，g_mem_start_addr_cfg 相对 __wifi_pkt_ram_begin__ 寻址）——Rust 裸机跑厂商 WiFi 栈的完整配方。rust-ws73 直接可用。
+
+## 五十一、OKF 时代猎收第三十四批（2h 续跑 3/8，no_std 调度器，136→137 concepts）
+
+- `NEW-HISI-RTOS-SCHEDULER.md`：hisi-rtos = Rust no_std 调度器（三 RunPolicy：Cooperative/**Budgeted CPU 配额补充**/Preemptive 时间片；272 字节统一任务/陷阱帧；TIMER+软中断延迟抢占 mret 尾声重臂 deadline；**start_with_port 能力门控移植**——抢占须板级实证换取；spec/+tests/ 规格驱动）。对 rust-ws73：Budgeted 是与厂商射频任务共存的确定性原语；272B 帧是上下文切换成本的具体尺寸。
