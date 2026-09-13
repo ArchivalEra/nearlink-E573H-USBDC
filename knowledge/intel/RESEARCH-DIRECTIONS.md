@@ -555,3 +555,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十五、OKF 时代猎收第三十八批（2h 续跑 7/8，五层链顶完工，140→141 concepts）
 
 - `NEW-HISI-RF-FACADE.md`：hisi-rf facade 薄选择层（lib.rs+诊断再导出，chip-* + **命名 profile**）——**profile-wifi-wpa3-smoltcp 在列（WPA3 已通）**。五层链（facade→core 契约→ws63 后端→radio-sys blob→rtos）文档闭环。rust-ws73 采用 feature 命名 profile 惯例 + WPA3 从起步规划。
+
+## 五十六、OKF 时代猎收第三十九批（2h 续跑 8/8，21 维 IQ 特征模式，141→142 concepts）
+
+- `NEW-IQ-FEATURES-SCHEMA.md`：parse_iq_raw.py（690 行）= COLLECT 流状态机组装器 + **21 维 IQFeatures 五域特征**（时域幅值/PAPR/过零、星座 spread/相位抖动/IQ 相关、FFT 峰值/带宽/谱质心、SNR、偏度/峰度）+ 三层数据模型（measurement/raw/features）。对我们 WS73 测距：好/坏 IQ 捕获的数值定义先于任何 ML。
