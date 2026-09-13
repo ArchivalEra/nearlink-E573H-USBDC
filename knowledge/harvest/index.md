@@ -25,6 +25,7 @@
 * [AIGC mesh transport substrate — dual-role connection pool with chip-limited 1-server+4-client capacity and a ring-buffer dedup cache for forwarding](NEW-MESH-TRANSPORT-SUBSTRATE.md) - harvest concept (3 KB)
 * [NearLink-ePaper/MeshGatewayAPP — phone-side spec of the SLE-mesh image protocol (checkpoint + 240-packet bitmaps, FAST/ACK flow control, bit-exact RLE)](NEW-MESHGATEWAY-APP-PROTOCOL.md) - harvest concept (3 KB)
 * [MeshMaxDesktop — third consumer of the mesh image protocol: Electron + noble BLE sender with parallel in-flight chunk upload](NEW-MESHMAX-DESKTOP.md) - harvest concept (3 KB)
+* [2026 competition — distributed multi-node human motion detection: BNO085/BMI270 wearables over WiFi bridge with SlimeVR protocol and CD4052 UART multiplexing](NEW-MULTI-NODE-MOTION-DETECTION.md) - harvest concept (3 KB)
 * [NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources](NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md) - harvest concept (25 KB)
 * [NearLink Toolbox website program knowledge](NEW-NEARLINK-TOOLBOX-WEBSITE.md) - harvest concept (11 KB)
 * [NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge](NEW-NEARLINK-UWB-LIKE-RANGING.md) - harvest concept (23 KB)
