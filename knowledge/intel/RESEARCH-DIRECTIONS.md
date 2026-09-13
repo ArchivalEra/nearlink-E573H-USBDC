@@ -592,3 +592,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 六十三、OKF 时代猎收第四十六批（无限 harvest 同步 50，上游归属 + 官方 ArkTS 面，148→149 concepts）
 
 - `NEW-SIG-UPSTREAM-NEARLINKKIT.md`：**归属裁决**——openharmony-sig/communication_nearlink = tethering_nearlink 的上游家族（sa_profile 字节同、services ~500 处分叉，fork 演进属 datatransfer/天线管理）；官方 App 面 = **@kit.NearLinkKit 四模块（scan/ssap/dataTransfer/constant）**，官方样例 SsapClientPage/ScanConfigPage 实操（App 面只暴露 client 侧+传输，server 留内部）。
+
+## 六十四、OKF 时代猎收第四十七批（无限 harvest 同步 51，SLE 音频实证，149→150 concepts）
+
+- `NEW-SLE-AUDIO-SPEAKER.md`：18884 大赛作品 = **SLE 48kHz/16bit 双声道无压缩音频实证**（PHY 4M+功率/速率拉满）+ DLNA/minimp3 网络模式 + 三角色三板部署（发送/播放+网络/控制）+ 微信小程序配网。SLE 容量两极（DS10 小帧 14ms ↔ 本作大流 PHY 4M）均被真实项目占满。I2S 播放 + PCM2706 USB 音频 + 降噪模块。

@@ -46,6 +46,7 @@
 * [nearlink_service 67-commit follow-up — ReplayConnectedLink hardening (MTU replay, sync execution, dedup window, 165-line test) and a Taihe IDL for SSAP](NEW-REPLAY-HARDENING-TAIHE.md) - harvest concept (4 KB)
 * [openharmony-sig/communication_nearlink is the tethering upstream; @kit.NearLinkKit is the official ArkTS surface (scan/ssap/dataTransfer)](NEW-SIG-UPSTREAM-NEARLINKKIT.md) - harvest concept (3 KB)
 * [cxl0928/hi3863-sle-1v8-vehicle — SLE 1-Client-to-8-Server Vehicle Sample (WS63, SBUS + UWB Follow)](NEW-SLE-1V8-VEHICLE.md) - harvest concept (4 KB)
+* [2026 competition — WS63 multi-mode smart speaker: 48kHz/16bit uncompressed stereo over SLE at PHY 4M, plus DLNA/minimp3 network mode](NEW-SLE-AUDIO-SPEAKER.md) - harvest concept (3 KB)
 * [BH4ME/sle_mesh_new — most mature public SLE team-mesh engineering tree (v4.5.56): portable packet core, relay optimizer, on-board Web API, release evidence chain](NEW-SLE-TEAM-MESH-V456.md) - harvest concept (4 KB)
 * [New SLE UART Variants: `sle_uart` vs `Hi3863-SLE-2025`](NEW-SLE-UART-VARIANTS.md) - harvest concept (55 KB)
 * [NEW: sle_mesh v4.4.x Delta + fbb_bs2x_rust (Rust-in-Firmware Precedent)](NEW-SLEMESH-RUST.md) - harvest concept (30 KB)
