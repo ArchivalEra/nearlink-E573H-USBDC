@@ -1,5 +1,6 @@
 # Harvest Reports
 
+* [HiSpark 2026 embedded competition corpus survey — ~65 NearLink student projects (4.7G IOT + 1.8G AIOT); classification, chip census, and deep-dive queue](NEW-2026-COMPETITION-SURVEY.md) - harvest concept (4 KB)
 * [WS63E AIGC cloud server — DashScope text2image pipeline with LLM prompt optimization and Amap weather; exposed credential noted (not reproduced)](NEW-AIGC-CLOUD-SERVER.md) - harvest concept (3 KB)
 * [MakeBlackSheepGreat/BearPi-Pico-H3863 — the missing manual for the WS63E/H3863 sample family (sparse-adopted docs)](NEW-BEARPI-H3863-DOCS.md) - harvest concept (4 KB)
 * [New repo knowledge harvest: Ai-BS21 SDK + wtsl_app](NEW-BS21-WTSL.md) - harvest concept (19 KB)

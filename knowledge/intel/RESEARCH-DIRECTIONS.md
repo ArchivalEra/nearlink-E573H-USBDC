@@ -575,3 +575,8 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十九、OKF 时代猎收第四十二批（2h 续跑，dongle 协议分解，144→145 concepts）
 
 - `NEW-NLD-ERPC-PROTOCOL.md`：Nld dongle 协议 = **九服务组 eRPC**（host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/**low_latency**，双向 client/server 生成对）+ 双串口分离（device:serial:event_serial，防队头阻塞）+ IDL 代码生成。对我们：与 HCC-over-USB 并列的厂商 dongle 传输设计；low_latency 模式服务与 D-Bus Firmware1 固件更新为我们未暴露的能力。
+
+## 六十、OKF 时代猎收第四十三批（gitcode 深挖：大赛语料普查，145→146 concepts）
+
+- `NEW-2026-COMPETITION-SURVEY.md`：HiSpark 2026 嵌入式大赛语料（8.6G，**IOT 星闪方向 ~65 队 + AIOT 12 队**，62 README）普查入库。芯片普查：WS63 主导、WS63E×4、BS21E×1、H3863×2。域分类：安全/养老（最大簇）、定位×2、音频×3、可穿戴×4、机器人/车×8、工业仪器×7、基础设施×4。深挖队列 Top6：SLE_Indoor_Locate + BS21E_sle_location（定位对比）/SLE_DLNA_sound/多节点运动感知/DTU/WS63E 电安。
+- 流程修正：check-okf 经管道 tail 掩盖退出码导致失败链继续（计数漂移），后续直跑取码；头/体两行计数需同批校验。
