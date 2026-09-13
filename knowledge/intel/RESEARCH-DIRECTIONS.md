@@ -584,3 +584,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 六十一、OKF 时代猎收第四十四批（2h 续跑，定位双子深挖，146→147 concepts）
 
 - `NEW-CS-POSITIONING-PAIR.md`：18600_SLE_Indoor_Locate = BS21E 多锚点 SLE CS 室内定位全栈——**GTTT 组时分传输一拖八（SDK 调度 CS 事件，G-T 模式）**+ 锚端双 IQ 测距（经验 scale/offset 校准残差偏置）+ 标签端 1310 行**线性最小二乘三边定位**（EMA+GDOP+残差门限+**3D 秩亏自动降 2D**）+ BLE 桥 JSON 输出；11706 双芯片拆分（BS21E 定位 + WS63 显示上联）。官方 SDK 自带 sle_locate 样例路径实证。对我们 CS 测距：GTTT 调度 + 求解器束 + 秩亏守卫三件套直接可用。
+
+## 六十二、OKF 时代猎收第四十五批（无限 harvest 同步 49，浏览器烧录，147→148 concepts）
+
+- `NEW-WEB-FLASHER-FWPKG.md`：StarFish nearlink-web-flasher = **零依赖 Web Serial 烧录器**（WS63/BS2x：fwpkg 解析→LoaderBoot 握手→波特率切换→YMODEM CRC/1024B→复位，903 行 JS）。**fwpkg 容器魔数 0xEFBEADDF**（与 boot-ROM 同步字 0xEFBEADDE 同族差一尼布尔——容器层 vs 传输层）；CRC16 覆盖窗 + bin-info 表。nearlink-contrib = 早期组件集（仅 mpu6050，Step1/Step2 惯例）。烧录协议第三独立实现（ws63flash/xf_burn 后）。
