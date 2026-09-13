@@ -565,3 +565,9 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 - 工具：scripts/gitee CLI（GITEE_TOKEN/token 文件双通道）+ repo launcher v2.5 + gitcode private-token（~/.local/share/，600 权限仓外存储）。
 - **GitCode 搜索金矿**：nearlink-vip/hs-wiki + hs-peripheral-knowledge = 第三方 agent 可读 HiSilicon 知识库双仓——hs-wiki 为 OKF 式 markdown（四域 Wearable/AIoT/Vision/Media + runbooks + **products.yaml 披露 HiDiTing 芯片星座：hi3322 主控 + hi2871 GNSS + hi2131e CAT1**）；peripheral-knowledge 为 JSONL 知识图谱（169 peripherals/102 facts，confidence+extraction_method 溯源，verifications 层设计空置）。
 - 知识生态收敛信号：第三方独立构建的 agent 知识库与我们 knowledge/ OKF 束同构（frontmatter/域索引/runbooks/结构化数据四要素平行）。
+
+## 五十八、OKF 时代猎收第四十一批（gitcode 金矿王炸，144 concepts）
+
+- `NEW-NLD-DBUS-DAEMON.md`：**本会话最重磅——Nld + nearlinkctl = 星闪界完整 BlueZ 等价物**（goodspeed1，gitcode）：nld 总管 + 每狗一个 nldadapter.<dev> 进程（**eRPC 对接海思 BS2x/WS63 dongle——正是我们硬件**）+ 14 接口 D-Bus API（977 行 XML，BlueZ 一一镜像：Adapter1/Device1/Agent1/SsapManager1/本地 SSAP 服务端对象树/SsapAdvertisingManager1/**Firmware1 D-Bus 固件更新**）+ nearlinkctl（bluetoothctl 式 CLI）。可靠性契约=异步方法固件确认后才完成+看门狗。Linux/Windows 双原生（Win 全静态+私有 D-Bus 总线）。
+- **对我们的意义**：WS73 dongle 用户态部署形态的现成参照架构（多狗进程隔离/固件 ACK 绑定/D-Bus API 面/本地 SSAP 服务端）；BLE-WIFI-USERLAND-RESEARCH 之问的答案。
+- 同 org 星闪开源社区：skills（AI Agent 技能库+MCP 工具集）、ws63flash-win、firmware_repo、nearlink-contrib 等留档待挖。
