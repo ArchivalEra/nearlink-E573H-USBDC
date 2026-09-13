@@ -114,3 +114,19 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 | 42 | NEW-DATATRANSFER-CACHE-INTERNALS | tcid 会话映射（FEAT_DYN_TCID 实证）+ 三态前态回溯 |
 
 保鲜：45 仓 ls-remote 全 current（热仓 nearlink_service 48h 内两动已两度跟进）。不写记忆约束全程遵守。
+
+## 2026-09-13 续跑 2h 总账（第三十二至三十九批，+9 份，累计 52 份 / 92→142 concepts）
+
+| # | 报告 | 一句话 |
+|---|---|---|
+| 44 | NEW-SSAP-REGISTRY-HANDLE-ALLOC | 服务注册 Cache 三族 + handle 区间删除 + 范围块分配器 |
+| 45 | NEW-WS63-EXAMPLES-RUST | 30+ Rust 示例课程；wifi_blob_link 链厂商 ROM blob 进 packet-RAM（0xA00000/0xC000） |
+| 46 | NEW-HISI-RTOS-SCHEDULER | no_std 调度器：三 RunPolicy（Budgeted 配额）+ 272B 统一陷阱帧 + start_with_port 能力门控 |
+| 47 | NEW-HISI-RF-WS63-COMPOSITION | **里程碑：Cargo-only WiFi on WS63**（零厂商 SDK，wpa2-personal+smoltcp profile） |
+| 48 | NEW-RADIO-SYS-NORMALIZATION | 字节可复现 blob 归一化流水线（三包发布单元+macOS 规范构建器字节一致门） |
+| 49 | NEW-HISI-RF-CORE-CONTRACTS | 芯片中立契约 + **凭证排除型诊断 schema v2**（零分配+数值 trace） |
+| 50 | NEW-HISI-RF-FACADE | 五层链顶：命名 profile 含 **wpa3-smoltcp** |
+| 51 | NEW-IQ-FEATURES-SCHEMA | **21 维 IQ 特征五域模式**（时域/星座/FFT/质量/统计） |
+| 52 | （无独立报告）uwb-like-ranging 上游检查 | current |
+
+**rust-ws73 里程碑确认**：Rust 裸机 WiFi（WPA2/WPA3+smoltcp）在上游是工作代码；五层链（facade→core→rf-ws63→radio-sys→rtos）文档闭环。
