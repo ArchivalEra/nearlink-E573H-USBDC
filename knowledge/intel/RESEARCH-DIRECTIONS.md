@@ -511,3 +511,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十四、OKF 时代猎收第二十七批（2026-09-13 续跑，对象模型 IPC 闭环，129→130 concepts）
 
 - `NEW-IPC-OPCODE-TAXONOMY.md`：**NL_SSAP_CLIENT_CALL_METHOD 实锤**——property/method/event 三类成员各有独立 IPC 动词，对象模型端到端贯通（app→IPC→service→SSAP CALL_METHOD→栈）。**NL_SET_SLE_COEX_PARAM**（共存参数运行时可调走 IPC）与 NL_VCP_CLIENT_SET_DEVICE_ABSOLUTE_VOLUME（VCP 音量）同面。对我们：daemon 控制面按成员类分动词 + 共存调参能力位。
+
+## 四十五、OKF 时代猎收第二十八批（2026-09-13 续跑，Replay 加固续篇 + Taihe IDL，130→131 concepts）
+
+- `NEW-REPLAY-HARDENING-TAIHE.md`：nearlink_service 48 小时内再动 67 commits（115 文件 +7215）——**ReplayConnectedLink 加固轮**（MTU 补发 onMtuChanged(link->mtu)、并入注册任务同步执行消除重复通知窗口、165 行重放单测，检视 S2/S3/W1 标签）+ **Taihe IDL for SSAP**（@ohos.nearlink.ssap Client/Server promise API + ANI 绑定——ArkTS 面第三层绑定：NAPI/IPC/Taihe）。热仓日更节奏确立（保鲜扫应日检）。
