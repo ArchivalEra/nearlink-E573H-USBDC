@@ -515,3 +515,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十五、OKF 时代猎收第二十八批（2026-09-13 续跑，Replay 加固续篇 + Taihe IDL，130→131 concepts）
 
 - `NEW-REPLAY-HARDENING-TAIHE.md`：nearlink_service 48 小时内再动 67 commits（115 文件 +7215）——**ReplayConnectedLink 加固轮**（MTU 补发 onMtuChanged(link->mtu)、并入注册任务同步执行消除重复通知窗口、165 行重放单测，检视 S2/S3/W1 标签）+ **Taihe IDL for SSAP**（@ohos.nearlink.ssap Client/Server promise API + ANI 绑定——ArkTS 面第三层绑定：NAPI/IPC/Taihe）。热仓日更节奏确立（保鲜扫应日检）。
+
+## 四十六、OKF 时代猎收第二十九批（2026-09-13 续跑，第三协议消费端，131→132 concepts）
+
+- `NEW-MESHMAX-DESKTOP.md`：MeshMaxDesktop v2.2.0（Electron+Nuxt+**noble BLE**）= mesh 图传协议第三消费端（手机 App/板载 Web/PC 桌面）。**混合传输策略**：START/END 带应答串行 + IMG_DATA 无应答并行 6 包 in-flight（7B 头 dst/seq/len 分块）。三实现位级 RLE 一致 = 互操作完整性的最强证据集。@abandonware/noble 供应链注意。

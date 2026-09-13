@@ -15,6 +15,7 @@
 * [Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment](NEW-HiSilicon-Assessment.md) - harvest concept (15 KB)
 * [OHOS NearLink IPC opcode taxonomy — CALL_METHOD closes the object-model loop; coex parameter and VCP volume ride the same surface](NEW-IPC-OPCODE-TAXONOMY.md) - harvest concept (3 KB)
 * [NearLink-ePaper/MeshGatewayAPP — phone-side spec of the SLE-mesh image protocol (checkpoint + 240-packet bitmaps, FAST/ACK flow control, bit-exact RLE)](NEW-MESHGATEWAY-APP-PROTOCOL.md) - harvest concept (3 KB)
+* [MeshMaxDesktop — third consumer of the mesh image protocol: Electron + noble BLE sender with parallel in-flight chunk upload](NEW-MESHMAX-DESKTOP.md) - harvest concept (3 KB)
 * [NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources](NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md) - harvest concept (25 KB)
 * [NearLink Toolbox website program knowledge](NEW-NEARLINK-TOOLBOX-WEBSITE.md) - harvest concept (11 KB)
 * [NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge](NEW-NEARLINK-UWB-LIKE-RANGING.md) - harvest concept (23 KB)
