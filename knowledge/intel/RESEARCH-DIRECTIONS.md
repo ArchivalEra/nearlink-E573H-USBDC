@@ -580,3 +580,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-2026-COMPETITION-SURVEY.md`：HiSpark 2026 嵌入式大赛语料（8.6G，**IOT 星闪方向 ~65 队 + AIOT 12 队**，62 README）普查入库。芯片普查：WS63 主导、WS63E×4、BS21E×1、H3863×2。域分类：安全/养老（最大簇）、定位×2、音频×3、可穿戴×4、机器人/车×8、工业仪器×7、基础设施×4。深挖队列 Top6：SLE_Indoor_Locate + BS21E_sle_location（定位对比）/SLE_DLNA_sound/多节点运动感知/DTU/WS63E 电安。
 - 流程修正：check-okf 经管道 tail 掩盖退出码导致失败链继续（计数漂移），后续直跑取码；头/体两行计数需同批校验。
+
+## 六十一、OKF 时代猎收第四十四批（2h 续跑，定位双子深挖，146→147 concepts）
+
+- `NEW-CS-POSITIONING-PAIR.md`：18600_SLE_Indoor_Locate = BS21E 多锚点 SLE CS 室内定位全栈——**GTTT 组时分传输一拖八（SDK 调度 CS 事件，G-T 模式）**+ 锚端双 IQ 测距（经验 scale/offset 校准残差偏置）+ 标签端 1310 行**线性最小二乘三边定位**（EMA+GDOP+残差门限+**3D 秩亏自动降 2D**）+ BLE 桥 JSON 输出；11706 双芯片拆分（BS21E 定位 + WS63 显示上联）。官方 SDK 自带 sle_locate 样例路径实证。对我们 CS 测距：GTTT 调度 + 求解器束 + 秩亏守卫三件套直接可用。
