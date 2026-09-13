@@ -503,3 +503,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-SMARTEDGE-ENVIR-NODE.md`：envir 节点 = 五类环境传感器（BH1750/BMP180/DC01/DHT20/GUVA）+ 帧编解码字节级落实（[0]=0xAA、[3]=cmd、reject-early 校验）+ 标准 server/adv 骨架。SmartEdge 故事闭环（网关帧+入口汇入+节点侧）。
 - 已消化仓上游检查：uwb-like-ranging current。
+
+## 四十三、OKF 时代猎收第二十六批（2026-09-13 续跑，深挖⑨：OHOS SA/IPC 面，128→129 concepts）
+
+- `NEW-OHOS-SA1190-IPC-SURFACE.md`：**重大架构发现——OHOS NearLink 服务完整 IPC 面谱**：SA 1190（nearlink_service，auto-restart，参数驱动 start-on-demand，HDI proxy 版本地板）+ **28 个 IPC 接口**（SSAP 双端/HADM 测距含 sounding_result parcel/**ASC 音频**/TWS/VCP/HID host/云配对/CDSM/观测器族）+ SSAP 对象模型的 method/event parcel 序列化跨 IPC 边界。音频/TWS/VCP 首次在公共树现身（LE-Audio-out-of-scope 决策获得生态佐证）。
