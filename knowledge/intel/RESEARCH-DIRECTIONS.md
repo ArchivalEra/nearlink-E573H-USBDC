@@ -543,3 +543,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十二、OKF 时代猎收第三十五批（2h 续跑 4/8，Cargo-only WiFi 里程碑，137→138 concepts）
 
 - `NEW-HISI-RF-WS63-COMPOSITION.md`：**里程碑——Rust 裸机 WiFi on WS63 是工作代码**：hisi-rf-ws63 组合根 + 五层所有权链（facade→core 契约→ws63 后端→radio-sys ABI→rtos）+ **Cargo 交付归一化归档 + 原生 rust-lld（零厂商 SDK/Python/GCC/后链脚本）** + profile "wpa2-personal,smoltcp"（WPA2+TCP/IP 栈）。归一化归档模式 = 厂商 blob 问题的答案，rust-ws73 WiFi 腿上游已示范。
+
+## 五十三、OKF 时代猎收第三十六批（2h 续跑 5/8，blob 归一化流水线，138→139 concepts）
+
+- `NEW-RADIO-SYS-NORMALIZATION.md`：ws63-radio-sys = **字节可复现 blob 归一化流水线**——三包发布单元（sys: links 元数据 ABI 契约 / blob: 归一化归档零构建期下载 / hisi-rf-link: 重定位清单+验证+兼容 profile 纯 Rust 工具）；CI 从固定 submodule 重建+**字节比对**+hostap 跨编译 ABI 验证+macOS 规范构建器字节一致门；依赖序发布带 registry 可见性等待。**厂商 blob 供应链化的一般参照**。
