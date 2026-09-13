@@ -26,6 +26,7 @@
 * [NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources](NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md) - harvest concept (25 KB)
 * [NearLink Toolbox website program knowledge](NEW-NEARLINK-TOOLBOX-WEBSITE.md) - harvest concept (11 KB)
 * [NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge](NEW-NEARLINK-UWB-LIKE-RANGING.md) - harvest concept (23 KB)
+* [nearlink-vip knowledge ecosystem — two agent-facing HiSilicon knowledge bases (OKF-style wiki + JSONL peripheral graph) and the HiDiTing chipset constellation](NEW-NEARLINK-VIP-KNOWLEDGE-ECOSYSTEM.md) - harvest concept (4 KB)
 * [NEW-NEARLINKERNEL-CLASSIFICATION](NEW-NEARLINKERNEL-CLASSIFICATION.md) - harvest concept (29 KB)
 * [NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI](NEW-NLCHAT-WEB.md) - harvest concept (11 KB)
 * [openharmony/device_soc_hisilicon — OHOS-vendored WS63 SDK (fresh, API-identical SLE headers, HAL glue; sparse-adopted)](NEW-OHOS-DEVICE-SOC-WS63.md) - harvest concept (4 KB)

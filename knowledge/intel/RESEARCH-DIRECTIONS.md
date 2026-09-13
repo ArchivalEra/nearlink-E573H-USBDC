@@ -559,3 +559,9 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十六、OKF 时代猎收第三十九批（2h 续跑 8/8，21 维 IQ 特征模式，141→142 concepts）
 
 - `NEW-IQ-FEATURES-SCHEMA.md`：parse_iq_raw.py（690 行）= COLLECT 流状态机组装器 + **21 维 IQFeatures 五域特征**（时域幅值/PAPR/过零、星座 spread/相位抖动/IQ 相关、FFT 峰值/带宽/谱质心、SNR、偏度/峰度）+ 三层数据模型（measurement/raw/features）。对我们 WS73 测距：好/坏 IQ 捕获的数值定义先于任何 ML。
+
+## 五十七、OKF 时代猎收第四十批（gitcode 解锁首批，知识生态收敛，142→143 concepts）
+
+- 工具：scripts/gitee CLI（GITEE_TOKEN/token 文件双通道）+ repo launcher v2.5 + gitcode private-token（~/.local/share/，600 权限仓外存储）。
+- **GitCode 搜索金矿**：nearlink-vip/hs-wiki + hs-peripheral-knowledge = 第三方 agent 可读 HiSilicon 知识库双仓——hs-wiki 为 OKF 式 markdown（四域 Wearable/AIoT/Vision/Media + runbooks + **products.yaml 披露 HiDiTing 芯片星座：hi3322 主控 + hi2871 GNSS + hi2131e CAT1**）；peripheral-knowledge 为 JSONL 知识图谱（169 peripherals/102 facts，confidence+extraction_method 溯源，verifications 层设计空置）。
+- 知识生态收敛信号：第三方独立构建的 agent 知识库与我们 knowledge/ OKF 束同构（frontmatter/域索引/runbooks/结构化数据四要素平行）。
