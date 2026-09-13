@@ -93,3 +93,24 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 | 27 | NEW-SSAPS-MULTI-OPERATIONS-CORRECTION | **修正批**：multi-READ/WRITE 实存（MultiRead/WriteMulti 命名），multi-processing 为交换协商位 |
 
 保鲜扫：45 仓 ls-remote 全 current。新仓发现：0（发现空间稳定）。不写记忆约束全程遵守。
+
+## 2026-09-13 续跑总账 part2（第十八至三十一批，+15 份，累计 43 份 / 92→134 concepts）
+
+| # | 报告 | 一句话 |
+|---|---|---|
+| 29 | NEW-PORT-PROFILE-INTERNALS | port FSM 每状态分发表 + addr/appId/uuid 三键会话缓存 |
+| 30 | NEW-SSAP-SERVM-MODULE-MAP | SSAP 全套 9601 行模块地图（server 4652+client 4949+共享链路/句柄平面） |
+| 31 | NEW-SMARTEDGE-MULTI-ENTRY | 七入口一头文件 + 特性门控 + 内建 latency 计量 |
+| 32 | NEW-AIGC-CLOUD-SERVER | 云端三 API 链（天气→LLM→万相）+ DashScope 密钥泄露卫生发现 |
+| 33 | NEW-SSAPC-CLIENT-OBJECT-MODEL | **SSAP=property/method/event 对象模型**（发现即填缓存） |
+| 34 | NEW-SSAP-LINK-PLANE | 四态链路模型（含 DISCONNECTING 重试契约入头文件） |
+| 35 | NEW-STACK-FUZZER-ANATOMY | hydra-fuzz 解剖：include 图=栈层分类学（sdf/oal→dli→cp/bsl） |
+| 36 | NEW-SMARTEDGE-ENVIR-NODE | 五类环境传感器节点（帧布局字节级落实） |
+| 37 | NEW-OHOS-SA1190-IPC-SURFACE | **SA 1190 + 28 IPC 接口面谱**（ASC 音频/TWS/VCP/HADM 首次公共现身） |
+| 38 | NEW-IPC-OPCODE-TAXONOMY | NL_SSAP_CLIENT_CALL_METHOD 实锤（对象模型 IPC 闭环）+ NL_SET_SLE_COEX_PARAM |
+| 39 | NEW-REPLAY-HARDENING-TAIHE | Replay 加固轮（MTU 补发/同步执行/单测）+ **Taihe IDL for SSAP**（热仓日更） |
+| 40 | NEW-MESHMAX-DESKTOP | 图传协议第三消费端（Electron+noble，混合传输策略） |
+| 41 | NEW-MESH-TRANSPORT-SUBSTRATE | mesh 底座：双角色池 **1 server+4 client（芯片硬限制）** + 环形去重 |
+| 42 | NEW-DATATRANSFER-CACHE-INTERNALS | tcid 会话映射（FEAT_DYN_TCID 实证）+ 三态前态回溯 |
+
+保鲜：45 仓 ls-remote 全 current（热仓 nearlink_service 48h 内两动已两度跟进）。不写记忆约束全程遵守。
