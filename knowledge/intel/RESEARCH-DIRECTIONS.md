@@ -571,3 +571,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 - `NEW-NLD-DBUS-DAEMON.md`：**本会话最重磅——Nld + nearlinkctl = 星闪界完整 BlueZ 等价物**（goodspeed1，gitcode）：nld 总管 + 每狗一个 nldadapter.<dev> 进程（**eRPC 对接海思 BS2x/WS63 dongle——正是我们硬件**）+ 14 接口 D-Bus API（977 行 XML，BlueZ 一一镜像：Adapter1/Device1/Agent1/SsapManager1/本地 SSAP 服务端对象树/SsapAdvertisingManager1/**Firmware1 D-Bus 固件更新**）+ nearlinkctl（bluetoothctl 式 CLI）。可靠性契约=异步方法固件确认后才完成+看门狗。Linux/Windows 双原生（Win 全静态+私有 D-Bus 总线）。
 - **对我们的意义**：WS73 dongle 用户态部署形态的现成参照架构（多狗进程隔离/固件 ACK 绑定/D-Bus API 面/本地 SSAP 服务端）；BLE-WIFI-USERLAND-RESEARCH 之问的答案。
 - 同 org 星闪开源社区：skills（AI Agent 技能库+MCP 工具集）、ws63flash-win、firmware_repo、nearlink-contrib 等留档待挖。
+
+## 五十九、OKF 时代猎收第四十二批（2h 续跑，dongle 协议分解，144→145 concepts）
+
+- `NEW-NLD-ERPC-PROTOCOL.md`：Nld dongle 协议 = **九服务组 eRPC**（host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/**low_latency**，双向 client/server 生成对）+ 双串口分离（device:serial:event_serial，防队头阻塞）+ IDL 代码生成。对我们：与 HCC-over-USB 并列的厂商 dongle 传输设计；low_latency 模式服务与 D-Bus Firmware1 固件更新为我们未暴露的能力。
