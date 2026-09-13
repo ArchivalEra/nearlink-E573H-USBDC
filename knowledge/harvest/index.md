@@ -46,6 +46,7 @@
 * [hispark-rs/ws63-radio-sys — three-package release unit with a byte-reproducible blob-normalization pipeline (relocation inventory, cross-compile ABI verification, canonical builder)](NEW-RADIO-SYS-NORMALIZATION.md) - harvest concept (3 KB)
 * [nearlink_service 67-commit follow-up — ReplayConnectedLink hardening (MTU replay, sync execution, dedup window, 165-line test) and a Taihe IDL for SSAP](NEW-REPLAY-HARDENING-TAIHE.md) - harvest concept (4 KB)
 * [openharmony-sig/communication_nearlink is the tethering upstream; @kit.NearLinkKit is the official ArkTS surface (scan/ssap/dataTransfer)](NEW-SIG-UPSTREAM-NEARLINKKIT.md) - harvest concept (3 KB)
+* [2026 competition — XingYu sign-language glove: dual IMU + flex sensors over SLE to an OrangePi edge-AI translation server (~1s to speech)](NEW-SIGNLANGUAGE-GLOVE.md) - harvest concept (3 KB)
 * [cxl0928/hi3863-sle-1v8-vehicle — SLE 1-Client-to-8-Server Vehicle Sample (WS63, SBUS + UWB Follow)](NEW-SLE-1V8-VEHICLE.md) - harvest concept (4 KB)
 * [2026 competition — WS63 multi-mode smart speaker: 48kHz/16bit uncompressed stereo over SLE at PHY 4M, plus DLNA/minimp3 network mode](NEW-SLE-AUDIO-SPEAKER.md) - harvest concept (3 KB)
 * [BH4ME/sle_mesh_new — most mature public SLE team-mesh engineering tree (v4.5.56): portable packet core, relay optimizer, on-board Web API, release evidence chain](NEW-SLE-TEAM-MESH-V456.md) - harvest concept (4 KB)

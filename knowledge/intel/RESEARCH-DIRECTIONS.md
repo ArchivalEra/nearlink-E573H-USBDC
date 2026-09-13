@@ -605,3 +605,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-MULTI-NODE-MOTION-DETECTION.md`：24897 = BNO085/BMI270 可穿戴动捕（**CD4053 模拟开关单 UART 分时复用双 IMU** 降本 + **SlimeVR 开放体测协议**上 WS63 + 四元数模块），Bridge+UDP WiFi 链（重流选 WiFi 非 SLE——语料级传输选型信号）+ web-studio 康复训练模块。
 - 流程切换：移除全局 url.git@github.com:.insteadof（https→ssh 重写，瞬断根因），推送改走 gh 凭据 HTTPS。
+
+## 六十七、OKF 时代猎收第五十批（无限 harvest 同步 54，手语手套，152→153 concepts）
+
+- `NEW-SIGNLANGUAGE-GLOVE.md`：18384 星语手套 = 弯曲传感器 ADC + 双手 JY901P IMU（UART，项目内完成 MPU6050/BNO085→JY901P 迁移）经 SLE UART 方言到 OrangePi **边缘 AI**（~1s 语音输出，训练_pc 全生命周期：collect/balance/train/evaluate/benchmark + systemd 部署）——传感器节点傻、边缘扛模型的算力放置范式 + 语料最佳仓库结构。
