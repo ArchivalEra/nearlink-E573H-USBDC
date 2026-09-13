@@ -42,6 +42,7 @@
 * [SlumberMin/SmartEdge-WS63 — whole-home SLE gateway: unified 0xAA frame protocol, grouped address space, seven converging control entries](NEW-SMARTEDGE-GATEWAY-FRAME.md) - harvest concept (3 KB)
 * [SmartEdge gateway_ui — seven control entries as one-header-per-entry modules converging in a feature-gated main; latency meter built in](NEW-SMARTEDGE-MULTI-ENTRY.md) - harvest concept (4 KB)
 * [OHOS ssap_link plane — a four-state link model (DISCONNECTED/CONNECTING/CONNECTED/DISCONNECTING) shared by server and client, with documented retry semantics](NEW-SSAP-LINK-PLANE.md) - harvest concept (3 KB)
+* [OHOS SSAP service registry + handle range allocator — cache-based registration, remove-by-handle-range, and a splitting block allocator for 16-bit handles](NEW-SSAP-REGISTRY-HANDLE-ALLOC.md) - harvest concept (3 KB)
 * [OHOS SSAP servm module map — 9,601 lines server+client with a peer service cache and client link SM; the reference architecture for our stack build-out](NEW-SSAP-SERVM-MODULE-MAP.md) - harvest concept (4 KB)
 * [OHOS ssapc_client.c client view — SSAP services are a property/method/event object model; find responses decode into a per-address member cache](NEW-SSAPC-CLIENT-OBJECT-MODEL.md) - harvest concept (4 KB)
 * [OHOS ssaps_server_find.c — the authoritative FIND-family server reference (FIND_STRUCTURE / _BY_UUID, V10 framing split, MTU-chunked responses)](NEW-SSAPS-FIND-REFERENCE.md) - harvest concept (4 KB)

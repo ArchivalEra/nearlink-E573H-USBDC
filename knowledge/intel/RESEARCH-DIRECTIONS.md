@@ -527,3 +527,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十八、OKF 时代猎收第三十一批（2026-09-13 续跑，datatransfer 缓存内部，133→134 concepts）
 
 - `NEW-DATATRANSFER-CACHE-INTERNALS.md`：AppConnectParamMapping 每应用会话含 **tcid（动态传输信道 ID——feature_mgr 的 FEAT_DYN_TCID 上游实证）**/transMode/frameType + **transState+preTransState 三态前态回溯**（BUSY/AVAILABLE/FAIL，freeze/restore 机制的数据基础）+ operator== 防重插入。对我们：会话记录预留 tcid 等价字段 + 前态影子对。
+
+## 四十九、OKF 时代猎收第三十二批（2h 续跑 1/8，服务注册表+句柄分配器，134→135 concepts）
+
+- `NEW-SSAP-REGISTRY-HANDLE-ALLOC.md`：服务注册 = Cache 三族（Service/Property/Descriptor 带异步回调）+ **按 handle 区间删除**；16-bit 句柄 = **范围块分配器**（整块 [MIN,MAX] 起始、分配切分、容量限碎片数）。对我们：动态服务生命周期三件套（异步注册/区间删除/块分配器）。
