@@ -4,6 +4,7 @@
 * [MakeBlackSheepGreat/BearPi-Pico-H3863 — the missing manual for the WS63E/H3863 sample family (sparse-adopted docs)](NEW-BEARPI-H3863-DOCS.md) - harvest concept (4 KB)
 * [New repo knowledge harvest: Ai-BS21 SDK + wtsl_app](NEW-BS21-WTSL.md) - harvest concept (19 KB)
 * [BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)](NEW-BearPi-NLChat.md) - harvest concept (24 KB)
+* [tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking](NEW-DATATRANSFER-CACHE-INTERNALS.md) - harvest concept (3 KB)
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (5 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
 * [hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)](NEW-FBB-WS63-QEMU-FORK.md) - harvest concept (3 KB)

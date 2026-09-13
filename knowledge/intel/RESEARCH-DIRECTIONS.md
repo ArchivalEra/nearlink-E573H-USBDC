@@ -523,3 +523,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十七、OKF 时代猎收第三十批（2026-09-13 续跑，mesh 底座容量学，132→133 concepts）
 
 - `NEW-MESH-TRANSPORT-SUBSTRATE.md`：AIGC mesh 底座 = **双角色连接池**（固定数组，server 入向 1 + client 出向 4，注释标"芯片硬限制"——树形成因）+ conn_id/mesh_addr 双键查找 + **环形去重缓存**（src+seq→msg_id，最新优先反向扫）。分层：transport(谁连着)→route(发哪)→forward(转发+去重)→main。规划硬数字：WS63 家族多连接预算 1+4（车控 8 client 纯角色对照）。
+
+## 四十八、OKF 时代猎收第三十一批（2026-09-13 续跑，datatransfer 缓存内部，133→134 concepts）
+
+- `NEW-DATATRANSFER-CACHE-INTERNALS.md`：AppConnectParamMapping 每应用会话含 **tcid（动态传输信道 ID——feature_mgr 的 FEAT_DYN_TCID 上游实证）**/transMode/frameType + **transState+preTransState 三态前态回溯**（BUSY/AVAILABLE/FAIL，freeze/restore 机制的数据基础）+ operator== 防重插入。对我们：会话记录预留 tcid 等价字段 + 前态影子对。
