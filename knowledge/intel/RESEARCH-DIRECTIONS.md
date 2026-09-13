@@ -507,3 +507,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 四十三、OKF 时代猎收第二十六批（2026-09-13 续跑，深挖⑨：OHOS SA/IPC 面，128→129 concepts）
 
 - `NEW-OHOS-SA1190-IPC-SURFACE.md`：**重大架构发现——OHOS NearLink 服务完整 IPC 面谱**：SA 1190（nearlink_service，auto-restart，参数驱动 start-on-demand，HDI proxy 版本地板）+ **28 个 IPC 接口**（SSAP 双端/HADM 测距含 sounding_result parcel/**ASC 音频**/TWS/VCP/HID host/云配对/CDSM/观测器族）+ SSAP 对象模型的 method/event parcel 序列化跨 IPC 边界。音频/TWS/VCP 首次在公共树现身（LE-Audio-out-of-scope 决策获得生态佐证）。
+
+## 四十四、OKF 时代猎收第二十七批（2026-09-13 续跑，对象模型 IPC 闭环，129→130 concepts）
+
+- `NEW-IPC-OPCODE-TAXONOMY.md`：**NL_SSAP_CLIENT_CALL_METHOD 实锤**——property/method/event 三类成员各有独立 IPC 动词，对象模型端到端贯通（app→IPC→service→SSAP CALL_METHOD→栈）。**NL_SET_SLE_COEX_PARAM**（共存参数运行时可调走 IPC）与 NL_VCP_CLIENT_SET_DEVICE_ABSOLUTE_VOLUME（VCP 音量）同面。对我们：daemon 控制面按成员类分动词 + 共存调参能力位。

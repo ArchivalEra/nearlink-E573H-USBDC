@@ -13,6 +13,7 @@
 * [Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)](NEW-HISPARK-RS-ECOSYSTEM.md) - harvest concept (32 KB)
 * [hispark-rs September Increment (2026-09-01 → 2026-09-10)](NEW-HISPARK-RS-SEPT-INCREMENT.md) - harvest concept (7 KB)
 * [Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment](NEW-HiSilicon-Assessment.md) - harvest concept (15 KB)
+* [OHOS NearLink IPC opcode taxonomy — CALL_METHOD closes the object-model loop; coex parameter and VCP volume ride the same surface](NEW-IPC-OPCODE-TAXONOMY.md) - harvest concept (3 KB)
 * [NearLink-ePaper/MeshGatewayAPP — phone-side spec of the SLE-mesh image protocol (checkpoint + 240-packet bitmaps, FAST/ACK flow control, bit-exact RLE)](NEW-MESHGATEWAY-APP-PROTOCOL.md) - harvest concept (3 KB)
 * [NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources](NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md) - harvest concept (25 KB)
 * [NearLink Toolbox website program knowledge](NEW-NEARLINK-TOOLBOX-WEBSITE.md) - harvest concept (11 KB)
