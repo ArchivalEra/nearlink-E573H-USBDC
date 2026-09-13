@@ -547,3 +547,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十三、OKF 时代猎收第三十六批（2h 续跑 5/8，blob 归一化流水线，138→139 concepts）
 
 - `NEW-RADIO-SYS-NORMALIZATION.md`：ws63-radio-sys = **字节可复现 blob 归一化流水线**——三包发布单元（sys: links 元数据 ABI 契约 / blob: 归一化归档零构建期下载 / hisi-rf-link: 重定位清单+验证+兼容 profile 纯 Rust 工具）；CI 从固定 submodule 重建+**字节比对**+hostap 跨编译 ABI 验证+macOS 规范构建器字节一致门；依赖序发布带 registry 可见性等待。**厂商 blob 供应链化的一般参照**。
+
+## 五十四、OKF 时代猎收第三十七批（2h 续跑 6/8，契约层诊断学，139→140 concepts）
+
+- `NEW-HISI-RF-CORE-CONTRACTS.md`：hisi-rf-core = 芯片中立契约（WifiBackend trait@508、wifi/ble/sle 全契约、零 IP 栈所有权——app 选 embassy-net 或 smoltcp::phy::Device）。**诊断 schema v2 为本会话最佳错误报告设计**：零分配+稳定机器码+恢复动作+四条目数值 trace，**刻意排除 SSID/密钥材料/任意后端文本**；README 契约式排除清单（永不依赖 PAC/blob/调度器/分配器/ROM/NVS/TLS/镜像格式）。
