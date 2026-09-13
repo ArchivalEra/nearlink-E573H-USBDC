@@ -11,6 +11,7 @@
 * [device_soc ws63v100 protocol layer deep-dive — device-side SLE host ships closed as libbth_gle.a; symbol surface reveals full SM/TM/DM/CM layering and the authoritative uapi_ssaps surface](NEW-GLE-HOST-SYMBOL-SURFACE.md) - harvest concept (4 KB)
 * [hs-fbb src map — interim_binary holds the closed SLE stack, wearable apps are open, and lwip ships an IP-over-SLE virtual netif (lwip_sle_adapter.c)](NEW-HIDITING-LWIP-SLE-NETIF.md) - harvest concept (3 KB)
 * [elfbobo/hs-fbb (HiDiTing, romanized Di-ting) — SLE 2.0 public evidence: new bs_sle_* API generation, first-class Port service, auto-connection management (sparse-adopted)](NEW-HIDITING-SLE2-EVIDENCE.md) - harvest concept (4 KB)
+* [hispark-rs/hisi-rf-ws63 — composition root for a Cargo-only WS63 WiFi build: normalized archives + rust-lld, no vendor SDK, wpa2-personal + smoltcp profile](NEW-HISI-RF-WS63-COMPOSITION.md) - harvest concept (3 KB)
 * [hispark-rs/hisi-rtos — a no_std Rust scheduler for HiSilicon: three run policies, 272-byte unified trap frame, deferred preemption, capability-gated porting](NEW-HISI-RTOS-SCHEDULER.md) - harvest concept (3 KB)
 * [Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)](NEW-HISPARK-RS-ECOSYSTEM.md) - harvest concept (32 KB)
 * [hispark-rs September Increment (2026-09-01 → 2026-09-10)](NEW-HISPARK-RS-SEPT-INCREMENT.md) - harvest concept (7 KB)

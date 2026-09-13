@@ -539,3 +539,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 五十一、OKF 时代猎收第三十四批（2h 续跑 3/8，no_std 调度器，136→137 concepts）
 
 - `NEW-HISI-RTOS-SCHEDULER.md`：hisi-rtos = Rust no_std 调度器（三 RunPolicy：Cooperative/**Budgeted CPU 配额补充**/Preemptive 时间片；272 字节统一任务/陷阱帧；TIMER+软中断延迟抢占 mret 尾声重臂 deadline；**start_with_port 能力门控移植**——抢占须板级实证换取；spec/+tests/ 规格驱动）。对 rust-ws73：Budgeted 是与厂商射频任务共存的确定性原语；272B 帧是上下文切换成本的具体尺寸。
+
+## 五十二、OKF 时代猎收第三十五批（2h 续跑 4/8，Cargo-only WiFi 里程碑，137→138 concepts）
+
+- `NEW-HISI-RF-WS63-COMPOSITION.md`：**里程碑——Rust 裸机 WiFi on WS63 是工作代码**：hisi-rf-ws63 组合根 + 五层所有权链（facade→core 契约→ws63 后端→radio-sys ABI→rtos）+ **Cargo 交付归一化归档 + 原生 rust-lld（零厂商 SDK/Python/GCC/后链脚本）** + profile "wpa2-personal,smoltcp"（WPA2+TCP/IP 栈）。归一化归档模式 = 厂商 blob 问题的答案，rust-ws73 WiFi 腿上游已示范。
