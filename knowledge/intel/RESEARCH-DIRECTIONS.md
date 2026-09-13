@@ -621,3 +621,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十、OKF 时代猎收第五十三批（无限 harvest 同步 57，官方 agent 契约 CLI，155→156 concepts）
 
 - `NEW-HS-FBB-CLI.md`：hs-fbb-cli = fbb 框架族单 CLI（SDK 自动检测 + 组件管理 + 镜像配置）+ **显式 AI agent 契约章节**："fbb 是机制层，skills 是策略层"+ **fbb describe --json 单次态势探针**（schema 版本/工具链路径/SDK chips/targets/verbs 一调全回）+ 自激活环境免 shell 状态。厂商社区 agent-first 工具化实证；nearlink-harvest 类技能应对齐该契约。
+
+## 七十一、OKF 时代猎收第五十四批（无限 harvest 同步 58，社区工具生态，156→157 concepts）
+
+- `NEW-COMMUNITY-TOOLING-ECOSYSTEM.md`：星闪开源社区三仓——**CLAUDE.md 自进化工作记忆引擎**（462 行自引用闭环：读我→载记忆→分流→坑点沉淀，放置契约 ~/fbb_ws63/src）+ MimiClaw（**5 美元芯片上的口袋 AI 助手**，LLM 上 NearLink SoC）+ ws63flash-win（Windows 原生 AT+RST 软复位+loaderboot 后 921600 高速，免 WSL/usbipd）。烧录协议第四独立实现。
