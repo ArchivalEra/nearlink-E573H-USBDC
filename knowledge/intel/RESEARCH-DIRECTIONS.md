@@ -633,3 +633,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十三、OKF 时代猎收第六十批（无限 harvest 同步 60，WS63 AI 生态，158→159 concepts）
 
 - `NEW-WS63-AI-ECOSYSTEM.md`：**FBB ModelZoo = 厂商端到端模型转固件流水线**（数据生成→模型转换→SDK 打包一 run.sh 串起；场景：图像分类/音频事件/KWS/音频增强/时序/视觉唤醒/HAR；目标 **WS63 MCU + HiDiTing Nano NPU + Hi1156E Tiny NPU**——第四芯片类 hi1156E 入图）+ BYLE 云之声商用语音 SDK（KWS+LLM 对话，账号门控闭源）。AI 是 NearLink 头号应用方向实证。
+
+## 七十四、OKF 时代猎收第六十一批（无限 harvest 同步 61，306x 排除项，159→160 concepts）
+
+- `NEW-OPEN-MCU-306X.md`：HiSpark/open_mcu = 3061M/3065H/3066M MCU 族（128KB 电机控制，**无 NearLink**——阴性发现防未来误配）。FBB 邻接布局 + ICKEY 购买件号。芯片族图谱修正项。

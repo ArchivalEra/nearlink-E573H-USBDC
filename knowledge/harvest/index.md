@@ -43,6 +43,7 @@
 * [OpenHarmony communication_nearlink_service September Increment (544 commits, 2026-08-14 to 2026-09-11)](NEW-OHOS-NEARLINK-SEPT-INCREMENT.md) - harvest concept (7 KB)
 * [tethering OHOS integration — SA 1190 nearlink_service profile and the complete 28-interface IPC surface: SSAP, HADM ranging, ASC audio, TWS, VCP, HID host, cloud pair](NEW-OHOS-SA1190-IPC-SURFACE.md) - harvest concept (4 KB)
 * [xingkaiyueying/tethering_nearlink — OHOS NearLink Tethering Service (SLE Port Profile + Local Socket Data Plane)](NEW-OHOS-TETHERING-SERVICE.md) - harvest concept (6 KB)
+* [HiSpark/open_mcu — the 306x MCU family (3061M/3065H/3066M, 128KB motor-control parts): FBB-adjacent but NOT NearLink](NEW-OPEN-MCU-306X.md) - harvest concept (1 KB)
 * [yeyeye0212/starflash-pet-collar — WS63 Three-Node Pet Collar (SLE-WiFi Gateway Bridge, MPU6050 State Machine)](NEW-PET-COLLAR-GATEWAY.md) - harvest concept (4 KB)
 * [Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)](NEW-PLAYJOY-HID-KEYBOARD.md) - harvest concept (11 KB)
 * [tethering port_stm.h — the Port Profile connection FSM: eight states from IDLE to CONNECTED via SSAP service discovery and network set](NEW-PORT-PROFILE-FSM.md) - harvest concept (3 KB)
