@@ -625,3 +625,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十一、OKF 时代猎收第五十四批（无限 harvest 同步 58，社区工具生态，156→157 concepts）
 
 - `NEW-COMMUNITY-TOOLING-ECOSYSTEM.md`：星闪开源社区三仓——**CLAUDE.md 自进化工作记忆引擎**（462 行自引用闭环：读我→载记忆→分流→坑点沉淀，放置契约 ~/fbb_ws63/src）+ MimiClaw（**5 美元芯片上的口袋 AI 助手**，LLM 上 NearLink SoC）+ ws63flash-win（Windows 原生 AT+RST 软复位+loaderboot 后 921600 高速，免 WSL/usbipd）。烧录协议第四独立实现。
+
+## 七十二、OKF 时代猎收第五十五批（无限 harvest 同步 59，OH-on-WS63 版图，157→158 concepts）
+
+- `NEW-OH-WS63-LANDSCAPE.md`：OH-on-WS63 公开版图单薄——hbu-dragon 教学案例集（124M，wifi-iot 样例，**限制性自定义许可**：禁商用/竞赛/教学/论文）+ nearlink_oh_ws63（README 占位）。实质 OH WS63 源仍以 device_soc 稀疏采纳为准。许可扫描先于教学代码采纳。

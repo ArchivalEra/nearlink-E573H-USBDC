@@ -37,6 +37,7 @@
 * [NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI](NEW-NLCHAT-WEB.md) - harvest concept (11 KB)
 * [goodspeed1/Nld + nearlinkctl — a complete BlueZ-equivalent userspace for NearLink LE: D-Bus daemon with eRPC dongle adapters, local SSAP server tree, pairing agents, D-Bus firmware update](NEW-NLD-DBUS-DAEMON.md) - harvest concept (5 KB)
 * [Nld eRPC dongle protocol — nine service groups over dual serial ports (host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/low_latency)](NEW-NLD-ERPC-PROTOCOL.md) - harvest concept (4 KB)
+* [OH-on-WS63 project landscape — hbu teaching case set (restrictive license) and a stub OH SDK repo; gitee/gitcode OH coverage is thin](NEW-OH-WS63-LANDSCAPE.md) - harvest concept (2 KB)
 * [openharmony/device_soc_hisilicon — OHOS-vendored WS63 SDK (fresh, API-identical SLE headers, HAL glue; sparse-adopted)](NEW-OHOS-DEVICE-SOC-WS63.md) - harvest concept (4 KB)
 * [openharmony/vendor_hihope nearlink_dk_3863 — official OHOS NearLink DK SLE curriculum (5 application samples over the UART skeleton)](NEW-OHOS-DK3863-SLE-CURRICULUM.md) - harvest concept (4 KB)
 * [OpenHarmony communication_nearlink_service September Increment (544 commits, 2026-08-14 to 2026-09-11)](NEW-OHOS-NEARLINK-SEPT-INCREMENT.md) - harvest concept (7 KB)
