@@ -650,3 +650,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十七、OKF 时代猎收第六十四批（无限 harvest 同步 64，OHOS 控制台，162→163 concepts）
 
 - `NEW-OHOS-NEARLINK-CONTROL.md`：ohos-nearlinkControl = OHOS 侧星闪开关 CLI（enable/disable + **autoConnPolicy 自动连接策略参数**）+ 机器码+人提示双面错误输出（ERR_NL_INVALID_COMMAND）。SA 1190 的操作员前端。
+
+## 七十八、OKF 时代猎收第五十四批（无限 harvest 同步 65，mesh 操作面，163→164 concepts）
+
+- `NEW-TEAM-MESH-CLI.md`：sle_team_cli.c（469 行）= mesh 操作面 20+ 动词——join/leave/**pairing approve <id> relay|norelay**（批准时决定中继能力）/**allow only|add|del 成员白名单**/hello/hb/pos/alert（丢员告警带最后位置）/ack 注入命令与包类型一一对应（测试场景直接可造）。
