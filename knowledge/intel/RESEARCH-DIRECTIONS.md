@@ -662,3 +662,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 八十、OKF 时代猎收第六十六批（无限 harvest 同步 67，可运行 API 契约，165→166 概念）
 
 - `NEW-NLD-TOOLS-CONTRACTS.md`：nld tools/ 两脚本 = **可执行 API 规范**——agent-test.py（KeyboardOnly 配对代理+固定 passkey+Multi-adapter 寻址）与 ssap-app.py（ObjectManager 根导出 SsapService1/SsapProperty1/CCCD+onRegisterApplication 树遍历回调）。实现同 D-Bus 回调即可让该测试对自家栈复用——白捡一致性测试台。
+
+## 八十一、OKF 时代猎收（无限 harvest 同步 69，日轮+新工具甄别）
+
+- `NEW-DAILY-CHURN-0914.md`：nearlink_service 日更（微信来电音量修正，ASC/TWS/VCP 活跃使用佐证）；StarFlash-Releases = 编译版 Windows 工具发行仓（无源码，甄别为分发物非知识源）；teki128 日更待观察。热仓日轮节奏持续。
