@@ -654,3 +654,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十八、OKF 时代猎收第五十四批（无限 harvest 同步 65，mesh 操作面，163→164 concepts）
 
 - `NEW-TEAM-MESH-CLI.md`：sle_team_cli.c（469 行）= mesh 操作面 20+ 动词——join/leave/**pairing approve <id> relay|norelay**（批准时决定中继能力）/**allow only|add|del 成员白名单**/hello/hb/pos/alert（丢员告警带最后位置）/ack 注入命令与包类型一一对应（测试场景直接可造）。
+
+## 七十九、OKF 时代猎收第六十五批（无限 harvest 同步 66，服务内存拓扑，164→165 concepts）
+
+- `NEW-SSAP-SERVICE-MEMORY-TOPOLOGY.md`：FreeService 析构器实锤 **SSAP_Service_S 五向量所有权拓扑**（properties/**references**/methods/events/descriptors）——对象模型在服务端 C 结构级同在（+references 含服务引用链接，GATT 次级服务引用类似物）。我们 assets/stack/ssap 需补 methods/events/references 三向量。
