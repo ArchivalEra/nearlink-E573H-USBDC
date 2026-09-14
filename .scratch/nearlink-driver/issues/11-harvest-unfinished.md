@@ -130,3 +130,33 @@ token 驱动的持续猎收（2026-08-19 会话）中断后，哪些仓已克隆
 | 52 | （无独立报告）uwb-like-ranging 上游检查 | current |
 
 **rust-ws73 里程碑确认**：Rust 裸机 WiFi（WPA2/WPA3+smoltcp）在上游是工作代码；五层链（facade→core→rf-ws63→radio-sys→rtos）文档闭环。
+
+## 2026-09-13 无限 harvest 会话总账（同步 49-68，+22 份报告，最终 166 concepts）
+
+| # | 报告 | 一句话 |
+|---|---|---|
+| 54 | NEW-WEB-FLASHER-FWPKG | 零依赖 Web Serial 烧录器；**fwpkg 容器魔数 0xEFBEADDF**（与 boot-ROM 0xEFBEADDE 同族差一尼布尔）；烧录协议第三实现 |
+| 55 | NEW-SIG-UPSTREAM-NEARLINKKIT | **归属裁决**：openharmony-sig = tethering 上游（services 500 处分叉为 fork 演进）；官方 App 面 **@kit.NearLinkKit**（scan/ssap/dataTransfer） |
+| 56 | NEW-SLE-AUDIO-SPEAKER | **SLE 48kHz/16bit 无压缩立体声实证**（PHY 4M 满配）+ DLNA/minimp3 双模 |
+| 57 | NEW-STUDENT-DTU-AA55 | CONFIG/RUN 分面 + AA55 二进制配置协议 + RS485 桥 + 树形组网预留 |
+| 58 | NEW-MULTI-NODE-MOTION-DETECTION | BNO085/BMI270 动捕 + SlimeVR 协议 + CD4053 单 UART 双 IMU 复用 |
+| 59 | NEW-SIGNLANGUAGE-GLOVE | 弯曲+双 IMU 经 SLE 到 OrangePi 边缘 AI（~1s）；ML 全生命周期仓库 |
+| 60 | NEW-WS63E-ELECTRIC-SAFETY | WS63E 一主两从星型 + MQTT 云出口 |
+| 61 | NEW-FBB-WS53-SDK | **WS53V100 Combo SoC 官方 SDK**；sle_conn_param_tuning + sle_chba 样例（CHBA 跨双芯片族闭合） |
+| 62 | NEW-HS-FBB-CLI | 官方 CLI **AI agent 契约**（机制/策略分层 + describe --json 态势探针） |
+| 63 | NEW-COMMUNITY-TOOLING-ECOSYSTEM | CLAUDE.md 自进化工作记忆 + MimiClaw（$5 芯片口袋 AI）+ Windows AT+RST 烧录（第四实现） |
+| 64 | NEW-OH-WS63-LANDSCAPE | OH-on-WS63 版图单薄（教学案例限制性许可 + 占位仓） |
+| 65 | NEW-WS63-AI-ECOSYSTEM | **FBB ModelZoo 端到端模型转固件流水线**（WS63/HiDiTing Nano/**Hi1156E Tiny NPU**）+ BYLE 语音 SDK |
+| 66 | NEW-OPEN-MCU-306X | 306x MCU 族无 NearLink（阴性发现防误配） |
+| 67 | NEW-FRESHNESS-ROUND-0913 | uwb-like Technical Boundary 章节 + sle_mesh 谱系修正 + seantran 蹭名跳过 |
+| 68 | NEW-SSAPC-APP-LAYER | 客户端应用层：per-appId 状态槽 + 异步统一回调 + 交互超时旋钮 |
+| 69 | NEW-OHOS-NEARLINK-CONTROL | OHOS 星闪开关 CLI（autoConnPolicy 策略参数） |
+| 70 | NEW-TEAM-MESH-CLI | mesh 操作面 20+ 动词（pairing approve relay/norelay + 成员白名单） |
+| 71 | NEW-SSAP-SERVICE-MEMORY-TOPOLOGY | 服务五向量所有权实锤（properties/references/methods/events/descriptors） |
+| 72 | NEW-NLD-TOOLS-CONTRACTS | nld 可运行 API 契约（配对代理 + SSAP 服务端对象树） |
+
+**基础设施改造（本段）**：移除全局 `url.git@github.com:.insteadof` 重写（SSH 瞬断根因）→ gh 凭据 HTTPS 推送（2.9s vs 反复重试）；scripts/gitee CLI + repo launcher + gitcode private-token 接入；README 计数改动态自增。
+
+**知识库保鲜**：GitHub + GitCode 双平台多轮扫描，重点仓 SHA 全对照；热仓（nearlink_service/uwb-like）动即跟。
+
+**终态**：166 concepts（71 harvest + 94 intel + 1 decision），三门禁全绿，local == remote。
