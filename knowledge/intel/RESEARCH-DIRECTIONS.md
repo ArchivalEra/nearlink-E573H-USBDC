@@ -637,3 +637,8 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十四、OKF 时代猎收第六十一批（无限 harvest 同步 61，306x 排除项，159→160 concepts）
 
 - `NEW-OPEN-MCU-306X.md`：HiSpark/open_mcu = 3061M/3065H/3066M MCU 族（128KB 电机控制，**无 NearLink**——阴性发现防未来误配）。FBB 邻接布局 + ICKEY 购买件号。芯片族图谱修正项。
+
+## 七十五、OKF 时代猎收第六十二批（无限 harvest 同步 62，保鲜轮 + 谱系修正，160→161 concepts）
+
+- `NEW-FRESHNESS-ROUND-0913.md`：uwb-like 上游新增 **Technical Boundary 章节**（贡献=多节点编排/双向聚合/Collector/主机定位/IQ 分析；非目标=厂商低层算法复刻/UWB 波形等价；精度基准未发布——watch 项）。**谱系修正**：sle_mesh 与 sle_mesh_new 为同族两版（sle_team_* 分类学一致，v1.2.2→v4.5.56 时间线），此前"两个独立设计"表述修正。seantran/SparkLink = 4B 长度前缀 TCP 聊天蹭名跳过。
+- 流程改进：README 计数更新改为动态读取+自增（消除硬编码断言漂移）。
