@@ -6,6 +6,7 @@
 * [New repo knowledge harvest: Ai-BS21 SDK + wtsl_app](NEW-BS21-WTSL.md) - harvest concept (19 KB)
 * [BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)](NEW-BearPi-NLChat.md) - harvest concept (24 KB)
 * [NearLink Open Source Community tooling — self-evolving CLAUDE.md working memory, MimiClaw pocket AI on WS63, and native Windows AT+RST flashing](NEW-COMMUNITY-TOOLING-ECOSYSTEM.md) - harvest concept (3 KB)
+* [2026 competition batch 3 — smart transport cold-chain, WS63E smart door lock (NFC+mmWave+I2S), mini-quadcopter](NEW-COMPETITION-BATCH3.md) - harvest concept (2 KB)
 * [2026 competition positioning pair — BS21E multi-anchor SLE Channel Sounding indoor location (GTTT scheduling, LSQ trilateration, GDOP/rank-deficiency handling)](NEW-CS-POSITIONING-PAIR.md) - harvest concept (4 KB)
 * [Daily-churn round — nearlink_service WeChat-call volume fix; StarFlash-Releases is a compiled-only Windows tool repo; ecosystem pulse](NEW-DAILY-CHURN-0914.md) - harvest concept (2 KB)
 * [tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking](NEW-DATATRANSFER-CACHE-INTERNALS.md) - harvest concept (3 KB)
