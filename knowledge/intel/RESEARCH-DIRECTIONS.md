@@ -666,3 +666,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 八十一、OKF 时代猎收（无限 harvest 同步 69，日轮+新工具甄别）
 
 - `NEW-DAILY-CHURN-0914.md`：nearlink_service 日更（微信来电音量修正，ASC/TWS/VCP 活跃使用佐证）；StarFlash-Releases = 编译版 Windows 工具发行仓（无源码，甄别为分发物非知识源）；teki128 日更待观察。热仓日轮节奏持续。
+
+## 八十二、OKF 时代猎收（无限 harvest 同步 70，大赛双子，167→168 concepts）
+
+- `NEW-VISION-GLASSES-DISASTER-RESCUE.md`：10447 视觉导盲眼镜四层（眼镜→WS63E SLE 发送(GPS+ICM42688)→WS63E 接收→ESP32 串口透传→Python/FastAPI 视觉导航）——**WS63→ESP32 串口透传**为算力分配范式；12148 灾难救援三节点 NODE_AUX 类型化协议（主/辅节点区分区域性 vs 单点风险）。

@@ -79,6 +79,7 @@
 * [sle_mesh_new CLI — the team-mesh operator surface: join/leave/pairing-approval/allowlist plus telemetry injection commands](NEW-TEAM-MESH-CLI.md) - harvest concept (2 KB)
 * [teki128/nearlink — Minimal 564-line SLE Client/Server Pair (WS63 SDK, fixed-address dialect)](NEW-TEKI128-MINIMAL-PAIR.md) - harvest concept (4 KB)
 * [La-OHV/tx_star — DS10 control-loop companion: Android 20 Hz binary-frame joystick over NearLink DTU to STM32 receiver](NEW-TXSTAR-DS10-REMOTE.md) - harvest concept (3 KB)
+* [2026 competition pair — vision-guiding glasses (WS63E + ESP32 + Python/FastAPI edge) and adaptive disaster rescue (three-node SLE sensor fusion)](NEW-VISION-GLASSES-DISASTER-RESCUE.md) - harvest concept (2 KB)
 * [StarFish nearlink-web-flasher + nearlink-contrib — browser-side LoaderBoot/YMODEM flashing with fwpkg container format; a young community component collection](NEW-WEB-FLASHER-FWPKG.md) - harvest concept (4 KB)
 * [twyora/WildLink — H3863 Multi-Property SSAP Health-Sensor Pair with Tri-Link Client Node (SLE + BLE + LoRa)](NEW-WILDLINK-SENSOR-PAIR.md) - harvest concept (4 KB)
 * [WS63 AI ecosystem — FBB ModelZoo (end-to-end model-to-firmware pipeline for WS63/HiDiTing Nano/Hi1156E NPUs) and the BYLE voice SDK (KWS + LLM dialog)](NEW-WS63-AI-ECOSYSTEM.md) - harvest concept (3 KB)
