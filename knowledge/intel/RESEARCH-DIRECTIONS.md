@@ -658,3 +658,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十九、OKF 时代猎收第六十五批（无限 harvest 同步 66，服务内存拓扑，164→165 concepts）
 
 - `NEW-SSAP-SERVICE-MEMORY-TOPOLOGY.md`：FreeService 析构器实锤 **SSAP_Service_S 五向量所有权拓扑**（properties/**references**/methods/events/descriptors）——对象模型在服务端 C 结构级同在（+references 含服务引用链接，GATT 次级服务引用类似物）。我们 assets/stack/ssap 需补 methods/events/references 三向量。
+
+## 八十、OKF 时代猎收第六十六批（无限 harvest 同步 67，可运行 API 契约，165→166 概念）
+
+- `NEW-NLD-TOOLS-CONTRACTS.md`：nld tools/ 两脚本 = **可执行 API 规范**——agent-test.py（KeyboardOnly 配对代理+固定 passkey+Multi-adapter 寻址）与 ssap-app.py（ObjectManager 根导出 SsapService1/SsapProperty1/CCCD+onRegisterApplication 树遍历回调）。实现同 D-Bus 回调即可让该测试对自家栈复用——白捡一致性测试台。
