@@ -629,3 +629,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十二、OKF 时代猎收第五十五批（无限 harvest 同步 59，OH-on-WS63 版图，157→158 concepts）
 
 - `NEW-OH-WS63-LANDSCAPE.md`：OH-on-WS63 公开版图单薄——hbu-dragon 教学案例集（124M，wifi-iot 样例，**限制性自定义许可**：禁商用/竞赛/教学/论文）+ nearlink_oh_ws63（README 占位）。实质 OH WS63 源仍以 device_soc 稀疏采纳为准。许可扫描先于教学代码采纳。
+
+## 七十三、OKF 时代猎收第六十批（无限 harvest 同步 60，WS63 AI 生态，158→159 concepts）
+
+- `NEW-WS63-AI-ECOSYSTEM.md`：**FBB ModelZoo = 厂商端到端模型转固件流水线**（数据生成→模型转换→SDK 打包一 run.sh 串起；场景：图像分类/音频事件/KWS/音频增强/时序/视觉唤醒/HAR；目标 **WS63 MCU + HiDiTing Nano NPU + Hi1156E Tiny NPU**——第四芯片类 hi1156E 入图）+ BYLE 云之声商用语音 SDK（KWS+LLM 对话，账号门控闭源）。AI 是 NearLink 头号应用方向实证。
