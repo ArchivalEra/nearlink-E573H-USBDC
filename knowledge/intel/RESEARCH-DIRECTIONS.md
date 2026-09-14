@@ -642,3 +642,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-FRESHNESS-ROUND-0913.md`：uwb-like 上游新增 **Technical Boundary 章节**（贡献=多节点编排/双向聚合/Collector/主机定位/IQ 分析；非目标=厂商低层算法复刻/UWB 波形等价；精度基准未发布——watch 项）。**谱系修正**：sle_mesh 与 sle_mesh_new 为同族两版（sle_team_* 分类学一致，v1.2.2→v4.5.56 时间线），此前"两个独立设计"表述修正。seantran/SparkLink = 4B 长度前缀 TCP 聊天蹭名跳过。
 - 流程改进：README 计数更新改为动态读取+自增（消除硬编码断言漂移）。
+
+## 七十六、OKF 时代猎收第六十三批（无限 harvest 同步 63，客户端应用层，161→162 concepts）
+
+- `NEW-SSAPC-APP-LAYER.md`：ssapc_app.c 客户端应用层 = **per-appId 链路状态槽** + 异步注册统一回调形（本地注册也走 onRegisterApp 回调，应用代码形态统一）+ **交互超时一等旋钮**（独立于链路监督）+ 集中清理入口。客户端生命周期三特性补完，与服务端 per-peer 簿记对称。
