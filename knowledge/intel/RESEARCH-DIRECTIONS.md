@@ -646,3 +646,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 七十六、OKF 时代猎收第六十三批（无限 harvest 同步 63，客户端应用层，161→162 concepts）
 
 - `NEW-SSAPC-APP-LAYER.md`：ssapc_app.c 客户端应用层 = **per-appId 链路状态槽** + 异步注册统一回调形（本地注册也走 onRegisterApp 回调，应用代码形态统一）+ **交互超时一等旋钮**（独立于链路监督）+ 集中清理入口。客户端生命周期三特性补完，与服务端 per-peer 簿记对称。
+
+## 七十七、OKF 时代猎收第六十四批（无限 harvest 同步 64，OHOS 控制台，162→163 concepts）
+
+- `NEW-OHOS-NEARLINK-CONTROL.md`：ohos-nearlinkControl = OHOS 侧星闪开关 CLI（enable/disable + **autoConnPolicy 自动连接策略参数**）+ 机器码+人提示双面错误输出（ERR_NL_INVALID_COMMAND）。SA 1190 的操作员前端。
