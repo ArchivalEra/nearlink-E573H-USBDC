@@ -670,3 +670,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 八十二、OKF 时代猎收（无限 harvest 同步 70，大赛双子，167→168 concepts）
 
 - `NEW-VISION-GLASSES-DISASTER-RESCUE.md`：10447 视觉导盲眼镜四层（眼镜→WS63E SLE 发送(GPS+ICM42688)→WS63E 接收→ESP32 串口透传→Python/FastAPI 视觉导航）——**WS63→ESP32 串口透传**为算力分配范式；12148 灾难救援三节点 NODE_AUX 类型化协议（主/辅节点区分区域性 vs 单点风险）。
+
+## 八十三、OKF 时代猎收（无限 harvest 同步 71，驱动与 GPS 管线，168→169 concepts）
+
+- `NEW-MPU6050-NMEA-DRIVERS.md`：nearlink-contrib MPU6050 驱动 = WS63 **I2C 引脚图**（I2C0=GPIO17/18，I2C1=GPIO16/15，MODE 2）+ Step1/Step2 集成指南惯例；sle_mesh_new NMEA 解析器（313 行）= GPRMC/GNRMC/GPGGA/GNGGA → **e6 定点坐标**（避免 MCU 浮点）→ mesh 包位置字段管线。Step1/Step2 文档惯例可复用于自家样例贡献。
