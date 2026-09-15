@@ -686,3 +686,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 八十六、OKF 时代猎收（无限 harvest 同步 74，竞赛批次 5，171→172 concepts）
 
 - `NEW-COMPETITION-BATCH5.md`：10102 多模态姿态感知（**两级 SLE 组网突破 3 连接上限：主控仅连上肢/下肢子主控+ECG 三个节点**，int16 四元数×10000，0xBB 骨架帧 67B/0xDD 文本帧，四端共用 IoTDA `/realtime_data` topic，WS63 WiFi 射频感知人体存在）/ 10347 智慧药仓（H3863 双板：LVGL 触屏+PID 控温+霍尔服药检测；**语音板经 WebSocket 接 xiaozhi-server 以 MCP 工具控制药盒**；CoAP 上行+SLE 鸿蒙直连）/ 14710 跌倒检测（三重阈值+五态 FSM+双速率采样，300ms 告警，最干净的 WS63 穿戴 sample 骨架）/ 15625 星闪护盾（**单代码库 Kconfig `MYDEMO_SAMPLE_SUPPORT_*` 编译期选 N 种节点固件**，共享 12_sle_uart 通信基座）。
+
+## 八十七、OKF 时代猎收（无限 harvest 同步 75，竞赛批次 6，172→173 concepts）
+
+- `NEW-COMPETITION-BATCH6.md`：15413 双模巡检小车（**App 侧三链路降级：云端/基站 WiFi/小车直连**，RSSI 作为一等遥测字段，云端任务→基站拉取→下发闭环）/ 15303 智能晾衣架（最小双板范式，`sle_window_protocol.h` 仅 3 命令）/ 15307 智能水杯（**单 WS63 上 SLE 设备面 + BLE 用户面双模共存**，AS7341 光谱液体识别，MPU6050 倾斜保持计时喝水事件机）。**生态约定：service UUID 0xABCD + property 0x3344 为 sle_uart demo 原生配对，已扩散为竞赛事实标准 — 扫描指纹。**
