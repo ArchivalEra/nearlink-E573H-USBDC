@@ -682,3 +682,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 八十五、OKF 时代猎收（无限 harvest 同步 73，竞赛批次 4，170→171 concepts）
 
 - `NEW-COMPETITION-BATCH4.md`：15239 SparkSafe（WS63E 双板车内儿童遗留监测，`protocol.h` 0xA5+cmd+len+payload32+CRC8 公共协议层，**重连前 `sle_remove_all_pairs()` 清旧配对密钥**，非对称滞回四级风险，单机 WiFi STA+SoftAP+SLE 三射频共存）/ 15792 多端健康监测（**WS63 药盒网关 = SLE Client×2 + BLE Client 手环 + WiFi HTTP 上行三射频聚合**，NV 离线服药计划兜底，Ktor/MySQL/Compose 全栈参照）/ 17966 智能安全帽（SLE 级联自组网：**16-bit DAG 位图拓扑 NOTIFY/MODIFY 同步** + 6dB RSSI 换父迟滞 + 断连 10s 原链路优先，本地库最完整 SLE 多跳参照）。
+
+## 八十六、OKF 时代猎收（无限 harvest 同步 74，竞赛批次 5，171→172 concepts）
+
+- `NEW-COMPETITION-BATCH5.md`：10102 多模态姿态感知（**两级 SLE 组网突破 3 连接上限：主控仅连上肢/下肢子主控+ECG 三个节点**，int16 四元数×10000，0xBB 骨架帧 67B/0xDD 文本帧，四端共用 IoTDA `/realtime_data` topic，WS63 WiFi 射频感知人体存在）/ 10347 智慧药仓（H3863 双板：LVGL 触屏+PID 控温+霍尔服药检测；**语音板经 WebSocket 接 xiaozhi-server 以 MCP 工具控制药盒**；CoAP 上行+SLE 鸿蒙直连）/ 14710 跌倒检测（三重阈值+五态 FSM+双速率采样，300ms 告警，最干净的 WS63 穿戴 sample 骨架）/ 15625 星闪护盾（**单代码库 Kconfig `MYDEMO_SAMPLE_SUPPORT_*` 编译期选 N 种节点固件**，共享 12_sle_uart 通信基座）。
