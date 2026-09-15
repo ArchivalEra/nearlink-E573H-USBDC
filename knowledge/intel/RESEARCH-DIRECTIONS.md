@@ -730,3 +730,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十七、OKF 时代猎收（无限 harvest 同步 85，GitCode 官方组织扫描，182→183 concepts）
 
 - `NEW-GITCODE-ORG-SCAN-0915.md`：**hinearlink/firmware_repo = 官方固件索引（10 个 WS63 包）** — `ws63_AT_v1.10.102` 即 HHD-01 同版 AT 固件官方下载源（我们 d68d592 备份 = 官方构建实锤）、sle_throughput 三代、littlefs 系列；StarFish `nl` CLI（path/build/set 短名映射 + menuconfig 一键）；扫描判词：GitHub/Gitee/GitCode 三平台本窗口均无新 NearLink 仓，**GitCode 更新呈波次性（最新 ws63flash-win 2026-08-19）— 监控节奏 GitHub 日常 > GitCode 周级/事件驱动 > Gitee 仅组织遍历**。
+
+## 九十八、OKF 时代猎收（无限 harvest 同步 86，本地深挖 hbu-dragon 案例库枚举，183→184 concepts）
+
+- `NEW-HBU-CASES-ENUM.md`：25 个案例全枚举（radar/sle_hybrid/dicsoss/starBeacon/uart 1v1-1vn/wifi_coexist 等）+ **SparkLink 团体标准 T/XS 引用清单（30001-2023 等 10 项）= SLE 标准合规引用块**；sle_starBeacon = **可信信标防伪造 + 覆盖 cm~3km + 2821E 厘米级**；sle_hybrid_mode = **主从一体节点组线性网络**（第三种 mesh 拓扑：无表无位图的链式）；sle_dicsoss = 分布式采集 + `OpenHarmony/DICSOSS/*/Message` MQTT 出口；sle_delay_optimize = RTT 时延测量标准环。nearlink-contrib 判词：仍只有 MPU6050（成熟度：胚胎期），Step1/Step2 文档约定值得借用。**注意：河北大学版权禁止竞赛/教学复用案例代码，仅记架构事实。**
