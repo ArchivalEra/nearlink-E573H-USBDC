@@ -714,3 +714,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十三、OKF 时代猎收（无限 harvest 同步 81，竞赛批次 9，178→179 concepts）
 
 - `NEW-COMPETITION-BATCH9.md`：17513 跌倒检测（**WS63E 板载 2.4G 雷达 + 18KB ROM/7KB RAM 端侧 CNN**，PyTorch 训练 500ms 窗口，SoftAP 一键采原始中频数据闭环迭代）/ 18007 Rd-03_V2 雷达+舵机本地报警（Node.js 代理 + 微信 CloudBase 14 云函数）/ **18600 BS21E SLE Channel Sounding 室内定位（第二套全栈 CS 参照）** — GTTT 组时分同时连多锚、锚端 IQ 聚合+时间戳匹配+SDK 测距、**Tag 端线性最小二乘三边求解器**：中值跳变拒绝→EMA→A^T A 行列式 GDOP 门限→高残差锚剔除重试，8 锚非共面 3D，BLE GATT JSON 出口。
+
+## 九十四、OKF 时代猎收（无限 harvest 同步 82，本地深挖 Nld daemon 内部，179→180 concepts）
+
+- `NEW-NLD-DAEMON-INTERNALS.md`：**D-Bus 树 15 接口 112 成员全枚举**（新增 Firmware1），Adapter 单实例单 ssapc/ssaps 会话；**eRPC 契约 9 对服务**（announce/connection/device_manager/firmware/host/**low_latency**/seek/ssap_client/ssap_server，bs2x 目标全可构建）；Windows 方案 = 自带 dbus-daemon.exe + **comtcp.c COM↔TCP 回环中继**（stdout `NLD_BRIDGE_PORT` 握手、USB CDC 重枚举自动重开、父进程句柄判活）；**生态关键发现：Nld dongle 是 USB VID 109B CDC 串口，与我们 E573H ffff:3733 vendor-bulk 是两种不同 USB 形态**，工具链不可互相假设。

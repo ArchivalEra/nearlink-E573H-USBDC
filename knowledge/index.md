@@ -11,7 +11,7 @@ new documents are English-only. Wire ground truth lives in code under
 
 # Harvest Reports
 
-* [Harvest Reports](harvest/) - Digestions of external NearLink/SparkLink ecosystem repositories. (104 concepts)
+* [Harvest Reports](harvest/) - Digestions of external NearLink/SparkLink ecosystem repositories. (105 concepts)
 
 # Intel Deep-Dives
 

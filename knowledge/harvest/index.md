@@ -46,6 +46,7 @@
 * [nearlink-vip knowledge ecosystem — two agent-facing HiSilicon knowledge bases (OKF-style wiki + JSONL peripheral graph) and the HiDiTing chipset constellation](NEW-NEARLINK-VIP-KNOWLEDGE-ECOSYSTEM.md) - harvest concept (4 KB)
 * [NEW-NEARLINKERNEL-CLASSIFICATION](NEW-NEARLINKERNEL-CLASSIFICATION.md) - harvest concept (29 KB)
 * [NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI](NEW-NLCHAT-WEB.md) - harvest concept (11 KB)
+* [Nld daemon internals deep-dive](NEW-NLD-DAEMON-INTERNALS.md) - harvest concept (4 KB)
 * [goodspeed1/Nld + nearlinkctl — a complete BlueZ-equivalent userspace for NearLink LE: D-Bus daemon with eRPC dongle adapters, local SSAP server tree, pairing agents, D-Bus firmware update](NEW-NLD-DBUS-DAEMON.md) - harvest concept (5 KB)
 * [Nld eRPC dongle protocol — nine service groups over dual serial ports (host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/low_latency)](NEW-NLD-ERPC-PROTOCOL.md) - harvest concept (4 KB)
 * [nld tools — runnable D-Bus API contracts: a KeyboardOnly pairing agent with fixed passkey and a Python SSAP server exporting service/property/CCCD objects](NEW-NLD-TOOLS-CONTRACTS.md) - harvest concept (2 KB)
