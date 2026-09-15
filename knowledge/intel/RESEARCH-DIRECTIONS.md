@@ -718,3 +718,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十四、OKF 时代猎收（无限 harvest 同步 82，本地深挖 Nld daemon 内部，179→180 concepts）
 
 - `NEW-NLD-DAEMON-INTERNALS.md`：**D-Bus 树 15 接口 112 成员全枚举**（新增 Firmware1），Adapter 单实例单 ssapc/ssaps 会话；**eRPC 契约 9 对服务**（announce/connection/device_manager/firmware/host/**low_latency**/seek/ssap_client/ssap_server，bs2x 目标全可构建）；Windows 方案 = 自带 dbus-daemon.exe + **comtcp.c COM↔TCP 回环中继**（stdout `NLD_BRIDGE_PORT` 握手、USB CDC 重枚举自动重开、父进程句柄判活）；**生态关键发现：Nld dongle 是 USB VID 109B CDC 串口，与我们 E573H ffff:3733 vendor-bulk 是两种不同 USB 形态**，工具链不可互相假设。
+
+## 九十五、OKF 时代猎收（无限 harvest 同步 83，竞赛批次 10，180→181 concepts）
+
+- `NEW-COMPETITION-BATCH10.md`：18384 星语手语手套（**首个发布链路 KPI 的竞赛项目：SLE 一主两从 25ms 连接间隔 / 双手 50Hz 同步 / 10 分钟丢帧 <0.01%**；10 通道分压 PCB + WS63 片载 ADC，JY901P 卡尔曼 Yaw 漂移 <±1°，Inception-Transformer 52 类 <30ms）/ 17661 NearMeet 徽章（8×WS63 四对主从 + Node.js 中枢，**SLE 懒加载仅雷达模式**，**每板 1m 实测 RSSI 标定常数**做近距判定，同固件 g_local_mac 区分机队）/ 17664 OROS（常规环境节点，OHOS `$oc/.../properties/report` topic 格式可复用）。
