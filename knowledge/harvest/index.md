@@ -7,6 +7,7 @@
 * [BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)](NEW-BearPi-NLChat.md) - harvest concept (24 KB)
 * [NearLink Open Source Community tooling — self-evolving CLAUDE.md working memory, MimiClaw pocket AI on WS63, and native Windows AT+RST flashing](NEW-COMMUNITY-TOOLING-ECOSYSTEM.md) - harvest concept (3 KB)
 * [Competition batch 10: glove + badge + env node](NEW-COMPETITION-BATCH10.md) - harvest concept (4 KB)
+* [Competition batch 11: IOT-track sweep](NEW-COMPETITION-BATCH11.md) - harvest concept (4 KB)
 * [2026 competition batch 3 — smart transport cold-chain, WS63E smart door lock (NFC+mmWave+I2S), mini-quadcopter](NEW-COMPETITION-BATCH3.md) - harvest concept (2 KB)
 * [Competition batch 4: SparkSafe + Health Monitor + Smart Helmet](NEW-COMPETITION-BATCH4.md) - harvest concept (6 KB)
 * [Competition batch 5: posture capture + MEDBOX + fall detection + shield](NEW-COMPETITION-BATCH5.md) - harvest concept (5 KB)

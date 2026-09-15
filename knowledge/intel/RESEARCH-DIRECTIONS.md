@@ -722,3 +722,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十五、OKF 时代猎收（无限 harvest 同步 83，竞赛批次 10，180→181 concepts）
 
 - `NEW-COMPETITION-BATCH10.md`：18384 星语手语手套（**首个发布链路 KPI 的竞赛项目：SLE 一主两从 25ms 连接间隔 / 双手 50Hz 同步 / 10 分钟丢帧 <0.01%**；10 通道分压 PCB + WS63 片载 ADC，JY901P 卡尔曼 Yaw 漂移 <±1°，Inception-Transformer 52 类 <30ms）/ 17661 NearMeet 徽章（8×WS63 四对主从 + Node.js 中枢，**SLE 懒加载仅雷达模式**，**每板 1m 实测 RSSI 标定常数**做近距判定，同固件 g_local_mac 区分机队）/ 17664 OROS（常规环境节点，OHOS `$oc/.../properties/report` topic 格式可复用）。
+
+## 九十六、OKF 时代猎收（无限 harvest 同步 84，竞赛批次 11 IOT 赛道扫尾，181→182 concepts）
+
+- `NEW-COMPETITION-BATCH11.md`：17183 眼镜平台（**G/D/C 三节点职责切分：D 节点独占 SLE 链路+云端 ASR/LLM/翻译**，头戴端最小化）/ 17316 癫痫雷达灯（**两节点 27 字节 V2 定长帧** + 节点本地判定后上行、MOSFET PWM 灯带、完整免责声明）/ 扫尾判词：16781 三板星型（第三次确认 Client/Server/网关三件套）、16946 方言语音自组网、17725 手势循迹小车、18459 电机 API 分层、18026 SU-03T 离线语音手环（**SU-03T 第 4 次出现 = 事实语音外设**）。IOT 赛道 README 级全覆盖完成。
