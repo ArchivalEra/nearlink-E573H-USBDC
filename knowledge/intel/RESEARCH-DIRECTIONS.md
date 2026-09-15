@@ -706,3 +706,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十一、OKF 时代猎收（无限 harvest 同步 79，本地深挖 sle_mesh_new，176→177 concepts）
 
 - `NEW-SLE-MESH-RELAY-OPTIMIZER.md`：sle_mesh_new 路由内部（补完 sync 68 只覆盖操作面的部分）— **双层包格式（mesh envelope + app packet，逻辑/物理 DIRECT 分离，12 种 payload 类型）**、**稳定性门控优化器（配对中/恢复中/成员缺失/半离线 → 冻结重配置）**、保守调参（**12dB 换父迟滞** vs 头盔 6dB、-92dBm 地板、7 子容量帽、未知 RSSI=-128、一代优化器只动 leader-direct 一层）、容量感知中继树 + 入口物理交付偏好。4193 行可移植 C，与厂商 SDK 无耦合。
+
+## 九十二、OKF 时代猎收（无限 harvest 同步 80，本地深挖 OHOS DLI snoop，177→178 concepts）
+
+- `NEW-OHOS-DLI-SNOOP.md`：communication_nearlink_service 未挖掘的 `SleDliSnoop.cpp`（704 行）= **星闪版 btmon** — 9 字节记录头（8B ms 时间戳 LE + 1B 方向位）+ 类型字节 **0xA1 CMD/0xA2 EVENT/0xA3 ACB/0xA4 ICB**，ACB/ICB 4 字节子头 lcid/handle(2)+len(2)；`dli_opcode.h` 228 条 DLI 命令/事件命名空间（0x0405/06 公共地址、0x0C02-06 广播族、0x1401 建连、0x1C01-28 加密族）**直接注解我们 E573H USB dongle 抓包**；商用版隐私脱敏 = opcode 黑名单（13 cmd + 2 event）双源维护防漂移。文本十六进制日志 + 单线程汇入。
