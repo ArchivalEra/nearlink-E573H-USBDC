@@ -702,3 +702,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十、OKF 时代猎收（无限 harvest 同步 78，日常轮转+判词，175→176 concepts）
 
 - `NEW-DAILY-CHURN-0915B.md`：teki128/nearlink 两新提交（**配对失败即 `sle_remove_paired_remote_device`，与 SparkSafe 的 remove_all_pairs 规则双向印证**，status 全改 0x%x 十六进制）；三个"SparkLink/NearLink"同名仓判词（seantran=TCP 聊天、Heebu=纯 Flutter 局域网 0 命中、xypasolini=RALLY NFC 徽章）— **同名≠同物，需代码级证据（头文件 include/API 调用）才判 NearLink**。
+
+## 九十一、OKF 时代猎收（无限 harvest 同步 79，本地深挖 sle_mesh_new，176→177 concepts）
+
+- `NEW-SLE-MESH-RELAY-OPTIMIZER.md`：sle_mesh_new 路由内部（补完 sync 68 只覆盖操作面的部分）— **双层包格式（mesh envelope + app packet，逻辑/物理 DIRECT 分离，12 种 payload 类型）**、**稳定性门控优化器（配对中/恢复中/成员缺失/半离线 → 冻结重配置）**、保守调参（**12dB 换父迟滞** vs 头盔 6dB、-92dBm 地板、7 子容量帽、未知 RSSI=-128、一代优化器只动 leader-direct 一层）、容量感知中继树 + 入口物理交付偏好。4193 行可移植 C，与厂商 SDK 无耦合。
