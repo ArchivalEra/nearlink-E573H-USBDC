@@ -738,3 +738,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十九、OKF 时代猎收（无限 harvest 同步 87，本地深挖 WildLink 对板 + xfusion 判词，184→185 concepts）
 
 - `NEW-WILDLINK-XFUSION.md`：WildLinkClient/Server（H3863 野外安全对板，**SLE 配对链 + BLE 手机链 + LoRA 远距链三传输层**，SLE client 53 处 ssap 调用密度 = 厂商 SSAP 表面人机工程学基准；`node_telemetry.h` 定长生命体征记录含 min/max/now + need_help 旗标可复用）；xfusion（x-eks-fusion 跨 SDK 组件框架：xf_hal/xf_nal/xf_ble 齐备，**xf_sle 缺位 = SSAP 可移植抽象的开放贡献位**）；0xAA 同步字节 = 生态 UART 帧低端惯例（ATK LoRA/SparkSafe 0xA5/NearMeet）。
+
+## 一百、OKF 时代猎收（无限 harvest 同步 88，本地深挖 OHOS HADM 测距算法层，185→186 concepts）
+
+- `NEW-OHOS-HADM-RANGING-ADAPTER.md`：`ranging_alogorithm_adapter/`（~400 行）= **官方 CS IQ→距离算法层** — **6 种算法模式**（METHOD_1M 1MHz 跳频 150m / METHOD_2M / METHOD_1M_2M 低复杂度 75m / METHOD_ADJ_R_END V1-V3 动态 r 150m）；`MeasureAlgPara` 双侧 IQ（DUT/RTD uint16 I/Q）+ 双侧 ToF/信道图/IQ 位宽；`DisResult` 输出三级平滑（disOri/disSlightSmoothed/disSmoothed）+ **prob 置信度** + smoothNum 连续有效计数；**SLEM 错误码 0x8000A400-0x8000A800**（TOF_IQ_NOTMATCH = ToF 远大于 IQ 的发散检测器、IQ_LOW_ENERGY、MARIX_INV_FAIL）。CS 故事三端齐备：IQ 采集（uwb-like-ranging）→ 官方算法层（本报告）→ 求解器（18600）。
