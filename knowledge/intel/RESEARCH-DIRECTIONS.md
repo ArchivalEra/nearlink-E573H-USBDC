@@ -734,3 +734,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十八、OKF 时代猎收（无限 harvest 同步 86，本地深挖 hbu-dragon 案例库枚举，183→184 concepts）
 
 - `NEW-HBU-CASES-ENUM.md`：25 个案例全枚举（radar/sle_hybrid/dicsoss/starBeacon/uart 1v1-1vn/wifi_coexist 等）+ **SparkLink 团体标准 T/XS 引用清单（30001-2023 等 10 项）= SLE 标准合规引用块**；sle_starBeacon = **可信信标防伪造 + 覆盖 cm~3km + 2821E 厘米级**；sle_hybrid_mode = **主从一体节点组线性网络**（第三种 mesh 拓扑：无表无位图的链式）；sle_dicsoss = 分布式采集 + `OpenHarmony/DICSOSS/*/Message` MQTT 出口；sle_delay_optimize = RTT 时延测量标准环。nearlink-contrib 判词：仍只有 MPU6050（成熟度：胚胎期），Step1/Step2 文档约定值得借用。**注意：河北大学版权禁止竞赛/教学复用案例代码，仅记架构事实。**
+
+## 九十九、OKF 时代猎收（无限 harvest 同步 87，本地深挖 WildLink 对板 + xfusion 判词，184→185 concepts）
+
+- `NEW-WILDLINK-XFUSION.md`：WildLinkClient/Server（H3863 野外安全对板，**SLE 配对链 + BLE 手机链 + LoRA 远距链三传输层**，SLE client 53 处 ssap 调用密度 = 厂商 SSAP 表面人机工程学基准；`node_telemetry.h` 定长生命体征记录含 min/max/now + need_help 旗标可复用）；xfusion（x-eks-fusion 跨 SDK 组件框架：xf_hal/xf_nal/xf_ble 齐备，**xf_sle 缺位 = SSAP 可移植抽象的开放贡献位**）；0xAA 同步字节 = 生态 UART 帧低端惯例（ATK LoRA/SparkSafe 0xA5/NearMeet）。

@@ -98,6 +98,7 @@
 * [2026 competition pair — vision-guiding glasses (WS63E + ESP32 + Python/FastAPI edge) and adaptive disaster rescue (three-node SLE sensor fusion)](NEW-VISION-GLASSES-DISASTER-RESCUE.md) - harvest concept (2 KB)
 * [StarFish nearlink-web-flasher + nearlink-contrib — browser-side LoaderBoot/YMODEM flashing with fwpkg container format; a young community component collection](NEW-WEB-FLASHER-FWPKG.md) - harvest concept (4 KB)
 * [twyora/WildLink — H3863 Multi-Property SSAP Health-Sensor Pair with Tri-Link Client Node (SLE + BLE + LoRa)](NEW-WILDLINK-SENSOR-PAIR.md) - harvest concept (4 KB)
+* [WildLink pair + xfusion](NEW-WILDLINK-XFUSION.md) - harvest concept (3 KB)
 * [WS63 AI ecosystem — FBB ModelZoo (end-to-end model-to-firmware pipeline for WS63/HiDiTing Nano/Hi1156E NPUs) and the BYLE voice SDK (KWS + LLM dialog)](NEW-WS63-AI-ECOSYSTEM.md) - harvest concept (3 KB)
 * [hispark-rs/ws63-examples — 30+ example curriculum with substantial WiFi implementations; wifi_blob_link links the vendor ROM blob into packet-RAM from Rust](NEW-WS63-EXAMPLES-RUST.md) - harvest concept (4 KB)
 * [device_soc ws63v100 middleware map — HCC architecture headers open (flow-ctrl + DFX loss counters), AT framework open except BT/SLE command table](NEW-WS63-MIDDLEWARE-OPEN-CLOSED.md) - harvest concept (4 KB)
