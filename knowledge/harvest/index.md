@@ -11,6 +11,7 @@
 * [Competition batch 5: posture capture + MEDBOX + fall detection + shield](NEW-COMPETITION-BATCH5.md) - harvest concept (5 KB)
 * [Competition batch 6: patrol car + hanger + water bottle](NEW-COMPETITION-BATCH6.md) - harvest concept (4 KB)
 * [Competition batch 7: connectionless broadcast fleet + WS73 Linux tools](NEW-COMPETITION-BATCH7.md) - harvest concept (5 KB)
+* [Competition batch 8: SDK version delta + fusion coach + fleet control](NEW-COMPETITION-BATCH8.md) - harvest concept (4 KB)
 * [2026 competition positioning pair — BS21E multi-anchor SLE Channel Sounding indoor location (GTTT scheduling, LSQ trilateration, GDOP/rank-deficiency handling)](NEW-CS-POSITIONING-PAIR.md) - harvest concept (4 KB)
 * [Daily-churn round — nearlink_service WeChat-call volume fix; StarFlash-Releases is a compiled-only Windows tool repo; ecosystem pulse](NEW-DAILY-CHURN-0914.md) - harvest concept (2 KB)
 * [tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking](NEW-DATATRANSFER-CACHE-INTERNALS.md) - harvest concept (3 KB)
