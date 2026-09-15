@@ -678,3 +678,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 八十四、OKF 时代猎收（无限 harvest 同步 72，竞赛批次 3，169→170 concepts）
 
 - `NEW-COMPETITION-BATCH3.md`：10019 冷链运输（WS63+温湿度+GPS+太阳能+小程序 MQTT）/ 12648 WS63E 智能门锁（NFC+**I2S 语音对讲**+**毫米波雷达**+MQTT+HarmonyOS App，单板外设密度之最）/ 14624 四轴飞行器（README 空占位待深挖）。
+
+## 八十五、OKF 时代猎收（无限 harvest 同步 73，竞赛批次 4，170→171 concepts）
+
+- `NEW-COMPETITION-BATCH4.md`：15239 SparkSafe（WS63E 双板车内儿童遗留监测，`protocol.h` 0xA5+cmd+len+payload32+CRC8 公共协议层，**重连前 `sle_remove_all_pairs()` 清旧配对密钥**，非对称滞回四级风险，单机 WiFi STA+SoftAP+SLE 三射频共存）/ 15792 多端健康监测（**WS63 药盒网关 = SLE Client×2 + BLE Client 手环 + WiFi HTTP 上行三射频聚合**，NV 离线服药计划兜底，Ktor/MySQL/Compose 全栈参照）/ 17966 智能安全帽（SLE 级联自组网：**16-bit DAG 位图拓扑 NOTIFY/MODIFY 同步** + 6dB RSSI 换父迟滞 + 断连 10s 原链路优先，本地库最完整 SLE 多跳参照）。
