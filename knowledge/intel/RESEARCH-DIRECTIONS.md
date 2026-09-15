@@ -690,3 +690,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 八十七、OKF 时代猎收（无限 harvest 同步 75，竞赛批次 6，172→173 concepts）
 
 - `NEW-COMPETITION-BATCH6.md`：15413 双模巡检小车（**App 侧三链路降级：云端/基站 WiFi/小车直连**，RSSI 作为一等遥测字段，云端任务→基站拉取→下发闭环）/ 15303 智能晾衣架（最小双板范式，`sle_window_protocol.h` 仅 3 命令）/ 15307 智能水杯（**单 WS63 上 SLE 设备面 + BLE 用户面双模共存**，AS7341 光谱液体识别，MPU6050 倾斜保持计时喝水事件机）。**生态约定：service UUID 0xABCD + property 0x3344 为 sle_uart demo 原生配对，已扩散为竞赛事实标准 — 扫描指纹。**
+
+## 八十八、OKF 时代猎收（无限 harvest 同步 76，竞赛批次 7 AIOT 赛道，173→174 concepts）
+
+- `NEW-COMPETITION-BATCH7.md`：**10714 SLE 羽毛球 = 全库对 WS73 dongle 目标最相关项目** — BS20 拍柄 10ms **非连接广播** IMU、SS928 上 **WS73 模块扫播 40+ 球拍按 MAC 区分**、用户态工具用与我们 SSAP 栈相同的 SDK 头文件（sle_device_discovery.h 等）；运营铁律：**扫描前必须 mcu nl 复位 + rmmod/insmod，否则 "sle adapter init open fail"**；10ms 广播 vs 100ms 扫描帧重复 → C 层 dedup 槽表 + Qt 层按 MAC 时间戳双层过滤得稳定 10Hz；announce/seek/connection 三模式互斥。20520 无接触演示（ASCII CSV 过 SLE 保端到端 ts_ms 延迟可测，500ms MQTT 节流）。15252/15913 仅为 SS928 视觉外围。
