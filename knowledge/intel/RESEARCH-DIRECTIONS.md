@@ -726,3 +726,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十六、OKF 时代猎收（无限 harvest 同步 84，竞赛批次 11 IOT 赛道扫尾，181→182 concepts）
 
 - `NEW-COMPETITION-BATCH11.md`：17183 眼镜平台（**G/D/C 三节点职责切分：D 节点独占 SLE 链路+云端 ASR/LLM/翻译**，头戴端最小化）/ 17316 癫痫雷达灯（**两节点 27 字节 V2 定长帧** + 节点本地判定后上行、MOSFET PWM 灯带、完整免责声明）/ 扫尾判词：16781 三板星型（第三次确认 Client/Server/网关三件套）、16946 方言语音自组网、17725 手势循迹小车、18459 电机 API 分层、18026 SU-03T 离线语音手环（**SU-03T 第 4 次出现 = 事实语音外设**）。IOT 赛道 README 级全覆盖完成。
+
+## 九十七、OKF 时代猎收（无限 harvest 同步 85，GitCode 官方组织扫描，182→183 concepts）
+
+- `NEW-GITCODE-ORG-SCAN-0915.md`：**hinearlink/firmware_repo = 官方固件索引（10 个 WS63 包）** — `ws63_AT_v1.10.102` 即 HHD-01 同版 AT 固件官方下载源（我们 d68d592 备份 = 官方构建实锤）、sle_throughput 三代、littlefs 系列；StarFish `nl` CLI（path/build/set 短名映射 + menuconfig 一键）；扫描判词：GitHub/Gitee/GitCode 三平台本窗口均无新 NearLink 仓，**GitCode 更新呈波次性（最新 ws63flash-win 2026-08-19）— 监控节奏 GitHub 日常 > GitCode 周级/事件驱动 > Gitee 仅组织遍历**。
