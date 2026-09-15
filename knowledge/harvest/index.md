@@ -12,6 +12,7 @@
 * [Competition batch 6: patrol car + hanger + water bottle](NEW-COMPETITION-BATCH6.md) - harvest concept (4 KB)
 * [Competition batch 7: connectionless broadcast fleet + WS73 Linux tools](NEW-COMPETITION-BATCH7.md) - harvest concept (5 KB)
 * [Competition batch 8: SDK version delta + fusion coach + fleet control](NEW-COMPETITION-BATCH8.md) - harvest concept (4 KB)
+* [Competition batch 9: radar fall detection + Channel Sounding locate](NEW-COMPETITION-BATCH9.md) - harvest concept (4 KB)
 * [2026 competition positioning pair — BS21E multi-anchor SLE Channel Sounding indoor location (GTTT scheduling, LSQ trilateration, GDOP/rank-deficiency handling)](NEW-CS-POSITIONING-PAIR.md) - harvest concept (4 KB)
 * [Daily-churn round — nearlink_service WeChat-call volume fix; StarFlash-Releases is a compiled-only Windows tool repo; ecosystem pulse](NEW-DAILY-CHURN-0914.md) - harvest concept (2 KB)
 * [Daily churn 0915b: teki128 increment + name-squat verdicts](NEW-DAILY-CHURN-0915B.md) - harvest concept (4 KB)

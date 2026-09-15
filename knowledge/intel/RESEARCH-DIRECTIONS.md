@@ -710,3 +710,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 九十二、OKF 时代猎收（无限 harvest 同步 80，本地深挖 OHOS DLI snoop，177→178 concepts）
 
 - `NEW-OHOS-DLI-SNOOP.md`：communication_nearlink_service 未挖掘的 `SleDliSnoop.cpp`（704 行）= **星闪版 btmon** — 9 字节记录头（8B ms 时间戳 LE + 1B 方向位）+ 类型字节 **0xA1 CMD/0xA2 EVENT/0xA3 ACB/0xA4 ICB**，ACB/ICB 4 字节子头 lcid/handle(2)+len(2)；`dli_opcode.h` 228 条 DLI 命令/事件命名空间（0x0405/06 公共地址、0x0C02-06 广播族、0x1401 建连、0x1C01-28 加密族）**直接注解我们 E573H USB dongle 抓包**；商用版隐私脱敏 = opcode 黑名单（13 cmd + 2 event）双源维护防漂移。文本十六进制日志 + 单线程汇入。
+
+## 九十三、OKF 时代猎收（无限 harvest 同步 81，竞赛批次 9，178→179 concepts）
+
+- `NEW-COMPETITION-BATCH9.md`：17513 跌倒检测（**WS63E 板载 2.4G 雷达 + 18KB ROM/7KB RAM 端侧 CNN**，PyTorch 训练 500ms 窗口，SoftAP 一键采原始中频数据闭环迭代）/ 18007 Rd-03_V2 雷达+舵机本地报警（Node.js 代理 + 微信 CloudBase 14 云函数）/ **18600 BS21E SLE Channel Sounding 室内定位（第二套全栈 CS 参照）** — GTTT 组时分同时连多锚、锚端 IQ 聚合+时间戳匹配+SDK 测距、**Tag 端线性最小二乘三边求解器**：中值跳变拒绝→EMA→A^T A 行列式 GDOP 门限→高残差锚剔除重试，8 锚非共面 3D，BLE GATT JSON 出口。
