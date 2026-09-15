@@ -14,6 +14,7 @@
 * [Competition batch 8: SDK version delta + fusion coach + fleet control](NEW-COMPETITION-BATCH8.md) - harvest concept (4 KB)
 * [2026 competition positioning pair — BS21E multi-anchor SLE Channel Sounding indoor location (GTTT scheduling, LSQ trilateration, GDOP/rank-deficiency handling)](NEW-CS-POSITIONING-PAIR.md) - harvest concept (4 KB)
 * [Daily-churn round — nearlink_service WeChat-call volume fix; StarFlash-Releases is a compiled-only Windows tool repo; ecosystem pulse](NEW-DAILY-CHURN-0914.md) - harvest concept (2 KB)
+* [Daily churn 0915b: teki128 increment + name-squat verdicts](NEW-DAILY-CHURN-0915B.md) - harvest concept (4 KB)
 * [tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking](NEW-DATATRANSFER-CACHE-INTERNALS.md) - harvest concept (3 KB)
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (5 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
