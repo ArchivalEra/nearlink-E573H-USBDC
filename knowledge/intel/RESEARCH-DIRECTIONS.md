@@ -767,3 +767,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零五、OKF 时代猎收（无限 harvest 同步 93，agent 契约 + BYLE + 扫描判词，190→191 concepts）
 
 - `NEW-AGENT-CONTRACT-BYLE-SCAN.md`：skills-nearlink `CLAUDE.md`（462 行）= **最完整的公开 WS63 开发 agent 契约**（自进化记忆闭环：读文件→执行→发现新坑写回；目录访问矩阵：仅 peripheral 可写、仅 include 可引、禁 #define 覆盖 Kconfig；build.py 命令面 + `_all/_load_only.fwpkg` 词汇；反幻觉条款）— 发布我们自己 agent 契约的设计参照。BYLE byleFN 闭源 SDK 文档（KWS+打断+opus+ByleStudio JSON 配置 = 第二家 AI 音频芯片厂商特性清单）。判词：Terrydev5/NearLink = Bonjour+WS 名字党第 4 例（但一次性 token 门控临时端口文件传输模式可借鉴）、Qwac = 仅 LICENSE 占位（Playjoy 替代品预告，列入复查单）。
+
+## 一百零六、OKF 时代猎收（无限 harvest 同步 94，fbb-modelzoo 管线解剖，191→192 concepts）
+
+- `NEW-FBB-MODELZOO-PIPELINE.md`：HiSpark.AI 开放模型库 = **run.sh→config.cfg 统一管线（数据生成→模型转换→SDK 工程打包）**，7 场景（KWS/音频异常/RNNoise 增强/HAR/时序/视觉唤醒/图像分类）；config.cfg 分层（不改块 PLATFORM=RISCV/mindspore-lite/**micro_quant** int8+float32 IO / 必填块 SDK_PATH+ADAPTOR_PATH+TOOLCHAIN_PATH）；**metadata.yaml 芯片→模板绑定表**（WS63 SAMPLE_COMMON 注入 ai_main.c 到 fbb_ws63 — 模型库不发自固件而是缝合进 SDK 树）；per-chip 精度对比工具（nano_accuracy_compare.py）；skills/ 又见 agent 面。生态 agent 三件套（CLI/知识组织/仓契约）+ 模型库 = HiSpark.AI 开发者面全图。
