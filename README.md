@@ -29,8 +29,8 @@ assets/stack/ssap/                    # SSAP 用户态协议栈（Apache-2.0 移
 ```
 测试：codec + server + feature 三套单元测试全绿，x86 零依赖可编译。
 
-### 📚 情报库（201 份研究文档，OKF bundle）
-`knowledge/` 是 OKF v0.2 知识束（根 `knowledge/index.md`/`knowledge/log.md` + harvest/intel/decisions 三域）：201 份概念 = 126 份猎收报告（含 Playjoy vendor 协议逆向与 hispark-rs 9 月增量：FRW ROM 槽 261 ABI、NET0 RX 终止所有权契约、fwpkg 0.3.3）+ 74 份协议/芯片/SDK/驱动深挖，另含架构决策记录。覆盖：SSAP 方言对照（**OHOS 与设备固件同协议，移植路线实证**）、连接管理、数据面（DTAP/SDR）、安全配对、测距（含首个公开 UWB-like 多锚点 SLE Channel Sounding 全栈参考）、标准参数（SLE 12Mbps/250µs/256 用户）、6 份 OpenSparklink 契约（DLI/UAPI/CONN-FSM/SSAP/PHY/USB 传输）、汇编/编译器/链接器优化资源与通用指令集，以及 OHOS 生态批次（AT 框架/SLE mesh/framework/HDI/SSAP 权威引擎/客户端/HID 遥控/SA 服务/测距全链路/雷达/DLI 传输/DTAP 数据面/NAI 管理/设备管理/GLE/BGTP/SM 安全/QoS 信用/计划审计/NearLinkSLE 示例/LinkNebula mesh）。
+### 📚 情报库（202 份研究文档，OKF bundle）
+`knowledge/` 是 OKF v0.2 知识束（根 `knowledge/index.md`/`knowledge/log.md` + harvest/intel/decisions 三域）：202 份概念 = 127 份猎收报告（含 Playjoy vendor 协议逆向与 hispark-rs 9 月增量：FRW ROM 槽 261 ABI、NET0 RX 终止所有权契约、fwpkg 0.3.3）+ 74 份协议/芯片/SDK/驱动深挖，另含架构决策记录。覆盖：SSAP 方言对照（**OHOS 与设备固件同协议，移植路线实证**）、连接管理、数据面（DTAP/SDR）、安全配对、测距（含首个公开 UWB-like 多锚点 SLE Channel Sounding 全栈参考）、标准参数（SLE 12Mbps/250µs/256 用户）、6 份 OpenSparklink 契约（DLI/UAPI/CONN-FSM/SSAP/PHY/USB 传输）、汇编/编译器/链接器优化资源与通用指令集，以及 OHOS 生态批次（AT 框架/SLE mesh/framework/HDI/SSAP 权威引擎/客户端/HID 遥控/SA 服务/测距全链路/雷达/DLI 传输/DTAP 数据面/NAI 管理/设备管理/GLE/BGTP/SM 安全/QoS 信用/计划审计/NearLinkSLE 示例/LinkNebula mesh）。
 
 ## 仓库结构
 

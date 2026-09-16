@@ -807,3 +807,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十五、OKF 时代猎收（无限 harvest 同步 103，撞名裁决批，200→201 concepts）
 
 - `NEW-NAME-COLLISION-VERDICTS-0916.md`：9 月窗口五 hits 全撞名（THRIVE36 本地服务落地页/jaegermichael+ Toshakarp Vite-TS/Ss2809 Vercel Node 后端/Heebu Flutter 二次确认）— **10 次 API 零克隆定级**；裁决梯：语言→根目录→manifest→克隆；`vercel.json`/`vite.config.ts`/`pubspec.yaml`/落地页 shops-rides-delivery 词表见两项即判。
+## 九十九、OKF 时代猎收（无限 harvest 同步 104，HopeRun WS63 SLE demo curriculum，201→202 concepts）
+
+- `NEW-HOPERUN-WS63-SLE-DEMO-CURRICULUM.md`：WS63V100 双板课程把 name-filtered seek、MTU/配对、FIND、CCCD、notify 与 UART 转发串成完整冒烟链；AHT20 示例再以连接态门控周期采样，适合作为 dongle 主机栈的 SSAP 互操作对照，但文本 NUL 与全局缓冲不能直接当传输协议。
+
