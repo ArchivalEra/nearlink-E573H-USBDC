@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS SSAP Server Engine — Authoritative Semantics Anatomy
+title: "OHOS SSAP Server Engine — Authoritative Semantics Anatomy"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ohos, ssap, server]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OHOS SSAP Server Engine — Authoritative Semantics Anatomy

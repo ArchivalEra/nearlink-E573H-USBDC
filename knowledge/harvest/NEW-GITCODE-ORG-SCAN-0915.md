@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, gitcode, firmware, cli-tooling, scan, verdict]
 sources:
-  - "gitcode.com/hinearlink (firmware_repo, tools, skills, nearlink-contrib, starclaw)"
-  - "api.github.com search nearlink/sparklink pushed:>2026-08-20"
-  - "api.gitee.com search v5"
+  - ""gitcode.com/hinearlink (firmware_repo, tools, skills, nearlink-contrib, starclaw)""
+  - ""api.github.com search nearlink/sparklink pushed:>2026-08-20""
+  - ""api.gitee.com search v5""
 trust: B
 stale_after: 2026-12-15
 ---

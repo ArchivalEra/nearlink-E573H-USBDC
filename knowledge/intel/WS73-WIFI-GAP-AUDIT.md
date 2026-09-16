@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS73 WiFi Gap Audit — TV-Box Tri-Mode Reuse
+title: "WS73 WiFi Gap Audit — TV-Box Tri-Mode Reuse"
 language: en
 created: 2026-09-05
-tags: []
+tags: [intel, ws73, wifi, audit]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # WS73 WiFi Gap Audit — TV-Box Tri-Mode Reuse

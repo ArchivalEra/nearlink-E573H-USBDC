@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS HADM Ranging (Channel Sounding) Layer — Deep Dive
+title: "OHOS HADM Ranging (Channel Sounding) Layer — Deep Dive"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, ohos, hadm, ranging]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # OHOS HADM Ranging (Channel Sounding) Layer — Deep Dive

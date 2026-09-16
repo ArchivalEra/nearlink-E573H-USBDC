@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS NAI Layer -- Management Semantics Dissection
+title: "OHOS NAI Layer -- Management Semantics Dissection"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, ohos, layer, management]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OHOS NAI Layer -- Management Semantics Dissection

@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: NEW-XFUSION — What x-eks-fusion (XFusion) teaches us
+title: "NEW-XFUSION — What x-eks-fusion (XFusion) teaches us"
 language: zh
 created: 2026-09-05
-tags: []
+tags: [harvest, xfusion, what, fusion]
+sources:
+  - "/mnt/hdd/nearlink-stuff/xfusion"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # NEW-XFUSION — What x-eks-fusion (XFusion) teaches us

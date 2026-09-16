@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition — ws63_data_transfer_unit: a layered student DTU with AA55 binary config protocol, RS485 bridge, and a tree-mesh preview
+title: "2026 competition — ws63_data_transfer_unit: a layered student DTU with AA55 binary config protocol, RS485 bridge, and a tree-mesh preview"
 language: en
 created: 2026-09-13
 tags: [ws63, dtu, config-protocol, aa55, rs485, tree-network, layering, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/23778_ws63_data_transfer_unit; cloned 2026-09-13, pushed 2026-09-07; 26 C/H files
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

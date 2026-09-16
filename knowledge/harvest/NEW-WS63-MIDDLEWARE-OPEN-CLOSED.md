@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: device_soc ws63v100 middleware map — HCC architecture headers open (flow-ctrl + DFX loss counters), AT framework open except BT/SLE command table
+title: "device_soc ws63v100 middleware map — HCC architecture headers open (flow-ctrl + DFX loss counters), AT framework open except BT/SLE command table"
 language: en
 created: 2026-09-13
 tags: [ws63, hcc, at-framework, flow-control, dfx, open-closed-map, middleware, harvest]
 sources:
-  - url: https://github.com/openharmony/device_soc_hisilicon
-    note: middleware layer sparse-checked 2026-09-13; symbol/API analysis of distributed headers only
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: Kernel (5-EP) Mode SLE Channel Bring-Up: Host Init Sequence
+title: "Kernel (5-EP) Mode SLE Channel Bring-Up: Host Init Sequence"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, kernel, mode, channel]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # Kernel (5-EP) Mode SLE Channel Bring-Up: Host Init Sequence

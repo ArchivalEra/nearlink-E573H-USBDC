@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: MeshMaxDesktop — third consumer of the mesh image protocol: Electron + noble BLE sender with parallel in-flight chunk upload
+title: "MeshMaxDesktop — third consumer of the mesh image protocol: Electron + noble BLE sender with parallel in-flight chunk upload"
 language: en
 created: 2026-09-13
 tags: [electron, noble, ble, image-transfer, in-flight, chunking, mesh, harvest]
 sources:
-  - url: https://github.com/leion-kk/WS63E-NearLink-Mesh-AIGC-Frame
-    note: local clone (pushed 2026-07-08, current); read-only inspection of NearLink_Mesh_Firmware/pc/MeshMaxDesktop/
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

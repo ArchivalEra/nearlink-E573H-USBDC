@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS NearLink Device Manager -- Interface & Data Structure Analysis
+title: "OHOS NearLink Device Manager -- Interface & Data Structure Analysis"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, ohos, nearlink, device]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OHOS NearLink Device Manager -- Interface & Data Structure Analysis

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hispark-rs/ws63-radio-sys — three-package release unit with a byte-reproducible blob-normalization pipeline (relocation inventory, cross-compile ABI verification, canonical builder)
+title: "hispark-rs/ws63-radio-sys — three-package release unit with a byte-reproducible blob-normalization pipeline (relocation inventory, cross-compile ABI verification, canonical builder)"
 language: en
 created: 2026-09-13
 tags: [rust, blob-normalization, reproducible-builds, relocation, abi, hostap, ci, harvest]
 sources:
-  - url: https://github.com/hispark-rs/ws63-radio-sys
-    note: local clone (pushed 2026-09-09); read-only inspection of README and repo layout
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

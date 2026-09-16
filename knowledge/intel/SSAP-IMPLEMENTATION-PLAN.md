@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS73 上实现 SSAP 用户态栈 — 行动文档
+title: "WS73 上实现 SSAP 用户态栈 — 行动文档"
 language: zh
 created: 2026-08-16
-tags: []
+tags: [intel, ws73, ssap]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # WS73 上实现 SSAP 用户态栈 — 行动文档

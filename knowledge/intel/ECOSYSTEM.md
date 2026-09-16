@@ -1,9 +1,13 @@
 ---
 type: intel
-title: Ecosystem Map: NearLink Open-Source Landscape (surveyed 2026-08)
+title: "Ecosystem Map: NearLink Open-Source Landscape (surveyed 2026-08)"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, ecosystem, nearlink, open]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # Ecosystem Map: NearLink Open-Source Landscape (surveyed 2026-08)

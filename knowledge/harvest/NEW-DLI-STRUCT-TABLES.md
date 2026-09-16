@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, dli, structs, adv, connection, phy, ohos]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dli/interface/dli_cmd_struct.h dli_event_struct.h"
+  - ""/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dli/interface/dli_cmd_struct.h dli_event_struct.h""
 trust: A
 stale_after: 2027-03-15
 ---

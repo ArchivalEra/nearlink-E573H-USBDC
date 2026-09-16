@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: NEW-NEARLINKERNEL-CLASSIFICATION
+title: "NEW-NEARLINKERNEL-CLASSIFICATION"
 language: en
 created: 2026-09-12
-tags: []
+tags: [harvest, nearlinkernel, classification]
+sources:
+  - "/mnt/hdd/nearlink-stuff/nearLinKernel"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # NEW-NEARLINKERNEL-CLASSIFICATION

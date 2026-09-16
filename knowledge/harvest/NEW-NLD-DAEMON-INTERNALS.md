@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, nld, dbus, erpc, dongle, usb-cdc, windows]
 sources:
-  - "/mnt/hdd/nearlink-stuff/Nld (daemon/, adapter.mcu/, erpc_gen/bs2x/, cn.hinearlink.nl.xml, README.md)"
+  - ""/mnt/hdd/nearlink-stuff/Nld (daemon/, adapter.mcu/, erpc_gen/bs2x/, cn.hinearlink.nl.xml, README.md)""
 trust: A
 stale_after: 2027-03-15
 ---

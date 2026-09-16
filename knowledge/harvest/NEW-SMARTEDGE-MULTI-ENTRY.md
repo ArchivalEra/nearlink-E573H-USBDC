@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: SmartEdge gateway_ui — seven control entries as one-header-per-entry modules converging in a feature-gated main; latency meter built in
+title: "SmartEdge gateway_ui — seven control entries as one-header-per-entry modules converging in a feature-gated main; latency meter built in"
 language: en
 created: 2026-09-13
 tags: [ws63, gateway, multi-entry, mqtt, ble, gesture, radar, latency, feature-gate, harvest]
 sources:
-  - url: https://github.com/SlumberMin/SmartEdge-WS63
-    note: local clone (pushed 2026-07-07, current); read-only inspection of firmware/smartedge_ws63/gateway_ui/
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: RUST-WS73 Deep Module Boundaries — Lab Note
+title: "RUST-WS73 Deep Module Boundaries — Lab Note"
 language: zh
 created: 2026-09-05
-tags: []
+tags: [intel, rust, ws73, module]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # RUST-WS73 Deep Module Boundaries — Lab Note

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: RUST-WS73 Unsafe / FFI Seam Audit — Lab Note
+title: "RUST-WS73 Unsafe / FFI Seam Audit — Lab Note"
 language: en
 created: 2026-09-05
-tags: []
+tags: [intel, rust, ws73, unsafe]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # RUST-WS73 Unsafe / FFI Seam Audit — Lab Note

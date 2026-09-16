@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: teki128/nearlink — Minimal 564-line SLE Client/Server Pair (WS63 SDK, fixed-address dialect)
+title: "teki128/nearlink — Minimal 564-line SLE Client/Server Pair (WS63 SDK, fixed-address dialect)"
 language: en
 created: 2026-09-13
 tags: [sle, ws63, ssap, minimal-sample, fixed-address, client-server, harvest]
 sources:
-  - url: https://github.com/teki128/nearlink
-    note: cloned 2026-09-13, pushed 2026-09-11 (fresh, not archived), C, 4 files / 564 lines
+  - "/mnt/hdd/nearlink-stuff/teki128-nearlink"
 trust: verified
 stale_after: 2026-12-13
 ---

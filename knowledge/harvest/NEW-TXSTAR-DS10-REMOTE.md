@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: La-OHV/tx_star — DS10 control-loop companion: Android 20 Hz binary-frame joystick over NearLink DTU to STM32 receiver
+title: "La-OHV/tx_star — DS10 control-loop companion: Android 20 Hz binary-frame joystick over NearLink DTU to STM32 receiver"
 language: en
 created: 2026-09-13
 tags: [ds10, dtu, stm32, android, ch340, crc8, remote-control, frame-sync, harvest]
 sources:
-  - url: https://github.com/La-OHV/tx_star
-    note: cloned 2026-09-13, pushed 2026-09-09 (fresh, not archived), 7.6M; STM32F427 + Android app tree
+  - "/mnt/hdd/nearlink-stuff/tx_star"
 trust: verified
 stale_after: 2026-12-13
 ---

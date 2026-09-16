@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition pair — vision-guiding glasses (WS63E + ESP32 + Python/FastAPI edge) and adaptive disaster rescue (three-node SLE sensor fusion)
+title: "2026 competition pair — vision-guiding glasses (WS63E + ESP32 + Python/FastAPI edge) and adaptive disaster rescue (three-node SLE sensor fusion)"
 language: en
 created: 2026-09-13
 tags: [ws63e, sle, vision, glasses, disaster, sensor-fusion, three-node, fastapi, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/10447-Vision-Guiding Glasses_WS63E_src_sle + IOT/12148_WS63_Disaster_Rescue; cloned 2026-09-13, pushed 2026-09-07
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)
+title: "Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)"
 language: zh
 created: 2026-09-05
-tags: []
+tags: [harvest, note, hispark, rust]
+sources:
+  - "/mnt/hdd/nearlink-stuff/hispark-rs"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)

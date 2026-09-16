@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS ssapc_client.c client view — SSAP services are a property/method/event object model; find responses decode into a per-address member cache
+title: "OHOS ssapc_client.c client view — SSAP services are a property/method/event object model; find responses decode into a per-address member cache"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, client, object-model, property-method-event, cache, v10, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at 2ea5f65 (current); read-only inspection of ssapc_client.c (1694 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,14 +1,11 @@
 ---
 type: harvest
-title: Daily-churn round — nearlink_service WeChat-call volume fix; StarFlash-Releases is a compiled-only Windows tool repo; ecosystem pulse
+title: "Daily-churn round — nearlink_service WeChat-call volume fix; StarFlash-Releases is a compiled-only Windows tool repo; ecosystem pulse"
 language: en
 created: 2026-09-13
 tags: [nearlink-service, daily-churn, starflash-releases, freshness, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: pulled 2026-09-13, HEAD 59b50c4 (2026-09-14); 5 files +33/-8
-  - url: https://gitcode.com/qq_45486948/StarFlash-Releases
-    note: cloned 2026-09-13 from gitcode, pushed 2026-08-31, 160K (README-only)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

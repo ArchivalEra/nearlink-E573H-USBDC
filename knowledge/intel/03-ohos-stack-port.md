@@ -1,9 +1,13 @@
 ---
 type: intel
-title: 03 — OpenHarmony NearLink stack: Linux porting surface
+title: "03 — OpenHarmony NearLink stack: Linux porting surface"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, openharmony, nearlink, stack]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # 03 — OpenHarmony NearLink stack: Linux porting surface

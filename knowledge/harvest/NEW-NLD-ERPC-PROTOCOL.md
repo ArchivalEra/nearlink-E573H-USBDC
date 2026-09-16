@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: Nld eRPC dongle protocol — nine service groups over dual serial ports (host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/low_latency)
+title: "Nld eRPC dongle protocol — nine service groups over dual serial ports (host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/low_latency)"
 language: en
 created: 2026-09-13
 tags: [nld, erpc, dongle-protocol, bs2x, serial, ssap, low-latency, firmware-update, harvest]
 sources:
-  - url: https://gitcode.com/goodspeed1/Nld
-    note: local clone (current); read-only inspection of erpc_gen/bs2x generated code and daemon/nldconfig.c
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

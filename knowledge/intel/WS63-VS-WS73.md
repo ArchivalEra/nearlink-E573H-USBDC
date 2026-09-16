@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS63 (fbb_ws63) vs WS73 — Asset Transferability and Interconnect Assessment
+title: "WS63 (fbb_ws63) vs WS73 — Asset Transferability and Interconnect Assessment"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, ws73, asset]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # WS63 (fbb_ws63) vs WS73 — Asset Transferability and Interconnect Assessment

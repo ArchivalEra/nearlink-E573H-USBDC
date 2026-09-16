@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: xingkaiyueying/tethering_nearlink — OHOS NearLink Tethering Service (SLE Port Profile + Local Socket Data Plane)
+title: "xingkaiyueying/tethering_nearlink — OHOS NearLink Tethering Service (SLE Port Profile + Local Socket Data Plane)"
 language: en
 created: 2026-09-13
 tags: [ohos, nearlink, sle, tethering, socket, port-profile, ssap, datatransfer, harvest]
 sources:
-  - url: https://github.com/xingkaiyueying/tethering_nearlink
-    note: cloned 2026-09-13, pushed 2026-09-11 (fresh, not archived), C++, ~5MB, OHOS subsystem layout
+  - "/mnt/hdd/nearlink-stuff/tethering_nearlink"
 trust: verified
 stale_after: 2026-12-13
 ---

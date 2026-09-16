@@ -1,9 +1,13 @@
 ---
 type: intel
-title: 01 — WS73 Boot-stage Firmware Download Handshake: Byte-Exact Wire Protocol Spec
+title: "01 — WS73 Boot-stage Firmware Download Handshake: Byte-Exact Wire Protocol Spec"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, ws73, boot, stage]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # 01 — WS73 Boot-stage Firmware Download Handshake: Byte-Exact Wire Protocol Spec

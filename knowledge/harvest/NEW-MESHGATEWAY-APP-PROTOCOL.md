@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: NearLink-ePaper/MeshGatewayAPP — phone-side spec of the SLE-mesh image protocol (checkpoint + 240-packet bitmaps, FAST/ACK flow control, bit-exact RLE)
+title: "NearLink-ePaper/MeshGatewayAPP — phone-side spec of the SLE-mesh image protocol (checkpoint + 240-packet bitmaps, FAST/ACK flow control, bit-exact RLE)"
 language: en
 created: 2026-09-13
 tags: [android, ble, gateway, mesh, image-transfer, rle, flow-control, bitmap-ack, harvest]
 sources:
-  - url: https://github.com/NearLink-ePaper/MeshGatewayAPP
-    note: cloned 2026-09-13, pushed 2026-03-16, 766K; Kotlin; BLE gateway app for the NearLink SLE Mesh e-paper system
+  - "/mnt/hdd/nearlink-stuff/MeshGatewayAPP"
 trust: verified
 stale_after: 2026-12-13
 ---

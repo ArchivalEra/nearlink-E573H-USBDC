@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS73 BT GAP Audit — stack/ssap vs BLE host (TCID 0x1F / 0xA4 ICB, SM, low-latency, GATT)
+title: "WS73 BT GAP Audit — stack/ssap vs BLE host (TCID 0x1F / 0xA4 ICB, SM, low-latency, GATT)"
 language: en
 created: 2026-09-05
-tags: []
+tags: [intel, ws73, audit, stack]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # WS73 BT GAP Audit — stack/ssap vs BLE host (TCID 0x1F / 0xA4 ICB, SM, low-latency, GATT)

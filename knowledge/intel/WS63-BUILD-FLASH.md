@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS63 / WS63E "from zero to flash" build manual (HiHope_NearLink_DK_WS63E_V03 / BearPi-Pico_H3863)
+title: "WS63 / WS63E 'from zero to flash' build manual (HiHope_NearLink_DK_WS63E_V03 / BearPi-Pico_H3863)"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, ws63e, zero]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # WS63 / WS63E "from zero to flash" build manual (HiHope_NearLink_DK_WS63E_V03 / BearPi-Pico_H3863)

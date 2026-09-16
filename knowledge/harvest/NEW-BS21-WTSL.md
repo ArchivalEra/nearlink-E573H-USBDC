@@ -1,9 +1,14 @@
 ---
 type: harvest
-title: New repo knowledge harvest: Ai-BS21 SDK + wtsl_app
+title: "New repo knowledge harvest: Ai-BS21 SDK + wtsl_app"
 language: zh
 created: 2026-09-05
-tags: []
+tags: [harvest, repo, knowledge, bs21]
+sources:
+  - "/mnt/hdd/nearlink-stuff/Ai-BS21_SDK"
+  - "/mnt/hdd/nearlink-stuff/wtsl_app"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # New repo knowledge harvest: Ai-BS21 SDK + wtsl_app

@@ -1,14 +1,11 @@
 ---
 type: harvest
-title: nearlink-contrib MPU6050 driver + sle_mesh_new NMEA parser — WS63 I2C pin map, GPS coordinate e6 pipeline
+title: "nearlink-contrib MPU6050 driver + sle_mesh_new NMEA parser — WS63 I2C pin map, GPS coordinate e6 pipeline"
 language: en
 created: 2026-09-13
 tags: [mpu6050, i2c, ws63, nmea, gps, location, driver, harvest]
 sources:
-  - url: https://gitcode.com/hinearlink/nearlink-contrib
-    note: ws63/sensors/mpu6050; local clone (current)
-  - url: https://github.com/BH4ME/sle_mesh_new
-    note: src/sle_team_nmea.c (313 lines) + src/sle_team_location.c (81 lines); local clone (current)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hispark-rs/hisi-rf-ws63 — composition root for a Cargo-only WS63 WiFi build: normalized archives + rust-lld, no vendor SDK, wpa2-personal + smoltcp profile
+title: "hispark-rs/hisi-rf-ws63 — composition root for a Cargo-only WS63 WiFi build: normalized archives + rust-lld, no vendor SDK, wpa2-personal + smoltcp profile"
 language: en
 created: 2026-09-13
 tags: [rust, ws63, wifi, wpa2, smoltcp, composition-root, cargo-only, blob, harvest]
 sources:
-  - url: https://github.com/hispark-rs/hisi-rf-ws63
-    note: local clone (pushed 2026-09-10); read-only inspection of README and src layout
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

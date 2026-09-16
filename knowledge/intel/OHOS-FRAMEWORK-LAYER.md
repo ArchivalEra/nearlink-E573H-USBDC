@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS NearLink Framework Layer — Architecture, API Surface, and Borrowing Guide for the TV-box Stack
+title: "OHOS NearLink Framework Layer — Architecture, API Surface, and Borrowing Guide for the TV-box Stack"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, ohos, nearlink, framework]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OHOS NearLink Framework Layer — Architecture, API Surface, and Borrowing Guide for the TV-box Stack

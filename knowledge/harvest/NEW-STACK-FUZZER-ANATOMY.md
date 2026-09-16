@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS nearlink stack_fuzzer anatomy — hydra-fuzz GN targets, a shared include map that doubles as the stack's internal layer taxonomy, and module-boundary fuzz entries
+title: "OHOS nearlink stack_fuzzer anatomy — hydra-fuzz GN targets, a shared include map that doubles as the stack's internal layer taxonomy, and module-boundary fuzz entries"
 language: en
 created: 2026-09-13
 tags: [ohos, fuzzer, gn, hydra-fuzz, layer-taxonomy, dtap, dli, testing, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at 2ea5f65 (current); read-only inspection of test/fuzztest/stack_fuzzer build structure and the dtap_fuzzer entry
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

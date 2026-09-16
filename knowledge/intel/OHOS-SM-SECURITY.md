@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS NearLink Security Manager (SM) -- Deep Dive
+title: "OHOS NearLink Security Manager (SM) -- Deep Dive"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, ohos, nearlink, security]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # OHOS NearLink Security Manager (SM) -- Deep Dive

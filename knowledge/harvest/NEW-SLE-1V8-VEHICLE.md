@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: cxl0928/hi3863-sle-1v8-vehicle — SLE 1-Client-to-8-Server Vehicle Sample (WS63, SBUS + UWB Follow)
+title: "cxl0928/hi3863-sle-1v8-vehicle — SLE 1-Client-to-8-Server Vehicle Sample (WS63, SBUS + UWB Follow)"
 language: en
 created: 2026-09-13
 tags: [sle, ws63, hi3863, one-to-many, connection-topology, sbus, uwb, pid, harvest]
 sources:
-  - url: https://github.com/cxl0928/hi3863-sle-1v8-vehicle
-    note: cloned 2026-09-13, pushed 2026-08-17 (fresh, not archived), C, competition sample with vendor SDK scaffolding stripped
+  - "/mnt/hdd/nearlink-stuff/hi3863-sle-1v8-vehicle"
 trust: verified
 stale_after: 2026-12-13
 ---

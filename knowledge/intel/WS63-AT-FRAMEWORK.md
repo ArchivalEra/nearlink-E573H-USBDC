@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS63 AT Framework — fbb_ws63 Dialect vs OpenHarmony Dialect (HHD-01)
+title: "WS63 AT Framework — fbb_ws63 Dialect vs OpenHarmony Dialect (HHD-01)"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, framework, dialect]
+sources:
+  - ".scratch/nearlink-driver/assets/HHD01-WS63V100-AT-commands.txt"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # WS63 AT Framework — fbb_ws63 Dialect vs OpenHarmony Dialect (HHD-01)

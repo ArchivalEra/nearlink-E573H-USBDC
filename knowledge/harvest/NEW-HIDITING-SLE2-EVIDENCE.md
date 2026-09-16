@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: elfbobo/hs-fbb (HiDiTing, romanized Di-ting) — SLE 2.0 public evidence: new bs_sle_* API generation, first-class Port service, auto-connection management (sparse-adopted)
+title: "elfbobo/hs-fbb (HiDiTing, romanized Di-ting) — SLE 2.0 public evidence: new bs_sle_* API generation, first-class Port service, auto-connection management (sparse-adopted)"
 language: en
 created: 2026-09-13
 tags: [hiditing, sle2, bs-sle, port-service, auto-conn, data-length-extension, ohos-watch, harvest]
 sources:
-  - url: https://github.com/elfbobo/hs-fbb
-    note: metadata clone (blob:none, no-checkout) 2026-09-13; pushed 2026-09-07 (fresh, not archived); 764MB standalone HiDiTing SDK; SLE API docs fetched via raw URLs (4 files, ~3.7K lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

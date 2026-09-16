@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS ssaps_server_find.c — the authoritative FIND-family server reference (FIND_STRUCTURE / _BY_UUID, V10 framing split, MTU-chunked responses)
+title: "OHOS ssaps_server_find.c — the authoritative FIND-family server reference (FIND_STRUCTURE / _BY_UUID, V10 framing split, MTU-chunked responses)"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, find-by-uuid, find-structure, server, mtu, v10, reference-implementation, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at 2ea5f65 (2026-09-11, current with upstream); read-only inspection of the SSAP server find module
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
 trust: verified
 stale_after: 2026-12-13
 ---

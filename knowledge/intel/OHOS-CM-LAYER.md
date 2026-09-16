@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS NearLink CM Layer (SLE Connection Manager) — Deep Dive
+title: "OHOS NearLink CM Layer (SLE Connection Manager) — Deep Dive"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, ohos, nearlink, layer]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # OHOS NearLink CM Layer (SLE Connection Manager) — Deep Dive

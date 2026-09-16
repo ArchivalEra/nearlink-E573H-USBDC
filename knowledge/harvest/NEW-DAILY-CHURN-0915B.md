@@ -5,10 +5,10 @@ language: en
 created: 2026-09-15
 tags: [harvest, verdict, sle, naming-squat, ssap]
 sources:
-  - "github.com/teki128/nearlink (local clone /mnt/hdd/nearlink-stuff/teki128-nearlink)"
-  - "github.com/seantran-dev/SparkLink"
-  - "github.com/Heebu/NearLinkChat"
-  - "github.com/xypasolini-droid/SparkLink"
+  - ""github.com/teki128/nearlink (local clone /mnt/hdd/nearlink-stuff/teki128-nearlink)""
+  - ""github.com/seantran-dev/SparkLink""
+  - ""github.com/Heebu/NearLinkChat""
+  - ""github.com/xypasolini-droid/SparkLink""
 trust: B
 stale_after: 2027-03-15
 ---

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: NearLink_controller — 星闪游戏手柄固件/协议设计深挖
+title: "NearLink_controller — 星闪游戏手柄固件/协议设计深挖"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, nearlink, controller]
+sources:
+  - "/mnt/hdd/nearlink-stuff/NearLink_controller"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # NearLink_controller — 星闪游戏手柄固件/协议设计深挖

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OpenHarmony NearLink/星闪 Community Intelligence Dossier
+title: "OpenHarmony NearLink/星闪 Community Intelligence Dossier"
 language: zh
 created: 2026-08-16
-tags: []
+tags: [intel, openharmony, nearlink, community]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # OpenHarmony NearLink/星闪 Community Intelligence Dossier

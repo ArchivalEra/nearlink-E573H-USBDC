@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking
+title: "tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking"
 language: en
 created: 2026-09-13
 tags: [ohos, tethering, cache, tcid, transfer-state, backpressure, datatransfer, harvest]
 sources:
-  - url: https://github.com/xingkaiyueying/tethering_nearlink
-    note: local clone (pushed 2026-09-11, current); read-only inspection of nearlink_sle_datatransfer_cache.h
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

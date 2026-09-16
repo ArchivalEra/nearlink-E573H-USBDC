@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver
+title: "WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver"
 language: en
 created: 2026-09-13
 tags: [sle, dtu, at-commands, modbus, latency, fragmentation, ros2, robot, tier, harvest]
 sources:
-  - url: https://github.com/WANG-XU-create/DS10-TTL
-    note: cloned 2026-09-13, pushed 2026-09-07 (fresh, not archived), 932K; Python driver + 5272 lines of Chinese product docs incl. measured tech report
+  - "/mnt/hdd/nearlink-stuff/DS10-TTL"
 trust: verified
 stale_after: 2026-12-13
 ---

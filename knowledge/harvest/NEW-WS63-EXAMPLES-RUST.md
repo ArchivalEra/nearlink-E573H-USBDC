@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hispark-rs/ws63-examples — 30+ example curriculum with substantial WiFi implementations; wifi_blob_link links the vendor ROM blob into packet-RAM from Rust
+title: "hispark-rs/ws63-examples — 30+ example curriculum with substantial WiFi implementations; wifi_blob_link links the vendor ROM blob into packet-RAM from Rust"
 language: en
 created: 2026-09-13
 tags: [rust, ws63, bare-metal, wifi-blob, packet-ram, embassy, rtos-coexist, no_std, harvest]
 sources:
-  - url: https://github.com/hispark-rs/ws63-examples
-    note: local clone; read-only inspection of example trees, ARCHITECTURE.md, and wifi_blob_link/build.rs
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

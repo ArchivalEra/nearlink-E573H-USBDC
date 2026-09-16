@@ -1,9 +1,13 @@
 ---
 type: intel
-title: 星闪宝子功能探索最终报告 (2026-08-16)
+title: "星闪宝子功能探索最终报告 (2026-08-16)"
 language: zh
 created: 2026-08-16
-tags: []
+tags: [intel]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # 星闪宝子功能探索最终报告 (2026-08-16)

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: SLE Measure SDK — QoS Parameters, PHY Tuning & ACB Credit Gating
+title: "SLE Measure SDK — QoS Parameters, PHY Tuning & ACB Credit Gating"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, measure, parameters, tuning]
+sources:
+  - "/mnt/hdd/nearlink-stuff/sle_measure_sdk"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # SLE Measure SDK — QoS Parameters, PHY Tuning & ACB Credit Gating

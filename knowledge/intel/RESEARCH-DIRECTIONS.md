@@ -1,9 +1,14 @@
 ---
 type: intel
-title: 研究方向清单 (Research Directions)
+title: "研究方向清单 (Research Directions)"
 language: zh
 created: 2026-08-16
-tags: []
+tags: [intel, research, directions]
+sources:
+  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
+  - "/mnt/hdd/nearlink-stuff/sparklink"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # 研究方向清单 (Research Directions)
@@ -750,3 +755,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零二、OKF 时代猎收（无限 harvest 同步 90，DLI 参数结构字典，187→188 concepts）
 
 - `NEW-DLI-STRUCT-TABLES.md`：dli_cmd_struct.h(632)+dli_event_struct.h(597) = 228 条 opcode 的参数字典（含单位与范围注释）— 广播参数远超 BLE 形态（**导频密度/MCS/secondAdvMaxSkip 跳发**、时长 N×10ms）；连接时序 SLE 独有字段（txRxInterval 事件内/eventInterval 事件间/systemTimeUnit/**txRxFlag 先发后发**，间隔 0.25ms 单位 [7.5ms,4s]）；**gFeedback/tFeedback HARQ 反馈码表**（CBG/TB/半可靠组播 m 序列编号）— m 序列反馈机制在 DLI 边界的直接证据；AdvReportEvt.eventType 4 位义、EnableEncryptParam {SM linkKey+cryptoAlgo+keyDerivAlgo}。USB 抓包解码器可从十六进制升级到参数级打印。
+
+## 一百零三、OKF 时代猎收（无限 harvest 同步 91，SLE HID 键盘类 + 全库 frontmatter 规范化，188→189 concepts）
+
+- `NEW-SLE-HID-KEYBOARDS.md`：TP78v3（GPL3.0，Hi2821/E **USB/BLE/SLE 三模键盘，有线 8K/星闪 2K 回报率** — 全库首个 SLE 输入设备回报率实证，VIA 改键+在线配列+固件导出+接收器方案，12 版指导 PDF）/ FlashKeyboard（**bs20/bs21e/bs22/bs2x 四芯片目标固件框架**，共享 keyboard app + BLE HID-over-GATT server 参照，与 Playjoy 键盘 CLI 同源生态两端）/ 星鸿派 HuaqiuOpenHardware 开源板（WS63V100/Hi3863，**CHANGES_FROM_ORIGINAL + MANIFEST 校验 + "示例非独立可编译"诚实声明 = 厂商衍生资产再发布治理范本**）。**同轮：全库 189 份文档 frontmatter 规范化**（字段序 type/title/language/created/tags/sources/trust/stale_after、title 引号化、正文推断 sources、trust/stale_after 默认值），与用户要求的格式修正合并提交。

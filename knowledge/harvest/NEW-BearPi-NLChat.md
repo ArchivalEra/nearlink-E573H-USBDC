@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)
+title: "BearPi Hi2821 Pico 'NLChat' — SLE Passthrough for an Android Chat APP (Research Notes)"
 language: zh
 created: 2026-09-05
-tags: []
+tags: [harvest, bearpi, hi2821, pico]
+sources:
+  - "/mnt/hdd/nearlink-stuff/Bearpi_Hi2821_Pico_NLChat"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)

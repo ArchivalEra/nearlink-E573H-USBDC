@@ -1,9 +1,14 @@
 ---
 type: harvest
-title: NEW — ws63flash (UART flasher) + Ghidra_RISCV31 (Huawei custom RISC-V module) harvest
+title: "NEW — ws63flash (UART flasher) + Ghidra_RISCV31 (Huawei custom RISC-V module) harvest"
 language: en
 created: 2026-09-05
-tags: []
+tags: [harvest, ws63flash, uart, flasher]
+sources:
+  - "/mnt/hdd/nearlink-stuff/ws63flash"
+  - "/mnt/hdd/nearlink-stuff/Ghidra_RISCV31"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # NEW — ws63flash (UART flasher) + Ghidra_RISCV31 (Huawei custom RISC-V module) harvest

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: yeyeye0212/starflash-pet-collar — WS63 Three-Node Pet Collar (SLE-WiFi Gateway Bridge, MPU6050 State Machine)
+title: "yeyeye0212/starflash-pet-collar — WS63 Three-Node Pet Collar (SLE-WiFi Gateway Bridge, MPU6050 State Machine)"
 language: en
 created: 2026-09-13
 tags: [ws63, hi3863, sle, wifi, gateway, lwip, udp, mpu6050, dual-radio, harvest]
 sources:
-  - url: https://github.com/yeyeye0212/starflash-pet-collar
-    note: cloned 2026-09-13, pushed 2026-07-13 (~2 months old, not archived), C, full HiSpark WS63 SDK tree
+  - "/mnt/hdd/nearlink-stuff/starflash-pet-collar"
 trust: verified
 stale_after: 2026-12-13
 ---

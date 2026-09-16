@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition — WS63 multi-mode smart speaker: 48kHz/16bit uncompressed stereo over SLE at PHY 4M, plus DLNA/minimp3 network mode
+title: "2026 competition — WS63 multi-mode smart speaker: 48kHz/16bit uncompressed stereo over SLE at PHY 4M, plus DLNA/minimp3 network mode"
 language: en
 created: 2026-09-13
 tags: [ws63, sle, audio, dlna, minimp3, uncompressed, three-role, competition, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/18884_WS63_SLE_DLNA_sound; cloned 2026-09-13, pushed 2026-09-07; 43 C/C++ files (cpp17)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

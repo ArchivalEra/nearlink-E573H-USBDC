@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: SlumberMin/SmartEdge-WS63 — whole-home SLE gateway: unified 0xAA frame protocol, grouped address space, seven converging control entries
+title: "SlumberMin/SmartEdge-WS63 — whole-home SLE gateway: unified 0xAA frame protocol, grouped address space, seven converging control entries"
 language: en
 created: 2026-09-13
 tags: [ws63, sle, smart-home, gateway, frame-protocol, mqtt, flutter, multi-entry, harvest]
 sources:
-  - url: https://github.com/SlumberMin/SmartEdge-WS63
-    note: cloned 2026-09-13, pushed 2026-07-07 (fresh, not archived), 61M (firmware sample + Flutter app, SDK excluded)
+  - "/mnt/hdd/nearlink-stuff/SmartEdge-WS63"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: nld tools — runnable D-Bus API contracts: a KeyboardOnly pairing agent with fixed passkey and a Python SSAP server exporting service/property/CCCD objects
+title: "nld tools — runnable D-Bus API contracts: a KeyboardOnly pairing agent with fixed passkey and a Python SSAP server exporting service/property/CCCD objects"
 language: en
 created: 2026-09-13
 tags: [nld, dbus, pairing-agent, ssap-server, object-manager, cccd, python, harvest]
 sources:
-  - url: https://gitcode.com/goodspeed1/Nld
-    note: tools/agent-test.py (112 lines) + tools/ssap-app.py (286 lines); local clone (current)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

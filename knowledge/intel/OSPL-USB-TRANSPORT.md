@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OpenSparklink USB Transport Teardown — sle_usb.rs / sle_usb_ffi.c
+title: "OpenSparklink USB Transport Teardown — sle_usb.rs / sle_usb_ffi.c"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, opensparklink, transport, teardown]
+sources:
+  - "knowledge/intel/kernel-init-seq.md"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenSparklink USB Transport Teardown — sle_usb.rs / sle_usb_ffi.c

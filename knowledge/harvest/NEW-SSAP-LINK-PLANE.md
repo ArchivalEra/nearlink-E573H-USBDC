@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS ssap_link plane — a four-state link model (DISCONNECTED/CONNECTING/CONNECTED/DISCONNECTING) shared by server and client, with documented retry semantics
+title: "OHOS ssap_link plane — a four-state link model (DISCONNECTED/CONNECTING/CONNECTED/DISCONNECTING) shared by server and client, with documented retry semantics"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, link-state, fsm, four-state, retry-semantics, shared-plane, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at 2ea5f65 (current); read-only inspection of ssap_link.c (390 lines) and ssap_link_state.c (305 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

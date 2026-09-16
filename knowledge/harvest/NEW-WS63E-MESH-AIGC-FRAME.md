@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: leion-kk/WS63E-NearLink-Mesh-AIGC-Frame — JPEG-over-SLE-Mesh Distributed E-Paper (AODV-style route table, on-chip decode + RLE direct drive)
+title: "leion-kk/WS63E-NearLink-Mesh-AIGC-Frame — JPEG-over-SLE-Mesh Distributed E-Paper (AODV-style route table, on-chip decode + RLE direct drive)"
 language: en
 created: 2026-09-13
 tags: [ws63e, sle, mesh, routing, aodv, jpeg, rle, epaper, streaming, wifi, harvest]
 sources:
-  - url: https://github.com/leion-kk/WS63E-NearLink-Mesh-AIGC-Frame
-    note: cloned 2026-09-13, pushed 2026-07-08 (fresh, not archived), C, 3.4MB / 217 files
+  - "/mnt/hdd/nearlink-stuff/WS63E-NearLink-Mesh-AIGC-Frame"
 trust: verified
 stale_after: 2026-12-13
 ---

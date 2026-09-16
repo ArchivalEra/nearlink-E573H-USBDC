@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: tethering port profile internals — per-state dispatch FSM and per-address client cache (port_stm.c 566 lines, port_client.c 236 lines)
+title: "tethering port profile internals — per-state dispatch FSM and per-address client cache (port_stm.c 566 lines, port_client.c 236 lines)"
 language: en
 created: 2026-09-13
 tags: [sle, port-profile, state-machine, dispatch-table, cache, ssap, tethering, harvest]
 sources:
-  - url: https://github.com/xingkaiyueying/tethering_nearlink
-    note: local clone (pushed 2026-09-11, current); read-only inspection of port_stm.c and port_client.c
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

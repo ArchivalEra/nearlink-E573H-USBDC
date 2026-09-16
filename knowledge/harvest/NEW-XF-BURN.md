@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: NEW — xf_burn_tools (Python AutoBurn): WS63 UART flash protocol confirmation + fwpkg.py manifest harvest
+title: "NEW — xf_burn_tools (Python AutoBurn): WS63 UART flash protocol confirmation + fwpkg.py manifest harvest"
 language: zh
 created: 2026-09-05
-tags: []
+tags: [harvest, burn, tools, python]
+sources:
+  - "/mnt/hdd/nearlink-stuff/xf_burn_tools"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # NEW — xf_burn_tools (Python AutoBurn): WS63 UART flash protocol confirmation + fwpkg.py manifest harvest

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS HADM Ranging — Full-Chain Anatomy (App → Algorithm Adapter → DLI 0x2003/0x2005 → IQ/ToF Parse → Distance)
+title: "OHOS HADM Ranging — Full-Chain Anatomy (App → Algorithm Adapter → DLI 0x2003/0x2005 → IQ/ToF Parse → Distance)"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ohos, hadm, ranging]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OHOS HADM Ranging — Full-Chain Anatomy (App → Algorithm Adapter → DLI 0x2003/0x2005 → IQ/ToF Parse → Distance)

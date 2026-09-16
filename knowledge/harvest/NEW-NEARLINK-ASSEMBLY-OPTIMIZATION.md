@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources
+title: "NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources"
 language: zh
 created: 2026-09-12
-tags: []
+tags: [harvest, nearlink, sparklink, assembly]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources

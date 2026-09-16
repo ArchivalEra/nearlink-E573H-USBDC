@@ -1,9 +1,13 @@
 ---
 type: intel
-title: Android NearLink Status, Architecture, and Device-Side Footprint
+title: "Android NearLink Status, Architecture, and Device-Side Footprint"
 language: zh
 created: 2026-08-16
-tags: []
+tags: [intel, android, nearlink, status]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # Android NearLink Status, Architecture, and Device-Side Footprint

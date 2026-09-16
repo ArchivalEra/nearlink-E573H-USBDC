@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: device_soc ws63v100 protocol layer deep-dive — device-side SLE host ships closed as libbth_gle.a; symbol surface reveals full SM/TM/DM/CM layering and the authoritative uapi_ssaps surface
+title: "device_soc ws63v100 protocol layer deep-dive — device-side SLE host ships closed as libbth_gle.a; symbol surface reveals full SM/TM/DM/CM layering and the authoritative uapi_ssaps surface"
 language: en
 created: 2026-09-13
 tags: [ws63, gle, ssap, sm, security-manager, closed-source, symbol-surface, uapi, harvest]
 sources:
-  - url: https://github.com/openharmony/device_soc_hisilicon
-    note: protocol layer sparse-checked 2026-09-13 (20MB of 465MB repo); bt host layers are prebuilt archives; symbol tables extracted with nm (interop analysis of distributed artifacts)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

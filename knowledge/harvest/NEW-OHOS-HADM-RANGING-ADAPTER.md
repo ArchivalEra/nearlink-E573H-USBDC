@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, hadm, sle, ranging, channel-sounding, algorithm, ohos]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service (frameworks/ranging_alogorithm_adapter/)"
+  - ""/mnt/hdd/nearlink-stuff/communication_nearlink_service (frameworks/ranging_alogorithm_adapter/)""
 trust: A
 stale_after: 2027-03-15
 ---

@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, h3863, sle, lora, telemetry, xfusion]
 sources:
-  - "/mnt/hdd/nearlink-stuff/WildLinkClient"
-  - "/mnt/hdd/nearlink-stuff/WildLinkServer"
-  - "/mnt/hdd/nearlink-stuff/xfusion"
+  - ""/mnt/hdd/nearlink-stuff/WildLinkClient""
+  - ""/mnt/hdd/nearlink-stuff/WildLinkServer""
+  - ""/mnt/hdd/nearlink-stuff/xfusion""
 trust: B
 stale_after: 2027-03-15
 ---

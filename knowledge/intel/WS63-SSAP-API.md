@@ -1,9 +1,14 @@
 ---
 type: intel
-title: WS63 SDK SSAP API Cross-Validation (fbb_ws63)
+title: "WS63 SDK SSAP API Cross-Validation (fbb_ws63)"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, ssap, cross]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # WS63 SDK SSAP API Cross-Validation (fbb_ws63)

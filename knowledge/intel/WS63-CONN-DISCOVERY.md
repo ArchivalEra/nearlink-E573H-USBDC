@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS63 (HiSilicon SLE SDK) Connection Management & Device Discovery — Cross-Validation
+title: "WS63 (HiSilicon SLE SDK) Connection Management & Device Discovery — Cross-Validation"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, hisilicon, connection]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # WS63 (HiSilicon SLE SDK) Connection Management & Device Discovery — Cross-Validation

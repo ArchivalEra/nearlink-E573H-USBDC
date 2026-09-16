@@ -1,9 +1,14 @@
 ---
 type: intel
-title: OpenSparklink SSAP vs Our OHOS-based SSAP Stack — Opcode & Semantics Comparison
+title: "OpenSparklink SSAP vs Our OHOS-based SSAP Stack — Opcode & Semantics Comparison"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, opensparklink, ssap, ohos]
+sources:
+  - "/mnt/hdd/nearlink-stuff/sparklink"
+  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenSparklink SSAP vs Our OHOS-based SSAP Stack — Opcode & Semantics Comparison

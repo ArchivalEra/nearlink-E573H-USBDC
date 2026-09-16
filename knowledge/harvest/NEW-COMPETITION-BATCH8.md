@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, ws73, sdk-delta, mcs, sle, fusion]
 sources:
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/AIOT/11065_Sports_coach"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/16010_Hisilicon_WS63_Plateau_Water_Monitor"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15998_LAB_Assitant"
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/AIOT/11065_Sports_coach""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/16010_Hisilicon_WS63_Plateau_Water_Monitor""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15998_LAB_Assitant""
 trust: B
 stale_after: 2027-03-15
 ---

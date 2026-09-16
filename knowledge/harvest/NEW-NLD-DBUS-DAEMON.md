@@ -1,14 +1,11 @@
 ---
 type: harvest
-title: goodspeed1/Nld + nearlinkctl — a complete BlueZ-equivalent userspace for NearLink LE: D-Bus daemon with eRPC dongle adapters, local SSAP server tree, pairing agents, D-Bus firmware update
+title: "goodspeed1/Nld + nearlinkctl — a complete BlueZ-equivalent userspace for NearLink LE: D-Bus daemon with eRPC dongle adapters, local SSAP server tree, pairing agents, D-Bus firmware update"
 language: en
 created: 2026-09-13
 tags: [nearlink, sle, dbus, daemon, bluez-equivalent, erpc, ssap-server, firmware-update, dongle, harvest]
 sources:
-  - url: https://gitcode.com/goodspeed1/Nld
-    note: cloned 2026-09-13 from gitcode, pushed 2026-08-20, 4.0M, C++
-  - url: https://gitcode.com/goodspeed1/nearlinkctl
-    note: cloned 2026-09-13 from gitcode, pushed 2026-09-09, 312K, C (meson/GLib/readline)
+  - "/mnt/hdd/nearlink-stuff/Nld"
 trust: verified
 stale_after: 2026-12-13
 ---

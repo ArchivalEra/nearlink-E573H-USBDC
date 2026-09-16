@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: nearlink_service 67-commit follow-up — ReplayConnectedLink hardening (MTU replay, sync execution, dedup window, 165-line test) and a Taihe IDL for SSAP
+title: "nearlink_service 67-commit follow-up — ReplayConnectedLink hardening (MTU replay, sync execution, dedup window, 165-line test) and a Taihe IDL for SSAP"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, replay, mtu, taihe, idl, ani, arkts, follow-up, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: fast-forwarded 2026-09-13 (2ea5f65 → b6c6c48, 67 commits, 115 files +7215/-596, pushed 2026-09-12 — ALIVE and moving daily)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

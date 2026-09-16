@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: tethering OHOS integration — SA 1190 nearlink_service profile and the complete 28-interface IPC surface: SSAP, HADM ranging, ASC audio, TWS, VCP, HID host, cloud pair
+title: "tethering OHOS integration — SA 1190 nearlink_service profile and the complete 28-interface IPC surface: SSAP, HADM ranging, ASC audio, TWS, VCP, HID host, cloud pair"
 language: en
 created: 2026-09-13
 tags: [ohos, sa-profile, ipc, ssap, hadm, asc, audio, tws, vcp, hid, interface-map, harvest]
 sources:
-  - url: https://github.com/xingkaiyueying/tethering_nearlink
-    note: local clone (pushed 2026-09-11, current); read-only inspection of sa_profile/ and ipc_parcel/
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

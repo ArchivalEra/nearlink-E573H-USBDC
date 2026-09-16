@@ -1,9 +1,13 @@
 ---
 type: intel
-title: LinkNebula (AetherLink) — Rust no_std SLE Mesh Deep-Dive
+title: "LinkNebula (AetherLink) — Rust no_std SLE Mesh Deep-Dive"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, linknebula, aetherlink, rust]
+sources:
+  - "/mnt/hdd/nearlink-stuff/LinkNebula"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # LinkNebula (AetherLink) — Rust no_std SLE Mesh Deep-Dive

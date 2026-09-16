@@ -1,9 +1,13 @@
 ---
 type: intel
-title: WS63 WiFi Service Layer — Deep Dive (STA/AP, hostapd/wpa, WOW/CSA/TWT/BTCOEX/ALG, Tri-Mode Coexistence)
+title: "WS63 WiFi Service Layer — Deep Dive (STA/AP, hostapd/wpa, WOW/CSA/TWT/BTCOEX/ALG, Tri-Mode Coexistence)"
 language: en
 created: 2026-09-05
-tags: []
+tags: [intel, ws63, wifi, service]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # WS63 WiFi Service Layer — Deep Dive (STA/AP, hostapd/wpa, WOW/CSA/TWT/BTCOEX/ALG, Tri-Mode Coexistence)

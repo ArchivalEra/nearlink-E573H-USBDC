@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hispark-rs/hisi-rf-core — chip-neutral radio contracts with a credential-excluding allocation-free diagnostic schema (v2)
+title: "hispark-rs/hisi-rf-core — chip-neutral radio contracts with a credential-excluding allocation-free diagnostic schema (v2)"
 language: en
 created: 2026-09-13
 tags: [rust, contracts, traits, diagnostics, wifi-backend, smoltcp, embassy-net, harvest]
 sources:
-  - url: https://github.com/hispark-rs/hisi-rf-core
-    note: local clone (current); read-only inspection of README and src trait listing
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

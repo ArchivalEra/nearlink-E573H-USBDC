@@ -1,9 +1,13 @@
 ---
 type: intel
-title: 06 — Kernel Driver Skeleton: x86 Build Feasibility Assessment
+title: "06 — Kernel Driver Skeleton: x86 Build Feasibility Assessment"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, kernel, driver, skeleton]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # 06 — Kernel Driver Skeleton: x86 Build Feasibility Assessment

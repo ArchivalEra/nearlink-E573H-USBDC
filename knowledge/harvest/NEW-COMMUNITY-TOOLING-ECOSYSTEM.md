@@ -1,16 +1,11 @@
 ---
 type: harvest
-title: NearLink Open Source Community tooling — self-evolving CLAUDE.md working memory, MimiClaw pocket AI on WS63, and native Windows AT+RST flashing
+title: "NearLink Open Source Community tooling — self-evolving CLAUDE.md working memory, MimiClaw pocket AI on WS63, and native Windows AT+RST flashing"
 language: en
 created: 2026-09-13
 tags: [claude-md, working-memory, mimiclaw, ws63, windows-flashing, community, harvest]
 sources:
-  - url: https://gitcode.com/hinearlink/skills
-    note: cloned 2026-09-13 from gitcode, pushed 2026-05-07, 172K
-  - url: https://gitcode.com/hinearlink/starclaw
-    note: cloned 2026-09-13, pushed 2026-03-05, 1.5M
-  - url: https://gitcode.com/hinearlink/ws63flash-win
-    note: cloned 2026-09-13, pushed 2026-08-19, 9.0M
+  - "/mnt/hdd/nearlink-stuff/skills-nearlink"
 trust: verified
 stale_after: 2026-12-13
 ---

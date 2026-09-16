@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OpenHarmony NearLink HDI/HDF Driver Layer — Interface Shape and Relevance to Our WS73 Linux Driver
+title: "OpenHarmony NearLink HDI/HDF Driver Layer — Interface Shape and Relevance to Our WS73 Linux Driver"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, openharmony, nearlink, driver]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenHarmony NearLink HDI/HDF Driver Layer — Interface Shape and Relevance to Our WS73 Linux Driver

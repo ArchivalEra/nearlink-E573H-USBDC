@@ -1,9 +1,13 @@
 ---
 type: intel
-title: SLE Control Plane — 星闪宝子操作指南 (verified on hardware)
+title: "SLE Control Plane — 星闪宝子操作指南 (verified on hardware)"
 language: zh
 created: 2026-08-16
-tags: []
+tags: [intel, control, plane, verified]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # SLE Control Plane — 星闪宝子操作指南 (verified on hardware)

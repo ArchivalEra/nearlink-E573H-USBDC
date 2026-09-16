@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS DLI Layer -- Complete Dissection & Comparison with Our hwsle_transport
+title: "OHOS DLI Layer -- Complete Dissection & Comparison with Our hwsle_transport"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, ohos, layer, complete]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OHOS DLI Layer -- Complete Dissection & Comparison with Our hwsle_transport

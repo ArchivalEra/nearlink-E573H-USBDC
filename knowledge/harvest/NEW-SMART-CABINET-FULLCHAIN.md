@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: Sky05y/smart_cabinet — full-chain multi-node SLE reference (2 sensor nodes -> SLE center -> WiFi HTTP cloud -> web dashboard)
+title: "Sky05y/smart_cabinet — full-chain multi-node SLE reference (2 sensor nodes -> SLE center -> WiFi HTTP cloud -> web dashboard)"
 language: en
 created: 2026-09-13
 tags: [ws63, h3863, sle, multi-node, http, lwip, cloud, sensor, full-chain, harvest]
 sources:
-  - url: https://github.com/Sky05y/smart_cabinet
-    note: cloned 2026-09-13, pushed 2026-06-28 (~2.5 months quiet, not archived), 1.2GB full SDK tree with product code; bilibili demo video linked
+  - "/mnt/hdd/nearlink-stuff/smart_cabinet"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: tethering ohos-nearlinkControl — the official OHOS CLI for NearLink enable/disable with auto-connect policy parameters
+title: "tethering ohos-nearlinkControl — the official OHOS CLI for NearLink enable/disable with auto-connect policy parameters"
 language: en
 created: 2026-09-13
 tags: [ohos, cli, nearlink-control, auto-connect, policy, harvest]
 sources:
-  - url: https://gitcode.com/xingkaiyueying/tethering_nearlink
-    note: tools/ohos-nearlinkControl; local clone (current); read-only inspection of main.cpp (396 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

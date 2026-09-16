@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS ssapc_app.c — the client application layer: per-appId link state, async registration callbacks, and an interaction timeout knob
+title: "OHOS ssapc_app.c — the client application layer: per-appId link state, async registration callbacks, and an interaction timeout knob"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, client-app, appid, link-state, timeout, async, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at b6c6c48 (current); read-only inspection of ssapc_app.c (1305 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

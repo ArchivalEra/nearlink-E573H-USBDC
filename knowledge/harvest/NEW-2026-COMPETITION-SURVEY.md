@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: HiSpark 2026 embedded competition corpus survey — ~65 NearLink student projects (4.7G IOT + 1.8G AIOT); classification, chip census, and deep-dive queue
+title: "HiSpark 2026 embedded competition corpus survey — ~65 NearLink student projects (4.7G IOT + 1.8G AIOT); classification, chip census, and deep-dive queue"
 language: en
 created: 2026-09-13
 tags: [competition, ws63, ws63e, bs21e, survey, classification, corpus, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: cloned 2026-09-13 from gitcode (8.6G); pushed 2026-09-07 — ALIVE and actively receiving submissions
+  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition"
 trust: verified
 stale_after: 2026-12-13
 ---

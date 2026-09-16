@@ -1,9 +1,13 @@
 ---
 type: intel
-title: SSAP Dialect Comparison: OHOS host-stack vs HiSilicon BS21/WS73 firmware
+title: "SSAP Dialect Comparison: OHOS host-stack vs HiSilicon BS21/WS73 firmware"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, ssap, dialect, comparison]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # SSAP Dialect Comparison: OHOS host-stack vs HiSilicon BS21/WS73 firmware

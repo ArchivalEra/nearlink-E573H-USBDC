@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: BH4ME/sle_mesh_new — most mature public SLE team-mesh engineering tree (v4.5.56): portable packet core, relay optimizer, on-board Web API, release evidence chain
+title: "BH4ME/sle_mesh_new — most mature public SLE team-mesh engineering tree (v4.5.56): portable packet core, relay optimizer, on-board Web API, release evidence chain"
 language: en
 created: 2026-09-13
 tags: [ws63, sle, mesh, relay, packet-format, web-api, flashing, release-engineering, harvest]
 sources:
-  - url: https://github.com/BH4ME/sle_mesh_new
-    note: cloned 2026-09-13, pushed 2026-06-18 (fresh, not archived), 33MB; hardware/ and cad/ directories excluded per standing rule
+  - "/mnt/hdd/nearlink-stuff/sle_mesh_new"
 trust: verified
 stale_after: 2026-12-13
 ---

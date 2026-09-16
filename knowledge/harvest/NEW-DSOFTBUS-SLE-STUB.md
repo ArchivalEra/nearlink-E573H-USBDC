@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)
+title: "openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)"
 language: en
 created: 2026-09-13
 tags: [ohos, dsoftbus, sle, slb, stub, capability-ledger, coexistence, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_dsoftbus
-    note: metadata clone + sparse checkout 2026-09-13 of core/connection/sle, bus_center adapter, net-ledger SLE files, kit adapter structs; pushed recently (upstream master), ~46MB repo
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

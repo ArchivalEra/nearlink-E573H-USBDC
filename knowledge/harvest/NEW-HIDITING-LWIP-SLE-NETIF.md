@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hs-fbb src map — interim_binary holds the closed SLE stack, wearable apps are open, and lwip ships an IP-over-SLE virtual netif (lwip_sle_adapter.c)
+title: "hs-fbb src map — interim_binary holds the closed SLE stack, wearable apps are open, and lwip ships an IP-over-SLE virtual netif (lwip_sle_adapter.c)"
 language: en
 created: 2026-09-13
 tags: [hiditing, lwip, ip-over-sle, netif, open-closed-map, wearable, interim-binary, harvest]
 sources:
-  - url: https://github.com/elfbobo/hs-fbb
-    note: metadata tree analysis 2026-09-13 (10,020 .c files inventoried); lwip_sle_adapter.c fetched via raw (434 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

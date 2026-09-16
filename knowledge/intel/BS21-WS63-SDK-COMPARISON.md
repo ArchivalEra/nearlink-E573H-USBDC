@@ -1,9 +1,13 @@
 ---
 type: intel
-title: BS21/WS63 SDK vs OHOS — SSAP Dialect Comparison
+title: "BS21/WS63 SDK vs OHOS — SSAP Dialect Comparison"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, bs21, ws63, ohos]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # BS21/WS63 SDK vs OHOS — SSAP Dialect Comparison

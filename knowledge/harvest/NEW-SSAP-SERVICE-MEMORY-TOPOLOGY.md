@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS ssaps_service_param.c — the SSAP_Service_S memory topology confirmed in destructors: properties, references, methods, events, descriptors as owned vectors
+title: "OHOS ssaps_service_param.c — the SSAP_Service_S memory topology confirmed in destructors: properties, references, methods, events, descriptors as owned vectors"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, memory-topology, service-struct, methods, events, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at b6c6c48 (current); read-only inspection of ssaps_service_param.c (291 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

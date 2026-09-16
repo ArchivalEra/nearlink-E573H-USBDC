@@ -1,9 +1,13 @@
 ---
 type: intel
-title: Alternative NearLink/SparkLink/SLE Implementations (beyond OHOS & HiSilicon)
+title: "Alternative NearLink/SparkLink/SLE Implementations (beyond OHOS & HiSilicon)"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, alternative, nearlink, sparklink]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # Alternative NearLink/SparkLink/SLE Implementations (beyond OHOS & HiSilicon)

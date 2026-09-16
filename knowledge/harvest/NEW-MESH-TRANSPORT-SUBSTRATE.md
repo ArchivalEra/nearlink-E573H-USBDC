@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: AIGC mesh transport substrate — dual-role connection pool with chip-limited 1-server+4-client capacity and a ring-buffer dedup cache for forwarding
+title: "AIGC mesh transport substrate — dual-role connection pool with chip-limited 1-server+4-client capacity and a ring-buffer dedup cache for forwarding"
 language: en
 created: 2026-09-13
 tags: [ws63e, mesh, connection-pool, capacity, dedup, ring-buffer, forwarding, harvest]
 sources:
-  - url: https://github.com/leion-kk/WS63E-NearLink-Mesh-AIGC-Frame
-    note: local clone (pushed 2026-07-08, current); read-only inspection of mesh/network/{mesh_transport,mesh_forward}.{c,h}
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

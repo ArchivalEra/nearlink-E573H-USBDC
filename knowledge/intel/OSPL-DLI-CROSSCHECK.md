@@ -1,9 +1,14 @@
 ---
 type: intel
-title: OpenSparklink ↔ WS73 DLI Dialect Cross-check
+title: "OpenSparklink ↔ WS73 DLI Dialect Cross-check"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, opensparklink, ws73, dialect]
+sources:
+  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
+  - "/mnt/hdd/nearlink-stuff/sparklink"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenSparklink ↔ WS73 DLI Dialect Cross-check

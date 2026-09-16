@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS NearLink SA 1190 + Services Layer — Structure, Stack Integration, and TV-box Porting Assessment
+title: "OHOS NearLink SA 1190 + Services Layer — Structure, Stack Integration, and TV-box Porting Assessment"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ohos, nearlink, services]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OHOS NearLink SA 1190 + Services Layer — Structure, Stack Integration, and TV-box Porting Assessment

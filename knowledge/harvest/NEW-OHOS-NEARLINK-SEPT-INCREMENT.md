@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OpenHarmony communication_nearlink_service September Increment (544 commits, 2026-08-14 to 2026-09-11)
+title: "OpenHarmony communication_nearlink_service September Increment (544 commits, 2026-08-14 to 2026-09-11)"
 language: en
 created: 2026-09-13
 tags: [ohos, nearlink, ssap, dtap, dli, frame4, fuzzer, memory-safety, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: pulled 2026-09-13, local fast-forward 7287d1c(2026-08-14) to 2ea5f65(2026-09-11), Apache-2.0
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

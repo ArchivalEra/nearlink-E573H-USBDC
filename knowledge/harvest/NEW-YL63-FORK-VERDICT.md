@@ -1,14 +1,11 @@
 ---
 type: harvest
-title: yanlinkos/fbb_ws63 fork verdict — YL63 vendor SDK restructure with official AT Command and Boot API docs (sparse-adopted)
+title: "yanlinkos/fbb_ws63 fork verdict — YL63 vendor SDK restructure with official AT Command and Boot API docs (sparse-adopted)"
 language: en
 created: 2026-09-13
 tags: [ws63, yl63, at-commands, vendor-sdk, fork-diff, ble, sle, harvest]
 sources:
-  - url: https://github.com/yanlinkos/fbb_ws63
-    note: metadata-only clone (blob:none, no-checkout) 2026-09-13; pushed 2026-08-28 (fresh, not archived); 472MB full tree
-  - url: docs/en_US/software/AT Command User Guide/AT Command User Guide.md
-    note: sparse-checked 636K docs + 48K ci from local metadata clone at /mnt/hdd/nearlink-stuff/fbb_ws63-yanlinkos
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

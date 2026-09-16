@@ -1,9 +1,14 @@
 ---
 type: harvest
-title: New SLE UART Variants: `sle_uart` vs `Hi3863-SLE-2025`
+title: "New SLE UART Variants: `sle_uart` vs `Hi3863-SLE-2025`"
 language: en
 created: 2026-09-12
-tags: []
+tags: [harvest, uart, variants, hi3863]
+sources:
+  - "/mnt/hdd/nearlink-stuff/sle_uart"
+  - "/mnt/hdd/nearlink-stuff/Hi3863-SLE-2025"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # New SLE UART Variants: `sle_uart` vs `Hi3863-SLE-2025`

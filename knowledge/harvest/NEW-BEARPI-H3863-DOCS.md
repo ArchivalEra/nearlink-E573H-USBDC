@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: MakeBlackSheepGreat/BearPi-Pico-H3863 — the missing manual for the WS63E/H3863 sample family (sparse-adopted docs)
+title: "MakeBlackSheepGreat/BearPi-Pico-H3863 — the missing manual for the WS63E/H3863 sample family (sparse-adopted docs)"
 language: en
 created: 2026-09-13
 tags: [h3863, ws63, bearpi, sle-uart, sle-gateway, sle-1-to-8, docs, tutorial, harvest]
 sources:
-  - url: https://github.com/MakeBlackSheepGreat/BearPi-Pico-H3863
-    note: metadata clone + sparse checkout docs/communication+getting-started+peripherals (160K) 2026-09-13; pushed 2026-06-14, not archived
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

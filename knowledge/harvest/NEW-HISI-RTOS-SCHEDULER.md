@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hispark-rs/hisi-rtos — a no_std Rust scheduler for HiSilicon: three run policies, 272-byte unified trap frame, deferred preemption, capability-gated porting
+title: "hispark-rs/hisi-rtos — a no_std Rust scheduler for HiSilicon: three run policies, 272-byte unified trap frame, deferred preemption, capability-gated porting"
 language: en
 created: 2026-09-13
 tags: [rust, no-std, rtos, scheduler, preemption, trap-frame, budgeted, hisilicon, harvest]
 sources:
-  - url: https://github.com/hispark-rs/hisi-rtos
-    note: local clone (pushed 2026-09-10, freshest hispark-rs subrepo); read-only inspection of README and src layout
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: SLE Mesh ePaper — Multi-hop SLE Mesh Design Deep-Dive
+title: "SLE Mesh ePaper — Multi-hop SLE Mesh Design Deep-Dive"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, mesh, epaper, multi]
+sources:
+  - "/mnt/hdd/nearlink-stuff/NearLink-Mesh-ePaper"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # SLE Mesh ePaper — Multi-hop SLE Mesh Design Deep-Dive

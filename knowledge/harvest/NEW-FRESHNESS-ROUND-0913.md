@@ -1,14 +1,11 @@
 ---
 type: harvest
-title: Freshness round — uwb-like-ranging refines its Technical Boundary; sle_mesh family naming clarified; a SparkLink-named TCP chat skipped
+title: "Freshness round — uwb-like-ranging refines its Technical Boundary; sle_mesh family naming clarified; a SparkLink-named TCP chat skipped"
 language: en
 created: 2026-09-13
 tags: [freshness, boundary, sle-mesh, name-squat, tcp, harvest]
 sources:
-  - url: https://github.com/zhuzhengyan50-spec/nearlink-uwb-like-ranging
-    note: pulled 2026-09-13, commit 5d6382a "docs: improve project presentation and technical boundaries"
-  - url: https://github.com/seantran-dev/SparkLink
-    note: inspected via raw fetch 2026-09-13, pushed 2026-09-13, Python
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

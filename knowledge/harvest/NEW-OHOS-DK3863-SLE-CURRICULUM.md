@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: openharmony/vendor_hihope nearlink_dk_3863 — official OHOS NearLink DK SLE curriculum (5 application samples over the UART skeleton)
+title: "openharmony/vendor_hihope nearlink_dk_3863 — official OHOS NearLink DK SLE curriculum (5 application samples over the UART skeleton)"
 language: en
 created: 2026-09-13
 tags: [ohos, h3863, ws63, dk-3863, sle, samples, pairing, ohos-build, harvest]
 sources:
-  - url: https://github.com/openharmony/vendor_hihope
-    note: full clone 2026-09-13; pushed 2026-09-12 (freshest repo of the session, not archived); 12MB; nearlink_dk_3863/ws63_sample = 28-sample curriculum
+  - "/mnt/hdd/nearlink-stuff/vendor_hihope"
 trust: verified
 stale_after: 2026-12-13
 ---

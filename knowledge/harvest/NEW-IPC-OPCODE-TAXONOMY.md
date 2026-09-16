@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS NearLink IPC opcode taxonomy — CALL_METHOD closes the object-model loop; coex parameter and VCP volume ride the same surface
+title: "OHOS NearLink IPC opcode taxonomy — CALL_METHOD closes the object-model loop; coex parameter and VCP volume ride the same surface"
 language: en
 created: 2026-09-13
 tags: [ohos, ipc, opcode, call-method, object-model, coex, vcp, harvest]
 sources:
-  - url: https://github.com/xingkaiyueying/tethering_nearlink
-    note: local clone (pushed 2026-09-11, current); read-only inspection of nearlink_service_ipc_interface_code.h (387 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

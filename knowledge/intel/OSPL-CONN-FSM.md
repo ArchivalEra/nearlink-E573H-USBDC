@@ -1,9 +1,14 @@
 ---
 type: intel
-title: OpenSparklink Connection FSM vs Our ssap_link FSM
+title: "OpenSparklink Connection FSM vs Our ssap_link FSM"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, opensparklink, connection, ssap]
+sources:
+  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
+  - "/mnt/hdd/nearlink-stuff/sparklink"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenSparklink Connection FSM vs Our ssap_link FSM

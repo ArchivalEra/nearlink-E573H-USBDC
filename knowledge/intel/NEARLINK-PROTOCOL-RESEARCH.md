@@ -1,9 +1,13 @@
 ---
 type: intel
-title: NearLink Protocol Research (SSAP / Connection / Data Plane / Ranging)
+title: "NearLink Protocol Research (SSAP / Connection / Data Plane / Ranging)"
 language: zh
 created: 2026-08-16
-tags: []
+tags: [intel, nearlink, protocol, research]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # NearLink Protocol Research (SSAP / Connection / Data Plane / Ranging)

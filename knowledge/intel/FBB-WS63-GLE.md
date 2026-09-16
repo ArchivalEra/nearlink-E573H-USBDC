@@ -1,9 +1,13 @@
 ---
 type: intel
-title: FBB-WS63 GLE (Generic Link Engine) Analysis
+title: "FBB-WS63 GLE (Generic Link Engine) Analysis"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, generic, link]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # FBB-WS63 GLE (Generic Link Engine) Analysis

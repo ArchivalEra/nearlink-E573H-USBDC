@@ -1,9 +1,14 @@
 ---
 type: intel
-title: OpenSparklink Host-Kernel ABI Contract — Reference Digest
+title: "OpenSparklink Host-Kernel ABI Contract — Reference Digest"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, opensparklink, host, kernel]
+sources:
+  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
+  - "/mnt/hdd/nearlink-stuff/sparklink"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenSparklink Host-Kernel ABI Contract — Reference Digest

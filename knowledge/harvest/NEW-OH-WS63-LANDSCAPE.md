@@ -1,14 +1,11 @@
 ---
 type: harvest
-title: OH-on-WS63 project landscape — hbu teaching case set (restrictive license) and a stub OH SDK repo; gitee/gitcode OH coverage is thin
+title: "OH-on-WS63 project landscape — hbu teaching case set (restrictive license) and a stub OH SDK repo; gitee/gitcode OH coverage is thin"
 language: en
 created: 2026-09-13
 tags: [openharmony, ws63, hi3863, teaching, license, stub, harvest]
 sources:
-  - url: https://gitcode.com/hbu-dragon/openharmony-nearlink-ws63-cases
-    note: cloned 2026-09-13, pushed 2025-01-21, 124M
-  - url: https://gitcode.com/hinearlink/nearlink_oh_ws63
-    note: cloned 2026-09-13, pushed 2026-01-13, 132K (README-only stub)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition — WS63E electric-safety system: one-master-two-slave SLE star with WiFi/MQTT cloud egress
+title: "2026 competition — WS63E electric-safety system: one-master-two-slave SLE star with WiFi/MQTT cloud egress"
 language: en
 created: 2026-09-13
 tags: [ws63e, sle, star-topology, mqtt, safety, three-board, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/16781_WS63E_Electric_Safety_Control_System; cloned 2026-09-13, pushed 2026-09-07; full SDK tree (1244 C files)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

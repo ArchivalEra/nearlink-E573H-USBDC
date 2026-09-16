@@ -1,9 +1,14 @@
 ---
 type: intel
-title: HHD-01 星闪开发板开箱即跑手册（Research Notes）
+title: "HHD-01 星闪开发板开箱即跑手册（Research Notes）"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, research, notes]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "/mnt/hdd/nearlink-stuff/HopeRun-NearLink"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # HHD-01 星闪开发板开箱即跑手册（Research Notes）

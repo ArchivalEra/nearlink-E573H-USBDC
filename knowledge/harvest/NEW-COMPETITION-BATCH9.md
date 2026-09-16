@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, radar, tinml, channel-sounding, trilateration, bs21e]
 sources:
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17513_Fall-Detection"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18007_基于WS63的无摄像头的跌倒检测系统"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18600_SLE_Indoor_Locate"
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17513_Fall-Detection""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18007_基于WS63的无摄像头的跌倒检测系统""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18600_SLE_Indoor_Locate""
 trust: B
 stale_after: 2027-03-15
 ---

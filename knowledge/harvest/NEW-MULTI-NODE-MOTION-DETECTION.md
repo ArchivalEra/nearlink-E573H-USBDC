@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition — distributed multi-node human motion detection: BNO085/BMI270 wearables over WiFi bridge with SlimeVR protocol and CD4052 UART multiplexing
+title: "2026 competition — distributed multi-node human motion detection: BNO085/BMI270 wearables over WiFi bridge with SlimeVR protocol and CD4052 UART multiplexing"
 language: en
 created: 2026-09-13
 tags: [ws63, h3863, bno085, bmi270, slimevr, motion-capture, bridge, uart-mux, competition, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/24897_WS63_Distributed_Multi-Node_HumanMotionDetectionSystem; cloned 2026-09-13, pushed 2026-09-07
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

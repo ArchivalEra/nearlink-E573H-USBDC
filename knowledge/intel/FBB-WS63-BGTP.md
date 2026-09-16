@@ -1,9 +1,13 @@
 ---
 type: intel
-title: FBB WS63 BGTP -- Chip-side Bluetooth/SLE Controller Firmware
+title: "FBB WS63 BGTP -- Chip-side Bluetooth/SLE Controller Firmware"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, bgtp, chip]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # FBB WS63 BGTP -- Chip-side Bluetooth/SLE Controller Firmware

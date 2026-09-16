@@ -1,9 +1,14 @@
 ---
 type: intel
-title: WS63/WS63E Radar — Capability Assessment for TV-Box
+title: "WS63/WS63E Radar — Capability Assessment for TV-Box"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, ws63e, radar]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "/mnt/hdd/nearlink-stuff/HopeRun-NearLink"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # WS63/WS63E Radar — Capability Assessment for TV-Box

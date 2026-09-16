@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OpenSparklink PHY / QoS / Advertising / Security / Ranging — Gap Analysis for WS73 Host Stack
+title: "OpenSparklink PHY / QoS / Advertising / Security / Ranging — Gap Analysis for WS73 Host Stack"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, opensparklink, advertising, security]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenSparklink PHY / QoS / Advertising / Security / Ranging — Gap Analysis for WS73 Host Stack

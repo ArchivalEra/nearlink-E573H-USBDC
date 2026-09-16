@@ -1,9 +1,13 @@
 ---
 type: intel
-title: 师傅编译资料清单 — WS73 星闪驱动 (hi3798 老盒, aarch64)
+title: "师傅编译资料清单 — WS73 星闪驱动 (hi3798 老盒, aarch64)"
 language: zh
 created: 2026-08-15
-tags: []
+tags: [intel, ws73, hi3798, aarch64]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # 师傅编译资料清单 — WS73 星闪驱动 (hi3798 老盒, aarch64)

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: BLE + WiFi Userland Stacks — Research (ticket 10 input)
+title: "BLE + WiFi Userland Stacks — Research (ticket 10 input)"
 language: zh
 created: 2026-08-15
-tags: []
+tags: [intel, wifi, userland, stacks]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # BLE + WiFi Userland Stacks — Research (ticket 10 input)

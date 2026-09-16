@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OHOS DTAP Layer Deep Dive — Data Plane Reference for WS73 Host Stack
+title: "OHOS DTAP Layer Deep Dive — Data Plane Reference for WS73 Host Stack"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, ohos, dtap, layer]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # OHOS DTAP Layer Deep Dive — Data Plane Reference for WS73 Host Stack

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: USB Protocol Intel: HCC over USB (WS73 `ffff:3733`)
+title: "USB Protocol Intel: HCC over USB (WS73 `ffff:3733`)"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, protocol, ws73]
+sources:
+  - "knowledge/intel/01-firmware-handshake-spec.md"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # USB Protocol Intel: HCC over USB (WS73 `ffff:3733`)

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: PERF-WIFI-THROUGHPUT — WiFi Throughput Bottlenecks for TV-Box Tri-Mode (WS73)
+title: "PERF-WIFI-THROUGHPUT — WiFi Throughput Bottlenecks for TV-Box Tri-Mode (WS73)"
 language: en
 created: 2026-09-05
-tags: []
+tags: [intel, perf, wifi, throughput]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # PERF-WIFI-THROUGHPUT — WiFi Throughput Bottlenecks for TV-Box Tri-Mode (WS73)

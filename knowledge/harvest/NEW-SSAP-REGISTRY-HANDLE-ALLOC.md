@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS SSAP service registry + handle range allocator — cache-based registration, remove-by-handle-range, and a splitting block allocator for 16-bit handles
+title: "OHOS SSAP service registry + handle range allocator — cache-based registration, remove-by-handle-range, and a splitting block allocator for 16-bit handles"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, service-registry, handle-allocation, range-block, gatt-handles, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at b6c6c48 (current); read-only inspection of ssaps_service.{c,h}, ssaps_service_param.c, ssap_handle.c
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

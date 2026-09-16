@@ -1,9 +1,14 @@
 ---
 type: harvest
-title: NEW: sle_mesh v4.4.x Delta + fbb_bs2x_rust (Rust-in-Firmware Precedent)
+title: "NEW: sle_mesh v4.4.x Delta + fbb_bs2x_rust (Rust-in-Firmware Precedent)"
 language: zh
 created: 2026-09-05
-tags: []
+tags: [harvest, mesh, delta, bs2x]
+sources:
+  - "/mnt/hdd/nearlink-stuff/sle_mesh"
+  - "/mnt/hdd/nearlink-stuff/fbb_bs2x_rust"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # NEW: sle_mesh v4.4.x Delta + fbb_bs2x_rust (Rust-in-Firmware Precedent)

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: OpenHarmony SSAP 客户端解剖（ssapc_*）
+title: "OpenHarmony SSAP 客户端解剖（ssapc_*）"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, openharmony, ssap, ssapc]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # OpenHarmony SSAP 客户端解剖（ssapc_*）

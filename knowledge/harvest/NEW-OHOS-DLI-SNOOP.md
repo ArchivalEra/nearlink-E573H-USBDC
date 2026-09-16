@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, ohos, dli, snoop, opcode, privacy, analyzer]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service (services/hardware/src/SleDliSnoop.cpp, services/stack/src/dli/interface/dli_opcode.h)"
+  - ""/mnt/hdd/nearlink-stuff/communication_nearlink_service (services/hardware/src/SleDliSnoop.cpp, services/stack/src/dli/interface/dli_opcode.h)""
 trust: A
 stale_after: 2027-03-15
 ---

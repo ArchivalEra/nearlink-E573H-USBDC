@@ -1,9 +1,13 @@
 ---
 type: intel
-title: NearLink SLE Standard — Public Research Summary
+title: "NearLink SLE Standard — Public Research Summary"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, nearlink, standard, public]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # NearLink SLE Standard — Public Research Summary

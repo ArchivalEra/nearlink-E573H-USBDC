@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hispark-rs/hisi-rf — the thin facade completing the five-layer chain; named profiles include wpa3-smoltcp
+title: "hispark-rs/hisi-rf — the thin facade completing the five-layer chain; named profiles include wpa3-smoltcp"
 language: en
 created: 2026-09-13
 tags: [rust, facade, wpa3, profile, feature-flags, harvest]
 sources:
-  - url: https://github.com/hispark-rs/hisi-rf
-    note: local clone (current); read-only inspection of README and src
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

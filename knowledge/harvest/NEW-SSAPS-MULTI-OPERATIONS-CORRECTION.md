@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS ssaps_server write/read families — multi-READ and multi-WRITE CONFIRMED (correction of an earlier miss); multi-processing negotiated at MTU exchange
+title: "OHOS ssaps_server write/read families — multi-READ and multi-WRITE CONFIRMED (correction of an earlier miss); multi-processing negotiated at MTU exchange"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, multi-read, multi-write, correction, mtu-exchange, validation-loop, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at 2ea5f65 (current); read-only inspection of ssaps_server_write.c (940 lines) and ssaps_server.c read paths
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

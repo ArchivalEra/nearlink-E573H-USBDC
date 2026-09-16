@@ -1,9 +1,13 @@
 ---
 type: intel
-title: Device Intel: `ffff:3733` ("00000000")
+title: "Device Intel: `ffff:3733` ('00000000')"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, device, ffff]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # Device Intel: `ffff:3733` ("00000000")

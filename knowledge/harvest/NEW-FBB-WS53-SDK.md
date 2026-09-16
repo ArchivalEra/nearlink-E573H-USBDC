@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples
+title: "HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples"
 language: en
 created: 2026-09-13
 tags: [ws53, vendor-sdk, fbb, sle, chba, conn-param-tuning, combo-soc, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/fbb_ws53
-    note: cloned 2026-09-13 from gitcode, HEAD 2025-03-13, 536M
+  - "/mnt/hdd/nearlink-stuff/fbb_ws53"
 trust: verified
 stale_after: 2027-03-13
 ---

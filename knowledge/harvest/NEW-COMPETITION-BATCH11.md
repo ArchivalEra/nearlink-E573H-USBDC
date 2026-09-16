@@ -5,13 +5,13 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, sweep, glasses, radar, sle]
 sources:
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17183_Smart_glasses_platform"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17316_Smart_Lamp_System_for_Epileptic_Patients"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/16781_WS63E_Electric_Safety_Control_System"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/16946_WS63_Based_Smart_Eldercare_Home_Environment_Guardian_System"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17725_WS63_Smart_Car_Collaborative_Workstation_Material_Transport_System"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18459_WS63_CarControl"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18026_TennisPalBot"
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17183_Smart_glasses_platform""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17316_Smart_Lamp_System_for_Epileptic_Patients""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/16781_WS63E_Electric_Safety_Control_System""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/16946_WS63_Based_Smart_Eldercare_Home_Environment_Guardian_System""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17725_WS63_Smart_Car_Collaborative_Workstation_Material_Transport_System""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18459_WS63_CarControl""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18026_TennisPalBot""
 trust: B
 stale_after: 2027-03-15
 ---

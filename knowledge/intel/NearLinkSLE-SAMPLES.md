@@ -1,9 +1,13 @@
 ---
 type: intel
-title: NearLinkSLE Community Samples -- Deep Dive
+title: "NearLinkSLE Community Samples -- Deep Dive"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, nearlinksle, community, samples]
+sources:
+  - "/mnt/hdd/nearlink-stuff/NearLinkSLE"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # NearLinkSLE Community Samples -- Deep Dive

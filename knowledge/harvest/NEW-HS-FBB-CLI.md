@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: HiSpark/hs-fbb-cli — official fbb framework CLI with an explicit AI-agent contract: mechanism/policy split and a one-call JSON situational probe
+title: "HiSpark/hs-fbb-cli — official fbb framework CLI with an explicit AI-agent contract: mechanism/policy split and a one-call JSON situational probe"
 language: en
 created: 2026-09-13
 tags: [cli, fbb, ai-agents, mechanism-policy, json-contract, sdk-autodetect, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/hs-fbb-cli
-    note: cloned 2026-09-13 from gitcode, pushed 2026-06-24, 2.9M Python (uv-packaged, tests included)
+  - "/mnt/hdd/nearlink-stuff/hs-fbb-cli"
 trust: verified
 stale_after: 2026-12-13
 ---

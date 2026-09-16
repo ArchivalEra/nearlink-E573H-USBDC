@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: openharmony/device_soc_hisilicon — OHOS-vendored WS63 SDK (fresh, API-identical SLE headers, HAL glue; sparse-adopted)
+title: "openharmony/device_soc_hisilicon — OHOS-vendored WS63 SDK (fresh, API-identical SLE headers, HAL glue; sparse-adopted)"
 language: en
 created: 2026-09-13
 tags: [ohos, ws63, ws63v100, sdk, api-parity, hal, adapter, harvest]
 sources:
-  - url: https://github.com/openharmony/device_soc_hisilicon
-    note: metadata-only clone (blob:none, no-checkout) 2026-09-13; pushed 2026-09-09 (fresh, not archived); 465MB full tree; sparse-checked 3.9M (sdk/include + adapter + samples)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

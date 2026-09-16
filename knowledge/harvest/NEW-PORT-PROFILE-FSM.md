@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: tethering port_stm.h — the Port Profile connection FSM: eight states from IDLE to CONNECTED via SSAP service discovery and network set
+title: "tethering port_stm.h — the Port Profile connection FSM: eight states from IDLE to CONNECTED via SSAP service discovery and network set"
 language: en
 created: 2026-09-13
 tags: [sle, port-profile, state-machine, ssap, fsm, tethering, harvest]
 sources:
-  - url: https://github.com/xingkaiyueying/tethering_nearlink
-    note: local clone (pushed 2026-09-11, current); read-only inspection of port_stm.h
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: nearlink-uwb-like-ranging parse_iq_raw.py — a 21-feature IQ signal-analysis schema (time/constellation/frequency/quality/statistics) over the COLLECT stream
+title: "nearlink-uwb-like-ranging parse_iq_raw.py — a 21-feature IQ signal-analysis schema (time/constellation/frequency/quality/statistics) over the COLLECT stream"
 language: en
 created: 2026-09-13
 tags: [iq, features, channel-sounding, zero-crossing, papr, snr, stream-parser, harvest]
 sources:
-  - url: https://github.com/zhuzhengyan50-spec/nearlink-uwb-like-ranging
-    note: local clone (current, upstream 2026-09-12); read-only inspection of host/parse_iq_raw.py (690 lines)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

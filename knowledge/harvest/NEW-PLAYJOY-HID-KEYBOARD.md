@@ -1,14 +1,13 @@
 ---
 type: harvest
-title: Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)
+title: "Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)"
 language: en
 created: 2026-09-12
 tags: [playjoy, hid, vendor-protocol, rust, harvest]
 sources:
-  - url: https://github.com/iainbrux/keyboard-cli
-    note: cloned 2026-09-12, single commit 2026-09-07, Apache-2.0 + MIT vendored TS
-  - url: https://www.npmjs.com/package/@sparklinkplayjoy/protocol-keyboard
-    note: MIT TS protocol source vendored at research/proto, 1.0.7
+  - "/mnt/hdd/nearlink-stuff/keyboard-cli"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)

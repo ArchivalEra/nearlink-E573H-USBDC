@@ -1,12 +1,13 @@
 ---
 type: harvest
-title: hispark-rs September Increment (alpha.26 FRW ABI, NET0 RX lifecycle, fwpkg 0.3.3)
+title: "hispark-rs September Increment (alpha.26 FRW ABI, NET0 RX lifecycle, fwpkg 0.3.3)"
 language: en
 created: 2026-09-12
 tags: [hispark-rs, rust, ws63, abi, harvest]
 sources:
-  - url: https://github.com/hispark-rs
-    note: 7 subrepos pulled 2026-09-12; local snapshot was 2026-09-01
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # hispark-rs September Increment (2026-09-01 → 2026-09-10)

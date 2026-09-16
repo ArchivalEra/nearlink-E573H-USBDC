@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: sle_mesh_new CLI — the team-mesh operator surface: join/leave/pairing-approval/allowlist plus telemetry injection commands
+title: "sle_mesh_new CLI — the team-mesh operator surface: join/leave/pairing-approval/allowlist plus telemetry injection commands"
 language: en
 created: 2026-09-13
 tags: [sle, mesh, cli, pairing, allowlist, team, operator, harvest]
 sources:
-  - url: https://github.com/BH4ME/sle_mesh_new
-    note: src/sle_team_cli.c (469 lines); local clone (current)
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

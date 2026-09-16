@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: OHOS SSAP servm module map — 9,601 lines server+client with a peer service cache and client link SM; the reference architecture for our stack build-out
+title: "OHOS SSAP servm module map — 9,601 lines server+client with a peer service cache and client link SM; the reference architecture for our stack build-out"
 language: en
 created: 2026-09-13
 tags: [ohos, ssap, module-map, server, client, cache, link-sm, architecture, harvest]
 sources:
-  - url: https://github.com/openharmony/communication_nearlink_service
-    note: local clone at 2ea5f65 (current); read-only module enumeration of services/stack/src/cp/bsl/sle/servm/ssap/
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

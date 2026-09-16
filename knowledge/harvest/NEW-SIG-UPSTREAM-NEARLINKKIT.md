@@ -1,14 +1,11 @@
 ---
 type: harvest
-title: openharmony-sig/communication_nearlink is the tethering upstream; @kit.NearLinkKit is the official ArkTS surface (scan/ssap/dataTransfer)
+title: "openharmony-sig/communication_nearlink is the tethering upstream; @kit.NearLinkKit is the official ArkTS surface (scan/ssap/dataTransfer)"
 language: en
 created: 2026-09-13
 tags: [ohos, sig, nearlink-kit, arkts, ssap, upstream, attribution, harvest]
 sources:
-  - url: https://gitcode.com/openharmony-sig/communication_nearlink
-    note: cloned 2026-09-13 from gitcode, 23M; pushed 2026-07-07
-  - url: https://gitcode.com/HarmonyOS_Samples/nearlink-kit_-sample-code
-    note: cloned 2026-09-13 from gitcode, pushed 2025-10-23, 1.4M ArkTS
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink"
 trust: verified
 stale_after: 2026-12-13
 ---

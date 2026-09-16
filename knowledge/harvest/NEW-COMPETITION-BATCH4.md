@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, ws63, sle, mesh, gateway, pairing, dag]
 sources:
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15239_Sparksafe"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15792_WS63_Health_Monitor"
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17966_Smart_Helmet"
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15239_Sparksafe""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15792_WS63_Health_Monitor""
+  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17966_Smart_Helmet""
 trust: B
 stale_after: 2027-03-15
 ---

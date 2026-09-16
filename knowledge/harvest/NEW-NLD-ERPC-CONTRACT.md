@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, nld, erpc, ssap, dongle, contract]
 sources:
-  - "/mnt/hdd/nearlink-stuff/Nld/erpc_gen/bs2x/*.hpp"
+  - ""/mnt/hdd/nearlink-stuff/Nld/erpc_gen/bs2x/*.hpp""
 trust: A
 stale_after: 2027-03-15
 ---

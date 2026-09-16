@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment
+title: "Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment"
 language: en
 created: 2026-09-05
-tags: []
+tags: [harvest, note, hisilicon, nearlink]
+sources:
+  - "/mnt/hdd/nearlink-stuff/HiSilicon_Nearlink_assessment_2025"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment

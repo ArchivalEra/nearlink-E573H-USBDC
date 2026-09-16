@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition — XingYu sign-language glove: dual IMU + flex sensors over SLE to an OrangePi edge-AI translation server (~1s to speech)
+title: "2026 competition — XingYu sign-language glove: dual IMU + flex sensors over SLE to an OrangePi edge-AI translation server (~1s to speech)"
 language: en
 created: 2026-09-13
 tags: [ws63, sle, wearable, sign-language, edge-ai, flex-sensor, jy901p, orangepi, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/18384_WS63_XingYu_SLE_SignLanguage_Glove; cloned 2026-09-13, pushed 2026-09-07; HiSpark 最佳应用奖参选
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: SDR Data-Link & WS73 Blog Research
+title: "SDR Data-Link & WS73 Blog Research"
 language: en
 created: 2026-08-16
-tags: []
+tags: [intel, data, link, ws73]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-16
 ---
 
 # SDR Data-Link & WS73 Blog Research

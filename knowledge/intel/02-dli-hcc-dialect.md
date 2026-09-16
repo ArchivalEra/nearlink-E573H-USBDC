@@ -1,9 +1,13 @@
 ---
 type: intel
-title: 02 — DLI ↔ WS73 HCC 方言对照
+title: "02 — DLI ↔ WS73 HCC 方言对照"
 language: zh
 created: 2026-08-15
-tags: []
+tags: [intel, ws73]
+sources:
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # 02 — DLI ↔ WS73 HCC 方言对照

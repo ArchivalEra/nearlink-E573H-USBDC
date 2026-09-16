@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition batch 3 — smart transport cold-chain, WS63E smart door lock (NFC+mmWave+I2S), mini-quadcopter
+title: "2026 competition batch 3 — smart transport cold-chain, WS63E smart door lock (NFC+mmWave+I2S), mini-quadcopter"
 language: en
 created: 2026-09-13
 tags: [ws63, ws63e, competition, cold-chain, nfc, mmwave, quadcopter, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/10019 + IOT/12648 + IOT/14624; cloned 2026-09-13, pushed 2026-09-07
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

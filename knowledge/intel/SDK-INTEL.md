@@ -1,9 +1,13 @@
 ---
 type: intel
-title: SDK Intel: ws73_sdk_linux_WS73_1.10.110
+title: "SDK Intel: ws73_sdk_linux_WS73_1.10.110"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, ws73, linux]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # SDK Intel: ws73_sdk_linux_WS73_1.10.110

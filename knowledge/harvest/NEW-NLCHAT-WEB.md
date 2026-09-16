@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI
+title: "NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI"
 language: zh
 created: 2026-09-12
-tags: []
+tags: [harvest, nlchat, serial]
+sources:
+  - "/mnt/hdd/nearlink-stuff/NLChat_Web"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI

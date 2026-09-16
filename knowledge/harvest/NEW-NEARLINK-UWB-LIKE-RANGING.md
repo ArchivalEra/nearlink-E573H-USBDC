@@ -1,9 +1,13 @@
 ---
 type: harvest
-title: NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge
+title: "NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge"
 language: en
 created: 2026-09-12
-tags: []
+tags: [harvest, nearlink, like, ranging]
+sources:
+  - "/mnt/hdd/nearlink-stuff/nearlink-uwb-like-ranging"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge

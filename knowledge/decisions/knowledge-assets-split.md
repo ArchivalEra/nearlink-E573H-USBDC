@@ -1,9 +1,13 @@
 ---
 type: decision
-title: Knowledge/assets plane split and OKF adoption
+title: "Knowledge/assets plane split and OKF adoption"
 language: en
 created: 2026-09-12
 tags: [restructure, okf, architecture]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-12
 ---
 
 # Knowledge/assets plane split and OKF adoption

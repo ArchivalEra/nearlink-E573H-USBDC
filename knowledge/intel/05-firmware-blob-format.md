@@ -1,9 +1,13 @@
 ---
 type: intel
-title: 05 — ws73.bin internal format & signature analysis
+title: "05 — ws73.bin internal format & signature analysis"
 language: en
 created: 2026-08-15
-tags: []
+tags: [intel, ws73, internal, format]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-15
 ---
 
 # 05 — ws73.bin internal format & signature analysis

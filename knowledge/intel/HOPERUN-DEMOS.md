@@ -1,9 +1,13 @@
 ---
 type: intel
-title: HopeRun-NearLink repo — demo catalog & HH board/module survey (for HHD-01 first-day bring-up)
+title: "HopeRun-NearLink repo — demo catalog & HH board/module survey (for HHD-01 first-day bring-up)"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, hoperun, nearlink, repo]
+sources:
+  - "/mnt/hdd/nearlink-stuff/HopeRun-NearLink"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # HopeRun-NearLink repo — demo catalog & HH board/module survey (for HHD-01 first-day bring-up)

@@ -1,9 +1,13 @@
 ---
 type: intel
-title: Rust Extreme-Perf Patterns for rust-ws73 — Lab Note
+title: "Rust Extreme-Perf Patterns for rust-ws73 — Lab Note"
 language: en
 created: 2026-09-05
-tags: []
+tags: [intel, rust, extreme, perf]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-03-05
 ---
 
 # Rust Extreme-Perf Patterns for rust-ws73 — Lab Note

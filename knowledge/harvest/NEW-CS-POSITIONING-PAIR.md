@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: 2026 competition positioning pair — BS21E multi-anchor SLE Channel Sounding indoor location (GTTT scheduling, LSQ trilateration, GDOP/rank-deficiency handling)
+title: "2026 competition positioning pair — BS21E multi-anchor SLE Channel Sounding indoor location (GTTT scheduling, LSQ trilateration, GDOP/rank-deficiency handling)"
 language: en
 created: 2026-09-13
 tags: [sle, channel-sounding, indoor-positioning, trilateration, gttt, gdop, bs21e, competition, harvest]
 sources:
-  - url: https://gitcode.com/HiSpark/2026_embedded_competition
-    note: IOT/18600_SLE_Indoor_Locate + IOT/11706_BS21E_sle_location; cloned 2026-09-13, pushed 2026-09-07
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: WS63E AIGC cloud server — DashScope text2image pipeline with LLM prompt optimization and Amap weather; exposed credential noted (not reproduced)
+title: "WS63E AIGC cloud server — DashScope text2image pipeline with LLM prompt optimization and Amap weather; exposed credential noted (not reproduced)"
 language: en
 created: 2026-09-13
 tags: [aigc, dashscope, text2image, llm, weather-api, credential-leak, flask, harvest]
 sources:
-  - url: https://github.com/leion-kk/WS63E-NearLink-Mesh-AIGC-Frame
-    note: local clone (pushed 2026-07-08, current); read-only inspection of Cloud_AIGC_Server/
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

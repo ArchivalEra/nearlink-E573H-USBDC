@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)
+title: "hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)"
 language: en
 created: 2026-09-13
 tags: [qemu, ws63, fbb_ws63, emulation, bootloader, liteos, rf-calibration, efuse, harvest]
 sources:
-  - url: https://github.com/hispark-rs/fbb_ws63-qemu
-    note: metadata clone + sparse checkout (README-QEMU.md + ci, 3.5M) 2026-09-13; pushed 2026-06-11, not archived; companion to hispark-rs/ws63-qemu
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---

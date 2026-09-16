@@ -1,9 +1,13 @@
 ---
 type: intel
-title: SSAP Implementation Plan Audit
+title: "SSAP Implementation Plan Audit"
 language: en
 created: 2026-08-17
-tags: []
+tags: [intel, ssap, implementation, plan]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # SSAP Implementation Plan Audit

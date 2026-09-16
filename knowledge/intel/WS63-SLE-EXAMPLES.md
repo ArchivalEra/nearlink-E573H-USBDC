@@ -1,9 +1,14 @@
 ---
 type: intel
-title: WS63 SLE SSAP Examples — Reverse-Engineered for PC-Dongle Interop
+title: "WS63 SLE SSAP Examples — Reverse-Engineered for PC-Dongle Interop"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, ws63, ssap, examples]
+sources:
+  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # WS63 SLE SSAP Examples — Reverse-Engineered for PC-Dongle Interop

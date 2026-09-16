@@ -1,9 +1,13 @@
 ---
 type: intel
-title: Community / Personal NearLink Projects — Health Check
+title: "Community / Personal NearLink Projects — Health Check"
 language: zh
 created: 2026-08-17
-tags: []
+tags: [intel, community, personal, nearlink]
+sources:
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
+trust: B
+stale_after: 2027-02-17
 ---
 
 # Community / Personal NearLink Projects — Health Check

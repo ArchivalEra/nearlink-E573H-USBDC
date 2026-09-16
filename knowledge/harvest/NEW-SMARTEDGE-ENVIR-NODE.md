@@ -1,12 +1,11 @@
 ---
 type: harvest
-title: SmartEdge envir node — five environment sensors over the 0xAA frame protocol; symmetric frame build/parse with magic+min-length guard
+title: "SmartEdge envir node — five environment sensors over the 0xAA frame protocol; symmetric frame build/parse with magic+min-length guard"
 language: en
 created: 2026-09-13
 tags: [ws63, sle, node, sensors, bh1750, bmp180, pm25, dht20, frame-parse, harvest]
 sources:
-  - url: https://github.com/SlumberMin/SmartEdge-WS63
-    note: local clone (pushed 2026-07-07, current); read-only inspection of firmware/smartedge_ws63/envir/
+  - "ArchivalEra/nearlink-E573H-USBDC workspace"
 trust: verified
 stale_after: 2026-12-13
 ---
