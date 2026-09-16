@@ -771,3 +771,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零六、OKF 时代猎收（无限 harvest 同步 94，fbb-modelzoo 管线解剖，191→192 concepts）
 
 - `NEW-FBB-MODELZOO-PIPELINE.md`：HiSpark.AI 开放模型库 = **run.sh→config.cfg 统一管线（数据生成→模型转换→SDK 工程打包）**，7 场景（KWS/音频异常/RNNoise 增强/HAR/时序/视觉唤醒/图像分类）；config.cfg 分层（不改块 PLATFORM=RISCV/mindspore-lite/**micro_quant** int8+float32 IO / 必填块 SDK_PATH+ADAPTOR_PATH+TOOLCHAIN_PATH）；**metadata.yaml 芯片→模板绑定表**（WS63 SAMPLE_COMMON 注入 ai_main.c 到 fbb_ws63 — 模型库不发自固件而是缝合进 SDK 树）；per-chip 精度对比工具（nano_accuracy_compare.py）；skills/ 又见 agent 面。生态 agent 三件套（CLI/知识组织/仓契约）+ 模型库 = HiSpark.AI 开发者面全图。
+
+## 一百零七、OKF 时代猎收（无限 harvest 同步 95，Ghidra RISCV31 定制 ISA 全解，192→193 concepts）
+
+- `NEW-GHIDRA-RISCV31-ISA.md`：HiSilicon 定制 RV32 七族指令位级编码表（**C.PUSH/C.POP/C.POPRET 硬件多寄存器压栈、L.LI 48 位长立即数、C.SB/SH 借 FP 槽、MULIADD、ADDSHF~ANDSHF 移位融合 ALU、JAL16/J16 25 位远跳、BEQI/BNEI/BLTI/BGEI 立即数比较分支**）— 原生 RISC-V 反汇编器在 WS63/Hi2821 镜像上必产出乱码的根因；slaspec 模块可直接装回 Ghidra 重跑我们既往 loaderboot 逆向。41 库工具架全覆盖。
