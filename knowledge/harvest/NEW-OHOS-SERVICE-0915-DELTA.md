@@ -19,6 +19,16 @@ HEAD 7068bc4 (pushed 2026-09-15T21:01:28Z). Three merge commits landed:
 e88a5a3 (!254, br1 branch), 3be1afa (!256, qhz-fork-0911 branch),
 7068bc4 (!257, appexecfwk-base-deps fix branch). Total: 4 files, +34/-1.
 
+## Sources
+
+| Source | What it tells us |
+|---|---|
+| `services/stack/src/cp/bsl/sle/qosm/autorate/include/qosm_icg_types.h:60-61` | Autorate hysteresis constants; downgrade timeout 4000 to 5000 ms, upgrade steady at 1000 ms (commit 7e07624) |
+| `services/common/BUILD.gn:115` | New explicit GN dep on `bundle_framework:appexecfwk_base` (commit fb85722) |
+| `test/unittest/services_test/service_test/asc_test/mock_ServiceManagerPluginLoader.cpp:28-99` | Hidden-visibility on all mock symbols plus new mocked destructor; in-file root cause of the .so symbol hijack |
+| `test/unittest/services_test/service_test/asc_test/BUILD.gn:99,150` | New `nearlink_socket` unit-test dep; mock source listed explicitly |
+| commits `59b50c4..7068bc4` (!254, !256, !257) plus `5bc950d`, `d95e10b` | Delta range: two fork-branch merges, one dep-fix merge, two audio-TDD mock extensions |
+
 ## Executive findings
 
 - Autorate downgrade hysteresis widened: `QOSM_DOWNGRADE_LEVEL_TIMEOUT_MS`

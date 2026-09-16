@@ -23,6 +23,16 @@ API. None was cloned. Verdict on all five: name collision, not NearLink
 record (after nearLinKernel, Terrydev5/NearLink, Qwac and the Android-shell /
 C-sharp cases).
 
+## Sources
+
+| Source | What it tells us |
+|---|---|
+| `repos/THRIVE36/NEARLINK/contents/index.html` (head lines 1-15) | Landing-page title and meta: local-services marketplace (shops, rides, delivery), not radio |
+| `repos/jaegermichael/sparklink/contents/` | TypeScript full-stack scaffold: client, server, shared, package.json, pnpm lock, vite tsconfigs |
+| `repos/Toshakarp/Sparklink/contents/` | Minimal Vite starter: src, public, vite.config.ts, tsconfig.app.json |
+| `repos/Ss2809/NearLink-main/contents/package.json` plus `vercel.json` | npm name `nearlink-backend`, entry `server/server.js`, Vercel deploy with UI/api/server split |
+| `repos/Heebu/NearLinkChat/contents/` | Flutter scaffold: pubspec.yaml, lib, android, ios, web, windows; re-verdict, not re-cloned |
+
 ## Executive findings
 
 - THRIVE36/NEARLINK (HTML, 88 KB, pushed 2026-09-09): the landing page says

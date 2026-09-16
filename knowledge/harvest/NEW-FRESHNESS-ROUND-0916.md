@@ -17,6 +17,14 @@ stale_after: 2027-03-16
 Scheduled freshness sweep per the harvest method (pushed_at screen, then
 pull-as-ground-truth). One delta found, seven hot repos confirmed current.
 
+## Sources
+
+| Source | What it tells us |
+|---|---|
+| `teki128-nearlink/nearlink_client.c` (delta `98fa110..c5cb7ae`, -3 lines) | Write-only `link_ready` flag removed (former lines 19/110/174); zero references remain |
+| `teki128-nearlink/nearlink_client.c:15,89-110` | Surviving discipline: `g_conn_id` single token, clear-to-0 plus unpair plus scan restart on disconnect |
+| pull-verified HEADs, seven repos, no delta | BH4ME/sle_mesh cc0b0dc; hinearlink web-flasher f576841; hispark-rs qemu f105c89; pet-collar a86ae68; uwb-ranging 5d6382a; keyboard-cli e2c2232; goodspeed34 ws63flash 5bab2e7 |
+
 ## Executive findings
 
 - teki128/nearlink delta c5cb7ae (2026-09-15, 3 deletions in one file):
