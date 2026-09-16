@@ -775,3 +775,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零七、OKF 时代猎收（无限 harvest 同步 95，Ghidra RISCV31 定制 ISA 全解，192→193 concepts）
 
 - `NEW-GHIDRA-RISCV31-ISA.md`：HiSilicon 定制 RV32 七族指令位级编码表（**C.PUSH/C.POP/C.POPRET 硬件多寄存器压栈、L.LI 48 位长立即数、C.SB/SH 借 FP 槽、MULIADD、ADDSHF~ANDSHF 移位融合 ALU、JAL16/J16 25 位远跳、BEQI/BNEI/BLTI/BGEI 立即数比较分支**）— 原生 RISC-V 反汇编器在 WS63/Hi2821 镜像上必产出乱码的根因；slaspec 模块可直接装回 Ghidra 重跑我们既往 loaderboot 逆向。41 库工具架全覆盖。
+
+## 一百零八、OKF 时代猎收（无限 harvest 同步 96，GitCode 扫描轮 0915b，193→194 concepts）
+
+- `NEW-GITCODE-SCAN-0915B.md`：**xiaohong-ai/ws63flash v4.0.1 = WS63 UART 烧录器 Rust 重构**（WS63/BS21E/ESP32 三芯片 ChipType、Tauri GUI、fwpkg/ymodem/sign 三 crate、flasher+fwpkg+sign 三 CLI 分立，MIT，~1945 行）— 同一 boot-ROM 协议第三次独立实现（C→Python→Rust），后浪补前浪动词；fwpkg 结构体含 offset 换算注释可直接复用。fixedstarheng/ws63-xiangpenpen（14807 上游：`sle_client_one`/`sle_server_many` 字面 1:N 目录命名，老年抑郁多模态早筛）。上游新鲜度全清（uwb-ranging/teki128/keyboard-cli/**communication_nearlink_service 0 领先**）。
