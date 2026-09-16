@@ -799,3 +799,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十三、OKF 时代猎收（无限 harvest 同步 101，OHOS 主仓 0915 增量，198→199 concepts）
 
 - `NEW-OHOS-SERVICE-0915-DELTA.md`：主仓 59b50c4→7068bc4 三合并（!254 br1 / !256 qhz-fork-0911 / !257 appexecfwk-base-deps）— **QOSM 降级超时 4000→5000ms（升级 1000ms 不动，快升慢降 hysteresis 实证）**；`nearlink_service_common` 显式依赖 `appexecfwk_base`（传递依赖转显式）；ASC 音频单测 **mock 全符号 hidden 可见性隔离（.so 动态解析劫持根因 + 析构 mock）** — dongle 主机栈单测可直接复用的隔离模式。fork-merge 节奏延续（个人 fork 分支仍是正常合入载体）。
+
+## 一百一十四、OKF 时代猎收（无限 harvest 同步 102，保鲜轮 0916，199→200 concepts）
+
+- `NEW-FRESHNESS-ROUND-0916.md`：teki128 增量 c5cb7ae（删 write-only `link_ready`，`g_conn_id` 单一状态 token + 断开三连：清 id→解配→重扫）— dongle 主机栈禁并行布尔的公开实证；7 热仓 pull 全 current（sle_mesh=BH4ME、web-flasher=GitCode hinearlink、qemu=hispark-rs 三处 owner 纠偏）；**方法论：pushed_at 只触发、pull 才裁决**（pet-collar 跨 ref 推送误报）。

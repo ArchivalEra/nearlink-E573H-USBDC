@@ -29,6 +29,7 @@
 * [nearlink-firmwares firmware store (sync-100 capstone)](NEW-FIRMWARE-STORE-CAPSTONE.md) - harvest concept (4 KB)
 * [Fresh scan round 0916](NEW-FRESH-SCAN-0916.md) - harvest concept (3 KB)
 * [Freshness round — uwb-like-ranging refines its Technical Boundary; sle_mesh family naming clarified; a SparkLink-named TCP chat skipped](NEW-FRESHNESS-ROUND-0913.md) - harvest concept (2 KB)
+* [Freshness Round 0916: teki128 link_ready Removal Plus Seven Repos Verified Current](NEW-FRESHNESS-ROUND-0916.md) - harvest concept (4 KB)
 * [Ghidra RISCV31 processor module](NEW-GHIDRA-RISCV31-ISA.md) - harvest concept (3 KB)
 * [GitCode hinearlink org scan](NEW-GITCODE-ORG-SCAN-0915.md) - harvest concept (4 KB)
 * [GitCode scan round 0915b](NEW-GITCODE-SCAN-0915B.md) - harvest concept (4 KB)
