@@ -795,3 +795,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十二、OKF 时代猎收（无限 harvest 同步 100 🏁 收官，nearlink-firmwares 固件商店，197→198 concepts）
 
 - `NEW-FIRMWARE-STORE-CAPSTONE.md`：星闪工具箱（MiraHikari，**Tauri+Rust 一站式固件管理**：固件商店/本地管理/内置串口烧写/AT 命令收藏）— **分布式 endpoint 镜像注册表**（endpoints.json 多 urlPrefix 含 ctcc/cucc ISP 镜像 + 推荐 flag，无中心服务器）+ 每包 metadata.json（chips/brands/files）；**12 固件族目录 = 生态普查：AT、NLChat 跨芯片 client/server 对（BS21+WS63）、SLE 键盘 dongle+keyboard 对、GFSK、HHD03 AT**。社区商店四类在售固件 = AT/聊天/HID/GFSK。**sync 100 收官：123 份报告，boot-ROM 协议四重验证、三层主机协议深度、四种 mesh、CS 全链、agent 矩阵四方 — 下一百轮开放位：dli 余族/HADM 多锚/Nld 参数布局/AIOT 深挖。**
+
+## 一百一十三、OKF 时代猎收（无限 harvest 同步 101，OHOS 主仓 0915 增量，198→199 concepts）
+
+- `NEW-OHOS-SERVICE-0915-DELTA.md`：主仓 59b50c4→7068bc4 三合并（!254 br1 / !256 qhz-fork-0911 / !257 appexecfwk-base-deps）— **QOSM 降级超时 4000→5000ms（升级 1000ms 不动，快升慢降 hysteresis 实证）**；`nearlink_service_common` 显式依赖 `appexecfwk_base`（传递依赖转显式）；ASC 音频单测 **mock 全符号 hidden 可见性隔离（.so 动态解析劫持根因 + 析构 mock）** — dongle 主机栈单测可直接复用的隔离模式。fork-merge 节奏延续（个人 fork 分支仍是正常合入载体）。
