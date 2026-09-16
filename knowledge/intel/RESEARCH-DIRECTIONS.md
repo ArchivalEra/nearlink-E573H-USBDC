@@ -803,3 +803,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十四、OKF 时代猎收（无限 harvest 同步 102，保鲜轮 0916，199→200 concepts）
 
 - `NEW-FRESHNESS-ROUND-0916.md`：teki128 增量 c5cb7ae（删 write-only `link_ready`，`g_conn_id` 单一状态 token + 断开三连：清 id→解配→重扫）— dongle 主机栈禁并行布尔的公开实证；7 热仓 pull 全 current（sle_mesh=BH4ME、web-flasher=GitCode hinearlink、qemu=hispark-rs 三处 owner 纠偏）；**方法论：pushed_at 只触发、pull 才裁决**（pet-collar 跨 ref 推送误报）。
+
+## 一百一十五、OKF 时代猎收（无限 harvest 同步 103，撞名裁决批，200→201 concepts）
+
+- `NEW-NAME-COLLISION-VERDICTS-0916.md`：9 月窗口五 hits 全撞名（THRIVE36 本地服务落地页/jaegermichael+ Toshakarp Vite-TS/Ss2809 Vercel Node 后端/Heebu Flutter 二次确认）— **10 次 API 零克隆定级**；裁决梯：语言→根目录→manifest→克隆；`vercel.json`/`vite.config.ts`/`pubspec.yaml`/落地页 shops-rides-delivery 词表见两项即判。

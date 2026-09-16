@@ -52,6 +52,7 @@
 * [MeshMaxDesktop — third consumer of the mesh image protocol: Electron + noble BLE sender with parallel in-flight chunk upload](NEW-MESHMAX-DESKTOP.md) - harvest concept (3 KB)
 * [nearlink-contrib MPU6050 driver + sle_mesh_new NMEA parser — WS63 I2C pin map, GPS coordinate e6 pipeline](NEW-MPU6050-NMEA-DRIVERS.md) - harvest concept (2 KB)
 * [2026 competition — distributed multi-node human motion detection: BNO085/BMI270 wearables over WiFi bridge with SlimeVR protocol and CD4052 UART multiplexing](NEW-MULTI-NODE-MOTION-DETECTION.md) - harvest concept (3 KB)
+* [Name-Collision Verdicts 0916: Five SparkLink NearLink Lookalikes Are Web and Mobile Apps](NEW-NAME-COLLISION-VERDICTS-0916.md) - harvest concept (4 KB)
 * [NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources](NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md) - harvest concept (25 KB)
 * [NearLink Toolbox website program knowledge](NEW-NEARLINK-TOOLBOX-WEBSITE.md) - harvest concept (11 KB)
 * [NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge](NEW-NEARLINK-UWB-LIKE-RANGING.md) - harvest concept (23 KB)
