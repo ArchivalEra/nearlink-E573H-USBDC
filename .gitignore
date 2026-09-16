@@ -127,3 +127,6 @@ assets/sdk/**/output/**
 .mimosa/
 .vscode/
 .zcode/
+
+# 9) Never tracked: private agent handoff notes (local workspace state, not knowledge)
+.scratch/nearlink-driver/lab-notes/HANDOFF-*.md
