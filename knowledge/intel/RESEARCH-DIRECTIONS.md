@@ -746,3 +746,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零一、OKF 时代猎收（无限 harvest 同步 89，Nld eRPC 契约枚举，186→187 concepts）
 
 - `NEW-NLD-ERPC-CONTRACT.md`：erpc_gen/bs2x 全部接口头文件枚举 — **9 服务 ID 地图**（connection=84/seek=83/ssap_client=85/ssap_server=86/host 回调侧 22 个 on_* 方法）共 60+ 方法；**SSAP 枚举契约级实证**（permission 位掩码 READ1/WRITE2/ENC4/AUTHN8/AUTHZ16、find 六类型含 REFERENCE_SERVICE=2、operate-indication 六位含 BROADCAST=32）；连接控制面 `sle_set_mcs/set_phy_param/set_data_len/set_channel_map/set_nv_smp_keys` 逐连接旋钮；**firmware UPG OTA 状态机**（start→write→get_status/result + build-info/commit/version）；low_latency 仅 2 方法 = QoS 开关非数据通道。主机↔dongle 现在三深度可读（USB bulk → DLI opcode → eRPC method）。
+
+## 一百零二、OKF 时代猎收（无限 harvest 同步 90，DLI 参数结构字典，187→188 concepts）
+
+- `NEW-DLI-STRUCT-TABLES.md`：dli_cmd_struct.h(632)+dli_event_struct.h(597) = 228 条 opcode 的参数字典（含单位与范围注释）— 广播参数远超 BLE 形态（**导频密度/MCS/secondAdvMaxSkip 跳发**、时长 N×10ms）；连接时序 SLE 独有字段（txRxInterval 事件内/eventInterval 事件间/systemTimeUnit/**txRxFlag 先发后发**，间隔 0.25ms 单位 [7.5ms,4s]）；**gFeedback/tFeedback HARQ 反馈码表**（CBG/TB/半可靠组播 m 序列编号）— m 序列反馈机制在 DLI 边界的直接证据；AdvReportEvt.eventType 4 位义、EnableEncryptParam {SM linkKey+cryptoAlgo+keyDerivAlgo}。USB 抓包解码器可从十六进制升级到参数级打印。

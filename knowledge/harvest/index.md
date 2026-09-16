@@ -19,6 +19,7 @@
 * [Daily-churn round — nearlink_service WeChat-call volume fix; StarFlash-Releases is a compiled-only Windows tool repo; ecosystem pulse](NEW-DAILY-CHURN-0914.md) - harvest concept (2 KB)
 * [Daily churn 0915b: teki128 increment + name-squat verdicts](NEW-DAILY-CHURN-0915B.md) - harvest concept (4 KB)
 * [tethering datatransfer cache internals — per-app mapping carries tcid/transMode/frameType with a three-state transfer state machine and previous-state tracking](NEW-DATATRANSFER-CACHE-INTERNALS.md) - harvest concept (3 KB)
+* [DLI struct tables deep-dive](NEW-DLI-STRUCT-TABLES.md) - harvest concept (4 KB)
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (5 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
 * [HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples](NEW-FBB-WS53-SDK.md) - harvest concept (3 KB)
