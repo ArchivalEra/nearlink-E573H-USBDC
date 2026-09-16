@@ -787,3 +787,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十、OKF 时代猎收（无限 harvest 同步 98，web-flasher 与协议四重印证，195→196 concepts）
 
 - `NEW-WEB-FLASHER-QUADRUPLE.md`：StarFish nearlink-web-flasher（903 行零依赖 JS，Web Serial API 在 Chrome/Edge 直接烧 fwpkg：解析（0xefbeaddf + CRC + 分区表）→ LoaderBoot 握手 → reqBaudrate 中途切换 → YMODEM → 复位；含 HiSilicon 格式出处声明与 test/）。**协议四重实现收官：C（goodspeed34）→ Python（geekheart）→ Rust v4（xiaohong-ai）→ JS 浏览器（StarFish）四家字节级一致** — 我们 fwpkg/boot 协议文档的最强背书；厂商 AutoBurn 为第五闭源成员。
+
+## 一百一十一、OKF 时代猎收（无限 harvest 同步 99，新扫描轮 0916，196→197 concepts）
+
+- `NEW-FRESH-SCAN-0916.md`：night-fishing-nearlark-agent（**自托管 FastAPI+WebSocket AI Agent 层过 SLE 1vN 控灯** — agent-over-NearLink 第 4 例、首个非厂商云方案；SM2/3/4 国密声明待证）+ hi3863-smart-aquaponics（双板 Client/Server 三件套又一例，PID 卷帘电机，ASRPRO 第 5 次）。**hispark-rs 上游核验：HEAD ce68c14 2026-09-10 与本地一致（NET0 RX-stop 已在 sync 71 报告覆盖）**。GitHub 近 24h 窗口无新近联仓。agent-transport 矩阵四方齐备：厂商云/片上/产品语音/自托管。

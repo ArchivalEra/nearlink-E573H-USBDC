@@ -26,6 +26,7 @@
 * [fbb-modelzoo pipeline deep-dive](NEW-FBB-MODELZOO-PIPELINE.md) - harvest concept (3 KB)
 * [HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples](NEW-FBB-WS53-SDK.md) - harvest concept (2 KB)
 * [hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)](NEW-FBB-WS63-QEMU-FORK.md) - harvest concept (3 KB)
+* [Fresh scan round 0916](NEW-FRESH-SCAN-0916.md) - harvest concept (3 KB)
 * [Freshness round — uwb-like-ranging refines its Technical Boundary; sle_mesh family naming clarified; a SparkLink-named TCP chat skipped](NEW-FRESHNESS-ROUND-0913.md) - harvest concept (2 KB)
 * [Ghidra RISCV31 processor module](NEW-GHIDRA-RISCV31-ISA.md) - harvest concept (3 KB)
 * [GitCode hinearlink org scan](NEW-GITCODE-ORG-SCAN-0915.md) - harvest concept (4 KB)
