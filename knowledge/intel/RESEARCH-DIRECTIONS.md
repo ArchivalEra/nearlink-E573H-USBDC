@@ -759,3 +759,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零三、OKF 时代猎收（无限 harvest 同步 91，SLE HID 键盘类 + 全库 frontmatter 规范化，188→189 concepts）
 
 - `NEW-SLE-HID-KEYBOARDS.md`：TP78v3（GPL3.0，Hi2821/E **USB/BLE/SLE 三模键盘，有线 8K/星闪 2K 回报率** — 全库首个 SLE 输入设备回报率实证，VIA 改键+在线配列+固件导出+接收器方案，12 版指导 PDF）/ FlashKeyboard（**bs20/bs21e/bs22/bs2x 四芯片目标固件框架**，共享 keyboard app + BLE HID-over-GATT server 参照，与 Playjoy 键盘 CLI 同源生态两端）/ 星鸿派 HuaqiuOpenHardware 开源板（WS63V100/Hi3863，**CHANGES_FROM_ORIGINAL + MANIFEST 校验 + "示例非独立可编译"诚实声明 = 厂商衍生资产再发布治理范本**）。**同轮：全库 189 份文档 frontmatter 规范化**（字段序 type/title/language/created/tags/sources/trust/stale_after、title 引号化、正文推断 sources、trust/stale_after 默认值），与用户要求的格式修正合并提交。
+
+## 一百零四、OKF 时代猎收（无限 harvest 同步 92，starclaw/MimiClaw 判词，189→190 concepts）
+
+- `NEW-STARCLAW-VERDICT.md`：MimiClaw = **$5 ESP32-S3 纯 C 裸机 AI agent 闭环**（Telegram 长轮询 + WebSocket :18789 + 串口 CLI 三通道 → 双向队列 → agent loop：context→LLM→tool_use→web_search→outbound；12MB SPIFFS 持久记忆；Anthropic/OpenAI 运行时切换；agent/bus/channels/cron/gateway/heartbeat/llm/memory/ota 完整模块分类学）。GitCode hinearlink 组织描述"可运行在星闪WS63开发板"= **意向非现状（树内 0 行 WS63 代码）— WS63 助手开放位**；SSAP 服务 = 片上 agent 的天然工具面。
