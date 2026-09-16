@@ -5,7 +5,7 @@
 Turn the USB `ffff:3733` ("00000000") — a **HiSilicon WS73 tri-mode dongle** (Bluetooth + WiFi 6 + NearLink SLE) — into a **tri-mode wireless adapter** for a Linux TV box: real high-speed WiFi / Bluetooth / NearLink, plus the control interface. Core output: **a fully reverse-engineered WS73 NearLink control plane + a self-written SSAP userspace protocol stack** (x86-compilable, resource-adaptive).
 
 > **⚠️ read before pushing — doc maintenance checklist**: see [Document index & maintenance](#document-index--maintenance).
-> The pre-push hooks (`scripts/check-docs.sh` + `scripts/check-harvest-archive.sh`) enforce README cross-links, doc-index completeness, English-only docs/, whitelist sanity, README zh/en sync, and block new knowledge/harvest archives unless both README files change in the same push.
+> Pre-push runs four gates in order: OKF, documentation, table/frontmatter format, and harvest archive coupling. A new knowledge/harvest/NEW-*.md is rejected unless both README files change in the same push.
 
 ## Project status (2026-08)
 

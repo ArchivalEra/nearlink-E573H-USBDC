@@ -5,7 +5,7 @@
 把 USB 上那个 `ffff:3733`（厂商/产品串都写着 `00000000`）的**海思 WS73 三模 dongle**（蓝牙 + WiFi6 + 星闪 SLE）变成一台 Linux 电视盒的**三模无线适配器**——提供真正的高速 WiFi / 蓝牙 / 星闪，同时保留控制接口。核心成果：**从零逆向的 WS73 星闪控制面 + 自研 SSAP 用户态协议栈**（x86 可编译、资源感知自适应）。
 
 > **⚠️ push 前必读 —— 文档维护清单**：见下方 [文档索引与维护](#文档索引与维护)。
-> pre-push 钩子（`scripts/check-docs.sh` + `scripts/check-harvest-archive.sh`）自动检查：README 双语互链、文档存在性、docs 英文-only、白名单 gitignore、**README 双语同步**，并阻止未在同一 push 中更新双 README 的新 knowledge/harvest 知识归档。
+> pre-push 依次运行 OKF、文档、表格/frontmatter 和 harvest 归档四道门禁；新 knowledge/harvest/NEW-*.md 必须在同一 push 中同步更新双 README，否则拒绝推送。
 
 ## 项目状态（2026-08）
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# check-harvest-archive.sh — require README updates when new harvest notes are pushed.
+# check-harvest-archive.sh — validate new harvest notes and require README updates when pushed.
 #
 # This script is intended to run as a pre-push hook. Git supplies one line per
 # ref on stdin:
@@ -21,9 +21,13 @@ cd "$REPO_ROOT"
 FAIL=0
 ZERO_SHA="0000000000000000000000000000000000000000"
 EMPTY_TREE="4b825dc642cb6eb9a060e54bf8d69288fbee4904"
-REPORT_PATHSPEC="knowledge/harvest/*.md"
+REPORT_PATHS=(
+    ".scratch/nearlink-driver/lab-notes/NEW-*.md"
+    "knowledge/harvest/NEW-*.md"
+)
 
 declare -A NEW_REPORTS=()
+declare -A VALIDATED_REPORTS=()
 declare -A README_CHANGED=()
 
 say()  { printf '\033[1;36m[harvest]\033[0m %s\n' "$*"; }
@@ -80,20 +84,8 @@ check_ref() {
     fi
 
     if [ "$remote_sha" = "$ZERO_SHA" ]; then
-        # A new ref has no remote tip. Prefer the closest existing mainline
-        # ancestor so a branch copied from main is not treated as an entirely
-        # new archive batch. Fall back to the empty tree for orphan history.
-        if [ -n "$(git rev-parse --verify -q origin/main 2>/dev/null || true)" ]; then
-            remote_commit="$(git merge-base "$local_commit" origin/main 2>/dev/null || true)"
-        fi
-        if [ -z "$remote_commit" ] && [ -n "$(git rev-parse --verify -q main 2>/dev/null || true)" ]; then
-            remote_commit="$(git merge-base "$local_commit" main 2>/dev/null || true)"
-        fi
-        if [ -n "$remote_commit" ]; then
-            range="$remote_commit..$local_commit"
-        else
-            range="$EMPTY_TREE..$local_commit"
-        fi
+        # A new ref has no remote counterpart: inspect the complete pushed history.
+        range="$EMPTY_TREE..$local_commit"
     else
         if ! remote_commit="$(git rev-parse "$remote_sha^{commit}" 2>/dev/null)"; then
             fail "cannot resolve remote commit for $remote_ref ($remote_sha)"
@@ -102,13 +94,16 @@ check_ref() {
         range="$remote_commit..$local_commit"
     fi
 
-    if ! report_diff="$(git diff --name-only --diff-filter=ACR "$range" -- "$REPORT_PATHSPEC" 2>/dev/null)"; then
+    if ! report_diff="$(git diff --name-only --diff-filter=ACMR "$range" -- "${REPORT_PATHS[@]}" 2>/dev/null)"; then
         fail "cannot inspect harvest report changes for $local_ref ($range)"
         return 0
     fi
     while IFS= read -r file; do
         [ -n "$file" ] || continue
-        validate_report "$local_commit" "$file"
+        if [ "${VALIDATED_REPORTS[$file]:-0}" -eq 0 ]; then
+            validate_report "$local_commit" "$file"
+            VALIDATED_REPORTS["$file"]=1
+        fi
     done <<< "$report_diff"
 
     if ! readme_diff="$(git diff --name-only "$range" -- README.md README.en.md 2>/dev/null)"; then
@@ -163,7 +158,7 @@ fi
 
 report_count="${#NEW_REPORTS[@]}"
 if [ "$report_count" -eq 0 ]; then
-    ok "no new $REPORT_PATHSPEC files in outgoing commits"
+    ok "no new harvest notes in outgoing commits"
 else
     printf '\033[1;36m[harvest]\033[0m new archive(s):\n'
     mapfile -t report_list < <(printf '%s\n' "${!NEW_REPORTS[@]}" | sort)
