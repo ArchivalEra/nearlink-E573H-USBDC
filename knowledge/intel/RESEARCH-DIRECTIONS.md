@@ -791,3 +791,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十一、OKF 时代猎收（无限 harvest 同步 99，新扫描轮 0916，196→197 concepts）
 
 - `NEW-FRESH-SCAN-0916.md`：night-fishing-nearlark-agent（**自托管 FastAPI+WebSocket AI Agent 层过 SLE 1vN 控灯** — agent-over-NearLink 第 4 例、首个非厂商云方案；SM2/3/4 国密声明待证）+ hi3863-smart-aquaponics（双板 Client/Server 三件套又一例，PID 卷帘电机，ASRPRO 第 5 次）。**hispark-rs 上游核验：HEAD ce68c14 2026-09-10 与本地一致（NET0 RX-stop 已在 sync 71 报告覆盖）**。GitHub 近 24h 窗口无新近联仓。agent-transport 矩阵四方齐备：厂商云/片上/产品语音/自托管。
+
+## 一百一十二、OKF 时代猎收（无限 harvest 同步 100 🏁 收官，nearlink-firmwares 固件商店，197→198 concepts）
+
+- `NEW-FIRMWARE-STORE-CAPSTONE.md`：星闪工具箱（MiraHikari，**Tauri+Rust 一站式固件管理**：固件商店/本地管理/内置串口烧写/AT 命令收藏）— **分布式 endpoint 镜像注册表**（endpoints.json 多 urlPrefix 含 ctcc/cucc ISP 镜像 + 推荐 flag，无中心服务器）+ 每包 metadata.json（chips/brands/files）；**12 固件族目录 = 生态普查：AT、NLChat 跨芯片 client/server 对（BS21+WS63）、SLE 键盘 dongle+keyboard 对、GFSK、HHD03 AT**。社区商店四类在售固件 = AT/聊天/HID/GFSK。**sync 100 收官：123 份报告，boot-ROM 协议四重验证、三层主机协议深度、四种 mesh、CS 全链、agent 矩阵四方 — 下一百轮开放位：dli 余族/HADM 多锚/Nld 参数布局/AIOT 深挖。**
