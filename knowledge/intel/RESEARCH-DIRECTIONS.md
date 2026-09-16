@@ -783,3 +783,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零九、OKF 时代猎收（无限 harvest 同步 97，小鸿 AI 生产级语音助手解剖，194→195 concepts）
 
 - `NEW-XIAOHONG-VOICE-AGENT.md`：xiaohong-fbb_ws63 = **生态内最完整的开源 WS63 AI 产品代码库**（对比竞赛原型）— **WS63 主控 + CI1302 启英泰伦音频协处理器（UART ring + Opus 16k/120ms/1920 样本解码预算 + TTS 下行 + 离线 KWS 固件 bin）**双芯片分工；mongoose WebSocket agent（**每次建连前从 Settings NV 重读 URL/token/协议版本** — OTA 晚于首建的弹性配置）；二进制帧先清后投递的背压纪律；LVGL+ST7789+littlefs+OTA+boards 抽象；fw_protocol/ 发布物布局（两个 dated fwpkg + 命令词协议 xlsx）。**语音助手 + SLE 家控 = 已发布 fwpkg 实证的产品形态**。
+
+## 一百一十、OKF 时代猎收（无限 harvest 同步 98，web-flasher 与协议四重印证，195→196 concepts）
+
+- `NEW-WEB-FLASHER-QUADRUPLE.md`：StarFish nearlink-web-flasher（903 行零依赖 JS，Web Serial API 在 Chrome/Edge 直接烧 fwpkg：解析（0xefbeaddf + CRC + 分区表）→ LoaderBoot 握手 → reqBaudrate 中途切换 → YMODEM → 复位；含 HiSilicon 格式出处声明与 test/）。**协议四重实现收官：C（goodspeed34）→ Python（geekheart）→ Rust v4（xiaohong-ai）→ JS 浏览器（StarFish）四家字节级一致** — 我们 fwpkg/boot 协议文档的最强背书；厂商 AutoBurn 为第五闭源成员。
