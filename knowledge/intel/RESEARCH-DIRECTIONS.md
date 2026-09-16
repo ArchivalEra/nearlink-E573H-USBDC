@@ -763,3 +763,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百零四、OKF 时代猎收（无限 harvest 同步 92，starclaw/MimiClaw 判词，189→190 concepts）
 
 - `NEW-STARCLAW-VERDICT.md`：MimiClaw = **$5 ESP32-S3 纯 C 裸机 AI agent 闭环**（Telegram 长轮询 + WebSocket :18789 + 串口 CLI 三通道 → 双向队列 → agent loop：context→LLM→tool_use→web_search→outbound；12MB SPIFFS 持久记忆；Anthropic/OpenAI 运行时切换；agent/bus/channels/cron/gateway/heartbeat/llm/memory/ota 完整模块分类学）。GitCode hinearlink 组织描述"可运行在星闪WS63开发板"= **意向非现状（树内 0 行 WS63 代码）— WS63 助手开放位**；SSAP 服务 = 片上 agent 的天然工具面。
+
+## 一百零五、OKF 时代猎收（无限 harvest 同步 93，agent 契约 + BYLE + 扫描判词，190→191 concepts）
+
+- `NEW-AGENT-CONTRACT-BYLE-SCAN.md`：skills-nearlink `CLAUDE.md`（462 行）= **最完整的公开 WS63 开发 agent 契约**（自进化记忆闭环：读文件→执行→发现新坑写回；目录访问矩阵：仅 peripheral 可写、仅 include 可引、禁 #define 覆盖 Kconfig；build.py 命令面 + `_all/_load_only.fwpkg` 词汇；反幻觉条款）— 发布我们自己 agent 契约的设计参照。BYLE byleFN 闭源 SDK 文档（KWS+打断+opus+ByleStudio JSON 配置 = 第二家 AI 音频芯片厂商特性清单）。判词：Terrydev5/NearLink = Bonjour+WS 名字党第 4 例（但一次性 token 门控临时端口文件传输模式可借鉴）、Qwac = 仅 LICENSE 占位（Playjoy 替代品预告，列入复查单）。
