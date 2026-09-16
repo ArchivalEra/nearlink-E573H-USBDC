@@ -117,5 +117,6 @@
 * [NEW — ws63flash (UART flasher) + Ghidra_RISCV31 (Huawei custom RISC-V module) harvest](NEW-WS63FLASH-GHIDRA.md) - harvest concept (20 KB)
 * [NEW — xf_burn_tools (Python AutoBurn): WS63 UART flash protocol confirmation + fwpkg.py manifest harvest](NEW-XF-BURN.md) - harvest concept (16 KB)
 * [NEW-XFUSION — What x-eks-fusion (XFusion) teaches us](NEW-XFUSION.md) - harvest concept (23 KB)
+* [xiaohong-fbb_ws63 production voice-agent](NEW-XIAOHONG-VOICE-AGENT.md) - harvest concept (4 KB)
 * [Xinghongpai WS63 firmware program knowledge](NEW-XINGHONGPAI-FIRMWARE-KNOWLEDGE.md) - harvest concept (24 KB)
 * [yanlinkos/fbb_ws63 fork verdict — YL63 vendor SDK restructure with official AT Command and Boot API docs (sparse-adopted)](NEW-YL63-FORK-VERDICT.md) - harvest concept (4 KB)

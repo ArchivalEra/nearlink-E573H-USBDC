@@ -45,7 +45,7 @@
 * [Alternative NearLink/SparkLink/SLE Implementations (beyond OHOS & HiSilicon)](OTHER-NEARLINK-IMPLS.md) - intel concept (3 KB)
 * [Rust Extreme-Perf Patterns for rust-ws73 — Lab Note](PERF-RUST-PATTERNS.md) - intel concept (37 KB)
 * [PERF-WIFI-THROUGHPUT — WiFi Throughput Bottlenecks for TV-Box Tri-Mode (WS73)](PERF-WIFI-THROUGHPUT.md) - intel concept (34 KB)
-* [研究方向清单 (Research Directions)](RESEARCH-DIRECTIONS.md) - intel concept (91 KB)
+* [研究方向清单 (Research Directions)](RESEARCH-DIRECTIONS.md) - intel concept (92 KB)
 * [RUST-WS73 Deep Module Boundaries — Lab Note](RUST-WS73-DEEP-MODULES.md) - intel concept (32 KB)
 * [RUST-WS73 LTO + Extreme-Perf Build Chain Decision](RUST-WS73-LTO-EXTREME.md) - intel concept (38 KB)
 * [RUST-WS73 Perf Baseline + Extreme-Perf Prototype Plan](RUST-WS73-PERF-BASELINE.md) - intel concept (53 KB)
