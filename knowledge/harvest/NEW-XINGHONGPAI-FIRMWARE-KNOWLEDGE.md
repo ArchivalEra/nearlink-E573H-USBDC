@@ -5,7 +5,7 @@ language: zh
 created: 2026-09-12
 tags: [harvest, xinghongpai, ws63, firmware]
 sources:
-  - "/mnt/hdd/nearlink-stuff/xinghongpai-nearlink-dev-board"
+  - "https://github.com/HuaqiuOpenHardware/xinghongpai-nearlink-dev-board"
 trust: B
 stale_after: 2027-03-12
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-03-12
 # Xinghongpai WS63 firmware program knowledge
 
 - Inspection date: 2026-09-11
-- Source root: `/mnt/hdd/nearlink-stuff/xinghongpai-nearlink-dev-board/firmware/`
+- Source root: `https://github.com/HuaqiuOpenHardware/xinghongpai-nearlink-dev-board/tree/main/firmware/`
 - Source revision inspected earlier in this harvest: `914e6c22762f1848231c625db78333ec7a767fdc`
 - Mode: read-only program-source inspection; no build, hardware access, or PCB analysis
 - Scope: OpenHarmony/Hi3863 application structure, SDK API families, peripheral drivers, Wi-Fi/lwIP behavior, reusable program knowledge, and concrete porting hazards

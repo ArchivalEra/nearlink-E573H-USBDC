@@ -5,14 +5,14 @@ language: en
 created: 2026-09-12
 tags: [playjoy, hid, vendor-protocol, rust, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/keyboard-cli"
+  - "https://github.com/iainbrux/keyboard-cli"
 trust: B
 stale_after: 2027-03-12
 ---
 
 # Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)
 
-> Hot discovery 2026-09-12 (GitHub `sparklink` sort=updated, pushed 2026-09-08). Clone: `/mnt/hdd/nearlink-stuff/keyboard-cli/` (11M, 289 files). Scope: read-only program knowledge. Every claim cites `path:line` in the clone.
+> Hot discovery 2026-09-12 (GitHub `sparklink` sort=updated, pushed 2026-09-08). Clone: `https://github.com/iainbrux/keyboard-cli/tree/main/` (11M, 289 files). Scope: read-only program knowledge. Every claim cites `path:line` in the clone.
 
 ## 0. Identity and the decisive classification
 

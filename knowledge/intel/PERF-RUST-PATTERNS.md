@@ -17,7 +17,7 @@ stale_after: 2027-03-05
 - **Strict scope:** read-only, no network/build/hardware. Exactly one file at `.scratch/nearlink-driver/lab-notes/PERF-RUST-PATTERNS.md` (English, 200+ lines, `file:line` cited). No other files touched.
 - **Question:** Rust extreme-perf patterns for `rust-ws73` — zero-copy codec (`from_le_bytes`, `&[u8]` borrows, no packed transmute), `#[inline(always)]` hot paths, `forbid(unsafe_code)` vs transport unsafe isolation, Thin→Fat LTO + `codegen-units=1` + `panic=abort` + `strip`, `no_std` alloc, miri coverage. `200+` lines.
 
-> All paths below are absolute under `/home/archivalera/plum/zcode-projects/nearlink` and cited `file:line`.
+> All paths below are absolute under the repository root and cited `file:line`.
 
 ---
 
@@ -412,7 +412,7 @@ Add `rust-ws73/crates/README.md:1` entry per `RUST-WS73-DEEP-MODULES.md:368-377`
 
 ## 9. File inventory for reviewers
 
-All absolute under `/home/archivalera/plum/zcode-projects/nearlink`:
+All absolute under the repository root:
 
 - `stack/ssap/src/ssap_codec.c:1` — LE helpers `:43-53`, encode `:55-217`, `memcpy:112,148,166`, tests at `stack/ssap/test/test_codec.c:1`
 - `stack/ssap/src/hwsle_transport.c:1` — `g_fd:21`/`g_recv_cb:22`, `put_u16:24-29`, `open:33`/`write:60,65,87,91`/`poll:104-105`/`read:113`/`buf[2048]:102`/`tcid==0x0A:125`

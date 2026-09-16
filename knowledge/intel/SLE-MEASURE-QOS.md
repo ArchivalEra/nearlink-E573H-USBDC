@@ -5,7 +5,7 @@ language: en
 created: 2026-08-17
 tags: [intel, measure, parameters, tuning]
 sources:
-  - "/mnt/hdd/nearlink-stuff/sle_measure_sdk"
+  - "https://github.com/rzy0901/sle_measure_sdk1.0.12"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-02-17
 # SLE Measure SDK — QoS Parameters, PHY Tuning & ACB Credit Gating
 
 **Date:** 2026-08-17
-**Source:** `/mnt/hdd/nearlink-stuff/sle_measure_sdk/` (external reference, read-only)
+**Source:** `https://github.com/rzy0901/sle_measure_sdk1.0.12/tree/main/` (external reference, read-only)
 
 ---
 

@@ -93,7 +93,7 @@ stale_after: 2027-02-16
 
 - `scripts/ws73-probe/sle-hci-scan.py`：命令方言扫描器
 - `scripts/ws73-probe/sle-adv.py`：广播+扫描序列
-- 均在实验场 /mnt/hdd/laboratory/ws73-probe/ 有源头
+- 均在实验场 .scratch/nearlink-driver/lab-notes/ (ws73-probe findings archived under  有源头
 
 ## 隔离准则
 

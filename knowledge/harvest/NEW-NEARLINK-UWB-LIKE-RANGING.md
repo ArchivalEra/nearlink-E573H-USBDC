@@ -5,7 +5,7 @@ language: en
 created: 2026-09-12
 tags: [harvest, nearlink, like, ranging]
 sources:
-  - "/mnt/hdd/nearlink-stuff/nearlink-uwb-like-ranging"
+  - "https://github.com/zhuzhengyan50-spec/nearlink-uwb-like-ranging"
 trust: B
 stale_after: 2027-03-12
 ---
@@ -14,7 +14,7 @@ stale_after: 2027-03-12
 
 > Ticket: harvest of `zhuzhengyan50-spec/nearlink-uwb-like-ranging` (hot discovery: most recently pushed NearLink repo, 2026-09-12). Ask: first public multi-anchor SLE Channel Sounding implementation — what is reusable for the WS73 tri-mode stack, especially the missing ranging direction.
 > Date: 2026-09-12. Scope: read-only program/source knowledge. No builds, no hardware, no PCB. English-only per `AGENTS.md`. Every factual claim cites `path:line` (harvest repo) or a local repo path (nearlink repo).
-> Clone: `/mnt/hdd/nearlink-stuff/nearlink-uwb-like-ranging/` (5.8M, 65 files, single commit `34c82f1` 2026-09-12 by Zhengyan Zhu). This report file only.
+> Clone: `https://github.com/zhuzhengyan50-spec/nearlink-uwb-like-ranging/tree/main/` (5.8M, 65 files, single commit `34c82f1` 2026-09-12 by Zhengyan Zhu). This report file only.
 
 ---
 
@@ -212,7 +212,7 @@ Delta to verify on real hardware (open items, not established facts):
 
 ## 11. File index
 
-Harvest repo (all under `/mnt/hdd/nearlink-stuff/nearlink-uwb-like-ranging/`):
+Harvest repo (all under `https://github.com/zhuzhengyan50-spec/nearlink-uwb-like-ranging/tree/main/`):
 
 - `README_EN.md:1-145` — identity, highlights, field test, limitations, roadmap, license
 - `docs/ARCHITECTURE.md:1-43` — roles, data path, config boundaries, host structure

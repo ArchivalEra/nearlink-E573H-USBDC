@@ -5,8 +5,8 @@ language: en
 created: 2026-08-17
 tags: [intel, opensparklink, host, kernel]
 sources:
-  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
-  - "/mnt/hdd/nearlink-stuff/sparklink"
+  - "https://github.com/OpenSparklink/linux"
+  - "https://github.com/OpenSparklink/sparklink"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -19,15 +19,15 @@ Purpose: reference digest of the OpenSparklink host-stack's kernel-ABI contract,
 
 ## Sources
 
-- `sparklink.h` = `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/include/uapi/linux/sparklink.h` — Generic Netlink ABI (family `"sparklink"`).
-- `sparklink_ioctl.h` = `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/include/uapi/linux/sparklink_ioctl.h` — `/dev/sparklink` ioctl ABI.
-- `sle_uapi.rs` = `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_uapi.rs` (2880 lines) — kernel-side mirror of the ioctl constants + all `repr(C)` structs.
-- `sle_event.rs` = `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_event.rs` — event wire format + per-fd event queue + global broadcast ring.
-- `sle_netlink.rs` = `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_netlink.rs` — Generic Netlink TLV build/parse code.
-- `libsparklink/` = `/mnt/hdd/nearlink-stuff/sparklink/crates/libsparklink/src/` — userland client (`adapter.rs`, `event.rs`, `ffi.rs`).
-- `slk-protocol/` = `/mnt/hdd/nearlink-stuff/sparklink/crates/slk-protocol/src/` — userland mirror of the ABI (`ioctl.rs`, `types.rs`, `genl.rs`).
-- `slctl/` = `/mnt/hdd/nearlink-stuff/sparklink/crates/slctl/src/` — CLI tool (`main.rs`, `commands.rs`).
-- Ours: `hwsle_transport.c` = `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/src/hwsle_transport.c`; `SSAP-DIALECT-COMPARISON.md` = `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/SSAP-DIALECT-COMPARISON.md`.
+- `sparklink.h` = `https://github.com/OpenSparklink/linux/blob/master/include/uapi/linux/sparklink.h` — Generic Netlink ABI (family `"sparklink"`).
+- `sparklink_ioctl.h` = `https://github.com/OpenSparklink/linux/blob/master/include/uapi/linux/sparklink_ioctl.h` — `/dev/sparklink` ioctl ABI.
+- `sle_uapi.rs` = `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_uapi.rs` (2880 lines) — kernel-side mirror of the ioctl constants + all `repr(C)` structs.
+- `sle_event.rs` = `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_event.rs` — event wire format + per-fd event queue + global broadcast ring.
+- `sle_netlink.rs` = `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_netlink.rs` — Generic Netlink TLV build/parse code.
+- `libsparklink/` = `https://github.com/OpenSparklink/sparklink/tree/master/crates/libsparklink/src/` — userland client (`adapter.rs`, `event.rs`, `ffi.rs`).
+- `slk-protocol/` = `https://github.com/OpenSparklink/sparklink/tree/master/crates/slk-protocol/src/` — userland mirror of the ABI (`ioctl.rs`, `types.rs`, `genl.rs`).
+- `slctl/` = `https://github.com/OpenSparklink/sparklink/tree/master/crates/slctl/src/` — CLI tool (`main.rs`, `commands.rs`).
+- Ours: `hwsle_transport.c` = `stack/ssap/src/hwsle_transport.c`; `SSAP-DIALECT-COMPARISON.md` = `.scratch/nearlink-driver/lab-notes/SSAP-DIALECT-COMPARISON.md`.
 
 Note: OpenSparklink exposes the SAME operation set through two parallel userland paths: (a) the `/dev/sparklink` char device via ~131 ioctls, and (b) a Generic Netlink family `"sparklink"` v1 (`sparklink.h:20-21`) that "parallels the ioctl interface" (`sparklink.h:8-10`). The ioctl ABI is the one actually consumed by the userland tooling (libsparklink drives ioctls exclusively via `slk-protocol/src/ioctl.rs`), so this digest centers on it.
 

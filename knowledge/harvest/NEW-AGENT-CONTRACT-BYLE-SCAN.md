@@ -5,8 +5,8 @@ language: en
 created: 2026-09-15
 tags: [harvest, agent-contract, kws, verdict, ws63]
 sources:
-  - "/mnt/hdd/nearlink-stuff/skills-nearlink"
-  - "/mnt/hdd/nearlink-stuff/YunZhiSheng_WS63AI"
+  - "https://gitcode.com/hinearlink/skills"
+  - "https://gitcode.com/HiSpark/YunZhiSheng_WS63AI"
   - "github.com/Terrydev5/NearLink"
   - "github.com/Eironax/Qwac"
 trust: B

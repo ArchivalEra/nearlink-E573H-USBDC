@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [cli, fbb, ai-agents, mechanism-policy, json-contract, sdk-autodetect, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/hs-fbb-cli"
-trust: verified
+  - "https://gitcode.com/HiSpark/hs-fbb-cli"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # HiSpark/hs-fbb-cli — official fbb framework CLI with an explicit AI-agent contract: mechanism/policy split and a one-call JSON situational probe
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-06-24 — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/hs-fbb-cli` (2.9M Python)
+- Source root: `https://gitcode.com/HiSpark/hs-fbb-cli` (2.9M Python)
 - Mode: read-only local program inspection; no build, network, hardware, or PCB access
 
 ## Executive findings

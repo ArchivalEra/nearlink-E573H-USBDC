@@ -43,7 +43,7 @@ stale_after: 2027-03-05
 | workspace shape | `.scratch/rust-ws73-tri-mode/issues/04-rust-workspace-shape.md:1-8` | taken as satisfied: `rust-ws73/` at repo root, 5 crates mirroring `stack/ssap` + HAL 5+2 seam |
 | deep boundaries | `.scratch/rust-ws73-tri-mode/issues/08-deep-module-boundaries.md:1-8` | taken as satisfied: `dependency-cruiser` narrow entry + `RUST-WS73-DEEP-MODULES.md` exists |
 
-> All paths below are absolute under `/home/archivalera/plum/zcode-projects/nearlink` and cited `file:line`.
+> All paths below are absolute under the repository root and cited `file:line`.
 
 ---
 
@@ -273,7 +273,7 @@ Fold into whatever `check`/`lint:boundaries` target `RUST-WS73-DEEP-MODULES.md:3
 
 ## 9. File inventory for reviewers
 
-All absolute under `/home/archivalera/plum/zcode-projects/nearlink`:
+All absolute under the repository root:
 
 - `stack/ssap/include/ssap_codec.h:1`, `src/ssap_codec.c:1` — codec seam, LE helpers `:43-53`, all 10 encode/decode paths
 - `stack/ssap/include/hwsle_transport.h:1`, `src/hwsle_transport.c:1` — HAL 5+2, `g_fd:21`/`g_recv_cb:22`, `open:33`/`write:60,65,87,91`/`poll:105`/`read:113`/`buf[2048]:102`/`tcid==0x0A:125`

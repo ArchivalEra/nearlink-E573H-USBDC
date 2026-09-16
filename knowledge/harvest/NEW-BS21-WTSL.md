@@ -5,8 +5,8 @@ language: zh
 created: 2026-09-05
 tags: [harvest, repo, knowledge, bs21]
 sources:
-  - "/mnt/hdd/nearlink-stuff/Ai-BS21_SDK"
-  - "/mnt/hdd/nearlink-stuff/wtsl_app"
+  - "https://github.com/Ai-Thinker-Open/Ai-BS21_SDK"
+  - "https://github.com/zak1234-git/wtsl_app"
 trust: B
 stale_after: 2027-03-05
 ---
@@ -16,9 +16,9 @@ stale_after: 2027-03-05
 Date: 2026-09-03 (read-only harvest, no network/build/hardware)
 Sources on disk:
 
-- `/mnt/hdd/nearlink-stuff/Ai-BS21_SDK/` — 691 MB, Ai-Thinker official BS21 SDK
+- `https://github.com/Ai-Thinker-Open/Ai-BS21_SDK/tree/master/` — 691 MB, Ai-Thinker official BS21 SDK
   (github.com/Ai-Thinker-Open/Ai-BS21_SDK, single squashed commit `f4f3f28 "add output file"`)
-- `/mnt/hdd/nearlink-stuff/wtsl_app/` — 26 MB, "WTSL" SparkLink gateway app
+- `https://github.com/zak1234-git/wtsl_app/tree/main/` — 26 MB, "WTSL" SparkLink gateway app
   (github.com/zak1234-git/wtsl_app, single commit `f93998c "modified the api md"`)
 
 Questions asked: (1) structural diff Ai-BS21 vs fbb_ws63 lineage; (2) is wtsl_app's

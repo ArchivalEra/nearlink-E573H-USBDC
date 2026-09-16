@@ -5,10 +5,10 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, ws73, sle, connectionless-broadcast, ss928, linux]
 sources:
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/AIOT/10714_XingyuHuiju_SLE_Badminton""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/AIOT/20520_基于WS63E的无接触演示控制系统与星闪低时延交互优化""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/AIOT/15252_SafeSmartBag_Pro""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/AIOT/15913_SeaEcho_Sign_language_recognition""
+  - ""competition-2026/AIOT/10714_XingyuHuiju_SLE_Badminton""
+  - ""competition-2026/AIOT/20520""
+  - ""competition-2026/AIOT/15252_SafeSmartBag_Pro""
+  - ""competition-2026/AIOT/15913_SeaEcho_Sign_language_recognition""
 trust: B
 stale_after: 2027-03-15
 ---

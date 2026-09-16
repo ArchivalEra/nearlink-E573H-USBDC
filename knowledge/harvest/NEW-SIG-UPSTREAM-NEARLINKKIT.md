@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ohos, sig, nearlink-kit, arkts, ssap, upstream, attribution, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink"
-trust: verified
+  - "https://gitcode.com/openharmony-sig/communication_nearlink"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # openharmony-sig/communication_nearlink is the tethering upstream; @kit.NearLinkKit is the official ArkTS surface (scan/ssap/dataTransfer)
 
 - Inspection date: 2026-09-13 (staleness check: SIG pushed 2026-07-07, kit 2025-10-23 — both ALIVE)
-- Source roots: `/mnt/hdd/nearlink-stuff/communication_nearlink`, `/mnt/hdd/nearlink-stuff/nearlink-kit_-sample-code`
+- Source roots: `https://gitcode.com/openharmony-sig/communication_nearlink`, `https://gitcode.com/HarmonyOS_Samples/nearlink-kit_-sample-code`
 - Mode: read-only local program inspection; no build, network, hardware, or PCB access
 
 ## Executive findings

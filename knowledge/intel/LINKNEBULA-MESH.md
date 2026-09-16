@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, linknebula, aetherlink, rust]
 sources:
-  - "/mnt/hdd/nearlink-stuff/LinkNebula"
+  - "https://github.com/GBCLStudio/LinkNebula"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-02-17
 # LinkNebula (AetherLink) — Rust no_std SLE Mesh Deep-Dive
 
 **Date:** 2026-08-17
-**Scope:** Read-only inspection of `/mnt/hdd/nearlink-stuff/LinkNebula/` (all Rust sources, Cargo.toml, tests, README). No network/build/hardware.
+**Scope:** Read-only inspection of `https://github.com/GBCLStudio/LinkNebula/tree/master/` (all Rust sources, Cargo.toml, tests, README). No network/build/hardware.
 **Context:** LinkNebula is a community Rust no_std mesh experiment on NearLink (SLE). The prior `COMMUNITY-PROJECTS.md` (line 64-69) assessed it as "mid-value — protocol/design knowledge transferable." This report validates that assessment and extracts the protocol design and implementation patterns in detail.
 **Companion docs:** `COMMUNITY-PROJECTS.md` (lines 64-69, 172), `SLE-MESH-EPAPER.md` (the C-mesh counterpart).
 
@@ -274,4 +274,4 @@ The 4-crate workspace (`common/client/forward/server`) cleanly separates concern
 
 ---
 
-*Report generated 2026-08-17. All file references use absolute paths under `/mnt/hdd/nearlink-stuff/LinkNebula/`.*
+*Report generated 2026-08-17. All file references use absolute paths under `https://github.com/GBCLStudio/LinkNebula/tree/master/`.*

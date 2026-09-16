@@ -31,7 +31,7 @@ SDK 板级代码**原生支持 `CONFIG_SUPPORT_Hi3798MV320`**（不是移植，�
 
 ### 1. SDK 根
 ```
-/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/
+sdk/ws73_sdk_linux_WS73_1.10.110/
 ```
 
 ### 2. 内核模块源码（要编 4 个 ko）
@@ -99,7 +99,7 @@ SDK 板级代码**原生支持 `CONFIG_SUPPORT_Hi3798MV320`**（不是移植，�
 
 ```bash
 # 顶层平台模块 (含 hcc+固件下载)
-cd /home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110
+cd sdk/ws73_sdk_linux_WS73_1.10.110
 make platform -j1          # ⚠️ 必须 -j1! 顶层 make 无限制并行会 OOM 黑屏
 
 # 单模块 (sle 示例)
@@ -135,8 +135,8 @@ cat /dev/hwsle &                             # 触发 SLE_OPEN 握手 (sle state
 
 - rk3568 aarch64 预编译: `.../application/bin/rk3568/`（需 glibc≥2.33, 老盒大概率不满足, 仅参考）
 - 32位 musl 版: `.../application/bin/3516V610/`（老盒若是 32 位内核可参考）
-- 实验场工具 (libusb 握手验证): `/mnt/hdd/laboratory/ws73-probe/`
-- 探索日志: `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/EXPLORE-20260815.md`
+- 实验场工具 (libusb 握手验证): `.scratch/nearlink-driver/lab-notes/ (ws73-probe findings archived under `
+- 探索日志: `.scratch/nearlink-driver/lab-notes/EXPLORE-20260815.md`
 
 ## 增补：7.x 内核适配清单（x86 已验证，师傅 7.2 aarch64 大概率复用）
 

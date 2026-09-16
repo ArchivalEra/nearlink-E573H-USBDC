@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [rust, ws63, bare-metal, wifi-blob, packet-ram, embassy, rtos-coexist, no_std, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

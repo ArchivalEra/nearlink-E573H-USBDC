@@ -5,7 +5,7 @@ language: zh
 created: 2026-09-05
 tags: [harvest, burn, tools, python]
 sources:
-  - "/mnt/hdd/nearlink-stuff/xf_burn_tools"
+  - "https://github.com/geekheart/xf_burn_tools"
 trust: B
 stale_after: 2027-03-05
 ---
@@ -16,7 +16,7 @@ Date: 2026-09-03. Read-only repo-knowledge harvest; no network, no build, no har
 
 Source on the archive disk:
 
-- `/mnt/hdd/nearlink-stuff/xf_burn_tools/` — git clone of
+- `https://github.com/geekheart/xf_burn_tools/tree/main/` — git clone of
   `github.com/geekheart/xf_burn_tools` (verified via `.git/config` remote), HEAD
   `2192a99` "docs: 更新说明文档" (2024-10-11). Author "kirto"
   (`sky.kirto@qq.com`, `setup.py:8-9`), package `AutoBurn` v0.3.0, console

@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [ohos, ws63, ws63v100, sdk, api-parity, hal, adapter, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

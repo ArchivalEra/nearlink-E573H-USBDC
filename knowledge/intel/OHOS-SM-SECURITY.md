@@ -5,7 +5,7 @@ language: en
 created: 2026-08-16
 tags: [intel, ohos, nearlink, security]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-16
 ---
@@ -18,7 +18,7 @@ stale_after: 2027-02-16
 
 ## Sources
 
-All paths relative to `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/`.
+All paths relative to `https://github.com/openharmony/communication_nearlink_service/tree/master/services/stack/`.
 
 ### Primary SM source files (host-side, `cp/bsl/sle/sm/`)
 
@@ -51,8 +51,8 @@ All paths relative to `/mnt/hdd/nearlink-stuff/communication_nearlink_service/se
 
 ### SSAP permission enforcement (`cp/bsl/sle/servm/ssap/`)
 
-| File | Lines | Key evidence |
-|------|-------|-------------|
+| File | Key evidence |
+|------|-------------|
 | `include/ssap_type.h:140-157` | Permission struct + enum: AUTHENTICATION_NEED(0x01), ENCRYPTION_NEED(0x02), AUTHORIZATION_NEED(0x04) |
 | `include/inner/ssap_pkt.h:197-199` | PDU error codes: UNAUTHENTICATED, UNAUTHORIZED, UNENCRYPTED |
 | `src/ssaps_server.c:339-351` | `SSAPS_ReadControlCheck`: calls `SmIsSLinkAuthComplete` / `SmIsSLinkEncryptComplete` |

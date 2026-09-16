@@ -5,7 +5,7 @@ language: en
 created: 2026-09-16
 tags: [harvest, firmware-store, tauri, registry, nlchat, capstone]
 sources:
-  - "/mnt/hdd/nearlink-stuff/nearlink-firmwares"
+  - "https://github.com/MiraHikari/nearlink-firmwares"
 trust: A
 stale_after: 2027-03-16
 ---

@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [h3863, ws63, bearpi, sle-uart, sle-gateway, sle-1-to-8, docs, tutorial, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

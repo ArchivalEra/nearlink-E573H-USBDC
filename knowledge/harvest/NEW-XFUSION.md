@@ -5,14 +5,14 @@ language: zh
 created: 2026-09-05
 tags: [harvest, xfusion, what, fusion]
 sources:
-  - "/mnt/hdd/nearlink-stuff/xfusion"
+  - "https://github.com/x-eks-fusion/xfusion"
 trust: B
 stale_after: 2027-03-05
 ---
 
 # NEW-XFUSION — What x-eks-fusion (XFusion) teaches us
 
-- Local snapshot: `/mnt/hdd/nearlink-stuff/xfusion/` (7.1 MB incl. `.git`), 28★ x-eks-fusion/xfusion.
+- Local snapshot: `https://github.com/x-eks-fusion/xfusion/tree/main/` (7.1 MB incl. `.git`), 28★ x-eks-fusion/xfusion.
 - Snapshot commit: `517af4a 2025-05-23 "refactor: 更新 SLE 例程 (#62)"` (latest commit on the checkout).
 - IMPORTANT caveat discovered up front: **all git submodules are uninitialized** (`.gitmodules` lists
   `components/xf_sle/xf_sle` and `ports/nearlink/port_xf_for_nearlink` among 16 submodules; `git submodule status`
@@ -26,7 +26,7 @@ stale_after: 2027-03-05
 
 ## 1. Repository architecture (the layering lesson)
 
-Top-level dirs (`ls /mnt/hdd/nearlink-stuff/xfusion/`): `boards/ components/ docs/ examples/ plugins/ ports/
+Top-level dirs (`ls https://github.com/x-eks-fusion/xfusion/tree/main/`): `boards/ components/ docs/ examples/ plugins/ ports/
 sdks/ tools/`, plus `XFKconfig`, `export.sh`, `CHANGELOG.md`, `DETAILS.md`.
 
 Layer split (each role is decoupled — this is the core design idea, spelled out in `DETAILS.md:5-9`):
@@ -303,4 +303,4 @@ What we can legitimately take:
 5. Board configs are 9-line SDK pins (fbb_ws63 @ ws63_1.10.102/v2.0; bs2x_sdk @ bs2x_1.10.15/v2.0) + Kconfig; build plugin drives the vendor SDK's own `build.py` and flashes fwpkg via `burn`.
 6. NOT usable as our TV-box app layer: no USB/IPC radio transport, linux simulator has no SLE backend — it is chip-side (companion-device firmware) only.
 7. Take for OSPL: spec-native vocabulary (announce/seek), app_id/conn_id/handle addressing, event-enum+union cb design, invalid-id constants as port pre-config, and the speed-profile table for our throughput tests.
-8. Notes file: `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/NEW-XFUSION.md`
+8. Notes file: `.scratch/nearlink-driver/lab-notes/NEW-XFUSION.md`

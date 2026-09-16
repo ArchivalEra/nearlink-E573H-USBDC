@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, mesh, epaper, multi]
 sources:
-  - "/mnt/hdd/nearlink-stuff/NearLink-Mesh-ePaper"
+  - "https://github.com/NearLink-ePaper/NearLink-Mesh-ePaper"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-02-17
 # SLE Mesh ePaper — Multi-hop SLE Mesh Design Deep-Dive
 
 **Date:** 2026-08-17
-**Scope:** Read-only local inspection of `/mnt/hdd/nearlink-stuff/NearLink-Mesh-ePaper/` (repo now cloned; the earlier COMMUNITY-PROJECTS.md noted it missing). No network/build/hardware.
+**Scope:** Read-only local inspection of `https://github.com/NearLink-ePaper/NearLink-Mesh-ePaper/tree/main/` (repo now cloned; the earlier COMMUNITY-PROJECTS.md noted it missing). No network/build/hardware.
 **Context:** Evaluating SLE multi-hop mesh capability for the TV-box (1 box + N sensor nodes) roadmap. This is the closest community implementation of a "NearLink mesh" — AODV/flow-control claims over SSAP on BearPi-Pico H3863 (Hi3863 = WS63 family chip).
 **Companion docs:** `COMMUNITY-PROJECTS.md` (prior picture, now outdated on this repo's availability), `OSPL-SSAP-COMPARE.md`, `OSPL-DLI-CROSSCHECK.md`.
 
@@ -31,7 +31,7 @@ The README/feature-claims and the actual code diverge on several headline items,
 
 ## Sources
 
-All under `/mnt/hdd/nearlink-stuff/NearLink-Mesh-ePaper/sle_mesh_networking/`:
+All under `https://github.com/NearLink-ePaper/NearLink-Mesh-ePaper/tree/main/sle_mesh_networking/`:
 
 | File | Role | Key refs |
 |---|---|---|
@@ -125,7 +125,7 @@ Comparison side: our `stack/ssap/` (`include/hwsle_transport.h`, `include/ssap_l
 
 - The mesh uses the **vendor in-chip SSAP library directly** (`ssaps_*` server / `ssapc_*` client), the same API family as NearLinkSLE and FallDetection in our community batch, with the same registration order and the same **mandatory CCCD/descriptor** (their descriptor value `{0x01,0x00}` default-enables notify, `sle_uart_server.c:215-248`). MTU 520 matches.
 - The app protocol is **payload-over-SSAP**: mesh frames ride inside SSAP Write/Notify values; there is no SSAP service-architecture multiplexing — one service (0x2222/0x2323) carries all mesh control+data, plus a separate BLE GATT service (0xFFE0, `ble_gateway.c:32-35`) for the phone.
-- Our stack (`/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/`) differs in two ways that the mesh design does not depend on: (a) we run **host-side** on the WS73 dongle — `hwsle_transport.h:6-11` puts SSAP PDUs onto `/dev/hwsle` ACB frames (`0xA3`, tcid `0x0A` = SLE_SMTC); (b) connection management is **DLI/CM** (`ssap_link.h:20-33`: `DLI_CREATE_CONNECTION 0x1401`, `DLI_SET_DATA_LEN 0x1804`, etc.), not the in-chip `sle_connect_remote_device` API. The mesh layer (DV routing, dedup, AIMD) sits *above* these, so the mesh design ports to our architecture as an application layer — what transfers is the **protocol design and parameterization**, not the link calls.
+- Our stack (`stack/ssap/`) differs in two ways that the mesh design does not depend on: (a) we run **host-side** on the WS73 dongle — `hwsle_transport.h:6-11` puts SSAP PDUs onto `/dev/hwsle` ACB frames (`0xA3`, tcid `0x0A` = SLE_SMTC); (b) connection management is **DLI/CM** (`ssap_link.h:20-33`: `DLI_CREATE_CONNECTION 0x1401`, `DLI_SET_DATA_LEN 0x1804`, etc.), not the in-chip `sle_connect_remote_device` API. The mesh layer (DV routing, dedup, AIMD) sits *above* these, so the mesh design ports to our architecture as an application layer — what transfers is the **protocol design and parameterization**, not the link calls.
 
 ---
 

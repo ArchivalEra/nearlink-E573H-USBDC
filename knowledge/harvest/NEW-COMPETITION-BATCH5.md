@@ -5,10 +5,10 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, ws63, sle, topology, mcp, fall-detection, kconfig]
 sources:
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/10102_WS63_Multimodal_Posture_Sensing_System""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/10347_Smart_MEDBOX""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/14710_fall_detection""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15625_NearLink_Shield""
+  - ""competition-2026/IOT/10102_WS63_Multimodal_Posture_Sensing_System""
+  - ""competition-2026/IOT/10347_Smart_MEDBOX""
+  - ""competition-2026/IOT/14710_fall_detection""
+  - ""competition-2026/IOT/15625_NearLink_Shield""
 trust: B
 stale_after: 2027-03-15
 ---

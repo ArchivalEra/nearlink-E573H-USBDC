@@ -12,7 +12,7 @@ stale_after: 2027-02-16
 
 # BS21/WS63 SDK vs OHOS — SSAP Dialect Comparison
 
-Sources (cloned to /mnt/hdd/nearlink-stuff/): fbb_ws63, fbb_bs2x, sle_measure_sdk.
+Sources (cloned to the local harvest material tree (see guide.md)/): fbb_ws63, fbb_bs2x, sle_measure_sdk.
 
 ## KEY FINDING: device-side SSAP is the SAME wire protocol as OHOS
 

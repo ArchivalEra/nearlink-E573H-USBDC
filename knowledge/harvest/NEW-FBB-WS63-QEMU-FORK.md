@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [qemu, ws63, fbb_ws63, emulation, bootloader, liteos, rf-calibration, efuse, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

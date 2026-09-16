@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ws63, ws63e, zero]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -16,7 +16,7 @@ Date: 2026-08-17
 
 ## Sources
 
-All line references are against the local SDK dump (read-only) at `/mnt/hdd/nearlink-stuff/fbb_ws63/` (this is a GitHub mirror `x-eks-fusion/fbb_ws63`; upstream is `https://gitee.com/HiSpark/fbb_ws63`):
+All line references are against the local SDK dump (read-only) at `https://github.com/x-eks-fusion/fbb_ws63/tree/master/` (this is a GitHub mirror `x-eks-fusion/fbb_ws63`; upstream is `https://gitee.com/HiSpark/fbb_ws63`):
 
 - `tools/README.md` — Windows env guide (HiSpark Studio, CH340 driver, serial program-load)
 - `src/build.py` + `src/build/script/cmake_builder.py` + `src/build/script/enviroment.py` + `src/build/script/usr_config.py` — build system entry, target matching, menuconfig

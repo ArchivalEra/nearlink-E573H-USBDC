@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, web-serial, flasher, protocol, fwpkg, synthesis]
 sources:
-  - "/mnt/hdd/nearlink-stuff/nearlink-web-flasher"
+  - "https://gitcode.com/hinearlink/nearlink-web-flasher"
 trust: A
 stale_after: 2027-03-15
 ---

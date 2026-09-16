@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ohos, nearlink, sle, tethering, socket, port-profile, ssap, datatransfer, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/tethering_nearlink"
-trust: verified
+  - "https://github.com/xingkaiyueying/tethering_nearlink"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # xingkaiyueying/tethering_nearlink — OHOS NearLink Tethering Service (SLE Port Profile + Local Socket Data Plane)
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-09-11, not archived — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/tethering_nearlink`
+- Source root: `https://github.com/xingkaiyueying/tethering_nearlink`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: tethering architecture, SLE port profile, socket data plane, datatransfer service, app-to-device mapping
 

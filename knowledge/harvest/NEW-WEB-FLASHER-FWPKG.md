@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [web-serial, flasher, fwpkg, loaderboot, ymodem, crc16, nearlink-contrib, mpu6050, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/nearlink-web-flasher"
-trust: verified
+  - "https://gitcode.com/hinearlink/nearlink-web-flasher"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # StarFish nearlink-web-flasher + nearlink-contrib — browser-side LoaderBoot/YMODEM flashing with fwpkg container format; a young community component collection
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-08-14 / 2025-12-11 — ALIVE)
-- Source roots: `/mnt/hdd/nearlink-stuff/nearlink-web-flasher`, `/mnt/hdd/nearlink-stuff/nearlink-contrib`
+- Source roots: `https://gitcode.com/hinearlink/nearlink-web-flasher`, `https://gitcode.com/hinearlink/nearlink-contrib`
 - Mode: read-only local program inspection; no build, network, hardware, or PCB access
 
 ## Executive findings

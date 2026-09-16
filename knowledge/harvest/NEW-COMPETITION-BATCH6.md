@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, ws63, sle, uuid-convention, ble-coexistence, telemetry]
 sources:
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15413_WS63_DualMode_Env_Patrol_Car""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15303_SmartHanger""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/15307_CoreAqua""
+  - ""competition-2026/IOT/15413_WS63_DualMode_Env_Patrol_Car""
+  - ""competition-2026/IOT/15303_SmartHanger""
+  - ""competition-2026/IOT/15307_CoreAqua""
 trust: B
 stale_after: 2027-03-15
 ---

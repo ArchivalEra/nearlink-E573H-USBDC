@@ -5,8 +5,8 @@ language: zh
 created: 2026-08-17
 tags: [intel, ws63, hadm, ranging]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
-  - "/mnt/hdd/nearlink-stuff/ws73v100-wifi"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
+  - "https://github.com/gtxaspec/ws73v100-wifi"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -18,14 +18,14 @@ stale_after: 2027-02-17
 
 ## Sources
 
-- WS63 SDK (primary): `/mnt/hdd/nearlink-stuff/fbb_ws63/src/`
+- WS63 SDK (primary): `https://github.com/x-eks-fusion/fbb_ws63/tree/master/src/`
   - `include/middleware/services/bts/sle/sle_hadm_manager.h` (342 lines)
   - `include/middleware/services/bts/sle/sle_low_latency.h` (347 lines)
   - `include/middleware/services/bts/sle/sle_glp_manager.h` (44 lines)
   - `include/middleware/services/bts/sle/sle_connection_manager.h` (low-latency callback, lines 496-577)
   - `protocol/bt/host/gle/ws63-liteos-app/libbth_gle.a` (prebuilt GLE stack; symbols via `strings`/`ar t`)
   - `protocol/bt/host/gle/Kconfig` (FEATURE_GLE_LOW_LATENCY / FEATURE_GLE_HADM, default n)
-- WS73 SDK (byte-identical headers): `/mnt/hdd/nearlink-stuff/ws73v100-wifi/include/bsle/sle/{sle_hadm_manager,sle_low_latency,sle_glp_manager}.h`
+- WS73 SDK (byte-identical headers): `https://github.com/gtxaspec/ws73v100-wifi,sle_low_latency,sle_glp_manager}.h`
 - OHOS Nearlink service (semantic reference):
   - `communication_nearlink_service/services/stack/src/cp/bsl/sle/hadm/include/hadm_api.h`
   - `.../hadm/src/hadm_config_dli.c` (HadmSoundingParam_S → DLI_SetMeasureConfigParam mapping)

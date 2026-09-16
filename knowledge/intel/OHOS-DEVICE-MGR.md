@@ -5,7 +5,7 @@ language: en
 created: 2026-08-17
 tags: [intel, ohos, nearlink, device]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -21,7 +21,7 @@ stale_after: 2027-02-17
 ## Sources
 
 All paths under:
-`/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/device_manager/`
+`https://github.com/openharmony/communication_nearlink_service/tree/master/services/device_manager/`
 
 | File | Role |
 |------|------|

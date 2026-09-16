@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ohos, hadm, ranging]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -17,7 +17,7 @@ stale_after: 2027-02-17
 
 ## Sources
 
-Primary (OHOS `communication_nearlink_service/` at `/mnt/hdd/nearlink-stuff/communication_nearlink_service/`):
+Primary (OHOS `communication_nearlink_service/` at `https://github.com/openharmony/communication_nearlink_service/tree/master/`):
 
 - `interfaces/inner_api/include/nearlink_sle_ranging.h` (public app API)
 - `frameworks/native/nearlink_sle_ranging.cpp` (native impl + algorithm-adapter call site)

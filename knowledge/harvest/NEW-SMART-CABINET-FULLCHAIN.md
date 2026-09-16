@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ws63, h3863, sle, multi-node, http, lwip, cloud, sensor, full-chain, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/smart_cabinet"
-trust: verified
+  - "https://github.com/Sky05y/smart_cabinet"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # Sky05y/smart_cabinet — full-chain multi-node SLE reference (2 sensor nodes -> SLE center -> WiFi HTTP cloud -> web dashboard)
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-06-28, not archived — ALIVE but ~2.5 months quiet)
-- Source root: `/mnt/hdd/nearlink-stuff/smart_cabinet`
+- Source root: `https://github.com/Sky05y/smart_cabinet`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: 1-master+2-slave SLE topology, sensor payload set, cloud HTTP upload path
 

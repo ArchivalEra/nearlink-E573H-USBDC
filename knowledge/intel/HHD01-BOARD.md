@@ -5,8 +5,8 @@ language: zh
 created: 2026-08-17
 tags: [intel, research, notes]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
-  - "/mnt/hdd/nearlink-stuff/HopeRun-NearLink"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
+  - "https://github.com/HopeRunORG/NearLink"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -22,16 +22,16 @@ stale_after: 2027-02-17
 
 Local only, read today:
 
-- `/mnt/hdd/nearlink-stuff/HopeRun-NearLink/` (HopeRun 官方仓库镜像)
+- `https://github.com/HopeRunORG/NearLink/tree/main/` (HopeRun 官方仓库镜像)
   - `firmware/README.md` — HH 板↔芯片映射
   - `HH-D01/board/README.md`, `HH-D01/board/IO复用关系.md`, 24 份 `WS63V100 *.pdf` + `ws63-Document-Cn.chm`
   - `HH-D01/*.PDF` — 6 个板级 PDF（三色灯/原理图/教程/产品手册/规格书/AT案例）
   - `demo/23_sle_uart/`, `demo/24_sle_humi/`, `demo/25_sle_led/`, `demo/26_sle_gas/`, `demo/27_sle_oled/`, `demo/sle_uart_demo/`
   - `firmware/WS63 WS63E/ws63-liteos-app_all.fwpkg`（1391436 B，预编译固件包）
 - `/tmp/ws63_at.txt` — 从 `HH-D01/WS63V100 AT命令使用案例.pdf` 提取的文本（PDF 本体无法在此解析，使用已提取文本，源文件 927007 B）
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/` — HiSpark FBB 统一平台 WS63/WS63E SDK
+- `https://github.com/x-eks-fusion/fbb_ws63/tree/master/` — HiSpark FBB 统一平台 WS63/WS63E SDK
   - `README.md`, `tools/README.md`, `src/application/samples/bt/sle/*`, `src/middleware/utils/at/*`, `src/include/middleware/services/bts/sle/*`, `src/build/config/target_config/ws63/config.py`
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/` — 我们自己的 WS73 PC 栈（互连目标）
+- `stack/ssap/` — 我们自己的 WS73 PC 栈（互连目标）
 
 PDF 处理说明：所有 `.pdf/.chm` 均未解析内容（无工具/只读约束）。`WS63V100 AT命令使用案例.pdf` 的内容经 /tmp/ws63_at.txt 的预提取文本纳入；其余 PDF 仅列出文件名并基于文件名与 README 描述推断覆盖范围，标注为推断。
 
@@ -103,7 +103,7 @@ PDF 处理说明：所有 `.pdf/.chm` 均未解析内容（无工具/只读约�
 | **服务 UUID** | **0x2222** | `sle_uart_server.h:30` `SLE_UUID_SERVER_SERVICE` |
 | **特征 UUID** | **0x2323** | `sle_uart_server.h:33` `SLE_UUID_SERVER_NTF_REPORT` |
 | 128-bit base UUID | `{37,BE,A8,80,FC,70,11,EA,B7,20,00,00,00,00,00,00}` | `sle_uart_server.c:77-78`（16-bit 0x2222/0x2323 映射到 base 低 2 字节，`Encode2byteLittle` 小端） |
-| 特征权限 | SSAP_PERMISSION_READ \| WRITE；operate=读|写 | `sle_uart_server.h:36,39` |
+| 特征权限 | SSAP_PERMISSION_READ \| WRITE；operate=读\|写 | `sle_uart_server.h:36,39` |
 | 描述符 | SSAP_DESCRIPTOR_CLIENT_CONFIGURATION，值 `{0x01,0x02}` | `sle_uart_server.c:277-282` |
 | MTU | 520 | `sle_uart_server.c:46`、`sle_uart_client.c:38` |
 
@@ -230,7 +230,7 @@ AT+SSAPCFNDSTRU=1,0,1
 5. 套件 `BUILD.gn` sources 改 server 三件套：`sle_uart_server_adv.c` + `sle_uart_server.c`（注释 `sle_uart_client.c`）（`README.md:76-92`）。
 6. `rm -rf out && hb set -p nearlink_dk_3863 && hb build -f`（`README.md:94`）。
 路径 B2（fbb_ws63 统一平台，可选）：
-1. 克隆/使用 `/mnt/hdd/nearlink-stuff/fbb_ws63/`（LiteOS 版，`README.md:5`；Windows 用 HiSpark Studio，`tools/README.md:7`）。
+1. 克隆/使用 `https://github.com/x-eks-fusion/fbb_ws63/tree/master/`（LiteOS 版，`README.md:5`；Windows 用 HiSpark Studio，`tools/README.md:7`）。
 2. menuconfig 选 `SAMPLE_SUPPORT_SLE_UUID_SERVER_SAMPLE`（`src/application/samples/bt/sle/Kconfig:11-24`；该样例 UUID 为 0xABCD/0x1122，见 §8）。
 3. 编译 + HiSpark Studio"程序加载"烧录（`tools/README.md:89-113`）。
 

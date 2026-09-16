@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [nld, dbus, pairing-agent, ssap-server, object-manager, cccd, python, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

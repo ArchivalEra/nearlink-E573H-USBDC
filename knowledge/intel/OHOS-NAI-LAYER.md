@@ -5,7 +5,7 @@ language: en
 created: 2026-08-17
 tags: [intel, ohos, layer, management]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -18,7 +18,7 @@ Author: Research Sub-Agent (NearLink Project)
 ## Sources
 
 All sources under:
-`/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/nai/`
+`https://github.com/openharmony/communication_nearlink_service/tree/master/services/stack/src/nai/`
 
 | File | Role |
 |---|---|

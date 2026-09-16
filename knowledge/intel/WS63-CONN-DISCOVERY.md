@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ws63, hisilicon, connection]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -20,7 +20,7 @@ reference demos. Local files only; no network/build/hardware.
 
 ## Sources
 
-WS63 SDK (`/mnt/hdd/nearlink-stuff/fbb_ws63/src/`):
+WS63 SDK (`https://github.com/x-eks-fusion/fbb_ws63/tree/master/src/`):
 - `include/middleware/services/bts/sle/sle_connection_manager.h` (952 lines)
 - `include/middleware/services/bts/sle/sle_device_discovery.h` (871 lines)
 - `include/middleware/services/bts/sle/sle_common.h`, `sle_errcode.h`, `sle_transmition_manager.h`,

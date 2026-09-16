@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, modelzoo, tinml, pipeline, ws63, mindspore]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb-modelzoo"
+  - "https://gitcode.com/HiSpark/fbb-modelzoo"
 trust: A
 stale_after: 2027-03-15
 ---

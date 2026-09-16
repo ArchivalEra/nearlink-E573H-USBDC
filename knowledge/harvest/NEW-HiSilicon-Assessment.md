@@ -5,14 +5,14 @@ language: en
 created: 2026-09-05
 tags: [harvest, note, hisilicon, nearlink]
 sources:
-  - "/mnt/hdd/nearlink-stuff/HiSilicon_Nearlink_assessment_2025"
+  - "https://github.com/zzhdegit/HiSilicon_Nearlink_assessment_2025"
 trust: B
 stale_after: 2027-03-05
 ---
 
 # Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment
 
-- Source: `/mnt/hdd/nearlink-stuff/HiSilicon_Nearlink_assessment_2025/` (332 KB working tree, 31 MB with `.git` packfiles)
+- Source: `https://github.com/zzhdegit/HiSilicon_Nearlink_assessment_2025/tree/main/` (332 KB working tree, 31 MB with `.git` packfiles)
 - Upstream: https://github.com/zzhdegit/HiSilicon_Nearlink_assessment_2025.git (single commit `24a0579`, shallow/blob:none clone)
 - Author context: 2025 National Undergraduate Embedded Chip & System Design Competition (China), HiSilicon NearLink capability assessment track, scored 90/100, written live in a closed 120-minute session
 - Platform: Hi3863E SoC on HiHope_NearLink_DK3863E_V03 board, SDK v1.10.101+, HiSpark Studio IDE (README.md:13-16)
@@ -242,7 +242,7 @@ disable an IO), not in any measurement framework.
 
 ## Summary (8 lines)
 
-1. Assessed `/mnt/hdd/nearlink-stuff/HiSilicon_Nearlink_assessment_2025/` (2025 China embedded-competition NearLink capability test, 90/100, Hi3863E, SDK v1.10.101+).
+1. Assessed `https://github.com/zzhdegit/HiSilicon_Nearlink_assessment_2025/tree/main/` (2025 China embedded-competition NearLink capability test, 90/100, Hi3863E, SDK v1.10.101+).
 2. **Key finding: zero SLE/NearLink connectivity code** — no adv/scan/conn/SSAP/ranging APIs anywhere; "NearLink" refers only to the SoC family (grep evidence in section 1; includes at `Assessment_2025.c:16-37`).
 3. It is a bare-metal peripheral assessment: GPIO+WS2812 LEDs, rainbow-flow, timer brightness stepping, ADC+OLED waveform (README.md:23-40).
 4. Catalogued ~25 uncovered firmware-side uapi/OSAL APIs (`gpio_select_core`, `uapi_timer_*`, `adc_port_read`, `uapi_reg_setbit`, full SPI attr init, `osal_kthread_*`, `app_run`) — see section 2 with file:line citations.

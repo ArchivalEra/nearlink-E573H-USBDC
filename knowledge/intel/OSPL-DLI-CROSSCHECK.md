@@ -5,8 +5,8 @@ language: zh
 created: 2026-08-17
 tags: [intel, opensparklink, ws73, dialect]
 sources:
-  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
-  - "/mnt/hdd/nearlink-stuff/sparklink"
+  - "https://github.com/OpenSparklink/linux"
+  - "https://github.com/OpenSparklink/sparklink"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -19,7 +19,7 @@ Scope: Cross-check the WS73 (ffff:3733) DLI HCI dialect we decoded empirically a
 
 ## Sources read
 
-OpenSparklink (kernel, `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/`):
+OpenSparklink (kernel, `https://github.com/OpenSparklink/linux/tree/master/net/sparklink/`):
 - `sle_dli.rs` (1503 lines) — DLI type/opcode/event/status constants, `SleController` trait, command wrappers
 - `sle_transport.rs` — transport protocol registry (H4-UART / USB-bulk / SPI), max PDU sizes
 - `sle_uart.rs` — UART framing: parser + `encode_command` / `encode_event` / `encode_data`
@@ -27,7 +27,7 @@ OpenSparklink (kernel, `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklin
 - `sle_mgmt.rs` — command pending queue (opcode-based correlation + timeout)
 - `sle_event.rs` — host-side event ring + `SleEventType` UAPI enum
 
-OpenSparklink (userspace crates, `/mnt/hdd/nearlink-stuff/sparklink/crates/`):
+OpenSparklink (userspace crates, `https://github.com/OpenSparklink/sparklink/tree/master/crates/`):
 - `slk-protocol/src/types.rs` — UAPI constants `DLI_PKT_*`, `EVT_*`, `SleDliCmd` / `SleDliEvent`
 - `slk-protocol/src/ioctl.rs` — ioctl numbers (magic 'S', incl. `sl_dli_send_cmd` 0x84, `sl_dli_poll_event` 0x82)
 - `slk-protocol/src/lib.rs` — module layout

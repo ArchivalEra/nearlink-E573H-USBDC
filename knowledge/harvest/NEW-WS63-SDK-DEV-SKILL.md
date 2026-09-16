@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ws63, agent-skill, build, menuconfig, fwpkg, serial-log, gpio-mux, methodology, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/ws63-sdk-dev-skill"
-trust: verified
+  - "https://github.com/SlumberMin/ws63-sdk-dev-skill"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # SlumberMin/ws63-sdk-dev-skill — an independent agent skill for WS63 SDK development; distills build, serial-log, GPIO-mux and sample-hygiene knowledge
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-07-05, not archived — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/ws63-sdk-dev-skill`
+- Source root: `https://github.com/SlumberMin/ws63-sdk-dev-skill`
 - Mode: read-only inspection; the skill targets the same SDK family our harvest does, making it an external calibration of what an agent workflow needs
 
 ## Executive findings

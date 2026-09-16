@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ws63, sle, mesh, relay, packet-format, web-api, flashing, release-engineering, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/sle_mesh_new"
-trust: verified
+  - "https://github.com/BH4ME/sle_mesh_new"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # BH4ME/sle_mesh_new — most mature public SLE team-mesh engineering tree (v4.5.56): portable packet core, relay optimizer, on-board Web API, release evidence chain
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-06-18, not archived — ALIVE, ~3 months quiet)
-- Source root: `/mnt/hdd/nearlink-stuff/sle_mesh_new`
+- Source root: `https://github.com/BH4ME/sle_mesh_new`
 - Mode: read-only local program inspection; hardware/ and cad/ trees excluded per standing rule
 - Scope: team-mesh packet protocol, relay optimizer, board Web API, flash/release engineering
 

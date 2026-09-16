@@ -23,7 +23,7 @@
 
 | 来源 | 位置 / 用法 |
 | --- | --- |
-| 本地仓库库 | `/mnt/hdd/nearlink-stuff/`（41+ 个已克隆仓库 + `2026_embedded_competition/` 竞赛语料，IOT/AIOT 两赛道） |
+| 本地仓库库 | `$NEARLINK_STUFF`（默认 `/mnt/hdd/nearlink-stuff/`：已克隆的上游仓库 + `2026_embedded_competition/` 竞赛语料，IOT/AIOT 两赛道）。**这个路径只用于本机取材，绝不能写进报告**（见 §4 红线） |
 | GitHub | `gh api` CLI 已装好可直接用（search repos / read files / clone） |
 | GitCode | API v5，请求头 `private-token: $(cat ~/.local/share/gitcode-token)` |
 | Gitee | API v5，query 参数 `access_token=$(cat ~/.local/share/gitee-token)`（注意其 search 索引很弱，命中 0 ≠ 不存在，需要组织遍历兜底） |
@@ -49,12 +49,12 @@ Frontmatter 必须是完整字段集、顺序如下（缺一个都算不规范�
 ```yaml
 ---
 type: harvest
-title: "一句话标题（英文，双引号包裹）"
+title: "<一句话英文标题，必须双引号包裹>"
 language: en
 created: YYYY-MM-DD
-tags: [harvest, 三到六个小写关键词]
+tags: [harvest, <3-6 个小写关键词>]
 sources:
-  - "/绝对/路径/或/repo/URL"
+  - "https://github.com/<owner>/<repo>[/blob/<branch>/<path>]"   # 上游 URL，禁止本机路径
 trust: A          # A=代码级逐行验证, B=README/结构级, C=二手转述
 stale_after: YYYY-MM-DD   # created + 6 个月
 ---
@@ -69,6 +69,14 @@ stale_after: YYYY-MM-DD   # created + 6 个月
 
 **红线（会被门禁直接拒绝 + 自查项）：**
 
+- **不允许任何本机绝对路径**（`/mnt/...`、`/home/...`、`/Users/...`、`/root/...`）。
+  `sources:` 与正文一律使用：**上游仓库 URL**（GitHub/GitCode/Gitee，深路径用 `/blob/<branch>/<path>` 或 `/tree/<branch>/<path>`）
+  或**仓库内相对路径**（`knowledge/...`、`assets/...`、`.scratch/...`）。
+  本地克隆的路径（如 `$NEARLINK_STUFF/<repo>`）**只允许出现在本 guide 的取材说明里**，报告里必须换成 URL。
+  竞赛语料无公开 URL，用稳定标签 `competition-2026/<track>/<id>_<ascii-slug>`（中文目录名罗马化，避免 CJK）。
+- **frontmatter（"头部表格"）必须规范化**：字段顺序固定 `type/title/language/created/tags/sources/trust/stale_after`，
+  `title` 双引号包裹，`tags` 非空，`sources` 非空，`trust ∈ {A,B,C}`，日期 `YYYY-MM-DD`，`language ∈ {en,zh}`。
+- **Markdown 表格必须well-formed**：表头 + 分隔行 + 每行列数一致；单元格内的竖线必须转义为 `\|`（或放进 `` `code` ``）。
 - `language: en` 的文件**一个汉字都不能有**（含引号里转述的中文、中文文件名、中文标点）。写完自查：引用中文注释时用 "(translated: ...)" 转写。
 - 竞赛/开源项目的 PCB、3D 模型、原理图目录一律不读不写（硬件设计材料禁触）。
 - 固件二进制 / fwpkg / blob 只记名字与版本，不读取、不入库。
@@ -108,18 +116,19 @@ git add -A && git commit -m "harvest: ..." && NEW_SHA=$(git rev-parse HEAD)
 
 # 5) 三门禁。注意：check-okf 必须直跑并检查退出/✗，不要用管道 tail 掩盖退出码
 python3 scripts/check-okf.py > /tmp/okf.log 2>&1
-grep -q "✗" /tmp/okf.log && { grep "✘" /tmp/okf.log; exit 1; } || {
-  git push -q origin main
-}
+grep -q "✗" /tmp/okf.log && { grep "✘" /tmp/okf.log; exit 1; }
+bash scripts/check-tables.sh || exit 1        # 格式门禁：本机路径 / frontmatter / 表格列数
+git push -q origin main
 
 # 6) 推送验证：必须确认远端真的到了新提交（防止假同步）
 [ "$(git rev-parse origin/main)" = "$NEW_SHA" ] && echo "SYNC OK"
 ```
 
-**门禁语义**（pre-push 会自动再跑一遍，失败即拒推）：
+**门禁语义**（pre-push 会依次跑四道，任一失败即拒推）：
 
 - `scripts/check-okf.py`：OKF 合规（frontmatter 完整性、`language: en` 无 CJK、索引一致）。报错行以 `✘` 开头。
 - `scripts/check-docs.sh`：6/6（README 双语互链 / 索引完整 / docs/ 纯英文 / gitignore 白名单 / 身份 / **双语 README 必须同变**）。
+- `scripts/check-tables.sh`：**格式门禁**（无本机绝对路径 / frontmatter 规范 / Markdown 表格列数一致）。改动格式规则时同步更新它。
 - `scripts/check-harvest-archive.sh`：outgoing 中每出现新增 `NEW-*.md`，就要求同一推送里 `README.md` 和 `README.en.md` 都被修改（单边更新 = 拒）。
 
 **两个常见坑（已踩过，勿重蹈）：**

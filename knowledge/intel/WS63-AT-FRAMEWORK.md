@@ -24,7 +24,7 @@ stale_after: 2027-02-17
 
 ## 1. Sources
 
-Local files read (all under `/mnt/hdd/nearlink-stuff/` and the workspace scratch):
+Local files read (all under `the local harvest material tree (see guide.md)/` and the workspace scratch):
 
 - `fbb_ws63/src/middleware/utils/at/at/src/` — core AT engine: `at_base.c/h`, `at_cmd.c/h`, `at_channel.c/h`, `at_msg.c/h`, `at_notify.c/h`, `at_parse.c/h`, `at_process.c/h`
 - `fbb_ws63/src/middleware/utils/at/at/include/at_product.h`

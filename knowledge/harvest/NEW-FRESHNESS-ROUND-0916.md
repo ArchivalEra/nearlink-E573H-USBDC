@@ -6,7 +6,7 @@ created: 2026-09-16
 tags: [harvest, freshness, teki128, sle-mesh, web-flasher, qemu, pet-collar, uwb-ranging]
 sources:
   - "https://github.com/teki128/nearlink"
-  - "/mnt/hdd/nearlink-stuff/teki128-nearlink (HEAD c5cb7ae, delta 98fa110..c5cb7ae)"
+  - "https://github.com/teki128/nearlink (HEAD c5cb7ae, delta 98fa110..c5cb7ae)"
   - "pull-verified current: BH4ME/sle_mesh, hinearlink/nearlink-web-flasher (GitCode), hispark-rs/fbb_ws63-qemu, yeyeye0212/starflash-pet-collar, zhuzhengyan50-spec/nearlink-uwb-like-ranging, iainbrux/keyboard-cli, goodspeed34/ws63flash"
 trust: A
 stale_after: 2027-03-16

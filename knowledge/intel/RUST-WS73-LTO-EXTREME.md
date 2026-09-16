@@ -139,7 +139,7 @@ The wifi `wifi_soc.o` (119 MB on disk due to debug) collapses to 2.5 MB `.ko` af
 
 Ticket asks `fbb_ws63/src/build/toolchains/riscv32_musl_100.cmake` and `riscv32_musl_100_fp.cmake if exists`.
 
-Finding: `fbb_ws63` does not exist (`ls /home/archivalera/plum/zcode-projects/nearlink/fbb_ws63 2>&1` = "No such file or directory"); `find ... -name "*.cmake"` returns 0 hits; `find ... -name "*musl*"` returns 0 hits; `find ... -name "*riscv*"` returns only `sdk/.../driver/platform/drv/device/romable/include/riscv_common.h:1` (a header, not a toolchain). The only device-side build hint in the WS73 tree is `BUILD_DEVICE_WITH_ROM_REPO=yes` (`sdk/Makefile` under `platform:` target) — a flag that pulls a prebuilt ROM repo, not an open riscv32 toolchain.
+Finding: `fbb_ws63` does not exist (`ls fbb_ws63 2>&1` = "No such file or directory"); `find ... -name "*.cmake"` returns 0 hits; `find ... -name "*musl*"` returns 0 hits; `find ... -name "*riscv*"` returns only `sdk/.../driver/platform/drv/device/romable/include/riscv_common.h:1` (a header, not a toolchain). The only device-side build hint in the WS73 tree is `BUILD_DEVICE_WITH_ROM_REPO=yes` (`sdk/Makefile` under `platform:` target) — a flag that pulls a prebuilt ROM repo, not an open riscv32 toolchain.
 
 Interpretation: the Device riscv32 `rv32imc` `riscv32-linux-musl-gcc -flto` vs `linker.prelds` conflict discussed in the ticket **is a WS63/FBB concern, not a WS73-Linux concern**. The WS73 SDK checked into `sdk/ws73_sdk_linux_WS73_1.10.110` ships Device firmware as opaque blobs (`firmware/e/ws73.bin` etc.) with no open `CMakeLists.txt` or `*.prelds` on disk. There is no `interim_binary/ws63-liteos_rom.bin` fixed-ROM flow in this tree; `find ... -name "*.prelds" -o -name "*liteos*rom*"` returns empty. The ticket's `linker.prelds` + `--gc-sections/--cjal-relax/rom_ram_check` question therefore **cannot be answered by citation in this repo**; Section 8 below projects the conflict from first principles and sample precedent, and marks it "not applicable to WS73 Linux build — applicable if FBB/WS63 LiteOS ROM build is imported".
 
@@ -287,8 +287,8 @@ For the **current WS73 Linux checkout**, the actionable Device decision is: **do
 
 Because `ws73.bin` is not an ELF (`size` refuses it), `text/data/bss` cannot be measured directly. The only measurable `text/data/bss` are the host KOs that ship alongside the FW download (`wifi_soc.ko:966210/13288/103056`, `plat_soc.ko:259295/8556/3760` per `size`). Projections:
 
-| Artifact | Today (no LTO) | With host C `-flto --gc-sections -O2` (projected) | With Device `-flto` (if ROM flow, RAM only) |
-|---|---|---|---|
+| Artifact | Today (no LTO) | Projected (host C `-flto --gc-sections -O2`; Device `-flto` noted inline) |
+|---|---|---|
 | `libssap.a` text sum | 10 421 B | **9.0-9.8 KB** (-8 to -15%, ~1 KB) — `nm` DCE proves `feature_mgr` droppable when unused |
 | `ssap_codec_test` (ELF) text | 4 765 B (`.text 4765`) | **4.3-4.6 KB** — inlines `ssap_trans_type_of:11` |
 | `wifi_soc.ko` text | 966 210 B | **977K-1.02M** if `-O2` replaces `-Os:472` (+1 to +6%) even after gc-sections — size up, not down |

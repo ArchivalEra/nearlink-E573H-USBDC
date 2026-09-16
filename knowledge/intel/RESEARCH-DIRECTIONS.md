@@ -5,8 +5,8 @@ language: zh
 created: 2026-08-16
 tags: [intel, research, directions]
 sources:
-  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
-  - "/mnt/hdd/nearlink-stuff/sparklink"
+  - "https://github.com/OpenSparklink/linux"
+  - "https://github.com/OpenSparklink/sparklink"
 trust: B
 stale_after: 2027-02-16
 ---
@@ -64,8 +64,8 @@ stale_after: 2027-02-16
 
 - ~~OpenHarmony 社区星闪资料~~ ✅ 产出: OPENHARMONY-COMMUNITY-RESEARCH.md + NEARLINK-PROTOCOL-RESEARCH.md
 - **OpenSparklink 深挖（2026-08-17）** ✅ **6 子代理全部归队，6 份报告已入库**
-  本地克隆: `/mnt/hdd/nearlink-stuff/OpenSparklink-linux`（blob-filter, 2GB）+
-  `/mnt/hdd/nearlink-stuff/sparklink`（用户态 crates）
+  本地克隆: `https://github.com/OpenSparklink/linux`（blob-filter, 2GB）+
+  `https://github.com/OpenSparklink/sparklink`（用户态 crates）
   - OSPL-DLI-CROSSCHECK.md — DLI 传输契约对照（sle_dli.rs 1503L + slk-protocol types.rs）
   - OSPL-UAPI-CONTRACT.md — host-kernel ABI（sparklink{,_ioctl}.h + sle_uapi.rs 2880L）
   - OSPL-CONN-FSM.md — 连接状态机对照（sle_conn.rs 3071L）

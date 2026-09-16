@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [android, ble, gateway, mesh, image-transfer, rle, flow-control, bitmap-ack, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/MeshGatewayAPP"
-trust: verified
+  - "https://github.com/NearLink-ePaper/MeshGatewayAPP"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # NearLink-ePaper/MeshGatewayAPP — phone-side spec of the SLE-mesh image protocol (checkpoint + 240-packet bitmaps, FAST/ACK flow control, bit-exact RLE)
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-03-16, not archived — ~6 months quiet, reference grade)
-- Source root: `/mnt/hdd/nearlink-stuff/MeshGatewayAPP`
+- Source root: `https://github.com/NearLink-ePaper/MeshGatewayAPP`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: the phone-side half of the SLE-mesh image distribution protocol whose firmware half lives in the WS63E AIGC frame repo
 

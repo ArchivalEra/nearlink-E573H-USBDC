@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ws63, hi3863, sle, wifi, gateway, lwip, udp, mpu6050, dual-radio, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/starflash-pet-collar"
-trust: verified
+  - "https://github.com/yeyeye0212/starflash-pet-collar"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # yeyeye0212/starflash-pet-collar — WS63 Three-Node Pet Collar (SLE-WiFi Gateway Bridge, MPU6050 State Machine)
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-07-13, not archived — ALIVE but ~2 months quiet)
-- Source root: `/mnt/hdd/nearlink-stuff/starflash-pet-collar`
+- Source root: `https://github.com/yeyeye0212/starflash-pet-collar`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: dual-radio gateway bridge, SLE data exchange, three-node architecture; PCB/schematics explicitly excluded
 

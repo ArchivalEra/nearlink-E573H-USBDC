@@ -33,7 +33,7 @@ stale_after: 2027-02-15
 
 ## Repo inventory
 
-### Cloned to /mnt/hdd/nearlink-stuff/
+### Cloned to the local harvest material tree (see guide.md)/
 
 | Repo | What it is | Value to this project |
 |---|---|---|

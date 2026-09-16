@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ws63, ws73, asset]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -17,7 +17,7 @@ stale_after: 2027-02-17
 
 ## Sources
 
-- fbb_ws63 (HiHope/润和 WS63 SDK): `/mnt/hdd/nearlink-stuff/fbb_ws63/`
+- fbb_ws63 (HiHope/润和 WS63 SDK): `https://github.com/x-eks-fusion/fbb_ws63/tree/master/`
   - SLE public headers: `src/include/middleware/services/bts/sle/*.h`
   - SLE samples: `src/application/samples/bt/sle/{sle_uuid_server,sle_uuid_client,sle_speed_server,sle_speed_client}/`
   - Boards: `vendor/{BearPi-Pico_H3863,HiHope_NearLink_DK_WS63E_V03}/`

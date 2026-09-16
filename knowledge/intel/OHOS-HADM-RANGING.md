@@ -5,14 +5,14 @@ language: en
 created: 2026-08-16
 tags: [intel, ohos, hadm, ranging]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-16
 ---
 
 # OHOS HADM Ranging (Channel Sounding) Layer — Deep Dive
 
-Source: `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/hadm/`
+Source: `https://github.com/openharmony/communication_nearlink_service/tree/master/services/stack/src/cp/bsl/sle/hadm/`
 
 ## 1. Ranging command sequence (state-machine driven)
 1. CM link connected → remote features (byte 8, mask 0x4 = sounding) → **0x2002 READ_REMOTE_MEASURE_CAPS** (payload = connHandle u16)

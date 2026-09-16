@@ -5,7 +5,7 @@ language: en
 created: 2026-08-17
 tags: [intel, nearlinksle, community, samples]
 sources:
-  - "/mnt/hdd/nearlink-stuff/NearLinkSLE"
+  - "https://github.com/QTDS138/NearLinkSLE"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -18,7 +18,7 @@ stale_after: 2027-02-17
 
 ## Sources
 
-All paths under `/mnt/hdd/nearlink-stuff/NearLinkSLE/`:
+All paths under `https://github.com/QTDS138/NearLinkSLE/tree/main/`:
 
 | File | Role |
 |---|---|
@@ -428,7 +428,7 @@ Plus a connection-timeout watchdog (line 393-403): if `g_pending_slave_idx` stay
 
 ### 7.1 Our Current Stack
 
-From `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/src/ssap_server.c`:
+From `stack/ssap/src/ssap_server.c`:
 
 Our `ssap_server.c` implements:
 - Service registration (`ssap_server_add_service`)

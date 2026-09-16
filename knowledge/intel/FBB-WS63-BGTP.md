@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ws63, bgtp, chip]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-02-17
 # FBB WS63 BGTP -- Chip-side Bluetooth/SLE Controller Firmware
 
 > Date: 2026-08-17
-> Source: `/mnt/hdd/nearlink-stuff/fbb_ws63/src/protocol/bt/controller/bgtp/`
+> Source: `https://github.com/x-eks-fusion/fbb_ws63/tree/master/src/protocol/bt/controller/bgtp/`
 > Cross-ref: `SLE-CONTROL-PLANE.md`, WS73 SDK `driver/bsle/`
 
 ## What is BGTP

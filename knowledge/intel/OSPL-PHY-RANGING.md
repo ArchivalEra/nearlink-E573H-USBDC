@@ -17,7 +17,7 @@ Date: 2026-08-17
 Scope: what a full-speed SLE data + ranging + security host stack must implement, and how much
 OpenSparklink (kernel module `net/sparklink` + userland crates `libsparklink`/`slkd`/`slctl`/`slkmon`) already implements vs. spec-only.
 
-Primary sources (all under `/mnt/hdd/nearlink-stuff/`):
+Primary sources (all under `the local harvest material tree (see guide.md)/`):
 - `OpenSparklink-linux/net/sparklink/sle_phy.rs` (684 L)
 - `OpenSparklink-linux/net/sparklink/sle_security.rs` (977 L)
 - `OpenSparklink-linux/net/sparklink/sle_adv.rs` (863 L)

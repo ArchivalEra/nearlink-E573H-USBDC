@@ -5,14 +5,14 @@ language: zh
 created: 2026-08-16
 tags: [intel, nearlink, protocol, research]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-16
 ---
 
 # NearLink Protocol Research (SSAP / Connection / Data Plane / Ranging)
 
-Compiled 2026-08-16 (subagent B, network research + local clones). Key local sources: OpenHarmony stack clone `/mnt/hdd/nearlink-stuff/communication_nearlink_service`, WS73 SDK `sdk/ws73_sdk_linux_WS73_1.10.110`.
+Compiled 2026-08-16 (subagent B, network research + local clones). Key local sources: OpenHarmony stack clone `https://github.com/openharmony/communication_nearlink_service`, WS73 SDK `sdk/ws73_sdk_linux_WS73_1.10.110`.
 
 ## (a) SSAP service model + opcodes + discovery flow
 
@@ -67,7 +67,7 @@ AT flow (from Nearlink ToolBox docs): server `AT+SLEENABLE → AT+SLESETADDR →
 
 ## (f) Third-party code references
 
-- OHOS nearlink stack (local clone `/mnt/hdd/nearlink-stuff/communication_nearlink_service`; gitcode.com/openharmony/communication_nearlink_service)
+- OHOS nearlink stack (local clone `https://github.com/openharmony/communication_nearlink_service`; gitcode.com/openharmony/communication_nearlink_service)
 - fbb_ws63 (WS63): gitee.com/HiSpark/fbb_ws63, mirrors github.com/x-eks-fusion/fbb_ws63, Hny0305Lin/Hihope_WS63_NearLink_SDK
 - fbb_bs2x (BS20/BS21E/BS22): gitcode.com/HiSpark/fbb_bs2x, mirrors yanlinkos/fbb_bs2x, sanchuanhehe/fbb_bs2x_dev; docs docs.hisilicon.com/repos/fbb_bs2x/
 - rzy0901/sle_measure_sdk1.0.12 (measurement/throughput/latency samples)

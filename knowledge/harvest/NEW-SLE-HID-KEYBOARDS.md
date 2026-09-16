@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, hid, keyboard, sle, bs21e, polling, hardware]
 sources:
-  - ""/mnt/hdd/nearlink-stuff/tp78_v3_open""
-  - ""/mnt/hdd/nearlink-stuff/FlashKeyboard""
-  - ""/mnt/hdd/nearlink-stuff/xinghongpai-nearlink-dev-board""
+  - ""https://github.com/ChnMasterOG/tp78_v3_open""
+  - ""https://github.com/JackieCooo/FlashKeyboard""
+  - ""https://github.com/HuaqiuOpenHardware/xinghongpai-nearlink-dev-board""
 trust: B
 stale_after: 2027-03-15
 ---

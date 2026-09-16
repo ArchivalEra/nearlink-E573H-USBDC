@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 #
-# install-hooks.sh — install the pre-push docs + OKF + harvest hooks for this repo.
+# install-hooks.sh — install the pre-push docs + OKF + table-format + harvest hooks.
 #
 # Usage:
 #     bash scripts/install-hooks.sh
 #
 # Sets core.hooksPath to .githooks/ (repo-local, tracked in git, shared
-# with everyone). The hook runs documentation hygiene plus the harvest
-# OKF bundle conformance, and archive/README coupling check. Run once per clone; re-run to upgrade.
+# with everyone). The hook runs documentation hygiene, the OKF bundle
+# conformance check, the table/frontmatter format gate (no machine-local
+# paths, canonical frontmatter, well-formed markdown tables), and the
+# archive/README coupling check. Run once per clone; re-run to upgrade.
 
 set -eu
 

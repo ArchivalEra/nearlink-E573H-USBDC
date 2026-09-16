@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [sle, ws63, ssap, minimal-sample, fixed-address, client-server, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/teki128-nearlink"
-trust: verified
+  - "https://github.com/teki128/nearlink"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # teki128/nearlink — Minimal 564-line SLE Client/Server Pair (WS63 SDK, fixed-address dialect)
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-09-11, not archived — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/teki128-nearlink`
+- Source root: `https://github.com/teki128/nearlink`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: complete minimal SLE client/server exchange over the WS63/Hi3863 SDK SSAP API
 

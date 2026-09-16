@@ -5,7 +5,7 @@ language: zh
 created: 2026-09-05
 tags: [harvest, bearpi, hi2821, pico]
 sources:
-  - "/mnt/hdd/nearlink-stuff/Bearpi_Hi2821_Pico_NLChat"
+  - "https://github.com/Hny0305Lin/Bearpi_Hi2821_Pico_NLChat"
 trust: B
 stale_after: 2027-03-05
 ---
@@ -15,7 +15,7 @@ stale_after: 2027-03-05
 **Date:** 2026-09-03
 **Analyst:** Research sub-agent (new repo knowledge harvest)
 **Constraints honored:** Read-only, no network, no builds, no hardware. All paths under
-`/mnt/hdd/nearlink-stuff/Bearpi_Hi2821_Pico_NLChat/` (6633 files; on-disk size measured 705 MB,
+`https://github.com/Hny0305Lin/Bearpi_Hi2821_Pico_NLChat/tree/master/` (6633 files; on-disk size measured 705 MB,
 largely `interim_binary/` prebuilt per-chip payloads + LiteOS kernel tree).
 
 ---

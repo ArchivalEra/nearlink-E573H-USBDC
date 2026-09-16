@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [h3863, ws63, sle, ssap, multi-property, ble, lora, dual-stack, sensor, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/WildLinkServer"
-trust: verified
+  - "https://github.com/twyora/WildLinkServer"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # twyora/WildLink — H3863 Multi-Property SSAP Health-Sensor Pair with Tri-Link Client Node (SLE + BLE + LoRa)
 
 - Inspection date: 2026-09-13 (staleness check: both pushed 2026-07-19, not archived — ALIVE)
-- Source roots: `/mnt/hdd/nearlink-stuff/WildLinkServer`, `/mnt/hdd/nearlink-stuff/WildLinkClient`
+- Source roots: `https://github.com/twyora/WildLinkServer`, `https://github.com/twyora/WildLinkClient`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: SSAP multi-property server design, dual/tri-stack node architecture, sensor task layout
 

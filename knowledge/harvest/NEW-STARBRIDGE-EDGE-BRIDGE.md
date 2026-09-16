@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ws63, sle, ss928, edge-computer, json-line, master-remote, ir, bridge, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/starbridge-ws63-firmware"
-trust: verified
+  - "https://github.com/Arctic2520/starbridge-ws63-firmware"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # Arctic2520/starbridge-ws63-firmware — SS928 edge computer drives WS63 SLE bridge: UART JSON-line master to remote IR sensor node
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-07-06, not archived — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/starbridge-ws63-firmware`
+- Source root: `https://github.com/Arctic2520/starbridge-ws63-firmware`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: master/remote SLE firmware pair, edge-computer integration, control-plane shape
 

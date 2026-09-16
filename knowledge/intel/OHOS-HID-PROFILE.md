@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ohos, ssap, profile]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -20,7 +20,7 @@ stale_after: 2027-02-17
 
 ## 1. Sources
 
-All `file:line` refer to files under `/mnt/hdd/nearlink-stuff/communication_nearlink_service/` unless otherwise stated.
+All `file:line` refer to files under `https://github.com/openharmony/communication_nearlink_service/tree/master/` unless otherwise stated.
 
 | Item | Path |
 |---|---|
@@ -32,7 +32,7 @@ All `file:line` refer to files under `/mnt/hdd/nearlink-stuff/communication_near
 | Wire message codes | `services/stack/src/cp/bsl/sle/servm/ssap/include/inner/ssap_pkt.h` |
 | HID IT test (wire vectors) | `test/unittest/stack_test/hid_test/hid_test.cpp` |
 | Std UUID table | `utils/include/sle_uuid.h`, `interfaces/def/nearlink_def.h:57-58` |
-| Our stack | `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/` (ssap_server.h/c, ssap_link.h/c, ssap_pkt.h, ssap_codec.h, hwsle_transport, feature_mgr) |
+| Our stack | `stack/ssap/` (ssap_server.h/c, ssap_link.h/c, ssap_pkt.h, ssap_codec.h, hwsle_transport, feature_mgr) |
 
 ---
 

@@ -5,8 +5,8 @@ language: en
 created: 2026-09-12
 tags: [harvest, uart, variants, hi3863]
 sources:
-  - "/mnt/hdd/nearlink-stuff/sle_uart"
-  - "/mnt/hdd/nearlink-stuff/Hi3863-SLE-2025"
+  - "https://github.com/moonBirdKiss/sle_uart"
+  - "https://github.com/sratle/Hi3863-SLE-2025"
 trust: B
 stale_after: 2027-03-12
 ---
@@ -15,16 +15,16 @@ stale_after: 2027-03-12
 
 **Inspection date:** 2026-09-09  
 **Mode:** Read-only local inspection; no network, build, or hardware access.  
-**Allowed source roots:** `/mnt/hdd/nearlink-stuff/sle_uart` and `/mnt/hdd/nearlink-stuff/Hi3863-SLE-2025`.  
+**Allowed source roots:** `https://github.com/moonBirdKiss/sle_uart` and `https://github.com/sratle/Hi3863-SLE-2025`.  
 **Comparison documents:** `NearLinkSLE-SAMPLES.md`, `WS63-SLE-EXAMPLES.md`, and `SSAP-DIALECT-COMPARISON.md` in the workspace lab-notes directory.
 
 ## Source key
 
-- `SU` means `/mnt/hdd/nearlink-stuff/sle_uart`.
-- `H3` means `/mnt/hdd/nearlink-stuff/Hi3863-SLE-2025`.
-- `NL` means `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/NearLinkSLE-SAMPLES.md`.
-- `W63` means `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/WS63-SLE-EXAMPLES.md`.
-- `SSAP` means `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/SSAP-DIALECT-COMPARISON.md`.
+- `SU` means `https://github.com/moonBirdKiss/sle_uart`.
+- `H3` means `https://github.com/sratle/Hi3863-SLE-2025`.
+- `NL` means `.scratch/nearlink-driver/lab-notes/NearLinkSLE-SAMPLES.md`.
+- `W63` means `.scratch/nearlink-driver/lab-notes/WS63-SLE-EXAMPLES.md`.
+- `SSAP` means `.scratch/nearlink-driver/lab-notes/SSAP-DIALECT-COMPARISON.md`.
 - Citations use the form `[alias/file:line-line]`; the aliases above expand to absolute paths.
 
 ## Executive findings
@@ -334,7 +334,7 @@ stale_after: 2027-03-12
 
 ## Summary
 
-267. Output path: `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/NEW-SLE-UART-VARIANTS.md`.
+267. Output path: `.scratch/nearlink-driver/lab-notes/NEW-SLE-UART-VARIANTS.md`.
 268. `SU` is the reusable UART-bridge skeleton; `H3` is a split EPD/ExBoard product demo with embedded SLE behavior.
 269. Neither tree supplies a robust explicit UART frame, negotiated-MTU framer, retry queue, or binary-safe payload lifecycle.
 270. The most important interoperability mismatches are service UUID, missing WRITE operation bit, skipped CCCD write, and inconsistent connection-state handling.

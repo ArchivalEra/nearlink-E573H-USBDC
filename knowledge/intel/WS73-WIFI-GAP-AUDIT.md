@@ -148,7 +148,7 @@ Counts: `feature/*.c` total 40793 lines (`wc -l`). TV-box should leave all of th
 
 ## 4. `fbb_ws63` — not present, implication
 
-`fbb_ws63/src/middleware/services/wifi_service/*` and `protocol/wifi/*` and wpa_supplicant patches were asked explicitly; `ls /home/archivalera/plum/zcode-projects/nearlink/fbb_ws63` fails (no such directory). Verdict: do not spec a dependency on `fbb_ws63` for tri-mode WiFi; all evidence must come from `sdk/ws73_sdk_linux_WS73_1.10.110`. The WiFi service layer in WS63 (LiteOS) is not reusable for the Linux TV box without a port — track as a follow-up fetch if WS63 service semantics are needed.
+`fbb_ws63/src/middleware/services/wifi_service/*` and `protocol/wifi/*` and wpa_supplicant patches were asked explicitly; `ls fbb_ws63` fails (no such directory). Verdict: do not spec a dependency on `fbb_ws63` for tri-mode WiFi; all evidence must come from `sdk/ws73_sdk_linux_WS73_1.10.110`. The WiFi service layer in WS63 (LiteOS) is not reusable for the Linux TV box without a port — track as a follow-up fetch if WS63 service semantics are needed.
 
 ---
 

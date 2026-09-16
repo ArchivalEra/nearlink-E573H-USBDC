@@ -268,7 +268,7 @@ The above source material, filtered for transferability, becomes the reusable in
 
 ## 8. Source inventory
 
-Local (all absolute under `/home/archivalera/plum/zcode-projects/nearlink`):
+Local (all absolute under the repository root):
 
 - `stack/ssap/Makefile:1-13` — host userspace `CFLAGS -O2`, `ar rcs`, no LTO.
 - `stack/ssap/include/ssap_pkt.h:186-588` — packed PDU ground truth.

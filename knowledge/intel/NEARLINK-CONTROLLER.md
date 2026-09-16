@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, nearlink, controller]
 sources:
-  - "/mnt/hdd/nearlink-stuff/NearLink_controller"
+  - "https://github.com/shenzhantu/NearLink_controller"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-02-17
 # NearLink_controller — 星闪游戏手柄固件/协议设计深挖
 
 **Date:** 2026-08-17
-**Scope:** Read-only local inspection of `/mnt/hdd/nearlink-stuff/NearLink_controller/` (no network/build/hardware).
+**Scope:** Read-only local inspection of `https://github.com/shenzhantu/NearLink_controller/tree/master/` (no network/build/hardware).
 **Companion:** `COMMUNITY-PROJECTS.md` (prior profile), our `stack/ssap/`.
 **Confirms prior profile (COMMUNITY-PROJECTS §3/§C) and adds:** full source-level breakdown of frame aggregation / dirty retry / reconnect semantics, the spec-vs-implementation discrepancy on reconnect replay, HarmonyOS ABS_* mapping detail, and a concrete host-side composition plan with `stack/ssap/`.
 
@@ -23,7 +23,7 @@ stale_after: 2027-02-17
 
 | 物 | 路径 |
 |---|---|
-| Project root | `/mnt/hdd/nearlink-stuff/NearLink_controller/` |
+| Project root | `https://github.com/shenzhantu/NearLink_controller/tree/master/` |
 | README / AGENTS | `README.md`, `AGENTS.md` |
 | P0–P4 specs | `docs/superpowers/specs/2026-07-1{7,8}-*-design.md`, `2026-07-27-p2-driver-layer-design.md`, `2026-07-28-p3-transport-layer-design.md`, `2026-07-28-p4-harmonyos-test-app-design.md` |
 | Research | `docs/research/0{1,2,3,4}-*.md` |

@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, hoperun, nearlink, repo]
 sources:
-  - "/mnt/hdd/nearlink-stuff/HopeRun-NearLink"
+  - "https://github.com/HopeRunORG/NearLink"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -19,15 +19,15 @@ stale_after: 2027-02-17
 
 ## 1. Sources
 
-- `/mnt/hdd/nearlink-stuff/HopeRun-NearLink/` (HopeRun official repo mirror, `origin https://github.com/HopeRunORG/NearLink.git`)
+- `https://github.com/HopeRunORG/NearLink/tree/main/` (HopeRun official repo mirror, `origin https://github.com/HopeRunORG/NearLink.git`)
   - `demo/` — 34 demo directories (28 numbered 00–27 + 6 unnumbered)
   - `firmware/README.md` — module/board/chip mapping
   - `firmware/WS63 WS63E/ws63-liteos-app_all.fwpkg`, `firmware/BS21/bs21_all_in_one.fwpkg`
   - `HH-D01/`, `HH-D02/`, `HH-D03/`, `HH-K01/`, `HH-M01/`, `HH-M02/`, `HH-M03/`
   - `Image/` — demo screenshot dirs (15/16/17/18/20/21/22 tcp/udp/mqtt + HH-D03 + HH-K01)
 - Cross-refs (already-written lab notes):
-  - `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/HHD01-BOARD.md` — 23_sle_uart deep-dive + HHD-01 board overview
-  - `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/WS63-BUILD-FLASH.md` — build/flash manual
+  - `.scratch/nearlink-driver/lab-notes/HHD01-BOARD.md` — 23_sle_uart deep-dive + HHD-01 board overview
+  - `.scratch/nearlink-driver/lab-notes/WS63-BUILD-FLASH.md` — build/flash manual
 
 ---
 

@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [ohos, ssap, replay, mtu, taihe, idl, ani, arkts, follow-up, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

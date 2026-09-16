@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [knowledge-graph, agents, hispark, hiditing, chipset, jsonl, okf, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/hs-wiki"
-trust: verified
+  - "https://gitcode.com/nearlink-vip/hs-wiki"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # nearlink-vip knowledge ecosystem — two agent-facing HiSilicon knowledge bases (OKF-style wiki + JSONL peripheral graph) and the HiDiTing chipset constellation
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-07-01/07-05, not archived — ALIVE, ~2 months quiet)
-- Source roots: `/mnt/hdd/nearlink-stuff/hs-wiki`, `/mnt/hdd/nearlink-stuff/hs-peripheral-knowledge`
+- Source roots: `https://gitcode.com/nearlink-vip/hs-wiki`, `https://gitcode.com/nearlink-vip/hs-peripheral-knowledge`
 - Mode: read-only inspection; discovered via GitCode search with the user's private-token
 - Scope: two third-party agent-readable knowledge bases and their data models
 

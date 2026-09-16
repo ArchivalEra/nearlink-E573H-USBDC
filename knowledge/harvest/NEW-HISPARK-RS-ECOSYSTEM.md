@@ -5,7 +5,7 @@ language: zh
 created: 2026-09-05
 tags: [harvest, note, hispark, rust]
 sources:
-  - "/mnt/hdd/nearlink-stuff/hispark-rs"
+  - "the local harvest material tree (see guide.md)/hispark-rs"
 trust: B
 stale_after: 2027-03-05
 ---
@@ -13,11 +13,11 @@ stale_after: 2027-03-05
 # Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)
 
 - Date: 2026-09-03
-- Source snapshot: `/mnt/hdd/nearlink-stuff/hispark-rs/` (25 repos, ~771 MB, read-only)
+- Source snapshot: `the local harvest material tree (see guide.md)/hispark-rs/` (25 repos, ~771 MB, read-only)
 - Scope of this note: map the ENTIRE ecosystem — crate dependency graph, implemented
   vs stub, exactly how `hisi-rf` handles SLE (vendor-lib FFI, NOT raw DLI), the QEMU
   SLE verdict, and what rust-ws73 (ticket 04 option B) can concretely adopt.
-- All file paths below are relative to `/mnt/hdd/nearlink-stuff/hispark-rs/` unless
+- All file paths below are relative to `the local harvest material tree (see guide.md)/hispark-rs/` unless
   written as absolute; citations are `repo/file:line`.
 - Cross-references: `BS21-WS63-SDK-COMPARISON.md`, `FBB-WS63-GLE.md`,
   `FBB-WS63-BGTP.md`, `COMMUNITY-PROJECTS.md` (existing lab notes).
@@ -522,8 +522,8 @@ Open follow-ups:
 ## 13. Ten-line summary
 
 1. hispark-rs = 25-repo Rust ecosystem for WS63/BS2X RISC-V SoCs; local mirror at
-   `/mnt/hdd/nearlink-stuff/hispark-rs/`; note saved to
-   `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/NEW-HISPARK-RS-ECOSYSTEM.md`.
+   `the local harvest material tree (see guide.md)/hispark-rs/`; note saved to
+   `.scratch/nearlink-driver/lab-notes/NEW-HISPARK-RS-ECOSYSTEM.md`.
 2. Layered crates.io stack: PAC/SVD → rt/RTOS/alloc → ws63-radio-sys → hisi-rf-ws63
    → hisi-rf-core → hisi-rf facade (pinned alphas, verified in `hisi-rf/Cargo.toml:74-76`).
 3. SLE handling = vendor-archive FFI, NOT raw DLI: `libbth_gle.a`/`libbgtp.a` wrapped

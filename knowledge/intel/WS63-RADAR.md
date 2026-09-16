@@ -5,8 +5,8 @@ language: zh
 created: 2026-08-17
 tags: [intel, ws63, ws63e, radar]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
-  - "/mnt/hdd/nearlink-stuff/HopeRun-NearLink"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
+  - "https://github.com/HopeRunORG/NearLink"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -20,16 +20,16 @@ stale_after: 2027-02-17
 
 | Source | Path | Notes |
 |---|---|---|
-| Radar service API | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/radar/radar_service.h` | Public user API (the only radar header exposed to apps) |
-| Radar protocol build tree | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/protocol/radar/{plat,alg_ai}/build/ws63/{radar_entry,radar_ai_entry}.cmake`, `plat/Kconfig` | Source is prebuilt (`.a`); cmake lists the internal module layout |
-| Radar samples | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/radar/{m_sample,sta_sample,softap_sample,sta_connect_sample}/` | 4 sample apps |
-| Vendor radar demo | `/mnt/hdd/nearlink-stuff/fbb_ws63/vendor/HiHope_NearLink_DK_WS63E_V03/demo/radar_led/` (+`README.md`) | "运动感知1.0" (motion-sensing LED) |
-| AT radar cmd table | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/utils/at/at_radar_cmd/at/at_radar_cmd_table.h` | Full AT command set (SDK, sources for handlers are prebuilt `libradar_at.a`) |
-| AT guide (PDF) | `/mnt/hdd/nearlink-stuff/HopeRun-NearLink/HH-D01/board/WS63V100 AT命令 使用指南_03.pdf` | Radar AT chapter (extracted with pdftotext; line refs below are to the pdftotext output) |
-| Radar quick-start (PDF) | `/mnt/hdd/nearlink-stuff/HopeRun-NearLink/HH-D01/board/WS63V100 雷达快速入门指南_03.pdf` | Only doc with hard performance numbers |
-| AT case PDF text | `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/assets/HHD01-WS63V100-AT-commands.txt` | Contains NO radar section (WiFi/SLE/BLE only) |
+| Radar service API | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/radar/radar_service.h` | Public user API (the only radar header exposed to apps) |
+| Radar protocol build tree | `https://github.com/x-eks-fusion/fbb_ws63,alg_ai}/build/ws63/{radar_entry,radar_ai_entry}.cmake`, `plat/Kconfig` | Source is prebuilt (`.a`); cmake lists the internal module layout |
+| Radar samples | `https://github.com/x-eks-fusion/fbb_ws63,sta_sample,softap_sample,sta_connect_sample}/` | 4 sample apps |
+| Vendor radar demo | `https://github.com/x-eks-fusion/fbb_ws63/tree/master/vendor/HiHope_NearLink_DK_WS63E_V03/demo/radar_led/` (+`README.md`) | "运动感知1.0" (motion-sensing LED) |
+| AT radar cmd table | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/middleware/utils/at/at_radar_cmd/at/at_radar_cmd_table.h` | Full AT command set (SDK, sources for handlers are prebuilt `libradar_at.a`) |
+| AT guide (PDF) | `https://github.com/HopeRunORG/NearLink AT命令 使用指南_03.pdf` | Radar AT chapter (extracted with pdftotext; line refs below are to the pdftotext output) |
+| Radar quick-start (PDF) | `https://github.com/HopeRunORG/NearLink 雷达快速入门指南_03.pdf` | Only doc with hard performance numbers |
+| AT case PDF text | `.scratch/nearlink-driver/assets/HHD01-WS63V100-AT-commands.txt` | Contains NO radar section (WiFi/SLE/BLE only) |
 | Local notes | `HOPERUN-DEMOS.md`, `WS63-AT-FRAMEWORK.md`, `WS63-VS-WS73.md` (lab-notes dir) | Cross-refs |
-| WS73 host SDK | `/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/` | Radar-on-WS73 check |
+| WS73 host SDK | `sdk/ws73_sdk_linux_WS73_1.10.110/` | Radar-on-WS73 check |
 
 > Note: `fbb_ws63/src/protocol/radar/` contains **no C sources** — only `libradar_sensing.a`, `libradar_ai.a` (prebuilt) plus cmake. The radar AT handler sources (`at_radar.c`, `at_radar_cmd_register.c`) are likewise prebuilt (`libradar_at.a`). The `radar_entry.cmake` file lists the internal file names.
 

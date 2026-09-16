@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [ohos, sa-profile, ipc, ssap, hadm, asc, audio, tws, vcp, hid, interface-map, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

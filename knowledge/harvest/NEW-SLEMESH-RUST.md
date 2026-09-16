@@ -5,8 +5,8 @@ language: zh
 created: 2026-09-05
 tags: [harvest, mesh, delta, bs2x]
 sources:
-  - "/mnt/hdd/nearlink-stuff/sle_mesh"
-  - "/mnt/hdd/nearlink-stuff/fbb_bs2x_rust"
+  - "https://github.com/BH4ME/sle_mesh"
+  - "https://github.com/sanchuanhehe/fbb_bs2x_rust"
 trust: B
 stale_after: 2027-03-05
 ---
@@ -15,8 +15,8 @@ stale_after: 2027-03-05
 
 **Date:** 2026-09-03
 **Scope:** Read-only local inspection of two new trees on the archive disk. No network/build/hardware.
-- `/mnt/hdd/nearlink-stuff/sle_mesh/` — **BH4ME/sle_mesh**, latest release **v4.4.138** (2026-06-10, commit `cc0b0dc`); v4.4.9 was 2026-05-31. 19 MB, 164 release directories under `versions/`.
-- `/mnt/hdd/nearlink-stuff/fbb_bs2x_rust/` — **sanchuanhehe/fbb_bs2x_rust**, Rust fork of the HiSilicon **FBB bs21e (BS2Xe)** firmware SDK, single shallow commit `08be0e4` (2025-07-11). 659 MB.
+- `https://github.com/BH4ME/sle_mesh/tree/main/` — **BH4ME/sle_mesh**, latest release **v4.4.138** (2026-06-10, commit `cc0b0dc`); v4.4.9 was 2026-05-31. 19 MB, 164 release directories under `versions/`.
+- `https://github.com/sanchuanhehe/fbb_bs2x_rust/tree/master/` — **sanchuanhehe/fbb_bs2x_rust**, Rust fork of the HiSilicon **FBB bs21e (BS2Xe)** firmware SDK, single shallow commit `08be0e4` (2025-07-11). 659 MB.
 **Context:** (a) delta vs the earlier ePaper mesh analysis in `SLE-MESH-EPAPER.md` (HELLO-DV routing, AIMD, dedup — what is new in the v4.4 series); (b) the first local precedent for **Rust compiled into a HiSilicon NearLink firmware image**, as a reference for `rust-ws73/firmware` (ticket 04, option B).
 **Companion docs:** `SLE-MESH-EPAPER.md`, `LINKNEBULA-MESH.md`, `RUST-WS73-UNSAFE-FFI.md`, `PERF-RUST-PATTERNS.md`.
 
@@ -152,7 +152,7 @@ The Rust content itself is modest — a GPIO blinky task (`src/application/rust_
 
 ## B.5 Applicability to rust-ws73/firmware (ticket 04 option B)
 
-- **Scope check first:** our local WS73 SDK trees are **host-side stacks, not FBB firmware trees** — `/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110/` and `/mnt/hdd/nearlink-stuff/ws73v100-wifi/` both have `application/{bin,dft,lib,sample,sle_android}` layouts with **no `build_component()`/`app_run()` anywhere** (greps returned only Android sepolicy false-positives). So the fbb_bs2x_rust precedent applies to **firmware** targets — the WS63-family firmware SDK (e.g. `/mnt/hdd/nearlink-stuff/fbb_ws63/`, same FBB framework as sle_mesh's build) — not to the WS73 dongle host stack, where Rust is ordinary Linux userspace (already covered by `RUST-WS73-*` notes). "Option B" must therefore target whatever firmware SDK tree we adopt for dongle-firmware work, and the移植 path is B.3's three seams, unchanged.
+- **Scope check first:** our local WS73 SDK trees are **host-side stacks, not FBB firmware trees** — `sdk/ws73_sdk_linux_WS73_1.10.110/` and `https://github.com/gtxaspec/ws73v100-wifi/tree/master/` both have `application/{bin,dft,lib,sample,sle_android}` layouts with **no `build_component()`/`app_run()` anywhere** (greps returned only Android sepolicy false-positives). So the fbb_bs2x_rust precedent applies to **firmware** targets — the WS63-family firmware SDK (e.g. `https://github.com/x-eks-fusion/fbb_ws63/tree/master/`, same FBB framework as sle_mesh's build) — not to the WS73 dongle host stack, where Rust is ordinary Linux userspace (already covered by `RUST-WS73-*` notes). "Option B" must therefore target whatever firmware SDK tree we adopt for dongle-firmware work, and the移植 path is B.3's three seams, unchanged.
 - **Port checklist distilled from this precedent:**
   1. Write a target JSON for the firmware core's RISC-V ISA/ABI (match the vendor GCC exactly: march/mabi/sysroot), pin nightly + `rust-src` in `rust-toolchain.toml`.
   2. `staticlib` crate, `no_std`, `panic=abort`, `cty` only; `#[panic_handler]` = log via `osal_printk` then spin.
@@ -182,4 +182,4 @@ The Rust content itself is modest — a GPIO blinky task (`src/application/rust_
 7. fbb_bs2x_rust is the first local **Rust-in-HiSilicon-firmware** precedent: `no_std` staticlib on a custom `riscv32imfc-unknown-none-elf` target (ilp32f, abort, nightly), bindgen against SDK headers with manual fallback, LiteOS as the runtime via `osal_kthread_*`.
 8. Its three seams (staticlib+`WHOLE_LINK` in `build_component()`, `app_run(rust_app_init)` C glue, one `add_subdirectory` line) are the copy-paste pattern for rust-ws73/firmware option B — but note our in-repo WS73 SDK is host-side (no FBB macros), so this applies to a WS63-family firmware SDK; SLE bindings are a one-line allowlist away.
 
-**Note file:** `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/NEW-SLEMESH-RUST.md`
+**Note file:** `.scratch/nearlink-driver/lab-notes/NEW-SLEMESH-RUST.md`

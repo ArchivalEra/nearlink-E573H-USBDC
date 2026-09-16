@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ohos, ssap, server]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -20,7 +20,7 @@ Scope: server-side authoritative implementation (client-side only cross-checked 
 
 ## Sources
 
-OHOS primary (all read-only), base `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/`:
+OHOS primary (all read-only), base `https://github.com/openharmony/communication_nearlink_service/tree/master/services/stack/src/cp/bsl/sle/servm/ssap/`:
 - `src/ssaps_server_find.c` (1498 L) — findType dispatch + all FIND rsp builders
 - `src/ssaps_server_write.c` (940 L) — WRITE_CMD/WRITE_REQ single/multi + WRITE_RSP builders + CPCD update
 - `src/ssaps_server.c` (1508 L) — EXCHANGE, READ (single/multi/by-uuid), VALUE_ACK, method call, notify/indicate, auth pending queue
@@ -30,7 +30,7 @@ OHOS primary (all read-only), base `/mnt/hdd/nearlink-stuff/communication_nearli
 - `include/inner/ssap_pkt.h`, `include/ssap_type.h`, `include/inner/ssap_utils.h`, `include/inner/ssap_manager.h`
 - `include/nlstk_ssap_app_server.h` + `src/nlstk_ssap_app_server.c`, `include/nlstk_ssap_app_client.h`, `src/nlstk_ssap_app_link.c`
 
-Our stack: `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/`
+Our stack: `stack/ssap/`
 - `include/ssap_server.h` + `src/ssap_server.c`, `include/ssap_codec.h` + `src/ssap_codec.c`
 - Prior notes: `../lab-notes/OSPL-SSAP-COMPARE.md` (opcode-level, OSPL dialect), `../lab-notes/WS63-SSAP-API.md` (WS63 app-layer enum values)
 

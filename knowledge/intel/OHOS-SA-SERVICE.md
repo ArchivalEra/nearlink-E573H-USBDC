@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, ohos, nearlink, services]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -18,7 +18,7 @@ Author: research subagent (context: WS73 USB dongle `ffff:3733` Linux driver + O
 ## Sources
 
 Primary (read-only, local) — OHOS `communication_nearlink_service`, under
-`/mnt/hdd/nearlink-stuff/communication_nearlink_service/`:
+`https://github.com/openharmony/communication_nearlink_service/tree/master/`:
 
 - `sa_profile/1190.json`, `services/etc/init/nearlink_service.cfg`, `services/etc/param/nearlink.para`, `services/etc/param/nearlink.para.dac`
 - `services/server/` — `nearlink_host_server.{h,cpp}`, `nearlink_ssap_client_server.cpp`, `BUILD.gn`
@@ -30,11 +30,11 @@ Primary (read-only, local) — OHOS `communication_nearlink_service`, under
 - `services/device_manager/` — `include/nearlink_device_manager.h`
 
 Ours (local):
-- `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/OHOS-FRAMEWORK-LAYER.md` — framework↔SA binder contract, `GetProfile`/proxy model, app-facing API
-- `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/OHOS-HDI-DRIVER.md` — HDI/HDF seam (transport-only, packet types, H4/fd, no USB)
+- `.scratch/nearlink-driver/lab-notes/OHOS-FRAMEWORK-LAYER.md` — framework↔SA binder contract, `GetProfile`/proxy model, app-facing API
+- `.scratch/nearlink-driver/lab-notes/OHOS-HDI-DRIVER.md` — HDI/HDF seam (transport-only, packet types, H4/fd, no USB)
 
 Networking/build/hardware: none used. All line citations are relative paths under
-`/mnt/hdd/nearlink-stuff/communication_nearlink_service/` (`file:line`).
+`https://github.com/openharmony/communication_nearlink_service/tree/master/` (`file:line`).
 
 ---
 

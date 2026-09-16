@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [openharmony, ws63, hi3863, teaching, license, stub, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

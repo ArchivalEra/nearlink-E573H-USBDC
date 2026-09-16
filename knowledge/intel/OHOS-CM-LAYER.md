@@ -5,14 +5,14 @@ language: en
 created: 2026-08-16
 tags: [intel, ohos, nearlink, layer]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-16
 ---
 
 # OHOS NearLink CM Layer (SLE Connection Manager) — Deep Dive
 
-Root: `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/cm/`
+Root: `https://github.com/openharmony/communication_nearlink_service/tree/master/services/stack/src/cp/bsl/sle/cm/`
 
 ## 1. Connection establishment state machine
 

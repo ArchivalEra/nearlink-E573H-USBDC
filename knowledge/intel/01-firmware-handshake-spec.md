@@ -14,7 +14,7 @@ stale_after: 2027-02-15
 
 Source: HiSilicon WS73 Linux SDK `ws73_sdk_linux_WS73_1.10.110`, host-side driver only.
 All facts below are **source-derived**; nothing here was observed on physical hardware.
-Base directory referenced as `<SDK>` = `/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110`.
+Base directory referenced as `<SDK>` = `sdk/ws73_sdk_linux_WS73_1.10.110`.
 
 Key files:
 - `<SDK>/driver/platform/firmware_download/plat_firmware.c`

@@ -5,7 +5,7 @@ language: en
 created: 2026-08-17
 tags: [intel, openharmony, nearlink, driver]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -18,7 +18,7 @@ Author: research subagent (context: in-house `ws73usb` Linux kernel module + use
 ## Sources
 
 Primary (read-only, local):
-- `/mnt/hdd/nearlink-stuff/communication_nearlink_service/` — OpenHarmony `communication_nearlink_service` (github.com/openharmony mirror, master)
+- `https://github.com/openharmony/communication_nearlink_service/tree/master/` — OpenHarmony `communication_nearlink_service` (github.com/openharmony mirror, master)
   - `bundle.json` (component deps)
   - `sa_profile/1190.json` (system ability profile)
   - `services/etc/init/nearlink_service.cfg` (SA service config)
@@ -54,7 +54,7 @@ Where the HDI actually lives (not local; per OPENHARMONY-COMMUNITY-RESEARCH.md:2
 - **IDL interface definitions**: OpenHarmony repo `drivers_interface` (gitcode.com/openharmony/drivers_interface), subdir `nearlink/hci/v1_0/` and `nearlink/hci/v1_1/` — `ISleHciInterface.idl`, `ISleHciCallback.idl`, `SleHciTypes.idl`; plus `nearlink/off_find/v1_0/` for OffFind.
 - **HDF driver implementation**: OpenHarmony repo `drivers_peripheral`, subdir `nearlink/` — `dli/dli_service/` has `sle_hci_interface_impl.cpp` (implements `ISleHciInterface`), `sle_dli_interface_driver.cpp` (HDF driver entry), `implement/vendor_interface.cpp` (dlopens the vendor lib), `implement/h4_protocol.cpp` (H4 framing over a plain fd).
 
-No other local repo under `/mnt/hdd/nearlink-stuff/` contains a `drivers_interface`/`drivers_peripheral` checkout, so the IDL/impl were not inspected locally; interface shape below is reconstructed from the consumer side in this repo, which is exact and sufficient.
+No other local repo under `the local harvest material tree (see guide.md)/` contains a `drivers_interface`/`drivers_peripheral` checkout, so the IDL/impl were not inspected locally; interface shape below is reconstructed from the consumer side in this repo, which is exact and sufficient.
 
 ## HDI interface shape (as consumed here)
 
@@ -130,7 +130,7 @@ What **not** to copy:
 
 ## Open questions
 
-1. Does the HDI IDL (drivers_interface/nearlink) expose any method beyond `SleHalInit`/`SleSendHciPacket`/`Close`/`CheckOnBoardState` in current master (e.g. LPM or vendor-cmd passthrough)? Not verifiable locally — worth a targeted pull of `drivers_interface` and `drivers_peripheral` into `/mnt/hdd/nearlink-stuff/` for byte-level cross-check against our WS73 HCI.
+1. Does the HDI IDL (drivers_interface/nearlink) expose any method beyond `SleHalInit`/`SleSendHciPacket`/`Close`/`CheckOnBoardState` in current master (e.g. LPM or vendor-cmd passthrough)? Not verifiable locally — worth a targeted pull of `drivers_interface` and `drivers_peripheral` into `the local harvest material tree (see guide.md)/` for byte-level cross-check against our WS73 HCI.
 2. The magic reset event `ff ff 01 00 c7` (`dli_layer.c:626`) — is it WS73 firmware specific or a general SLE DLI convention? If the WS73 emits it on chip crash, our module should watch for it before the stack does.
 3. OHOS's `SleSnoop` btsnoop format (`SleDliSnoop.cpp`, types 0xA1-0xA4) is the reference trace format — should our stack emit a compatible pcap/snoop to reuse OHOS tooling? (Low priority; only if we ever interoperate with OHOS devices' logs.)
 4. The DLI stack treats `PACKET_TYPE_SCO`/`PACKET_TYPE_ISO` (values 3/5) as distinct legacy types (`SleDliLayerAdapter.h:36-47`) but they never appear on the wire (wire bytes are 0xA1-0xA4). Confirm WS73 never emits 0xA3-lane SCO/ISO-style frames in our 5-EP mode, so we can drop them from `/dev/ws73hci`'s type table.

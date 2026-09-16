@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [ohos, ssap, memory-topology, service-struct, methods, events, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

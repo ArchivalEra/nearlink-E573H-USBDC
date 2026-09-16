@@ -5,8 +5,8 @@ language: zh
 created: 2026-08-17
 tags: [intel, opensparklink, connection, ssap]
 sources:
-  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
-  - "/mnt/hdd/nearlink-stuff/sparklink"
+  - "https://github.com/OpenSparklink/linux"
+  - "https://github.com/OpenSparklink/sparklink"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -16,16 +16,16 @@ stale_after: 2027-02-17
 Date: 2026-08-17
 
 Sources (local only):
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_conn.rs` (3071 lines — connection FSM, `ConnManager`)
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_mgmt.rs` (333 lines — pending-command queue + timeout)
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_event.rs` (1387 lines — typed event queue / wire events)
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_uapi.rs` (2880 lines — connect/disconnect ioctls, `SleConnectParams`)
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_dli.rs` (opcode/status/event-code enums)
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_usb.rs` (wire event decode, `event_to_sle`)
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_workers.rs` (event pump driving FSM transitions)
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sparklink_core.rs` (ioctl handlers)
-- `/mnt/hdd/nearlink-stuff/sparklink/crates/slk-protocol/src/types.rs` (userland mirror)
-- Our side: `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/src/ssap_link.c`, `include/ssap_link.h`
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_conn.rs` (3071 lines — connection FSM, `ConnManager`)
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_mgmt.rs` (333 lines — pending-command queue + timeout)
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_event.rs` (1387 lines — typed event queue / wire events)
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_uapi.rs` (2880 lines — connect/disconnect ioctls, `SleConnectParams`)
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_dli.rs` (opcode/status/event-code enums)
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_usb.rs` (wire event decode, `event_to_sle`)
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_workers.rs` (event pump driving FSM transitions)
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sparklink_core.rs` (ioctl handlers)
+- `https://github.com/OpenSparklink/sparklink/blob/master/crates/slk-protocol/src/types.rs` (userland mirror)
+- Our side: `stack/ssap/src/ssap_link.c`, `include/ssap_link.h`
 - Prior notes: `SLE-CONTROL-PLANE.md`, `SSAP-DIALECT-COMPARISON.md`
 
 ---

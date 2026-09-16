@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, mesh, sle, relay, leader-election, ws63]
 sources:
-  - ""/mnt/hdd/nearlink-stuff/sle_mesh_new (src/sle_team_relay_optimizer.c, src/sle_team_node.c, include/sle_team_packet.h)""
+  - ""https://github.com/BH4ME/sle_mesh_new (src/sle_team_relay_optimizer.c, src/sle_team_node.c, include/sle_team_packet.h)""
 trust: A
 stale_after: 2027-03-15
 ---

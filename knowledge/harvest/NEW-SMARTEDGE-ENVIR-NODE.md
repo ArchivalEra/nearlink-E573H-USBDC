@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [ws63, sle, node, sensors, bh1750, bmp180, pm25, dht20, frame-parse, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

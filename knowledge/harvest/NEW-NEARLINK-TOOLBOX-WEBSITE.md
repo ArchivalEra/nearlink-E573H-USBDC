@@ -5,7 +5,7 @@ language: zh
 created: 2026-09-12
 tags: [harvest, nearlink, toolbox, website]
 sources:
-  - "/mnt/hdd/nearlink-stuff/nearlink-toolbox-website"
+  - "https://github.com/Sgguo-Development-Team/nearlink-toolbox-website"
 trust: B
 stale_after: 2027-03-12
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-03-12
 # NearLink Toolbox website program knowledge
 
 - Inspection date: 2026-09-11
-- Source root: `/mnt/hdd/nearlink-stuff/nearlink-toolbox-website/`
+- Source root: `https://github.com/Sgguo-Development-Team/nearlink-toolbox-website/tree/master/`
 - Mode: read-only web-source inspection; no build, no external download, no firmware execution
 - Scope: application structure, actual runtime surface, download/update flow, claimed desktop features, and reuse boundaries for WS73/HHD-01 tooling
 

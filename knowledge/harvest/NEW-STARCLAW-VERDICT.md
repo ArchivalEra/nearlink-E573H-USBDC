@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, ai-agent, esp32, verdict, architecture]
 sources:
-  - "/mnt/hdd/nearlink-stuff/starclaw"
+  - "https://gitcode.com/hinearlink/starclaw"
 trust: B
 stale_after: 2027-03-15
 ---

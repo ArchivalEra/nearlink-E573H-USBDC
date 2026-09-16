@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [sle, dtu, at-commands, modbus, latency, fragmentation, ros2, robot, tier, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/DS10-TTL"
-trust: verified
+  - "https://github.com/WANG-XU-create/DS10-TTL"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-09-07, not archived — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/DS10-TTL`
+- Source root: `https://github.com/WANG-XU-create/DS10-TTL`
 - Mode: read-only local program/doc inspection; no network, build, hardware, or PCB access
 - Scope: DS10-TTL SLE transparent serial bridge — AT dialect, measured transport limits, robotics integration
 

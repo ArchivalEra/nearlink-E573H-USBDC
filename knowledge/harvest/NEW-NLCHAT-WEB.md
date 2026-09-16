@@ -5,7 +5,7 @@ language: zh
 created: 2026-09-12
 tags: [harvest, nlchat, serial]
 sources:
-  - "/mnt/hdd/nearlink-stuff/NLChat_Web"
+  - "https://github.com/Hny0305Lin/NLChat_Web"
 trust: B
 stale_after: 2027-03-12
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-03-12
 # NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI
 
 - Inspection date: 2026-09-12
-- Source root: `/mnt/hdd/nearlink-stuff/NLChat_Web`
+- Source root: `https://github.com/Hny0305Lin/NLChat_Web`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: application architecture, browser serial lifecycle, terminal/log handling, chat presentation, deployment shape, reusable code, and concrete protocol boundaries
 
@@ -137,13 +137,13 @@ The repository is worth retaining for the Web Serial lifecycle and diagnostic UI
 
 ## Source references
 
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/README.md`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/package.json`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/src/App.tsx`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/src/main.tsx`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/src/context/PortContext.tsx`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/src/components/CompatibilityCheck.tsx`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/src/components/PortControl.tsx`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/src/components/PortTerminal.tsx`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/src/components/ChatUI.tsx`
-- `/mnt/hdd/nearlink-stuff/NLChat_Web/vite.config.ts`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/README.md`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/package.json`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/src/App.tsx`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/src/main.tsx`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/src/context/PortContext.tsx`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/src/components/CompatibilityCheck.tsx`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/src/components/PortControl.tsx`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/src/components/PortTerminal.tsx`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/src/components/ChatUI.tsx`
+- `https://github.com/Hny0305Lin/NLChat_Web/blob/master/vite.config.ts`

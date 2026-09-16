@@ -6,7 +6,7 @@ created: 2026-09-16
 tags: [harvest, ohos, nearlink-service, autorate, qosm, build, mock, tdd]
 sources:
   - "https://github.com/openharmony/communication_nearlink_service"
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service (HEAD 7068bc4, delta 59b50c4..HEAD)"
+  - "https://github.com/openharmony/communication_nearlink_service (HEAD 7068bc4, delta 59b50c4..HEAD)"
 trust: A
 stale_after: 2027-03-16
 ---

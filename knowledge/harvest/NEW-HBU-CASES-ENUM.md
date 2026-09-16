@@ -5,8 +5,8 @@ language: en
 created: 2026-09-15
 tags: [harvest, cases, beacon, hybrid, dicsoss, ohos, standards]
 sources:
-  - ""/mnt/hdd/nearlink-stuff/openharmony-nearlink-ws63-cases (applications/sample/wifi-iot/app/*)""
-  - ""/mnt/hdd/nearlink-stuff/nearlink-contrib""
+  - ""https://gitcode.com/hbu-dragon/openharmony-nearlink-ws63-cases (applications/sample/wifi-iot/app/*)""
+  - ""https://gitcode.com/hinearlink/nearlink-contrib""
 trust: A
 stale_after: 2027-03-15
 ---

@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-17
 tags: [intel, openharmony, ssap, ssapc]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -16,7 +16,7 @@ Date: 2026-08-17
 任务: 以 OHOS 权威 ssapc 实现为蓝本，补齐我方只有编码器的 SSAP 客户端。
 
 ## Sources
-- 主源 `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/`（下文行号均相对此目录）：
+- 主源 `https://github.com/openharmony/communication_nearlink_service/tree/master/services/stack/src/cp/bsl/sle/servm/ssap/`（下文行号均相对此目录）：
   `src/ssapc_client.c`(1682), `src/ssapc_cache.c/h`, `src/ssapc_app.c`, `src/ssapc_app_link_sm.c`, `src/ssapc_client_api.c/h`, `src/nlstk_ssap_app_client.c`, `src/ssap_manager.c`, `include/inner/ssap_pkt.h`, `include/inner/ssapc_app.h`, `include/nlstk_ssap_app_client.h`, `include/nlstk_ssap_app_link.h`
 - 我方对照: `stack/ssap/src/ssap_codec.c`（仅编码器）; 服务端解剖见 `OHOS-SSAP-ENGINE.md`
 

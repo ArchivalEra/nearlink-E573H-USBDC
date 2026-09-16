@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [ws63, yl63, at-commands, vendor-sdk, fork-diff, ble, sle, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

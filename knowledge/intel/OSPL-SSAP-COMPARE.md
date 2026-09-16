@@ -5,8 +5,8 @@ language: en
 created: 2026-08-17
 tags: [intel, opensparklink, ssap, ohos]
 sources:
-  - "/mnt/hdd/nearlink-stuff/sparklink"
-  - "/mnt/hdd/nearlink-stuff/OpenSparklink-linux"
+  - "https://github.com/OpenSparklink/sparklink"
+  - "https://github.com/OpenSparklink/linux"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -22,17 +22,17 @@ OpenSparklink's `sle_ssap.rs` implements the **same opcode table (0x01–0x14) a
 ## Sources
 
 Primary:
-- `/mnt/hdd/nearlink-stuff/OpenSparklink-linux/net/sparklink/sle_ssap.rs` (2481 lines) — opcode enum, EntryCategory, OpIndicator, PropertyEntry/MethodEntry/EventEntry, SsapError, SsapPdu codec, SsapSession (client+server), RemoteServiceDb.
-- `/mnt/hdd/nearlink-stuff/sparklink/crates/slk-protocol/src/types.rs` — UAPI ioctl structs (SsapSummary, SsapReadWrite, SsapAddService, SsapRemoteReadWrite, SsapUuidOp, etc.).
-- `/mnt/hdd/nearlink-stuff/sparklink/crates/slk-protocol/src/service_hash.rs` — service structure hash (SHA-256 truncated to 128 bits) + EntryCategory values 0x00–0x0D.
-- `/mnt/hdd/nearlink-stuff/sparklink/crates/slk-protocol/src/advdata.rs` — adv TLV incl. ServiceStructureHash type 0x09.
-- `/mnt/hdd/nearlink-stuff/sparklink/crates/libsparklink/src/adapter.rs` + `ffi.rs` + `ioctl.rs` — client-side SSAP surface via ioctls 0x50–0x5F, 0x6F, 0x72.
+- `https://github.com/OpenSparklink/linux/blob/master/net/sparklink/sle_ssap.rs` (2481 lines) — opcode enum, EntryCategory, OpIndicator, PropertyEntry/MethodEntry/EventEntry, SsapError, SsapPdu codec, SsapSession (client+server), RemoteServiceDb.
+- `https://github.com/OpenSparklink/sparklink/blob/master/crates/slk-protocol/src/types.rs` — UAPI ioctl structs (SsapSummary, SsapReadWrite, SsapAddService, SsapRemoteReadWrite, SsapUuidOp, etc.).
+- `https://github.com/OpenSparklink/sparklink/blob/master/crates/slk-protocol/src/service_hash.rs` — service structure hash (SHA-256 truncated to 128 bits) + EntryCategory values 0x00–0x0D.
+- `https://github.com/OpenSparklink/sparklink/blob/master/crates/slk-protocol/src/advdata.rs` — adv TLV incl. ServiceStructureHash type 0x09.
+- `https://github.com/OpenSparklink/sparklink/blob/master/crates/libsparklink/src/adapter.rs` + `ffi.rs` + `ioctl.rs` — client-side SSAP surface via ioctls 0x50–0x5F, 0x6F, 0x72.
 
 Our side:
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/ssap_pkt.h` (OHOS-derived PDU defs).
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/ssap_codec.h` + `src/ssap_codec.c`.
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/ssap_server.h` + `src/ssap_server.c`.
-- `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/SSAP-DIALECT-COMPARISON.md` and `SSAP-IMPLEMENTATION-PLAN.md`.
+- `stack/ssap/include/ssap_pkt.h` (OHOS-derived PDU defs).
+- `stack/ssap/include/ssap_codec.h` + `src/ssap_codec.c`.
+- `stack/ssap/include/ssap_server.h` + `src/ssap_server.c`.
+- `.scratch/nearlink-driver/lab-notes/SSAP-DIALECT-COMPARISON.md` and `SSAP-IMPLEMENTATION-PLAN.md`.
 
 ---
 

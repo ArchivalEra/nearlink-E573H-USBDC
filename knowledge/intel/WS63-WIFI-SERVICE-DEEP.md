@@ -5,7 +5,7 @@ language: en
 created: 2026-09-05
 tags: [intel, ws63, wifi, service]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
 trust: B
 stale_after: 2027-03-05
 ---
@@ -14,7 +14,7 @@ stale_after: 2027-03-05
 
 > Research AFK, read-only, no network/build/hardware. Builds on `.scratch/nearlink-driver/lab-notes/WS73-WIFI-GAP-AUDIT.md`.
 > Sources are local only. Every factual claim cites `path:line` where load-bearing; `wc -l` totals are reproducible via `wc -l <file>`.
-> Date: 2026-08-19. SDK: `sdk/ws73_sdk_linux_WS73_1.10.110`. WS63 tree: `/mnt/hdd/nearlink-stuff/fbb_ws63`.
+> Date: 2026-08-19. SDK: `sdk/ws73_sdk_linux_WS73_1.10.110`. WS63 tree: `https://github.com/x-eks-fusion/fbb_ws63`.
 
 ---
 
@@ -22,7 +22,7 @@ stale_after: 2027-03-05
 
 | Asked source | Found | Detail |
 |---|---|---|
-| `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/` | yes | `service/`, `hostapd/liteos_hostapd_src/`, `wpa/` — totals below |
+| `https://github.com/x-eks-fusion/fbb_ws63/tree/master/src/middleware/services/wifi_service/` | yes | `service/`, `hostapd/liteos_hostapd_src/`, `wpa/` — totals below |
 | `sdk/ws73_sdk_linux_WS73_1.10.110/driver/wifi/*` | yes | `wifi_soc.ko`, 528-line `Makefile`, `ws73_alg_host.mk`, `ws73_wifi_defconfig` |
 | `sdk/.../open_source/wpa_supplicant` patches | yes | `wpa_supplicant_2_10_linux.patch` + `wpa_supplicant_2_7_android_9.patch` under `open_source/wpa_supplicant/` |
 | `fbb_ws63/src/protocol/wifi/*` | **no** | Path does not exist on this host; wifi protocol is in `sdk/driver/wifi` + `fbb_ws63/src/middleware/services/wifi_service` + device ROM headers |
@@ -30,12 +30,12 @@ stale_after: 2027-03-05
 
 `wc -l` for the six WS63 service compilation units actually read (no single source line for totals):
 
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/service/soc_wifi_service_api.c:1` — 4079 lines
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/driver_soc/driver_soc.c:1` — 3158 lines
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/liteos_wpa_api/wifi_api.c:1` — 3344 lines
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/hostapd/liteos_hostapd_src/hostapd_main_rtos.c:1` — 574 lines
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/ltos_src/eloop_ltos.c:1` — 147 lines
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/osdep/osdep_osal.c:1` — 212 lines
+- `https://github.com/x-eks-fusion/fbb_ws63` — 4079 lines
+- `https://github.com/x-eks-fusion/fbb_ws63` — 3158 lines
+- `https://github.com/x-eks-fusion/fbb_ws63` — 3344 lines
+- `https://github.com/x-eks-fusion/fbb_ws63` — 574 lines
+- `https://github.com/x-eks-fusion/fbb_ws63` — 147 lines
+- `https://github.com/x-eks-fusion/fbb_ws63` — 212 lines
 - plus headers `service_event.h:1` (113 lines), `service_wifi_api.h:1` (210 lines), `driver_soc_common.h:1` (672 lines), `driver_soc_ioctl.h:1` (124 lines)
 
 Directory inventory under `service/` (`CMakeLists.txt:1`, `Makefile_liteos:1`, `service_event.h:1`, `service_wifi_api.h:1`, `soc_wifi_service_api.c:1`):
@@ -408,18 +408,18 @@ WS63 has **no BTCOEX service API** and no SLE awareness — coexistence is pushe
 
 ## 12. File:line index (every WS63 + SDK file touched)
 
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/service/CMakeLists.txt:1` `COMPONENT_NAME:4`, `SOURCES:7-9`, `PRIVATE_DEFINES:30-39` (`_WOW_OFFLOAD:32`, `_INTRF_MODE:33`, `CSI:31`, `WPS/OWE/WNM:35-38`), `SMALLER:42-49`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/service/service_event.h:1` `dl_list:59`, `service_event_cb:64`, `list_*:69-103`, WPS `WPS_* 0x0001..0x4008:15-29`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/service/service_wifi_api.h:1` `WIFI_TYPE_STA/HOTSPOT/P2P:24-27`, `WPS pbc/pin:36-40`, `WOW_PATTERN_*:60-65`, `wifi_return_code:73-86`, `sta/softap protocol_mode:106/144`, `pmf:181/183`, `wifi_dev_get:202`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/service/soc_wifi_service_api.c:1` globals `g_softap_config:84`, `g_softap_advance_config:85`, `g_*_ifname:87-89`, `g_drop_disconnect:90`, `g_*_enble_flag:91-93`, `g_api_cb_node:95`, `g_p2p_isgo:97`, `g_csi:99`, `g_sta_last_scan_time_stamp_ms:102`, `g_sta_conn_req_flag:104`, `g_sta_conn_config:106`; defs `WIFI_ACTIVE_VAP_MAX_NUM 2:53`, `SERVICE_P2P_MAX_FIND_NUM 32:57` etc. `:53-75`; events `wpa_event_cb_handle:542`, cases `:550-603`, `register_callback:610`, `find_wifi_event:621`, `wifi_register_event_cb:632`, `wifi_unregister_event_cb:662`, `service_check_wifi_device_config:721`, `service_check_wep/wpa/sae/wapi_key:798/823/842/858`, `service_set_ip:1089`, `service_set_assoc_config:1118`, `service_ie_frame_check:1216`, `service_set_softap_protocol:1260`, `wifi_init:1332`, `wifi_deinit:1355`, `wifi_sta_enable:1432`, `wifi_sta_disable:1453`, `wifi_sta_scan:1621`, `wifi_raw_scan:1565`, `wifi_sta_scan_advance:1638`, `wifi_ap_scan:1548`, `wifi_softap_enable:2666`, `wifi_softap_disable:2717`, `wifi_set_wow_pattern:2368`, `wifi_set_wow_sleep_mode:2393`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/hostapd/liteos_hostapd_src/hostapd_main_rtos.c:1` `g_hapd:22`, `global:29`, `g_global_conf:30`, `g_interfaces:31`, `hostapd_driver_init:36`, `hostapd_interface_init:84`, `hostapd_global_init:120`, `hostapd_config_read2:337`, `hostapd_bss_init:175`, `hostapd_config_80211ax:232`, `hostapd_interfaces_init:454`, `hostapd_get_wifi_dev:491`, `hostapd_main:513`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/driver_soc/driver_soc.c:1` `drv_soc_set_key:213`, `drv_soc_set_ap:320`, `drv_soc_send_mlme:365`, `drv_soc_send_eapol:416`, `drv_soc_driver_send_event:478`, `drv_soc_get_scan_auth_type:582`, `drv_soc_driver_event_scan_result_process:700`, `drv_soc_driver_event_*_process:758/804/840/874/891/904/938/950/965`, `drv_soc_driver_event_process_internal:1009`, `drv_soc_driver_event_process:1098`, `drv_soc_drv_init:1170`, `drv_soc_hapd_init:1286`, `drv_soc_wpa_init:1440`, `drv_soc_scan:1647`, `drv_soc_get_scan_results:1705`, `drv_soc_assoc_params_set:1850`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/driver_soc/driver_soc_common.h:1` `ext_wifi_dev:…`, `ext_key_ext_stru:360`, `ext_ap_settings_stru:375`, `ext_scan_stru:494`, `ext_associate_params_stru:579`, `ext_scan_result_stru:608`, `ext_hw_feature_data_stru:418`, `ext_event_enum:137`, `ext_eloop_event_enum:190`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/liteos_wpa_api/wifi_api.c:1` `g_wifi_dev:55`, `los_get_wifi_dev_by_name:265`, `los_get_wifi_dev_by_iftype:285`, `wifi_dev_creat:385`, `wifi_sta_psk_init:467`, `wifi_sta_set_key_mgmt:626/652`, `wifi_scan:1208`, `wifi_wpa_scan:1080`, `wifi_scan_buffer_process:1024`, `uapi_wifi_sta_raw_scan:1366`, `wifi_scan_result:1429`, `wifi_scan_results_parse:1681`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/ltos_src/eloop_ltos.c:1` `wpa_supplicant_main_task:18`, `hostapd_exit:49`, `eloop_is_running:61`, `eloop_start_running:116`, `eloop_terminate:128`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/osdep/osdep_osal.c:1` + `wifi_osdep.h:1` osal shims
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/scan_list_adapt/scan_list_adapt.c:1` dedup
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/middleware/services/wifi_service/wpa/wapi/wai_sm.c:1` / `wai_rxtx.c:1` / `wai_crypto_mbedtls.c:1` / `wapi.c:1` — WAPI SM
+- `https://github.com/x-eks-fusion/fbb_ws63` `COMPONENT_NAME:4`, `SOURCES:7-9`, `PRIVATE_DEFINES:30-39` (`_WOW_OFFLOAD:32`, `_INTRF_MODE:33`, `CSI:31`, `WPS/OWE/WNM:35-38`), `SMALLER:42-49`
+- `https://github.com/x-eks-fusion/fbb_ws63` `dl_list:59`, `service_event_cb:64`, `list_*:69-103`, WPS `WPS_* 0x0001..0x4008:15-29`
+- `https://github.com/x-eks-fusion/fbb_ws63` `WIFI_TYPE_STA/HOTSPOT/P2P:24-27`, `WPS pbc/pin:36-40`, `WOW_PATTERN_*:60-65`, `wifi_return_code:73-86`, `sta/softap protocol_mode:106/144`, `pmf:181/183`, `wifi_dev_get:202`
+- `https://github.com/x-eks-fusion/fbb_ws63` globals `g_softap_config:84`, `g_softap_advance_config:85`, `g_*_ifname:87-89`, `g_drop_disconnect:90`, `g_*_enble_flag:91-93`, `g_api_cb_node:95`, `g_p2p_isgo:97`, `g_csi:99`, `g_sta_last_scan_time_stamp_ms:102`, `g_sta_conn_req_flag:104`, `g_sta_conn_config:106`; defs `WIFI_ACTIVE_VAP_MAX_NUM 2:53`, `SERVICE_P2P_MAX_FIND_NUM 32:57` etc. `:53-75`; events `wpa_event_cb_handle:542`, cases `:550-603`, `register_callback:610`, `find_wifi_event:621`, `wifi_register_event_cb:632`, `wifi_unregister_event_cb:662`, `service_check_wifi_device_config:721`, `service_check_wep/wpa/sae/wapi_key:798/823/842/858`, `service_set_ip:1089`, `service_set_assoc_config:1118`, `service_ie_frame_check:1216`, `service_set_softap_protocol:1260`, `wifi_init:1332`, `wifi_deinit:1355`, `wifi_sta_enable:1432`, `wifi_sta_disable:1453`, `wifi_sta_scan:1621`, `wifi_raw_scan:1565`, `wifi_sta_scan_advance:1638`, `wifi_ap_scan:1548`, `wifi_softap_enable:2666`, `wifi_softap_disable:2717`, `wifi_set_wow_pattern:2368`, `wifi_set_wow_sleep_mode:2393`
+- `https://github.com/x-eks-fusion/fbb_ws63` `g_hapd:22`, `global:29`, `g_global_conf:30`, `g_interfaces:31`, `hostapd_driver_init:36`, `hostapd_interface_init:84`, `hostapd_global_init:120`, `hostapd_config_read2:337`, `hostapd_bss_init:175`, `hostapd_config_80211ax:232`, `hostapd_interfaces_init:454`, `hostapd_get_wifi_dev:491`, `hostapd_main:513`
+- `https://github.com/x-eks-fusion/fbb_ws63` `drv_soc_set_key:213`, `drv_soc_set_ap:320`, `drv_soc_send_mlme:365`, `drv_soc_send_eapol:416`, `drv_soc_driver_send_event:478`, `drv_soc_get_scan_auth_type:582`, `drv_soc_driver_event_scan_result_process:700`, `drv_soc_driver_event_*_process:758/804/840/874/891/904/938/950/965`, `drv_soc_driver_event_process_internal:1009`, `drv_soc_driver_event_process:1098`, `drv_soc_drv_init:1170`, `drv_soc_hapd_init:1286`, `drv_soc_wpa_init:1440`, `drv_soc_scan:1647`, `drv_soc_get_scan_results:1705`, `drv_soc_assoc_params_set:1850`
+- `https://github.com/x-eks-fusion/fbb_ws63` `ext_wifi_dev:…`, `ext_key_ext_stru:360`, `ext_ap_settings_stru:375`, `ext_scan_stru:494`, `ext_associate_params_stru:579`, `ext_scan_result_stru:608`, `ext_hw_feature_data_stru:418`, `ext_event_enum:137`, `ext_eloop_event_enum:190`
+- `https://github.com/x-eks-fusion/fbb_ws63` `g_wifi_dev:55`, `los_get_wifi_dev_by_name:265`, `los_get_wifi_dev_by_iftype:285`, `wifi_dev_creat:385`, `wifi_sta_psk_init:467`, `wifi_sta_set_key_mgmt:626/652`, `wifi_scan:1208`, `wifi_wpa_scan:1080`, `wifi_scan_buffer_process:1024`, `uapi_wifi_sta_raw_scan:1366`, `wifi_scan_result:1429`, `wifi_scan_results_parse:1681`
+- `https://github.com/x-eks-fusion/fbb_ws63` `wpa_supplicant_main_task:18`, `hostapd_exit:49`, `eloop_is_running:61`, `eloop_start_running:116`, `eloop_terminate:128`
+- `https://github.com/x-eks-fusion/fbb_ws63` + `wifi_osdep.h:1` osal shims
+- `https://github.com/x-eks-fusion/fbb_ws63` dedup
+- `https://github.com/x-eks-fusion/fbb_ws63` / `wai_rxtx.c:1` / `wai_crypto_mbedtls.c:1` / `wapi.c:1` — WAPI SM
 - `sdk/ws73_sdk_linux_WS73_1.10.110/driver/wifi/Makefile:1` 528 lines, `:28` KO_NAME `wifi_soc`, `:31` alg include, `:62` WOW, `:107` CSA, `:153` WAPI, `:186` BTCOEX, `:198` TWT, `:42/:435` ALG COPTS/INCLUDES, `:258` alg-objs
 - `sdk/.../driver/wifi/alg/ws73_alg_host.mk:1` base 13 `WIFI_ALG_SRC_LIST:1-13`, optionals `:15-37`, `WIFI_ALG_MACRO_DEFINES:42-57`, lite-extreme DBAC/GLA crop `:59-62`
 - `sdk/.../open_source/wpa_supplicant/wpa_supplicant_2_10_linux.patch:1` 4298 lines, `:210` `CIPHER_SMS4`, `KEY_MGMT_WAPI_*`, `:323` `WLAN_EID_WAPI 68`, `:338` AKM suites; plus `wpa_supplicant_2_7_android_9.patch:1` 915 lines (same scope)

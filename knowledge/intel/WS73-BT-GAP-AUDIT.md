@@ -238,7 +238,7 @@ Link order: `sm-sys` provides `Crypto_*` statics; `sm-fsm` registers them via `N
 
 ## 8. File inventory for reviewers
 
-All paths absolute under `/home/archivalera/plum/zcode-projects/nearlink`.
+All paths absolute under the repository root.
 
 * `stack/ssap/include/hwsle_transport.h:1`, `src/hwsle_transport.c:1` — primary `0x0A`-only evidence.
 * `stack/ssap/include/ssap_link.h:1`, `src/ssap_link.c:1` — `0x14xx/0x18xx` only.

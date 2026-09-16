@@ -5,7 +5,7 @@ language: en
 created: 2026-08-17
 tags: [intel, ohos, layer, complete]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -18,7 +18,7 @@ stale_after: 2027-02-17
 
 ## Sources Read
 
-**OHOS DLI** (`/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dli/`):
+**OHOS DLI** (`https://github.com/openharmony/communication_nearlink_service/tree/master/services/stack/src/dli/`):
 
 | File | Purpose |
 |------|---------|
@@ -36,7 +36,7 @@ stale_after: 2027-02-17
 | `dli.c` | Main DLI module: init/deinit/enable, inner callback tables per module |
 | `cmd/src/dli_cmd.c` | Command execution: DLI_ExecuteCommand, all DLI_* command wrappers |
 
-**Our code** (`/home/archivalera/plum/zcode-projects/nearlink/`):
+**Our code** (``):
 
 | File | Purpose |
 |------|---------|

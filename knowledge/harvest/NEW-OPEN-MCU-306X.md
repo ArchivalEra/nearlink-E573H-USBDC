@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [mcu, 3061m, motor-control, no-nearlink, vendor, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/open_mcu"
-trust: verified
+  - "https://gitcode.com/HiSpark/open_mcu"
+trust: A
 stale_after: 2027-03-13
 ---
 
 # HiSpark/open_mcu — the 306x MCU family (3061M/3065H/3066M, 128KB motor-control parts): FBB-adjacent but NOT NearLink
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-09-08 — fresh)
-- Source root: `/mnt/hdd/nearlink-stuff/open_mcu` (884M)
+- Source root: `https://gitcode.com/HiSpark/open_mcu` (884M)
 - Mode: read-only structural inspection; no build, network, hardware, or PCB access
 
 ## Executive findings

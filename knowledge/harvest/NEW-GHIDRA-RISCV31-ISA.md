@@ -5,7 +5,7 @@ language: en
 created: 2026-09-15
 tags: [harvest, ghidra, riscv, reverse-engineering, isa, ws63]
 sources:
-  - "/mnt/hdd/nearlink-stuff/Ghidra_RISCV31"
+  - "https://github.com/NWMonster/Ghidra_RISCV31"
 trust: A
 stale_after: 2027-03-15
 ---

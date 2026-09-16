@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [sle, ws63, hi3863, one-to-many, connection-topology, sbus, uwb, pid, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/hi3863-sle-1v8-vehicle"
-trust: verified
+  - "https://github.com/cxl0928/hi3863-sle-1v8-vehicle"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # cxl0928/hi3863-sle-1v8-vehicle — SLE 1-Client-to-8-Server Vehicle Sample (WS63, SBUS + UWB Follow)
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-08-17, not archived — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/hi3863-sle-1v8-vehicle`
+- Source root: `https://github.com/cxl0928/hi3863-sle-1v8-vehicle`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: SLE 1-vs-8 connection topology, SBUS parsing, UWB follow, motor/encoder/PID integration
 

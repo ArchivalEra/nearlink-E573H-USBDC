@@ -13,18 +13,18 @@ stale_after: 2027-02-17
 # Community / Personal NearLink Projects — Health Check
 
 **Date:** 2026-08-17
-**Scope:** Read-only local inspection of `/mnt/hdd/nearlink-stuff/` (no network/build/hardware).
+**Scope:** Read-only local inspection of `the local harvest material tree (see guide.md)/` (no network/build/hardware).
 **Companion docs:** `OTHER-NEARLINK-IMPLS.md`, `RESEARCH-DIRECTIONS.md` (this report deepens/updates their project list).
 
 **Bottom line:** The local batch contains **no alternative host stacks** (OpenSparklink/sparklink already covered separately). Most projects are *chip-side* (WS63/BS21/Hi2821) application demos running on the vendor SDK's own SSAP library. Value for us splits cleanly: **protocol/API knowledge transfers** (SSAP call sequences, QoS flow control, PHY/MCS tuning, SLE-Link wire spec); **code does not directly reuse** because they run SSAP inside the chip, we run our own SSAP on the host. Best finds: `NearLinkSLE` (cleanest minimal SSAP client+server), `sle_measure_sdk` (PHY/MCS/CI/QoS knobs), `ili9320-i80-hi2821e-spi-bridge` (official **SLE-Link wire protocol spec**), `NearLink_controller` (host-app ↔ SLE mapping + frame-aggregation design).
 
-**Note:** `NearLink-Mesh-ePaper` is **not present** in `/mnt/hdd/nearlink-stuff/` (searched by name and by "mesh/epaper" globs, also deeper). The clone did not land. Its expected content (SLE mesh multi-hop/AODV/AIMD over SSAP, BearPi-Pico H3863) is still worth reviewing from `OTHER-NEARLINK-IMPLS.md` knowledge; not inspectable here.
+**Note:** `NearLink-Mesh-ePaper` is **not present** in `the local harvest material tree (see guide.md)/` (searched by name and by "mesh/epaper" globs, also deeper). The clone did not land. Its expected content (SLE mesh multi-hop/AODV/AIMD over SSAP, BearPi-Pico H3863) is still worth reviewing from `OTHER-NEARLINK-IMPLS.md` knowledge; not inspectable here.
 
 ---
 
 ## Sources
 
-All inspected locally under `/mnt/hdd/nearlink-stuff/`. Git activity read from local `.git` (single shallow commit snapshots in most cases).
+All inspected locally under `the local harvest material tree (see guide.md)/`. Git activity read from local `.git` (single shallow commit snapshots in most cases).
 
 | # | Project | Git remote (local) | Last local commit | Notes |
 |---|---|---|---|---|

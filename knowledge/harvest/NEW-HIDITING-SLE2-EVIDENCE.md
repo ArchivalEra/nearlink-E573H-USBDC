@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [hiditing, sle2, bs-sle, port-service, auto-conn, data-length-extension, ohos-watch, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

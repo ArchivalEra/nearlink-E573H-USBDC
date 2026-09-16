@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ws63, ai, modelzoo, kws, npu, voice, hiditing, hi1156e, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb-modelzoo"
-trust: verified
+  - "https://gitcode.com/HiSpark/fbb-modelzoo"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # WS63 AI ecosystem — FBB ModelZoo (end-to-end model-to-firmware pipeline for WS63/HiDiTing Nano/Hi1156E NPUs) and the BYLE voice SDK (KWS + LLM dialog)
 
 - Inspection date: 2026-09-13 (staleness check: modelzoo pushed 2026-09-02 — fresh; WS63AI 2026-06-12)
-- Source roots: `/mnt/hdd/nearlink-stuff/fbb-modelzoo`, `/mnt/hdd/nearlink-stuff/YunZhiSheng_WS63AI`
+- Source roots: `https://gitcode.com/HiSpark/fbb-modelzoo`, `https://gitcode.com/HiSpark/YunZhiSheng_WS63AI`
 - Mode: read-only structural inspection; no build, network, hardware, or PCB access
 
 ## Executive findings

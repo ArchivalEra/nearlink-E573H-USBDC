@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ohos, ssap, find-by-uuid, find-structure, server, mtu, v10, reference-implementation, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
-trust: verified
+  - "https://github.com/openharmony/communication_nearlink_service"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # OHOS ssaps_server_find.c — the authoritative FIND-family server reference (FIND_STRUCTURE / _BY_UUID, V10 framing split, MTU-chunked responses)
 
 - Inspection date: 2026-09-13; deep-dive of the module our SSAP stack flagged as missing (FIND_BY_UUID)
-- Source root: `/mnt/hdd/nearlink-stuff/communication_nearlink_service` (fresh, see staleness note in `NEW-OHOS-NEARLINK-SEPT-INCREMENT.md`)
+- Source root: `https://github.com/openharmony/communication_nearlink_service` (fresh, see staleness note in `NEW-OHOS-NEARLINK-SEPT-INCREMENT.md`)
 - Mode: read-only local program inspection; no build, network, hardware, or PCB access
 
 ## Executive findings

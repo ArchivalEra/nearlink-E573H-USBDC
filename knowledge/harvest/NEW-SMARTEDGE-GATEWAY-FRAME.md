@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [ws63, sle, smart-home, gateway, frame-protocol, mqtt, flutter, multi-entry, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/SmartEdge-WS63"
-trust: verified
+  - "https://github.com/SlumberMin/SmartEdge-WS63"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # SlumberMin/SmartEdge-WS63 — whole-home SLE gateway: unified 0xAA frame protocol, grouped address space, seven converging control entries
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-07-07, not archived — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/SmartEdge-WS63`
+- Source root: `https://github.com/SlumberMin/SmartEdge-WS63`
 - Mode: read-only local program inspection; no network, build, hardware, or PCB access
 - Scope: gateway frame protocol, address scheme, SLE UUID allocation, multi-entry control model
 

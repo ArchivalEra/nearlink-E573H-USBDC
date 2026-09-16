@@ -5,15 +5,15 @@ language: en
 created: 2026-09-13
 tags: [competition, ws63, ws63e, bs21e, survey, classification, corpus, harvest]
 sources:
-  - "/mnt/hdd/nearlink-stuff/2026_embedded_competition"
-trust: verified
+  - "competition-2026"
+trust: A
 stale_after: 2026-12-13
 ---
 
 # HiSpark 2026 embedded competition corpus survey — ~65 NearLink student projects (4.7G IOT + 1.8G AIOT); classification, chip census, and deep-dive queue
 
 - Inspection date: 2026-09-13 (staleness check: pushed 2026-09-07 — ALIVE)
-- Source root: `/mnt/hdd/nearlink-stuff/2026_embedded_competition` (8.6G; AIOT = AI edge direction, IOT = **NearLink IoT direction**)
+- Source root: `competition-2026` (8.6G; AIOT = AI edge direction, IOT = **NearLink IoT direction**)
 - Mode: read-only structural census; per-project digests queued, none executed this pass
 - Scope: register the corpus, classify by domain, census the chip usage, and mark the highest-value deep-dive targets
 

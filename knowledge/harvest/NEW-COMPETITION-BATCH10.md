@@ -5,9 +5,9 @@ language: en
 created: 2026-09-15
 tags: [harvest, competition, sle, wearable, rssi, epd, edge-ai]
 sources:
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/18384_WS63_XingYu_SLE_SignLanguage_Glove""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17661_NearMeet_Badge""
-  - ""/mnt/hdd/nearlink-stuff/2026_embedded_competition/IOT/17664_OROS""
+  - ""competition-2026/IOT/18384_WS63_XingYu_SLE_SignLanguage_Glove""
+  - ""competition-2026/IOT/17661_NearMeet_Badge""
+  - ""competition-2026/IOT/17664_OROS""
 trust: B
 stale_after: 2027-03-15
 ---

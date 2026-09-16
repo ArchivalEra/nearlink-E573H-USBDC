@@ -5,8 +5,8 @@ language: en
 created: 2026-08-17
 tags: [intel, ws63, ssap, cross]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -21,28 +21,28 @@ Status: reference/validation note
 ## Sources
 
 Primary (fbb_ws63 SDK, all read-only):
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_ssap_stru.h` (173 lines)
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_ssap_server.h` (815 lines)
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_ssap_client.h` (675 lines)
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_uuid_server/src/sle_uuid_server.c`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_uuid_client/src/sle_uuid_client.c`
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/ws63_porting_xf_0p2/port_xf/port_xf_sle/port_xf_sle_ssap_server.c` + `_client.c` (2nd official wrapper)
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_errcode.h` (SSAP error base 0x80006100)
-- `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_uuid_server/inc/sle_uuid_server.h` (UUID/perm constants)
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_ssap_stru.h` (173 lines)
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_ssap_server.h` (815 lines)
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_ssap_client.h` (675 lines)
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_uuid_server/src/sle_uuid_server.c`
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_uuid_client/src/sle_uuid_client.c`
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/ws63_porting_xf_0p2/port_xf/port_xf_sle/port_xf_sle_ssap_server.c` + `_client.c` (2nd official wrapper)
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_errcode.h` (SSAP error base 0x80006100)
+- `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_uuid_server/inc/sle_uuid_server.h` (UUID/perm constants)
 
 Corroborating (OHOS reference engine, same dialect, locally cloned):
-- `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/include/inner/ssap_pkt.h`
-- `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/src/ssaps_server.c`
-- `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/src/ssaps_server_find.c`
-- `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/src/ssaps_server_write.c`
-- `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/src/ssapc_client.c`
-- `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/include/ssap_type.h`
+- `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/cp/bsl/sle/servm/ssap/include/inner/ssap_pkt.h`
+- `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/cp/bsl/sle/servm/ssap/src/ssaps_server.c`
+- `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/cp/bsl/sle/servm/ssap/src/ssaps_server_find.c`
+- `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/cp/bsl/sle/servm/ssap/src/ssaps_server_write.c`
+- `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/cp/bsl/sle/servm/ssap/src/ssapc_client.c`
+- `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/cp/bsl/sle/servm/ssap/include/ssap_type.h`
 
 Our stack (comparison target):
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/ssap_pkt.h`
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/ssap_codec.h` / `src/ssap_codec.c`
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/ssap_server.h` / `src/ssap_server.c`
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/test/test_codec.c`, `test_server.c`
+- `stack/ssap/include/ssap_pkt.h`
+- `stack/ssap/include/ssap_codec.h` / `src/ssap_codec.c`
+- `stack/ssap/include/ssap_server.h` / `src/ssap_server.c`
+- `stack/ssap/test/test_codec.c`, `test_server.c`
 - Prior note: `.scratch/nearlink-driver/lab-notes/SSAP-DIALECT-COMPARISON.md`
 
 ## Key structural finding

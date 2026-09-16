@@ -5,8 +5,8 @@ language: zh
 created: 2026-08-17
 tags: [intel, ws63, ssap, examples]
 sources:
-  - "/mnt/hdd/nearlink-stuff/fbb_ws63"
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/x-eks-fusion/fbb_ws63"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -22,28 +22,28 @@ Primary (WS63 SDK `fbb_ws63`, read-only):
 
 | File | Path |
 |---|---|
-| uuid server main | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_uuid_server/src/sle_uuid_server.c` |
-| uuid server adv | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_uuid_server/src/sle_server_adv.c` |
-| uuid server hdr | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_uuid_server/inc/sle_uuid_server.h`, `inc/sle_server_adv.h` |
-| uuid client | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_uuid_client/src/sle_uuid_client.c` |
-| speed server | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_speed_server/src/sle_speed_server.c`, `src/sle_speed_server_adv.c` |
-| speed client | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/sle_speed_client/src/sle_speed_client.c` |
-| SSAP server API | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_ssap_server.h` |
-| SSAP client API | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_ssap_client.h` |
-| SSAP structs | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_ssap_stru.h` |
-| adv/seek API | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_device_discovery.h` |
-| conn mgr (PHY/MCS) | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/include/middleware/services/bts/sle/sle_connection_manager.h` |
-| sample Kconfig/CMake | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/application/samples/bt/sle/Kconfig`, `CMakeLists.txt` |
-| vendor demo (throughput) | `/mnt/hdd/nearlink-stuff/fbb_ws63/vendor/HiHope_NearLink_DK_WS63E_V03/demo/sle_throughput/` (README.md, Kconfig, sle_server_speed/, sle_client_speed/) |
-| build config | `/mnt/hdd/nearlink-stuff/fbb_ws63/vendor/HiHope_NearLink_DK_WS63E_V03/build_config.json` |
-| build docs | `/mnt/hdd/nearlink-stuff/fbb_ws63/tools/README.md`, `vendor/.../demo/sle_led/README.md:121` |
-| build entry | `/mnt/hdd/nearlink-stuff/fbb_ws63/src/build.py` |
+| uuid server main | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_uuid_server/src/sle_uuid_server.c` |
+| uuid server adv | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_uuid_server/src/sle_server_adv.c` |
+| uuid server hdr | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_uuid_server/inc/sle_uuid_server.h`, `inc/sle_server_adv.h` |
+| uuid client | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_uuid_client/src/sle_uuid_client.c` |
+| speed server | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_speed_server/src/sle_speed_server.c`, `src/sle_speed_server_adv.c` |
+| speed client | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/sle_speed_client/src/sle_speed_client.c` |
+| SSAP server API | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_ssap_server.h` |
+| SSAP client API | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_ssap_client.h` |
+| SSAP structs | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_ssap_stru.h` |
+| adv/seek API | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_device_discovery.h` |
+| conn mgr (PHY/MCS) | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/include/middleware/services/bts/sle/sle_connection_manager.h` |
+| sample Kconfig/CMake | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/application/samples/bt/sle/Kconfig`, `CMakeLists.txt` |
+| vendor demo (throughput) | `https://github.com/x-eks-fusion/fbb_ws63/tree/master/vendor/HiHope_NearLink_DK_WS63E_V03/demo/sle_throughput/` (README.md, Kconfig, sle_server_speed/, sle_client_speed/) |
+| build config | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/vendor/HiHope_NearLink_DK_WS63E_V03/build_config.json` |
+| build docs | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/tools/README.md`, `vendor/.../demo/sle_led/README.md:121` |
+| build entry | `https://github.com/x-eks-fusion/fbb_ws63/blob/master/src/build.py` |
 
 Comparison (our side):
 
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/ssap_pkt.h`, `ssap_codec.h`, `ssap_server.h`, `ssap_link.h`, `hwsle_transport.h`
-- `/home/archivalera/plum/zcode-projects/nearlink/scripts/hwsle-probe.sh`
-- OHOS reference: `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/cp/bsl/sle/servm/ssap/src/ssap_handle.h` (SSAP_HANDLE_MIN = 0x0010), `ssaps_service.c` (handle allocation), `ssaps_server.c`
+- `stack/ssap/include/ssap_pkt.h`, `ssap_codec.h`, `ssap_server.h`, `ssap_link.h`, `hwsle_transport.h`
+- `scripts/hwsle-probe.sh`
+- OHOS reference: `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/cp/bsl/sle/servm/ssap/src/ssap_handle.h` (SSAP_HANDLE_MIN = 0x0010), `ssaps_service.c` (handle allocation), `ssaps_server.c`
 
 ---
 
@@ -258,7 +258,7 @@ Scan side (uuid_client `:219-231` / speed_client `:318-330`): `own_addr_type=0`,
 | Speed server MAC | `11:22:33:44:55:66` (type 0) | `sle_speed_server.c:384` |
 | Speed client MAC | `13:67:5c:07:00:51` | `sle_speed_client.c:303` |
 | MTU (uuid client / speed) | 300 / 512 (samples), 250 (vendor) | `sle_uuid_client.c:18`, `sle_speed_client.c:23` |
-| Property permissions | READ|WRITE = 0x03 | `sle_uuid_server.h:24` |
+| Property permissions | READ\|WRITE = 0x03 | `sle_uuid_server.h:24` |
 
 To scan-match the WS63: match adv data TLVs `{len=2, type=0x01, value=0x01}` (discovery level NORMAL) and `{len=2, type=0x02, value=0x00}` (access mode); name is in the **scan response** (type 0x0B), not the announce payload.
 
@@ -271,7 +271,7 @@ To scan-match the WS63: match adv data TLVs `{len=2, type=0x01, value=0x01}` (di
 Build (from the SDK `src/` tree, per `vendor/.../demo/sle_led/README.md:121` and `tools/README.md`):
 
 ```sh
-cd /mnt/hdd/nearlink-stuff/fbb_ws63/src
+cd https://github.com/x-eks-fusion/fbb_ws63/tree/master/src
 python3 build.py -c ws63-liteos-app menuconfig
 # menu: Application → Enable Sample → (SLE) pick one of:
 #   SAMPLE_SUPPORT_SLE_UUID_SERVER_SAMPLE

@@ -5,7 +5,7 @@ language: en
 created: 2026-08-15
 tags: [intel, openharmony, nearlink, stack]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-15
 ---
@@ -13,7 +13,7 @@ stale_after: 2027-02-15
 # 03 — OpenHarmony NearLink stack: Linux porting surface
 
 > Feasibility basis for Phase 3 (user-space SLE protocol stack for the WS73 USB dongle).
-> Source examined: `/mnt/hdd/nearlink-stuff/communication_nearlink_service` (OpenHarmony `communication_nearlink_service`, v7.0, commit `2026-08-15` clone).
+> Source examined: `https://github.com/openharmony/communication_nearlink_service` (OpenHarmony `communication_nearlink_service`, v7.0, commit `2026-08-15` clone).
 > Date: 2026-08-15.
 
 ## Executive verdict

@@ -6,7 +6,7 @@ created: 2026-09-13
 tags: [ohos, tethering, cache, tcid, transfer-state, backpressure, datatransfer, harvest]
 sources:
   - "ArchivalEra/nearlink-E573H-USBDC workspace"
-trust: verified
+trust: A
 stale_after: 2026-12-13
 ---
 

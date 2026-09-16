@@ -5,8 +5,8 @@ language: en
 created: 2026-09-05
 tags: [harvest, ws63flash, uart, flasher]
 sources:
-  - "/mnt/hdd/nearlink-stuff/ws63flash"
-  - "/mnt/hdd/nearlink-stuff/Ghidra_RISCV31"
+  - "https://github.com/goodspeed34/ws63flash"
+  - "https://github.com/NWMonster/Ghidra_RISCV31"
 trust: B
 stale_after: 2027-03-05
 ---
@@ -16,12 +16,12 @@ stale_after: 2027-03-05
 Date: 2026-09-03. Read-only repo-knowledge harvest; no network, no build, no hardware.
 Sources on the archive disk:
 
-- `/mnt/hdd/nearlink-stuff/ws63flash/` — git clone of `github.com/goodspeed34/ws63flash`
+- `https://github.com/goodspeed34/ws63flash/tree/main/` — git clone of `github.com/goodspeed34/ws63flash`
   (verified via `.git/config` remote), HEAD `5bab2e7`. GPL-3+, authors Gong Zhile
   (Hebei Univ. of Science and Tech.) and William Goodspeed (ChangeLog entries
   2024-12..2025-08). Self-described as "developed from the reverse engineering of
   Hisilicon Official BurnTool" (README.en:5-6, README:5).
-- `/mnt/hdd/nearlink-stuff/Ghidra_RISCV31/` — git clone of
+- `https://github.com/NWMonster/Ghidra_RISCV31/tree/main/` — git clone of
   `github.com/NWMonster/Ghidra_RISCV31`, HEAD `68eabf8` ("Improve the translation of
   'stmia&ldmia' instructions"). A Ghidra processor module for the HiSilicon custom
   RISC-V core used in WS63/Hi3863V100 and Hi2821 (README.md:5).

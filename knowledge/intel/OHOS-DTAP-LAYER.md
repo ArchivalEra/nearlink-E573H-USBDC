@@ -5,7 +5,7 @@ language: en
 created: 2026-08-16
 tags: [intel, ohos, dtap, layer]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-16
 ---
@@ -22,22 +22,22 @@ stale_after: 2027-02-16
 
 | # | File | Role |
 |---|------|------|
-| 1 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/interface/dtap.h` | Module API, priority enum, PI enum |
-| 2 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/interface/dtap_tcid.h` | TCID channel numbering |
-| 3 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/interface/dtap_errno.h` | Error codes |
-| 4 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/include/dtap_frame.h` | Frame format structs, bit layout |
-| 5 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/include/dtap_channel.h` | Channel structs (Basic/Stream/Reliable) |
-| 6 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/include/dtap_scheduler.h` | Scheduler API |
-| 7 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/include/dtap_trans.h` | Transport mode vtable |
-| 8 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/src/dtap.c` | Module init/deinit, send/recv entry points |
-| 9 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/src/dtap_channel.c` | Channel lifecycle, logic-link map |
-| 10 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/src/dtap_frame.c` | Frame dispatch, CRC, extension parsing |
-| 11 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/src/dtap_frame_basic.c` | Basic frame build/parse |
-| 12 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/src/dtap_frame_enhance.c` | Enhanced frames (frag/aggr/ACK) |
-| 13 | `/mnt/hdd/nearlink-stuff/communication_nearlink_service/services/stack/src/dp/dtap/src/dtap_scheduler.c` | Priority scheduler, credit gating |
-| 14 | `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/hwsle_transport.h` | Our WS73 transport header |
-| 15 | `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/src/hwsle_transport.c` | Our WS73 transport implementation |
-| 16 | `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/COMMUNITY-PROJECTS.md` | sle_measure_sdk credit-gating reference |
+| 1 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/interface/dtap.h` | Module API, priority enum, PI enum |
+| 2 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/interface/dtap_tcid.h` | TCID channel numbering |
+| 3 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/interface/dtap_errno.h` | Error codes |
+| 4 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/include/dtap_frame.h` | Frame format structs, bit layout |
+| 5 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/include/dtap_channel.h` | Channel structs (Basic/Stream/Reliable) |
+| 6 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/include/dtap_scheduler.h` | Scheduler API |
+| 7 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/include/dtap_trans.h` | Transport mode vtable |
+| 8 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/src/dtap.c` | Module init/deinit, send/recv entry points |
+| 9 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/src/dtap_channel.c` | Channel lifecycle, logic-link map |
+| 10 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/src/dtap_frame.c` | Frame dispatch, CRC, extension parsing |
+| 11 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/src/dtap_frame_basic.c` | Basic frame build/parse |
+| 12 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/src/dtap_frame_enhance.c` | Enhanced frames (frag/aggr/ACK) |
+| 13 | `https://github.com/openharmony/communication_nearlink_service/blob/master/services/stack/src/dp/dtap/src/dtap_scheduler.c` | Priority scheduler, credit gating |
+| 14 | `stack/ssap/include/hwsle_transport.h` | Our WS73 transport header |
+| 15 | `stack/ssap/src/hwsle_transport.c` | Our WS73 transport implementation |
+| 16 | `.scratch/nearlink-driver/lab-notes/COMMUNITY-PROJECTS.md` | sle_measure_sdk credit-gating reference |
 
 ---
 

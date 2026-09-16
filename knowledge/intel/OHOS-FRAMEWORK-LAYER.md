@@ -5,7 +5,7 @@ language: en
 created: 2026-08-17
 tags: [intel, ohos, nearlink, framework]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-17
 ---
@@ -17,7 +17,7 @@ Date: 2026-08-17
 ## Sources
 
 Primary (OHOS `communication_nearlink_service`), all under
-`/mnt/hdd/nearlink-stuff/communication_nearlink_service/`:
+`https://github.com/openharmony/communication_nearlink_service/tree/master/`:
 
 - `README.md` (866 lines) — architecture + native/app usage guide.
 - `interfaces/inner_api/include/*.h` — the C++ "Inner API" headers (the contract an app-facing native consumer sees).
@@ -31,8 +31,8 @@ Primary (OHOS `communication_nearlink_service`), all under
 
 Ours:
 
-- `/home/archivalera/plum/zcode-projects/nearlink/stack/ssap/include/{ssap_codec.h,ssap_server.h,hwsle_transport.h}` — our C SSAP stack.
-- `/home/archivalera/plum/zcode-projects/nearlink/.scratch/nearlink-driver/lab-notes/OSPL-UAPI-CONTRACT.md` — OpenSparklink ioctl/netlink ABI reference.
+- `stack/ssap/include/{ssap_codec.h,ssap_server.h,hwsle_transport.h}` — our C SSAP stack.
+- `.scratch/nearlink-driver/lab-notes/OSPL-UAPI-CONTRACT.md` — OpenSparklink ioctl/netlink ABI reference.
 
 Line citations below use relative paths with `file:line`, e.g. `frameworks/native/nearlink_host.cpp:367-373`.
 

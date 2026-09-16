@@ -5,7 +5,7 @@ language: zh
 created: 2026-08-15
 tags: [intel, ws73]
 sources:
-  - "/mnt/hdd/nearlink-stuff/communication_nearlink_service"
+  - "https://github.com/openharmony/communication_nearlink_service"
 trust: B
 stale_after: 2027-02-15
 ---
@@ -13,8 +13,8 @@ stale_after: 2027-02-15
 # 02 — DLI ↔ WS73 HCC 方言对照
 
 Sources:
-- A) OpenHarmony stack: `/mnt/hdd/nearlink-stuff/communication_nearlink_service` (base `<OH>`)
-- B) WS73 SDK: `<SDK>` = `/home/archivalera/plum/zcode-projects/nearlink/sdk/ws73_sdk_linux_WS73_1.10.110`
+- A) OpenHarmony stack: `https://github.com/openharmony/communication_nearlink_service` (base `<OH>`)
+- B) WS73 SDK: `<SDK>` = `sdk/ws73_sdk_linux_WS73_1.10.110`
 
 ## Verdict (TL;DR)
 
@@ -57,7 +57,7 @@ Sources:
 | 层 | 头 | 大小 | 说明 | 证据 |
 |---|---|---|---|---|
 | HCC 逻辑层 | `hcc_header { sub_type:4, service_type:4, queue_id:8, pay_len:16 }` | 5 B | `hcc_comm.h:123-128`；`hcc_bt_tx_data` 前置此头并填 `service_type=HCC_ACTION_TYPE_SLE(0xA), sub_type=0, queue_id=SLE_DATA_QUEUE(8), pay_len=len` | `hcc.c:1012-1069` |
-| USB 总线层 | `usb_package {msg_type,len,reserve}` + `aggr_len[24]` | 92 B (`HIUSB_PACKAGE_HEARDER_SIZE`) | 散射/聚合描述头，`hcc_usb_host.c:328,394`；`hcc_bus_usb_comm.h:17-19`；`hcc_usb_host.h:272-276` |
+| USB 总线层 | `usb_package {msg_type,len,reserve}` + `aggr_len[24]` | 92 B (`HIUSB_PACKAGE_HEARDER_SIZE`) | 散射/聚合描述头 | `hcc_usb_host.c:328,394`；`hcc_bus_usb_comm.h:17-19`；`hcc_usb_host.h:272-276` |
 
 **结论：DLI 5 字节头 与 HCC 5 字节头 完全可比但不同层**——DLI 帧原样塞进 HCC 的 payload 区（`hcc_bt_tx_data` 直接 `memcpy(buf+sizeof(hcc_header), data_buf, len)`，`hcc.c:1050`），零转换。92 字节 USB 头是 bus 层，与协议无关，双方不接触。
 
