@@ -742,3 +742,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百、OKF 时代猎收（无限 harvest 同步 88，本地深挖 OHOS HADM 测距算法层，185→186 concepts）
 
 - `NEW-OHOS-HADM-RANGING-ADAPTER.md`：`ranging_alogorithm_adapter/`（~400 行）= **官方 CS IQ→距离算法层** — **6 种算法模式**（METHOD_1M 1MHz 跳频 150m / METHOD_2M / METHOD_1M_2M 低复杂度 75m / METHOD_ADJ_R_END V1-V3 动态 r 150m）；`MeasureAlgPara` 双侧 IQ（DUT/RTD uint16 I/Q）+ 双侧 ToF/信道图/IQ 位宽；`DisResult` 输出三级平滑（disOri/disSlightSmoothed/disSmoothed）+ **prob 置信度** + smoothNum 连续有效计数；**SLEM 错误码 0x8000A400-0x8000A800**（TOF_IQ_NOTMATCH = ToF 远大于 IQ 的发散检测器、IQ_LOW_ENERGY、MARIX_INV_FAIL）。CS 故事三端齐备：IQ 采集（uwb-like-ranging）→ 官方算法层（本报告）→ 求解器（18600）。
+
+## 一百零一、OKF 时代猎收（无限 harvest 同步 89，Nld eRPC 契约枚举，186→187 concepts）
+
+- `NEW-NLD-ERPC-CONTRACT.md`：erpc_gen/bs2x 全部接口头文件枚举 — **9 服务 ID 地图**（connection=84/seek=83/ssap_client=85/ssap_server=86/host 回调侧 22 个 on_* 方法）共 60+ 方法；**SSAP 枚举契约级实证**（permission 位掩码 READ1/WRITE2/ENC4/AUTHN8/AUTHZ16、find 六类型含 REFERENCE_SERVICE=2、operate-indication 六位含 BROADCAST=32）；连接控制面 `sle_set_mcs/set_phy_param/set_data_len/set_channel_map/set_nv_smp_keys` 逐连接旋钮；**firmware UPG OTA 状态机**（start→write→get_status/result + build-info/commit/version）；low_latency 仅 2 方法 = QoS 开关非数据通道。主机↔dongle 现在三深度可读（USB bulk → DLI opcode → eRPC method）。

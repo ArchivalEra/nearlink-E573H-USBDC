@@ -52,6 +52,7 @@
 * [NLChat Web 端程序知识：浏览器 Web Serial 串口终端与聊天 UI](NEW-NLCHAT-WEB.md) - harvest concept (11 KB)
 * [Nld daemon internals deep-dive](NEW-NLD-DAEMON-INTERNALS.md) - harvest concept (4 KB)
 * [goodspeed1/Nld + nearlinkctl — a complete BlueZ-equivalent userspace for NearLink LE: D-Bus daemon with eRPC dongle adapters, local SSAP server tree, pairing agents, D-Bus firmware update](NEW-NLD-DBUS-DAEMON.md) - harvest concept (5 KB)
+* [Nld eRPC dongle contract enumeration](NEW-NLD-ERPC-CONTRACT.md) - harvest concept (4 KB)
 * [Nld eRPC dongle protocol — nine service groups over dual serial ports (host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/low_latency)](NEW-NLD-ERPC-PROTOCOL.md) - harvest concept (4 KB)
 * [nld tools — runnable D-Bus API contracts: a KeyboardOnly pairing agent with fixed passkey and a Python SSAP server exporting service/property/CCCD objects](NEW-NLD-TOOLS-CONTRACTS.md) - harvest concept (2 KB)
 * [OH-on-WS63 project landscape — hbu teaching case set (restrictive license) and a stub OH SDK repo; gitee/gitcode OH coverage is thin](NEW-OH-WS63-LANDSCAPE.md) - harvest concept (2 KB)
