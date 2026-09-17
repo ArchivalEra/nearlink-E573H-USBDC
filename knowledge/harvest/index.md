@@ -91,6 +91,7 @@
 * [Ranging GUI positioning contract: hybrid coordinates, per-client priors, and bounded prediction](NEW-POSITIONING-OUTPUT-CONTRACT.md) - harvest concept (8 KB)
 * [hispark-rs/ws63-radio-sys — three-package release unit with a byte-reproducible blob-normalization pipeline (relocation inventory, cross-compile ABI verification, canonical builder)](NEW-RADIO-SYS-NORMALIZATION.md) - harvest concept (3 KB)
 * [nearlink_service 67-commit follow-up — ReplayConnectedLink hardening (MTU replay, sync execution, dedup window, 165-line test) and a Taihe IDL for SSAP](NEW-REPLAY-HARDENING-TAIHE.md) - harvest concept (4 KB)
+* [RSSI KNN baseline: masked feature distance, inactive history and evaluation contract](NEW-RSSI-KNN-FINGERPRINT-CONTRACT.md) - harvest concept (13 KB)
 * [RSSI multilateration baseline: calibration, solver acceptance and evaluation boundary](NEW-RSSI-MLT-EVALUATION-CONTRACT.md) - harvest concept (7 KB)
 * [openharmony-sig/communication_nearlink is the tethering upstream; @kit.NearLinkKit is the official ArkTS surface (scan/ssap/dataTransfer)](NEW-SIG-UPSTREAM-NEARLINKKIT.md) - harvest concept (2 KB)
 * [2026 competition — XingYu sign-language glove: dual IMU + flex sensors over SLE to an OrangePi edge-AI translation server (~1s to speech)](NEW-SIGNLANGUAGE-GLOVE.md) - harvest concept (3 KB)

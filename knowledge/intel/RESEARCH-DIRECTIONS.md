@@ -850,3 +850,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 114 (同步 114): 211 to 212 concepts
 
 - [NEW-RSSI-MLT-EVALUATION-CONTRACT.md](../harvest/NEW-RSSI-MLT-EVALUATION-CONTRACT.md): Fixed RSSI calibration (-47.97 dBm, n=1.742), four-corner 5x5 m geometry, unweighted L-BFGS-B least squares accepted without optimizer-status checks, evaluation after AOI limiting whose tracked source is absent (pycache only), timer excludes data load and metric/export, pointwise and ECDF outputs. Offline RSSI evaluation baseline, distinct from Channel Sounding GUI and solver reports.
+
+## Harvest sync 115 (同步 115): 212 to 213 concepts
+
+- [NEW-RSSI-KNN-FINGERPRINT-CONTRACT.md](../harvest/NEW-RSSI-KNN-FINGERPRINT-CONTRACT.md): MATLAB KNN branch: three-neighbor equal-weight centroid despite Gaussian-weight comments, masked mean-squared-RSSI ranking (>= -99 inclusive, mean over overlap) with no zero-overlap or finite-score guard, commented-out neighbor selection makes history/distance_max inert, fixed 24-feature positional CSV interface with unchecked dimensions, raw X/Y error exported as meters without the commented unit conversion, max-plus-one result indexing without provenance fields. Offline evaluation baseline; complements the MLT report without repeating it.
