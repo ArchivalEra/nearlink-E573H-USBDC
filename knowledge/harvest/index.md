@@ -56,6 +56,7 @@
 * [hispark-rs/hisi-rf — the thin facade completing the five-layer chain; named profiles include wpa3-smoltcp](NEW-HISI-RF-FACADE.md) - harvest concept (2 KB)
 * [hispark-rs/hisi-rf-ws63 — composition root for a Cargo-only WS63 WiFi build: normalized archives + rust-lld, no vendor SDK, wpa2-personal + smoltcp profile](NEW-HISI-RF-WS63-COMPOSITION.md) - harvest concept (3 KB)
 * [hispark-rs/hisi-rtos — a no_std Rust scheduler for HiSilicon: three run policies, 272-byte unified trap frame, deferred preemption, capability-gated porting](NEW-HISI-RTOS-SCHEDULER.md) - harvest concept (3 KB)
+* [hisiflash serial monitor: text fidelity, stream routing and session lifetime contracts](NEW-HISIFLASH-MONITOR-LIFECYCLE.md) - harvest concept (23 KB)
 * [Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)](NEW-HISPARK-RS-ECOSYSTEM.md) - harvest concept (32 KB)
 * [hispark-rs September Increment (2026-09-01 → 2026-09-10)](NEW-HISPARK-RS-SEPT-INCREMENT.md) - harvest concept (7 KB)
 * [HopeRun WS63 SLE demo curriculum: reusable announce, connect, SSAP, UART, and sensor patterns](NEW-HOPERUN-WS63-SLE-DEMO-CURRICULUM.md) - harvest concept (7 KB)

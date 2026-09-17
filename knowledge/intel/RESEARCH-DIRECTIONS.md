@@ -910,3 +910,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 129 (同步 129): 226 to 227 concepts
 
 - [NEW-HISI-FWPKG-IMAGE-PLANNING.md](../harvest/NEW-HISI-FWPKG-IMAGE-PLANNING.md): hisi-fwpkg container-to-image planning: app selection is a heuristic fallback chain, CRC status is recorded but not enforced, package payload hashes are preserved rather than recomputed, erase range is max(image, reserved burn size) under a single write chunk, and app-only repacking is a lossy projection discarding other partitions, V2 metadata and larger erase reservations
+
+## Harvest sync 130 (同步 130): 227 to 228 concepts
+
+- [NEW-HISIFLASH-MONITOR-LIFECYCLE.md](../harvest/NEW-HISIFLASH-MONITOR-LIFECYCLE.md): hisiflash native serial monitor: logs retain transformed text rather than original bytes, cleaner/formatter composition and split reads affect CRLF handling, terminal restoration is distinct from reader cancellation, and reset-marker/timestamp heuristics do not establish protocol completion or an ordered silence-then-new-receive sequence.
