@@ -862,3 +862,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 117 (同步 117): 214 to 215 concepts
 
 - [NEW-BS21-OSAL-DEFERRED-LIFETIME.md](../harvest/NEW-BS21-OSAL-DEFERRED-LIFETIME.md): Workqueue coalescing and conditional flush; Linux-only delayed-work cancel-sync; timer callback indirection, millisecond and jiffy unit boundaries, stop versus destruction versus callback quiescence, restart races and backend support claims. Header evidence only; no runtime or backend equivalence claimed.
+
+## Harvest sync 118 (同步 118): 215 to 216 concepts
+
+- [NEW-BS21-OSAL-IPC-CONTRACT.md](../harvest/NEW-BS21-OSAL-IPC-CONTRACT.md): Payload queue and event-mask IPC: ticks versus milliseconds, FreeRTOS creation-time item size, void queue deletion despite documented refusal, event mode and return-mask uncertainty, context restrictions and declaration-only test headers. Complements schedule and deferred-work contracts without claiming backend execution evidence.
