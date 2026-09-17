@@ -96,6 +96,7 @@
 * [Ranging GUI positioning contract: hybrid coordinates, per-client priors, and bounded prediction](NEW-POSITIONING-OUTPUT-CONTRACT.md) - harvest concept (8 KB)
 * [hispark-rs/ws63-radio-sys — three-package release unit with a byte-reproducible blob-normalization pipeline (relocation inventory, cross-compile ABI verification, canonical builder)](NEW-RADIO-SYS-NORMALIZATION.md) - harvest concept (3 KB)
 * [nearlink_service 67-commit follow-up — ReplayConnectedLink hardening (MTU replay, sync execution, dedup window, 165-line test) and a Taihe IDL for SSAP](NEW-REPLAY-HARDENING-TAIHE.md) - harvest concept (4 KB)
+* [RSSI HADNN adaptation: row-wise normalization, split ownership and coordinate evaluation](NEW-RSSI-HADNN-PIPELINE-CONTRACT.md) - harvest concept (21 KB)
 * [RSSI KNN baseline: masked feature distance, inactive history and evaluation contract](NEW-RSSI-KNN-FINGERPRINT-CONTRACT.md) - harvest concept (13 KB)
 * [RSSI mixed-radio preprocessing: coordinate joins and positional fusion schema](NEW-RSSI-MIXED-PREPROCESSING-CONTRACT.md) - harvest concept (10 KB)
 * [RSSI multilateration baseline: calibration, solver acceptance and evaluation boundary](NEW-RSSI-MLT-EVALUATION-CONTRACT.md) - harvest concept (7 KB)

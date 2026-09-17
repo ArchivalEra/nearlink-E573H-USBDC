@@ -878,3 +878,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 121 (同步 121): 218 to 219 concepts
 
 - [NEW-BS21-CIRC-BUF-CONTRACT.md](../harvest/NEW-BS21-CIRC-BUF-CONTRACT.md): Inline diagnostic byte ring: externally owned storage and cursor cells, modular-distance free space without enforced capacity (full can collapse into empty without a consumer invariant), single-subtraction wrap bounded to one lap, cast-read without contiguous-span reservation, volatile cursors without a documented publication protocol. Independent review narrowed the snapshot wording: separate loads lack a snapshot guarantee, external synchronization is unestablished rather than excluded.
+
+## Harvest sync 122 (同步 122): 219 to 220 concepts
+
+- [NEW-RSSI-HADNN-PIPELINE-CONTRACT.md](../harvest/NEW-RSSI-HADNN-PIPELINE-CONTRACT.md): HADNN offline pipeline: 24 mixed-radio features standardized per observation, coordinate statistics owned by the training file, no validation partition or checkpoint selection, bare model calls without explicit Keras training mode, conditional integer-label truncation and iteration-count edge, renamed distance metrics and batch-dependent aggregation. Independent review verified all claims; no execution or dataset inference was performed.
