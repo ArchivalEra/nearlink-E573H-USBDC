@@ -866,3 +866,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 118 (同步 118): 215 to 216 concepts
 
 - [NEW-BS21-OSAL-IPC-CONTRACT.md](../harvest/NEW-BS21-OSAL-IPC-CONTRACT.md): Payload queue and event-mask IPC: ticks versus milliseconds, FreeRTOS creation-time item size, void queue deletion despite documented refusal, event mode and return-mask uncertainty, context restrictions and declaration-only test headers. Complements schedule and deferred-work contracts without claiming backend execution evidence.
+
+## Harvest sync 119 (同步 119): 216 to 217 concepts
+
+- [NEW-RSSI-MIXED-PREPROCESSING-CONTRACT.md](../harvest/NEW-RSSI-MIXED-PREPROCESSING-CONTRACT.md): Coordinate-key inner joins can multiply repeated-site observations or remove unmatched sites; outdoor eight-feature renaming conflicts conditionally with fixed four-feature consumer blocks. Named radio identity, row cardinality and evaluation population need explicit validation. Independent source review confirmed the conditional findings; no actual dataset corruption or leakage is asserted.
