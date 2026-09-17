@@ -59,6 +59,7 @@
 * [2026 competition — distributed multi-node human motion detection: BNO085/BMI270 wearables over WiFi bridge with SlimeVR protocol and CD4052 UART multiplexing](NEW-MULTI-NODE-MOTION-DETECTION.md) - harvest concept (3 KB)
 * [Name-Collision Verdicts 0916: Five SparkLink NearLink Lookalikes Are Web and Mobile Apps](NEW-NAME-COLLISION-VERDICTS-0916.md) - harvest concept (5 KB)
 * [NearLink / SparkLink / SLE — Assembly, Compiler, Linker Optimization Resources](NEW-NEARLINK-ASSEMBLY-OPTIMIZATION.md) - harvest concept (25 KB)
+* [NearLink Toolbox docs: Astro content pipeline and software tutorial evidence boundary](NEW-NEARLINK-TOOLBOX-DOCS.md) - harvest concept (7 KB)
 * [NearLink Toolbox website program knowledge](NEW-NEARLINK-TOOLBOX-WEBSITE.md) - harvest concept (11 KB)
 * [NearLink UWB-Like Ranging Suite (zhuzhengyan50-spec) — SLE Channel Sounding, Program Knowledge](NEW-NEARLINK-UWB-LIKE-RANGING.md) - harvest concept (23 KB)
 * [nearlink-vip knowledge ecosystem — two agent-facing HiSilicon knowledge bases (OKF-style wiki + JSONL peripheral graph) and the HiDiTing chipset constellation](NEW-NEARLINK-VIP-KNOWLEDGE-ECOSYSTEM.md) - harvest concept (4 KB)
