@@ -846,3 +846,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百二十三、OKF 时代猎收（无限 harvest 同步 111，HADM adapter bridge pinned，208→209 concepts）
 
 - `NEW-HADM-RANGING-ADAPTER-BRIDGE.md`：ParaPair 落值 {-98,2,20.0f}（RSSI 地板+双阈值三元组，全会话静态）；距离计算 dlopen libnearlink_measure.z.so 三符号闭合；flagInter 硬编码 ADJ_R_END，六模式菜单是库侧选择；**开放树无跨锚聚合**——服务层按单地址逐链路上报，多锚定位留给主机侧；SLEM 错误码命名空间延伸到定位/开门/车内外三个产品域。
+
+## Harvest sync 114 (同步 114): 211 to 212 concepts
+
+- [NEW-RSSI-MLT-EVALUATION-CONTRACT.md](../harvest/NEW-RSSI-MLT-EVALUATION-CONTRACT.md): Fixed RSSI calibration (-47.97 dBm, n=1.742), four-corner 5x5 m geometry, unweighted L-BFGS-B least squares accepted without optimizer-status checks, evaluation after AOI limiting whose tracked source is absent (pycache only), timer excludes data load and metric/export, pointwise and ECDF outputs. Offline RSSI evaluation baseline, distinct from Channel Sounding GUI and solver reports.
