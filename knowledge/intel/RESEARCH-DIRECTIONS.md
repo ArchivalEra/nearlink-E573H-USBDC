@@ -822,3 +822,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十九、OKF 时代猎收（无限 harvest 同步 107，Nld low-latency boundary，204→205 concepts）
 
 - `NEW-NLD-LOW-LATENCY-BOUNDARY.md`：BS2X service 7 的双方法客户端/服务端序列化闭合，WS63 编译门控明确排除；conn_id/enable/rate 类型与顺序可证，rate 单位、范围和调用顺序不可由名字推断。RPC 失败返回全一 sentinel，不等同控制器原始状态。
+
+## 一百二十、OKF 时代猎收（无限 harvest 同步 108，Positioning output contract，205→206 concepts）
+
+- `NEW-POSITIONING-OUTPUT-CONTRACT.md`：既有 ULS/GN 报告的 GUI 集成增量，输出混合 2D x/y 与 3D z；逐客户端热启动，退化求解没有显式状态；Kalman 缺测预测按八次调用预算、时间步长钳位，2D 补零也进入 3D 滤波。只读源码，不宣称数值测试或现场精度验证。

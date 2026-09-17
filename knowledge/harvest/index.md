@@ -83,6 +83,7 @@
 * [Sparklink Playjoy HID Keyboard Protocol (iainbrux/keyboard-cli)](NEW-PLAYJOY-HID-KEYBOARD.md) - harvest concept (11 KB)
 * [tethering port_stm.h — the Port Profile connection FSM: eight states from IDLE to CONNECTED via SSAP service discovery and network set](NEW-PORT-PROFILE-FSM.md) - harvest concept (3 KB)
 * [tethering port profile internals — per-state dispatch FSM and per-address client cache (port_stm.c 566 lines, port_client.c 236 lines)](NEW-PORT-PROFILE-INTERNALS.md) - harvest concept (3 KB)
+* [Ranging GUI positioning contract: hybrid coordinates, per-client priors, and bounded prediction](NEW-POSITIONING-OUTPUT-CONTRACT.md) - harvest concept (8 KB)
 * [hispark-rs/ws63-radio-sys — three-package release unit with a byte-reproducible blob-normalization pipeline (relocation inventory, cross-compile ABI verification, canonical builder)](NEW-RADIO-SYS-NORMALIZATION.md) - harvest concept (3 KB)
 * [nearlink_service 67-commit follow-up — ReplayConnectedLink hardening (MTU replay, sync execution, dedup window, 165-line test) and a Taihe IDL for SSAP](NEW-REPLAY-HARDENING-TAIHE.md) - harvest concept (4 KB)
 * [openharmony-sig/communication_nearlink is the tethering upstream; @kit.NearLinkKit is the official ArkTS surface (scan/ssap/dataTransfer)](NEW-SIG-UPSTREAM-NEARLINKKIT.md) - harvest concept (2 KB)
