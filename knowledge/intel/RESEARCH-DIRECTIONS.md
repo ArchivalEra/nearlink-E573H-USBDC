@@ -870,3 +870,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 119 (同步 119): 216 to 217 concepts
 
 - [NEW-RSSI-MIXED-PREPROCESSING-CONTRACT.md](../harvest/NEW-RSSI-MIXED-PREPROCESSING-CONTRACT.md): Coordinate-key inner joins can multiply repeated-site observations or remove unmatched sites; outdoor eight-feature renaming conflicts conditionally with fixed four-feature consumer blocks. Named radio identity, row cardinality and evaluation population need explicit validation. Independent source review confirmed the conditional findings; no actual dataset corruption or leakage is asserted.
+
+## Harvest sync 120 (同步 120): 217 to 218 concepts
+
+- [NEW-BS21-OSAL-LOCKING-CONTRACT.md](../harvest/NEW-BS21-OSAL-LOCKING-CONTRACT.md): Mutex ownership and backend-specific recursion, undocumented mutex timeout units, spinlock saved-IRQ state and void trylock result ambiguity, Linux-only documented reader/writer locks, and no explicit memory-ordering guarantee in the inspected headers. Independent review confirmed declaration/comment boundaries; absent documentation does not establish absent backend barriers.

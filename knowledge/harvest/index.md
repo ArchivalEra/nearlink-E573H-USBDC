@@ -7,6 +7,7 @@
 * [BS21 NV persistence contract: completion callbacks, flush and region recovery](NEW-BS21-NV-PERSISTENCE-CONTRACT.md) - harvest concept (6 KB)
 * [Ai-BS21 OSAL deferred work and timers: execution, cancellation and lifetime contracts](NEW-BS21-OSAL-DEFERRED-LIFETIME.md) - harvest concept (14 KB)
 * [Ai-BS21 SDK OSAL message queues and events: declaration-level IPC contracts](NEW-BS21-OSAL-IPC-CONTRACT.md) - harvest concept (18 KB)
+* [Ai-BS21 OSAL locks: ownership, interrupt state and memory-ordering evidence limits](NEW-BS21-OSAL-LOCKING-CONTRACT.md) - harvest concept (17 KB)
 * [Ai-BS21 OSAL waits and tasks: timeout units, backend claims and teardown uncertainty](NEW-BS21-OSAL-SCHEDULE-CONTRACT.md) - harvest concept (7 KB)
 * [New repo knowledge harvest: Ai-BS21 SDK + wtsl_app](NEW-BS21-WTSL.md) - harvest concept (20 KB)
 * [BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)](NEW-BearPi-NLChat.md) - harvest concept (25 KB)
