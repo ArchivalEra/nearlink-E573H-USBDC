@@ -31,6 +31,7 @@
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (4 KB)
 * [DSoftBus Linux link observation: rtnetlink notifications and carrier-only readiness](NEW-DSOFTBUS-LINK-OBSERVATION.md) - harvest concept (14 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
+* [DSoftBus Wi-Fi event ingress: common-event subscriptions, state notifications, and virtual build selection](NEW-DSOFTBUS-WIFI-EVENT-INGRESS.md) - harvest concept (19 KB)
 * [fbb-modelzoo pipeline deep-dive](NEW-FBB-MODELZOO-PIPELINE.md) - harvest concept (3 KB)
 * [HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples](NEW-FBB-WS53-SDK.md) - harvest concept (2 KB)
 * [hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)](NEW-FBB-WS63-QEMU-FORK.md) - harvest concept (3 KB)

@@ -886,3 +886,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 123 (同步 123): 220 to 221 concepts
 
 - [NEW-DSOFTBUS-LINK-OBSERVATION.md](../harvest/NEW-DSOFTBUS-LINK-OBSERVATION.md): DSoftBus Linux bus-center observation: rtnetlink LINK and IPV4_IFADDR subscription with one receive per callback, specialized IP/link-up signals before interface classification, WLAN band-capability requests with discarded results, carrier-only LnnIsLinkReady that is not session readiness, and build-selected virtual variants returning unconditional success. Independent review verified every claim against the pinned revision.
+
+## Harvest sync 124 (同步 124): 221 to 222 concepts
+
+- [NEW-DSOFTBUS-WIFI-EVENT-INGRESS.md](../harvest/NEW-DSOFTBUS-WIFI-EVENT-INGRESS.md): DSoftBus Wi-Fi service monitor: five common-event families map to WLAN-state notifications; init success is delayed scheduling only, static retry budget of 21 attempts without rollback, initial sampling maps any non-disconnected state to connected, and lite Linux selects the virtual no-op monitor
