@@ -894,3 +894,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 125 (同步 125): 222 to 223 concepts
 
 - [NEW-DSOFTBUS-HDF-DRIVER-EVENTS.md](../harvest/NEW-DSOFTBUS-HDF-DRIVER-EVENTS.md): DSoftBus HDF driver-event monitor for liteos-a: init success is delayed-work submission with a static ten-attempt bind budget consumed even on success, LWIP reports collapse to interface-name address-change notifications ignoring event and status fields, the WLAN branch submits unknown state without decoding its payload, teardown only recycles the service pointer, and the request-side reply parser has no caller
+
+## Harvest sync 126 (同步 126): 223 to 224 concepts
+
+- [NEW-HISI-NVS-PERSISTENCE.md](../harvest/NEW-HISI-NVS-PERSISTENCE.md): Pinned hisi-nvs implementation adds plaintext write and erase-gated compaction beyond the older read-only ecosystem overview: magic-last publication precedes readback and cleanup, GC requires transitional capacity and a spare page, and source test fixtures do not establish general power-loss durability.
