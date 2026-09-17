@@ -5,6 +5,7 @@
 * [WS63E AIGC cloud server — DashScope text2image pipeline with LLM prompt optimization and Amap weather; exposed credential noted (not reproduced)](NEW-AIGC-CLOUD-SERVER.md) - harvest concept (3 KB)
 * [MakeBlackSheepGreat/BearPi-Pico-H3863 — the missing manual for the WS63E/H3863 sample family (sparse-adopted docs)](NEW-BEARPI-H3863-DOCS.md) - harvest concept (3 KB)
 * [BS21 NV persistence contract: completion callbacks, flush and region recovery](NEW-BS21-NV-PERSISTENCE-CONTRACT.md) - harvest concept (6 KB)
+* [Ai-BS21 OSAL waits and tasks: timeout units, backend claims and teardown uncertainty](NEW-BS21-OSAL-SCHEDULE-CONTRACT.md) - harvest concept (7 KB)
 * [New repo knowledge harvest: Ai-BS21 SDK + wtsl_app](NEW-BS21-WTSL.md) - harvest concept (20 KB)
 * [BearPi Hi2821 Pico "NLChat" — SLE Passthrough for an Android Chat APP (Research Notes)](NEW-BearPi-NLChat.md) - harvest concept (25 KB)
 * [NearLink Open Source Community tooling — self-evolving CLAUDE.md working memory, MimiClaw pocket AI on WS63, and native Windows AT+RST flashing](NEW-COMMUNITY-TOOLING-ECOSYSTEM.md) - harvest concept (3 KB)

@@ -854,3 +854,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 115 (同步 115): 212 to 213 concepts
 
 - [NEW-RSSI-KNN-FINGERPRINT-CONTRACT.md](../harvest/NEW-RSSI-KNN-FINGERPRINT-CONTRACT.md): MATLAB KNN branch: three-neighbor equal-weight centroid despite Gaussian-weight comments, masked mean-squared-RSSI ranking (>= -99 inclusive, mean over overlap) with no zero-overlap or finite-score guard, commented-out neighbor selection makes history/distance_max inert, fixed 24-feature positional CSV interface with unchecked dimensions, raw X/Y error exported as meters without the commented unit conversion, max-plus-one result indexing without provenance fields. Offline evaluation baseline; complements the MLT report without repeating it.
+
+## Harvest sync 116 (同步 116): 213 to 214 concepts
+
+- [NEW-BS21-OSAL-SCHEDULE-CONTRACT.md](../harvest/NEW-BS21-OSAL-SCHEDULE-CONTRACT.md): Header-level completion/wait/task contract: jiffies/ticks versus millisecond waits, unsigned timeout return contradicting failure prose, non-timeout LiteOS interruption degradation, task-destroy ownership warnings with unspecified join behavior, backend priority and support differences. No runtime failure or cross-backend equivalence claimed.
