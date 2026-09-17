@@ -906,3 +906,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 128 (同步 128): 225 to 226 concepts
 
 - [NEW-HISI-CRYPTO-ENTROPY-DRBG.md](../harvest/NEW-HISI-CRYPTO-ENTROPY-DRBG.md): hisi-crypto entropy-to-DRBG lifecycle: 16-byte checked samples consume whole blocks with tails discarded, reseeding is counted in successful requests rather than bytes or time, empty calls never consume budget, backend limits like the 65,536-byte HMAC output belong to the profile not the wrapper, and errors can follow earlier state changes without rollback.
+
+## Harvest sync 129 (同步 129): 226 to 227 concepts
+
+- [NEW-HISI-FWPKG-IMAGE-PLANNING.md](../harvest/NEW-HISI-FWPKG-IMAGE-PLANNING.md): hisi-fwpkg container-to-image planning: app selection is a heuristic fallback chain, CRC status is recorded but not enforced, package payload hashes are preserved rather than recomputed, erase range is max(image, reserved burn size) under a single write chunk, and app-only repacking is a lossy projection discarding other partitions, V2 metadata and larger erase reservations
