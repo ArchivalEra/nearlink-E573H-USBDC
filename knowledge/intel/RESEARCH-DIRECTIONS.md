@@ -811,3 +811,6 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 
 - `NEW-HOPERUN-WS63-SLE-DEMO-CURRICULUM.md`：WS63V100 双板课程把 name-filtered seek、MTU/配对、FIND、CCCD、notify 与 UART 转发串成完整冒烟链；AHT20 示例再以连接态门控周期采样，适合作为 dongle 主机栈的 SSAP 互操作对照，但文本 NUL 与全局缓冲不能直接当传输协议。
 
+## 一百一十七、OKF 时代猎收（无限 harvest 同步 105，LinkNebula evidence correction，202→203 concepts）
+
+- `NEW-LINKNEBULA-RUST-OFFLINE-MESH.md`：旧 LinkNebula 报告的证据纠偏，不计作新发现仓库。273B 外层包、独立 CRC 异或、控制包类型未接入、路由过期未调用、模拟器目标地址不筛选，以及未执行测试的成熟度边界；响应解码已有 11B 最小长度检查。上一条 sync104 的“九十九”为旧临时脚本按匹配节数计数的编号错误，本条恢复既有最高章节号之后的顺序。

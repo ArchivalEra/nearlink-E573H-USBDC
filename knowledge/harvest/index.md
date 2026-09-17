@@ -48,6 +48,7 @@
 * [Lab Note: HiSilicon NearLink Assessment 2025 — Repository Assessment](NEW-HiSilicon-Assessment.md) - harvest concept (15 KB)
 * [OHOS NearLink IPC opcode taxonomy — CALL_METHOD closes the object-model loop; coex parameter and VCP volume ride the same surface](NEW-IPC-OPCODE-TAXONOMY.md) - harvest concept (2 KB)
 * [nearlink-uwb-like-ranging parse_iq_raw.py — a 21-feature IQ signal-analysis schema (time/constellation/frequency/quality/statistics) over the COLLECT stream](NEW-IQ-FEATURES-SCHEMA.md) - harvest concept (3 KB)
+* [LinkNebula evidence correction: intended mesh is not an executable SLE stack](NEW-LINKNEBULA-RUST-OFFLINE-MESH.md) - harvest concept (9 KB)
 * [AIGC mesh transport substrate — dual-role connection pool with chip-limited 1-server+4-client capacity and a ring-buffer dedup cache for forwarding](NEW-MESH-TRANSPORT-SUBSTRATE.md) - harvest concept (3 KB)
 * [NearLink-ePaper/MeshGatewayAPP — phone-side spec of the SLE-mesh image protocol (checkpoint + 240-packet bitmaps, FAST/ACK flow control, bit-exact RLE)](NEW-MESHGATEWAY-APP-PROTOCOL.md) - harvest concept (3 KB)
 * [MeshMaxDesktop — third consumer of the mesh image protocol: Electron + noble BLE sender with parallel in-flight chunk upload](NEW-MESHMAX-DESKTOP.md) - harvest concept (3 KB)
