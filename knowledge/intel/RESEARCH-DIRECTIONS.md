@@ -898,3 +898,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 126 (同步 126): 223 to 224 concepts
 
 - [NEW-HISI-NVS-PERSISTENCE.md](../harvest/NEW-HISI-NVS-PERSISTENCE.md): Pinned hisi-nvs implementation adds plaintext write and erase-gated compaction beyond the older read-only ecosystem overview: magic-last publication precedes readback and cleanup, GC requires transitional capacity and a spare page, and source test fixtures do not establish general power-loss durability.
+
+## Harvest sync 127 (同步 127): 224 to 225 concepts
+
+- [NEW-HISI-ALLOC-ARENA-LIFECYCLE.md](../harvest/NEW-HISI-ALLOC-ARENA-LIFECYCLE.md): hisi-alloc implementation and its scheduler storage adapter: idempotent arena registration, pointer-only retirement metadata, allocate-copy-free resize requiring transient headroom, and counter-neutral contiguous-capacity probing. Source tests and CI definitions do not establish deployed synchronization or timing.
