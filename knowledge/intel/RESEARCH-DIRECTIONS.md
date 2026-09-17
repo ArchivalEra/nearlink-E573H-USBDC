@@ -858,3 +858,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 116 (同步 116): 213 to 214 concepts
 
 - [NEW-BS21-OSAL-SCHEDULE-CONTRACT.md](../harvest/NEW-BS21-OSAL-SCHEDULE-CONTRACT.md): Header-level completion/wait/task contract: jiffies/ticks versus millisecond waits, unsigned timeout return contradicting failure prose, non-timeout LiteOS interruption degradation, task-destroy ownership warnings with unspecified join behavior, backend priority and support differences. No runtime failure or cross-backend equivalence claimed.
+
+## Harvest sync 117 (同步 117): 214 to 215 concepts
+
+- [NEW-BS21-OSAL-DEFERRED-LIFETIME.md](../harvest/NEW-BS21-OSAL-DEFERRED-LIFETIME.md): Workqueue coalescing and conditional flush; Linux-only delayed-work cancel-sync; timer callback indirection, millisecond and jiffy unit boundaries, stop versus destruction versus callback quiescence, restart races and backend support claims. Header evidence only; no runtime or backend equivalence claimed.
