@@ -830,3 +830,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百二十一、OKF 时代猎收（无限 harvest 同步 109，Nld shared type layouts，206→207 concepts）
 
 - `NEW-NLD-TYPE-LAYOUTS.md`：九份 BS2X `_common.hpp` 共享类型块逐行比对一致——地址 1+6B、UUID len+16B、PHY 双向八字段、三 PHY seek 数组、SSAP 注册与通知全部 len+指针；find 与 read-by-UUID 请求仅差一个保留字节。eRPC 编解码字段而非原始字节偏移。
+
+## 一百二十二、OKF 时代猎收（无限 harvest 同步 110，DLI 剩余结构族闭合，207→208 concepts）
+
+- `NEW-DLI-ICB-QUALITY-EVENTS.md`：读完 dli_cmd/event_struct.h 全文——CS caps 带相位/TOF 校准 offset、IQ 报告 12bit/3B 打包与 16 位 slemInfoType 位域、ICB established 三字节微秒时延+phy/mcs/pilot/nse/bn/ft、500ms IOB/IMB 质量报告（ackRate/丢包/flush）、14 项采样 RSSI 数组、2.4/5.1/5.8G 频段切换事件、ACB subrate 协商；**白名单/RNG 命令族在这对头文件中不存在**（旧报告猜测过度）。
