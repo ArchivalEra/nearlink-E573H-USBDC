@@ -814,3 +814,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十七、OKF 时代猎收（无限 harvest 同步 105，LinkNebula evidence correction，202→203 concepts）
 
 - `NEW-LINKNEBULA-RUST-OFFLINE-MESH.md`：旧 LinkNebula 报告的证据纠偏，不计作新发现仓库。273B 外层包、独立 CRC 异或、控制包类型未接入、路由过期未调用、模拟器目标地址不筛选，以及未执行测试的成熟度边界；响应解码已有 11B 最小长度检查。上一条 sync104 的“九十九”为旧临时脚本按匹配节数计数的编号错误，本条恢复既有最高章节号之后的顺序。
+
+## 一百一十八、OKF 时代猎收（无限 harvest 同步 106，IQ pairing and persistence，203→204 concepts）
+
+- `NEW-IQ-PAIRING-PERSISTENCE.md`：200ms 近时测量匹配、按序 LOCAL/REMOTE IQ 配对、每锚历史共享预算、JSONL v3 的 local=client/remote=anchor 映射；质量分双端求和却除单端满分，缺失量默认零也会偏向 good。只读代码证据，不宣称跑过测试或科学验证。
