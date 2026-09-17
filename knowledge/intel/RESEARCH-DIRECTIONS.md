@@ -902,3 +902,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 127 (同步 127): 224 to 225 concepts
 
 - [NEW-HISI-ALLOC-ARENA-LIFECYCLE.md](../harvest/NEW-HISI-ALLOC-ARENA-LIFECYCLE.md): hisi-alloc implementation and its scheduler storage adapter: idempotent arena registration, pointer-only retirement metadata, allocate-copy-free resize requiring transient headroom, and counter-neutral contiguous-capacity probing. Source tests and CI definitions do not establish deployed synchronization or timing.
+
+## Harvest sync 128 (同步 128): 225 to 226 concepts
+
+- [NEW-HISI-CRYPTO-ENTROPY-DRBG.md](../harvest/NEW-HISI-CRYPTO-ENTROPY-DRBG.md): hisi-crypto entropy-to-DRBG lifecycle: 16-byte checked samples consume whole blocks with tails discarded, reseeding is counted in successful requests rather than bytes or time, empty calls never consume budget, backend limits like the 65,536-byte HMAC output belong to the profile not the wrapper, and errors can follow earlier state changes without rollback.

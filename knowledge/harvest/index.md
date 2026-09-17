@@ -49,6 +49,7 @@
 * [hs-fbb src map — interim_binary holds the closed SLE stack, wearable apps are open, and lwip ships an IP-over-SLE virtual netif (lwip_sle_adapter.c)](NEW-HIDITING-LWIP-SLE-NETIF.md) - harvest concept (3 KB)
 * [elfbobo/hs-fbb (HiDiTing, romanized Di-ting) — SLE 2.0 public evidence: new bs_sle_* API generation, first-class Port service, auto-connection management (sparse-adopted)](NEW-HIDITING-SLE2-EVIDENCE.md) - harvest concept (4 KB)
 * [hisi-alloc arena lifecycle: pointer-only allocation, resize headroom and capacity diagnostics](NEW-HISI-ALLOC-ARENA-LIFECYCLE.md) - harvest concept (19 KB)
+* [hisi-crypto entropy service: checked seeding, request-budgeted reseeding and output contracts](NEW-HISI-CRYPTO-ENTROPY-DRBG.md) - harvest concept (20 KB)
 * [hisi-nvs plaintext persistence: record commits, page compaction and recovery boundaries](NEW-HISI-NVS-PERSISTENCE.md) - harvest concept (16 KB)
 * [hispark-rs/hisi-rf-core — chip-neutral radio contracts with a credential-excluding allocation-free diagnostic schema (v2)](NEW-HISI-RF-CORE-CONTRACTS.md) - harvest concept (3 KB)
 * [hispark-rs/hisi-rf — the thin facade completing the five-layer chain; named profiles include wpa3-smoltcp](NEW-HISI-RF-FACADE.md) - harvest concept (2 KB)
