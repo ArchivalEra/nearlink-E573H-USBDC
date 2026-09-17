@@ -4,6 +4,7 @@
 * [Agent contract + BYLE SDK + scan verdicts](NEW-AGENT-CONTRACT-BYLE-SCAN.md) - harvest concept (4 KB)
 * [WS63E AIGC cloud server — DashScope text2image pipeline with LLM prompt optimization and Amap weather; exposed credential noted (not reproduced)](NEW-AIGC-CLOUD-SERVER.md) - harvest concept (3 KB)
 * [MakeBlackSheepGreat/BearPi-Pico-H3863 — the missing manual for the WS63E/H3863 sample family (sparse-adopted docs)](NEW-BEARPI-H3863-DOCS.md) - harvest concept (3 KB)
+* [Ai-BS21 inline byte ring: external ownership, capacity ambiguity and publication boundaries](NEW-BS21-CIRC-BUF-CONTRACT.md) - harvest concept (16 KB)
 * [BS21 NV persistence contract: completion callbacks, flush and region recovery](NEW-BS21-NV-PERSISTENCE-CONTRACT.md) - harvest concept (6 KB)
 * [Ai-BS21 OSAL deferred work and timers: execution, cancellation and lifetime contracts](NEW-BS21-OSAL-DEFERRED-LIFETIME.md) - harvest concept (14 KB)
 * [Ai-BS21 SDK OSAL message queues and events: declaration-level IPC contracts](NEW-BS21-OSAL-IPC-CONTRACT.md) - harvest concept (18 KB)

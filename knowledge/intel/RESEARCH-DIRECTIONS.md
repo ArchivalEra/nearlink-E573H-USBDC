@@ -874,3 +874,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 120 (同步 120): 217 to 218 concepts
 
 - [NEW-BS21-OSAL-LOCKING-CONTRACT.md](../harvest/NEW-BS21-OSAL-LOCKING-CONTRACT.md): Mutex ownership and backend-specific recursion, undocumented mutex timeout units, spinlock saved-IRQ state and void trylock result ambiguity, Linux-only documented reader/writer locks, and no explicit memory-ordering guarantee in the inspected headers. Independent review confirmed declaration/comment boundaries; absent documentation does not establish absent backend barriers.
+
+## Harvest sync 121 (同步 121): 218 to 219 concepts
+
+- [NEW-BS21-CIRC-BUF-CONTRACT.md](../harvest/NEW-BS21-CIRC-BUF-CONTRACT.md): Inline diagnostic byte ring: externally owned storage and cursor cells, modular-distance free space without enforced capacity (full can collapse into empty without a consumer invariant), single-subtraction wrap bounded to one lap, cast-read without contiguous-span reservation, volatile cursors without a documented publication protocol. Independent review narrowed the snapshot wording: separate loads lack a snapshot guarantee, external synchronization is unestablished rather than excluded.
