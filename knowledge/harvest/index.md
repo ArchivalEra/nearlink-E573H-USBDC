@@ -35,6 +35,7 @@
 * [GitCode hinearlink org scan](NEW-GITCODE-ORG-SCAN-0915.md) - harvest concept (4 KB)
 * [GitCode scan round 0915b](NEW-GITCODE-SCAN-0915B.md) - harvest concept (4 KB)
 * [device_soc ws63v100 protocol layer deep-dive — device-side SLE host ships closed as libbth_gle.a; symbol surface reveals full SM/TM/DM/CM layering and the authoritative uapi_ssaps surface](NEW-GLE-HOST-SYMBOL-SURFACE.md) - harvest concept (4 KB)
+* [HADM ranging adapter bridge pinned: ParaPair gate triple, closed measure library, single-anchor service flow](NEW-HADM-RANGING-ADAPTER-BRIDGE.md) - harvest concept (8 KB)
 * [hbu-dragon case library enumeration](NEW-HBU-CASES-ENUM.md) - harvest concept (5 KB)
 * [hs-fbb src map — interim_binary holds the closed SLE stack, wearable apps are open, and lwip ships an IP-over-SLE virtual netif (lwip_sle_adapter.c)](NEW-HIDITING-LWIP-SLE-NETIF.md) - harvest concept (3 KB)
 * [elfbobo/hs-fbb (HiDiTing, romanized Di-ting) — SLE 2.0 public evidence: new bs_sle_* API generation, first-class Port service, auto-connection management (sparse-adopted)](NEW-HIDITING-SLE2-EVIDENCE.md) - harvest concept (4 KB)
