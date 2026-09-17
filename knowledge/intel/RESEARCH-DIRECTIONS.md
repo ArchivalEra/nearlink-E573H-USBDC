@@ -826,3 +826,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百二十、OKF 时代猎收（无限 harvest 同步 108，Positioning output contract，205→206 concepts）
 
 - `NEW-POSITIONING-OUTPUT-CONTRACT.md`：既有 ULS/GN 报告的 GUI 集成增量，输出混合 2D x/y 与 3D z；逐客户端热启动，退化求解没有显式状态；Kalman 缺测预测按八次调用预算、时间步长钳位，2D 补零也进入 3D 滤波。只读源码，不宣称数值测试或现场精度验证。
+
+## 一百二十一、OKF 时代猎收（无限 harvest 同步 109，Nld shared type layouts，206→207 concepts）
+
+- `NEW-NLD-TYPE-LAYOUTS.md`：九份 BS2X `_common.hpp` 共享类型块逐行比对一致——地址 1+6B、UUID len+16B、PHY 双向八字段、三 PHY seek 数组、SSAP 注册与通知全部 len+指针；find 与 read-by-UUID 请求仅差一个保留字节。eRPC 编解码字段而非原始字节偏移。

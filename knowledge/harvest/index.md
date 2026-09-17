@@ -68,6 +68,7 @@
 * [Nld eRPC dongle protocol — nine service groups over dual serial ports (host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/low_latency)](NEW-NLD-ERPC-PROTOCOL.md) - harvest concept (3 KB)
 * [Nld low-latency RPC: BS2X-only availability and parameter semantics boundary](NEW-NLD-LOW-LATENCY-BOUNDARY.md) - harvest concept (6 KB)
 * [nld tools — runnable D-Bus API contracts: a KeyboardOnly pairing agent with fixed passkey and a Python SSAP server exporting service/property/CCCD objects](NEW-NLD-TOOLS-CONTRACTS.md) - harvest concept (2 KB)
+* [Nld eRPC shared argument layouts: one type block across nine service headers](NEW-NLD-TYPE-LAYOUTS.md) - harvest concept (7 KB)
 * [OH-on-WS63 project landscape — hbu teaching case set (restrictive license) and a stub OH SDK repo; gitee/gitcode OH coverage is thin](NEW-OH-WS63-LANDSCAPE.md) - harvest concept (2 KB)
 * [openharmony/device_soc_hisilicon — OHOS-vendored WS63 SDK (fresh, API-identical SLE headers, HAL glue; sparse-adopted)](NEW-OHOS-DEVICE-SOC-WS63.md) - harvest concept (3 KB)
 * [openharmony/vendor_hihope nearlink_dk_3863 — official OHOS NearLink DK SLE curriculum (5 application samples over the UART skeleton)](NEW-OHOS-DK3863-SLE-CURRICULUM.md) - harvest concept (4 KB)
