@@ -890,3 +890,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 124 (同步 124): 221 to 222 concepts
 
 - [NEW-DSOFTBUS-WIFI-EVENT-INGRESS.md](../harvest/NEW-DSOFTBUS-WIFI-EVENT-INGRESS.md): DSoftBus Wi-Fi service monitor: five common-event families map to WLAN-state notifications; init success is delayed scheduling only, static retry budget of 21 attempts without rollback, initial sampling maps any non-disconnected state to connected, and lite Linux selects the virtual no-op monitor
+
+## Harvest sync 125 (同步 125): 222 to 223 concepts
+
+- [NEW-DSOFTBUS-HDF-DRIVER-EVENTS.md](../harvest/NEW-DSOFTBUS-HDF-DRIVER-EVENTS.md): DSoftBus HDF driver-event monitor for liteos-a: init success is delayed-work submission with a static ten-attempt bind budget consumed even on success, LWIP reports collapse to interface-name address-change notifications ignoring event and status fields, the WLAN branch submits unknown state without decoding its payload, teardown only recycles the service pointer, and the request-side reply parser has no caller

@@ -29,6 +29,7 @@
 * [DLI remaining families closed: ICB streaming, subrate, per-link quality, RSSI arrays, frequency-band switch](NEW-DLI-ICB-QUALITY-EVENTS.md) - harvest concept (8 KB)
 * [DLI struct tables deep-dive](NEW-DLI-STRUCT-TABLES.md) - harvest concept (4 KB)
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (4 KB)
+* [DSoftBus HDF driver events: delayed binding, coarse notifications and lifecycle boundaries](NEW-DSOFTBUS-HDF-DRIVER-EVENTS.md) - harvest concept (19 KB)
 * [DSoftBus Linux link observation: rtnetlink notifications and carrier-only readiness](NEW-DSOFTBUS-LINK-OBSERVATION.md) - harvest concept (14 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
 * [DSoftBus Wi-Fi event ingress: common-event subscriptions, state notifications, and virtual build selection](NEW-DSOFTBUS-WIFI-EVENT-INGRESS.md) - harvest concept (19 KB)
