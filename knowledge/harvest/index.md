@@ -66,6 +66,7 @@
 * [goodspeed1/Nld + nearlinkctl — a complete BlueZ-equivalent userspace for NearLink LE: D-Bus daemon with eRPC dongle adapters, local SSAP server tree, pairing agents, D-Bus firmware update](NEW-NLD-DBUS-DAEMON.md) - harvest concept (5 KB)
 * [Nld eRPC dongle contract enumeration](NEW-NLD-ERPC-CONTRACT.md) - harvest concept (4 KB)
 * [Nld eRPC dongle protocol — nine service groups over dual serial ports (host/device_manager/seek/announce/connection/ssap_client/ssap_server/firmware/low_latency)](NEW-NLD-ERPC-PROTOCOL.md) - harvest concept (3 KB)
+* [Nld low-latency RPC: BS2X-only availability and parameter semantics boundary](NEW-NLD-LOW-LATENCY-BOUNDARY.md) - harvest concept (6 KB)
 * [nld tools — runnable D-Bus API contracts: a KeyboardOnly pairing agent with fixed passkey and a Python SSAP server exporting service/property/CCCD objects](NEW-NLD-TOOLS-CONTRACTS.md) - harvest concept (2 KB)
 * [OH-on-WS63 project landscape — hbu teaching case set (restrictive license) and a stub OH SDK repo; gitee/gitcode OH coverage is thin](NEW-OH-WS63-LANDSCAPE.md) - harvest concept (2 KB)
 * [openharmony/device_soc_hisilicon — OHOS-vendored WS63 SDK (fresh, API-identical SLE headers, HAL glue; sparse-adopted)](NEW-OHOS-DEVICE-SOC-WS63.md) - harvest concept (3 KB)

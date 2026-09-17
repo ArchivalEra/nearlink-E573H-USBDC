@@ -818,3 +818,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## 一百一十八、OKF 时代猎收（无限 harvest 同步 106，IQ pairing and persistence，203→204 concepts）
 
 - `NEW-IQ-PAIRING-PERSISTENCE.md`：200ms 近时测量匹配、按序 LOCAL/REMOTE IQ 配对、每锚历史共享预算、JSONL v3 的 local=client/remote=anchor 映射；质量分双端求和却除单端满分，缺失量默认零也会偏向 good。只读代码证据，不宣称跑过测试或科学验证。
+
+## 一百一十九、OKF 时代猎收（无限 harvest 同步 107，Nld low-latency boundary，204→205 concepts）
+
+- `NEW-NLD-LOW-LATENCY-BOUNDARY.md`：BS2X service 7 的双方法客户端/服务端序列化闭合，WS63 编译门控明确排除；conn_id/enable/rate 类型与顺序可证，rate 单位、范围和调用顺序不可由名字推断。RPC 失败返回全一 sentinel，不等同控制器原始状态。
