@@ -882,3 +882,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 122 (同步 122): 219 to 220 concepts
 
 - [NEW-RSSI-HADNN-PIPELINE-CONTRACT.md](../harvest/NEW-RSSI-HADNN-PIPELINE-CONTRACT.md): HADNN offline pipeline: 24 mixed-radio features standardized per observation, coordinate statistics owned by the training file, no validation partition or checkpoint selection, bare model calls without explicit Keras training mode, conditional integer-label truncation and iteration-count edge, renamed distance metrics and batch-dependent aggregation. Independent review verified all claims; no execution or dataset inference was performed.
+
+## Harvest sync 123 (同步 123): 220 to 221 concepts
+
+- [NEW-DSOFTBUS-LINK-OBSERVATION.md](../harvest/NEW-DSOFTBUS-LINK-OBSERVATION.md): DSoftBus Linux bus-center observation: rtnetlink LINK and IPV4_IFADDR subscription with one receive per callback, specialized IP/link-up signals before interface classification, WLAN band-capability requests with discarded results, carrier-only LnnIsLinkReady that is not session readiness, and build-selected virtual variants returning unconditional success. Independent review verified every claim against the pinned revision.

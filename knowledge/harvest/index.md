@@ -29,6 +29,7 @@
 * [DLI remaining families closed: ICB streaming, subrate, per-link quality, RSSI arrays, frequency-band switch](NEW-DLI-ICB-QUALITY-EVENTS.md) - harvest concept (8 KB)
 * [DLI struct tables deep-dive](NEW-DLI-STRUCT-TABLES.md) - harvest concept (4 KB)
 * [WANG-XU-create/DS10-TTL — commercial NearLink SLE DTU with third-generation AT dialect, measured latency/reliability characterization, and ROS2 driver](NEW-DS10-SLE-DTU.md) - harvest concept (4 KB)
+* [DSoftBus Linux link observation: rtnetlink notifications and carrier-only readiness](NEW-DSOFTBUS-LINK-OBSERVATION.md) - harvest concept (14 KB)
 * [openharmony/communication_dsoftbus — SLE scaffolding present, transport stubbed in public tree (SLB dual-stack states exposed)](NEW-DSOFTBUS-SLE-STUB.md) - harvest concept (3 KB)
 * [fbb-modelzoo pipeline deep-dive](NEW-FBB-MODELZOO-PIPELINE.md) - harvest concept (3 KB)
 * [HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples](NEW-FBB-WS53-SDK.md) - harvest concept (2 KB)
