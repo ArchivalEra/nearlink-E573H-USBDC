@@ -930,3 +930,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 134 (同步 134): 231 to 232 concepts
 
 - [NEW-FBB-WS63-XFUSION-BLE-PORT.md](../harvest/NEW-FBB-WS63-XFUSION-BLE-PORT.md): XFusion BLE port port_xf_ble in x-eks-fusion/fbb_ws63: unconditional subdirectory compile gated only by injected xfconfig, fully open vendor bts_* BLE host, ten-item defect census led by comparison-instead-of-assignment adv-slot cleanup that permanently exhausts 8 instances, dead scan-type map behind an always-true sentinel, and an empty descriptor callback making descriptor discovery always return nothing; 10ms discovery quiescence, global queues, server-only UUID endian conversion and no flow control
+
+## Harvest sync 135 (同步 135): 232 to 233 concepts
+
+- [NEW-FBB-WS63-UPG-MIDDLEWARE.md](../harvest/NEW-FBB-WS63-UPG-MIDDLEWARE.md): fbb_ws63 device-side UPG upgrade engine: two-area package header with an eight-step hash-of-headers verification chain whose 32-byte signature field silently downgrades to plain SHA-256, a three-slot monotonic flash flag retry protocol that never needs erase, an in-place KNVD differential engine with 4 KiB page journaling and single-page crash recovery, and flashboot-owned boot orchestration with repair loops; source-observed quirks include an inverted A/B region guard persisting upstream and an always-success MSID stub
