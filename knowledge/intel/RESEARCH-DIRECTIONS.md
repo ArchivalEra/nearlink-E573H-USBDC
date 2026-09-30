@@ -922,3 +922,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 132 (同步 132): 229 to 230 concepts
 
 - [NEW-HISI-ROM-SYS-FACADE.md](../harvest/NEW-HISI-ROM-SYS-FACADE.md): hisi-rom-sys chip-selection facade holds zero ROM facts: lib.rs is a cfg re-export with compile_error, build.rs panics without the chip feature, the real API is the Cargo links forwarding chain of four DEP_ variables with named panics on drift, the backend is an exact-pin checksum-recorded dependency, and PROVIDE fallback versus patch-table generation are explicitly separate owners
+
+## Harvest sync 133 (同步 133): 230 to 231 concepts
+
+- [NEW-FBB-WS63-XFUSION-PORT.md](../harvest/NEW-FBB-WS63-XFUSION-PORT.md): In-tree XFusion port layer ws63_porting_xf_0p2 in x-eks-fusion/fbb_ws63: fork-added build bridge via XF_PROJECT_PATH env injection, single LiteOS task runtime, per-role event funnels whose dual registration overwrites one vendor callback slot, sync-over-async discovery with a 10s cap and cross-completing shared queue, busy-wait flow control externing the closed GLE-host ACB counter, and four byte-verified defects muted by -Wno-error
