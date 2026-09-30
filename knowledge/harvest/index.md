@@ -56,6 +56,7 @@
 * [hispark-rs/hisi-rf-core — chip-neutral radio contracts with a credential-excluding allocation-free diagnostic schema (v2)](NEW-HISI-RF-CORE-CONTRACTS.md) - harvest concept (3 KB)
 * [hispark-rs/hisi-rf — the thin facade completing the five-layer chain; named profiles include wpa3-smoltcp](NEW-HISI-RF-FACADE.md) - harvest concept (2 KB)
 * [hispark-rs/hisi-rf-ws63 — composition root for a Cargo-only WS63 WiFi build: normalized archives + rust-lld, no vendor SDK, wpa2-personal + smoltcp profile](NEW-HISI-RF-WS63-COMPOSITION.md) - harvest concept (3 KB)
+* [hispark-rs/hisi-rom-sys — the chip-selection facade over HiSilicon mask-ROM facts](NEW-HISI-ROM-SYS-FACADE.md) - harvest concept (11 KB)
 * [hispark-rs/hisi-rtos — a no_std Rust scheduler for HiSilicon: three run policies, 272-byte unified trap frame, deferred preemption, capability-gated porting](NEW-HISI-RTOS-SCHEDULER.md) - harvest concept (3 KB)
 * [hisiflash serial monitor: text fidelity, stream routing and session lifetime contracts](NEW-HISIFLASH-MONITOR-LIFECYCLE.md) - harvest concept (23 KB)
 * [Lab note: the hispark-rs Rust ecosystem for HiSilicon WS63/BS2X (hisi-rf, SLE, QEMU)](NEW-HISPARK-RS-ECOSYSTEM.md) - harvest concept (32 KB)

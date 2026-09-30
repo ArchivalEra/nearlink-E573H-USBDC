@@ -918,3 +918,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 131 (同步 131): 228 to 229 concepts
 
 - [NEW-HISI-REGISTERS-CONVERSION.md](../harvest/NEW-HISI-REGISTERS-CONVERSION.md): hisi-registers SVD-to-RDL conversion contract: bootstrap merges same-offset aliases into an expanded representation, the exporter fails closed on unsupported shapes but collapses write-once access and omits reset masks, the checker asserts structural counts while semantic features are printed only, and README's BS2X array count disagrees with the checker's hardcoded 11
+
+## Harvest sync 132 (同步 132): 229 to 230 concepts
+
+- [NEW-HISI-ROM-SYS-FACADE.md](../harvest/NEW-HISI-ROM-SYS-FACADE.md): hisi-rom-sys chip-selection facade holds zero ROM facts: lib.rs is a cfg re-export with compile_error, build.rs panics without the chip feature, the real API is the Cargo links forwarding chain of four DEP_ variables with named panics on drift, the backend is an exact-pin checksum-recorded dependency, and PROVIDE fallback versus patch-table generation are explicitly separate owners
