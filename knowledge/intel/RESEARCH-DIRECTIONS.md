@@ -934,3 +934,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 135 (同步 135): 232 to 233 concepts
 
 - [NEW-FBB-WS63-UPG-MIDDLEWARE.md](../harvest/NEW-FBB-WS63-UPG-MIDDLEWARE.md): fbb_ws63 device-side UPG upgrade engine: two-area package header with an eight-step hash-of-headers verification chain whose 32-byte signature field silently downgrades to plain SHA-256, a three-slot monotonic flash flag retry protocol that never needs erase, an in-place KNVD differential engine with 4 KiB page journaling and single-page crash recovery, and flashboot-owned boot orchestration with repair loops; source-observed quirks include an inverted A/B region guard persisting upstream and an always-success MSID stub
+
+## Harvest sync 136 (同步 136): 233 to 234 concepts
+
+- [NEW-FBB-WS63-NV-SUBSYSTEM.md](../harvest/NEW-FBB-WS63-NV-SUBSYSTEM.md): fbb_ws63 NV flash-backed KV store: 16-byte page headers with inverted-word plus sequence-number integrity and 16-byte key headers (magic 0xA9, CRC/SHA tails), boot region scan resolving duplicate pages by sequence number, a suspendable six-machine nested write engine over file-static globals with scatter-gather buffers, append-then-invalidate lifecycle with one-byte tombstones, erase-count-aware defrag, backup-region dragpage GC with exactly-one-uninitialized-page boot recovery, and the nv_upg half that applies the UPG-recorded NV image under permanent/encrypted/non-upgrade gates; NV blobs are byte-identical to the 2026-08 official upstream

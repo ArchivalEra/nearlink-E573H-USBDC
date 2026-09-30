@@ -35,6 +35,7 @@
 * [DSoftBus Wi-Fi event ingress: common-event subscriptions, state notifications, and virtual build selection](NEW-DSOFTBUS-WIFI-EVENT-INGRESS.md) - harvest concept (19 KB)
 * [fbb-modelzoo pipeline deep-dive](NEW-FBB-MODELZOO-PIPELINE.md) - harvest concept (3 KB)
 * [HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples](NEW-FBB-WS53-SDK.md) - harvest concept (2 KB)
+* [fbb_ws63 NV subsystem — the flash-backed KV store: 16-byte headers with CRC/SHA tails, a suspendable six-machine write engine, backup-region dragpage GC, and the UPG NV-apply half](NEW-FBB-WS63-NV-SUBSYSTEM.md) - harvest concept (37 KB)
 * [hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)](NEW-FBB-WS63-QEMU-FORK.md) - harvest concept (3 KB)
 * [fbb_ws63 UPG middleware — the device-side upgrade engine: eight-step package verification, a three-slot flash flag retry protocol, in-place KNVD diff patching with page journaling, and boot-time orchestration](NEW-FBB-WS63-UPG-MIDDLEWARE.md) - harvest concept (38 KB)
 * [port_xf_ble — the XFusion BLE port inside x-eks-fusion/fbb_ws63: GAP/GATT client/server contracts, a dead scan-type map, and a ten-item defect census](NEW-FBB-WS63-XFUSION-BLE-PORT.md) - harvest concept (29 KB)
