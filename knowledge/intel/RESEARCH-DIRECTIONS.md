@@ -914,3 +914,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 130 (同步 130): 227 to 228 concepts
 
 - [NEW-HISIFLASH-MONITOR-LIFECYCLE.md](../harvest/NEW-HISIFLASH-MONITOR-LIFECYCLE.md): hisiflash native serial monitor: logs retain transformed text rather than original bytes, cleaner/formatter composition and split reads affect CRLF handling, terminal restoration is distinct from reader cancellation, and reset-marker/timestamp heuristics do not establish protocol completion or an ordered silence-then-new-receive sequence.
+
+## Harvest sync 131 (同步 131): 228 to 229 concepts
+
+- [NEW-HISI-REGISTERS-CONVERSION.md](../harvest/NEW-HISI-REGISTERS-CONVERSION.md): hisi-registers SVD-to-RDL conversion contract: bootstrap merges same-offset aliases into an expanded representation, the exporter fails closed on unsupported shapes but collapses write-once access and omits reset masks, the checker asserts structural counts while semantic features are printed only, and README's BS2X array count disagrees with the checker's hardcoded 11

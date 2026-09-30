@@ -52,6 +52,7 @@
 * [hisi-crypto entropy service: checked seeding, request-budgeted reseeding and output contracts](NEW-HISI-CRYPTO-ENTROPY-DRBG.md) - harvest concept (20 KB)
 * [hisi-fwpkg container-to-image planning](NEW-HISI-FWPKG-IMAGE-PLANNING.md) - harvest concept (22 KB)
 * [hisi-nvs plaintext persistence: record commits, page compaction and recovery boundaries](NEW-HISI-NVS-PERSISTENCE.md) - harvest concept (16 KB)
+* [hisi-registers conversion contract: bootstrap normalization, SVD export and validation boundaries](NEW-HISI-REGISTERS-CONVERSION.md) - harvest concept (18 KB)
 * [hispark-rs/hisi-rf-core — chip-neutral radio contracts with a credential-excluding allocation-free diagnostic schema (v2)](NEW-HISI-RF-CORE-CONTRACTS.md) - harvest concept (3 KB)
 * [hispark-rs/hisi-rf — the thin facade completing the five-layer chain; named profiles include wpa3-smoltcp](NEW-HISI-RF-FACADE.md) - harvest concept (2 KB)
 * [hispark-rs/hisi-rf-ws63 — composition root for a Cargo-only WS63 WiFi build: normalized archives + rust-lld, no vendor SDK, wpa2-personal + smoltcp profile](NEW-HISI-RF-WS63-COMPOSITION.md) - harvest concept (3 KB)
