@@ -36,6 +36,7 @@
 * [fbb-modelzoo pipeline deep-dive](NEW-FBB-MODELZOO-PIPELINE.md) - harvest concept (3 KB)
 * [HiSpark/fbb_ws53 — the WS53V100 vendor SDK (Wi-Fi/BLE/SLE Combo SoC): FBB unified framework with sle_conn_param_tuning and sle_chba samples](NEW-FBB-WS53-SDK.md) - harvest concept (2 KB)
 * [hispark-rs/fbb_ws63-qemu — QEMU-oriented fbb_ws63 fork: what boots, what faults, and why (sparse-adopted)](NEW-FBB-WS63-QEMU-FORK.md) - harvest concept (3 KB)
+* [port_xf_ble — the XFusion BLE port inside x-eks-fusion/fbb_ws63: GAP/GATT client/server contracts, a dead scan-type map, and a ten-item defect census](NEW-FBB-WS63-XFUSION-BLE-PORT.md) - harvest concept (29 KB)
 * [ws63_porting_xf_0p2 — the XFusion port layer inside x-eks-fusion/fbb_ws63: the build bridge NEW-XFUSION.md could only infer, plus the SLE SSAP implementation contracts and four byte-verified porting defects](NEW-FBB-WS63-XFUSION-PORT.md) - harvest concept (25 KB)
 * [nearlink-firmwares firmware store (sync-100 capstone)](NEW-FIRMWARE-STORE-CAPSTONE.md) - harvest concept (4 KB)
 * [Fresh scan round 0916](NEW-FRESH-SCAN-0916.md) - harvest concept (3 KB)

@@ -926,3 +926,7 @@ org 全扫描（search org:openharmony nearlink + org 内 ssaps/sle_enable 代�
 ## Harvest sync 133 (同步 133): 230 to 231 concepts
 
 - [NEW-FBB-WS63-XFUSION-PORT.md](../harvest/NEW-FBB-WS63-XFUSION-PORT.md): In-tree XFusion port layer ws63_porting_xf_0p2 in x-eks-fusion/fbb_ws63: fork-added build bridge via XF_PROJECT_PATH env injection, single LiteOS task runtime, per-role event funnels whose dual registration overwrites one vendor callback slot, sync-over-async discovery with a 10s cap and cross-completing shared queue, busy-wait flow control externing the closed GLE-host ACB counter, and four byte-verified defects muted by -Wno-error
+
+## Harvest sync 134 (同步 134): 231 to 232 concepts
+
+- [NEW-FBB-WS63-XFUSION-BLE-PORT.md](../harvest/NEW-FBB-WS63-XFUSION-BLE-PORT.md): XFusion BLE port port_xf_ble in x-eks-fusion/fbb_ws63: unconditional subdirectory compile gated only by injected xfconfig, fully open vendor bts_* BLE host, ten-item defect census led by comparison-instead-of-assignment adv-slot cleanup that permanently exhausts 8 instances, dead scan-type map behind an always-true sentinel, and an empty descriptor callback making descriptor discovery always return nothing; 10ms discovery quiescence, global queues, server-only UUID endian conversion and no flow control
